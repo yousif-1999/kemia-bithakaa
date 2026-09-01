@@ -1256,20 +1256,43 @@ function showLesson2() {
     var app = document.getElementById("app");
 
     app.innerHTML = `
-    <div class="page">
+    <div class="page" style="direction:rtl;">
 
         <div class="page-header">
             <button class="back" onclick="showChapter1()">↩</button>
             <h2>1-2 تطور مفهوم البناء الذري</h2>
         </div>
 
-        <div class="lesson-card" style="display:block !important;">
+        <div class="lesson-card"
+             style="
+                display:grid !important;
+                grid-template-columns:1fr !important;
+                grid-template-rows:auto !important;
+                grid-auto-flow:row !important;
+                width:100% !important;
+                box-sizing:border-box !important;
+                direction:rtl !important;
+                text-align:right !important;
+             ">
 
-            <h3 style="text-align:right; direction:rtl;">
+            <h3 style="
+                grid-column:1 !important;
+                width:100% !important;
+                box-sizing:border-box !important;
+                text-align:right !important;
+                direction:rtl !important;
+            ">
                 تطور مفهوم البناء الذري
             </h3>
 
-            <p style="display:block; width:100%; text-align:right; direction:rtl; line-height:2;">
+            <p style="
+                grid-column:1 !important;
+                width:100% !important;
+                box-sizing:border-box !important;
+                text-align:right !important;
+                direction:rtl !important;
+                line-height:2 !important;
+            ">
                 اقترح العلماء نماذج مختلفة لتركيب الذرة، وكل نموذج كان الأفضل
                 في وقته، ثم نتيجة الملاحظات والتجارب أخذ النموذج يتطور وصولاً
                 للأكثر قبولاً من الناحية العلمية.
@@ -1277,53 +1300,130 @@ function showLesson2() {
 
         </div>
 
-        <div class="lesson-card" style="display:block !important;">
+        <div class="lesson-card"
+             style="
+                display:grid !important;
+                grid-template-columns:1fr !important;
+                grid-template-rows:auto !important;
+                grid-auto-flow:row !important;
+                width:100% !important;
+                box-sizing:border-box !important;
+                direction:rtl !important;
+                text-align:right !important;
+             ">
 
-            <h3 style="text-align:right; direction:rtl;">
+            <h3 style="
+                grid-column:1 !important;
+                width:100% !important;
+                text-align:right !important;
+                direction:rtl !important;
+            ">
                 1-2-1 نموذج دالتون
             </h3>
 
-            <p style="display:block; width:100%; text-align:right; direction:rtl; line-height:2;">
+            <p style="
+                grid-column:1 !important;
+                width:100% !important;
+                text-align:right !important;
+                direction:rtl !important;
+                line-height:2 !important;
+            ">
                 في بداية القرن التاسع عشر تصور العالم دالتون الذرة على هيئة
                 كرة دقيقة صلبة غير قابلة للانقسام.
             </p>
 
-            <p style="display:block; width:100%; text-align:right; direction:rtl; line-height:2;">
+            <p style="
+                grid-column:1 !important;
+                width:100% !important;
+                text-align:right !important;
+                direction:rtl !important;
+                line-height:2 !important;
+            ">
                 لكل عنصر نوع معين من الذرات الخاصة به وأن هذه الذرات ترتبط
                 بطرائق بسيطة لتكوين الذرات المركبة.
             </p>
 
         </div>
 
-        <div class="lesson-card" style="display:block !important;">
+        <div class="lesson-card"
+             style="
+                display:grid !important;
+                grid-template-columns:1fr !important;
+                grid-template-rows:auto !important;
+                grid-auto-flow:row !important;
+                width:100% !important;
+                box-sizing:border-box !important;
+                direction:rtl !important;
+                text-align:right !important;
+             ">
 
-            <h3 style="text-align:right; direction:rtl;">
+            <h3 style="
+                grid-column:1 !important;
+                width:100% !important;
+                text-align:right !important;
+                direction:rtl !important;
+            ">
                 1-2-2 نموذج طومسون
             </h3>
 
-            <p style="display:block; width:100%; text-align:right; direction:rtl; line-height:2;">
+            <p style="
+                grid-column:1 !important;
+                width:100% !important;
+                text-align:right !important;
+                direction:rtl !important;
+                line-height:2 !important;
+            ">
                 في نهاية القرن التاسع عشر قدم العالم طومسون تصوراً آخر للذرة،
                 بعد اكتشافه أن الذرة تتكون من جسيمات أصغر تحمل شحنات سالبة
                 أطلق عليها اسم الإلكترونات.
             </p>
 
-            <p style="display:block; width:100%; text-align:right; direction:rtl; line-height:2;">
+            <p style="
+                grid-column:1 !important;
+                width:100% !important;
+                text-align:right !important;
+                direction:rtl !important;
+                line-height:2 !important;
+            ">
                 وتصور طومسون أن الإلكترونات السالبة الشحنة ملتصقة بالكرة
-                موجبة الشحنة التي تعادل الشحنة السالبة للإلكترونات، لذا
-                فإنها متعادلة الشحنة.
+                موجبة الشحنة التي تعادل الشحنة السالبة للإلكترونات،
+                لذا فإنها متعادلة الشحنة.
             </p>
 
         </div>
 
-        <div class="remember-box">
+        <div class="remember-box"
+             style="
+                display:block !important;
+                width:100% !important;
+                box-sizing:border-box !important;
+                direction:rtl !important;
+                text-align:right !important;
+             ">
 
-            <h3>🧠 احفظها</h3>
+            <h3 style="
+                width:100% !important;
+                text-align:right !important;
+                direction:rtl !important;
+            ">
+                🧠 احفظها
+            </h3>
 
-            <p>
+            <p style="
+                width:100% !important;
+                text-align:right !important;
+                direction:rtl !important;
+                line-height:2 !important;
+            ">
                 دالتون: الذرة كرة دقيقة صلبة غير قابلة للانقسام.
             </p>
 
-            <p>
+            <p style="
+                width:100% !important;
+                text-align:right !important;
+                direction:rtl !important;
+                line-height:2 !important;
+            ">
                 طومسون: اكتشف الإلكترونات سالبة الشحنة.
             </p>
 

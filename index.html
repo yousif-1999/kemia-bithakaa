@@ -2,16 +2,29 @@
 <html lang="ar" dir="rtl">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>كيمياء بذكاء</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
@@ -21,11 +34,15 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: #eef1f7;
-      font-family: "Cairo", sans-serif;
       color: #172554;
+      font-family: "Cairo", sans-serif;
     }
 
     button {
@@ -34,6 +51,7 @@
     }
 
     .app {
+      width: 100%;
       max-width: 430px;
       min-height: 100vh;
       margin: auto;
@@ -59,9 +77,9 @@
 
     .welcome h1 {
       margin: 3px 0 0;
+      color: #172554;
       font-size: 25px;
       font-weight: 800;
-      color: #172554;
     }
 
     .profile {
@@ -69,31 +87,32 @@
       height: 48px;
       border-radius: 50%;
       background: #173b78;
-      color: white;
+      color: #ffffff;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 22px;
-      font-weight: 700;
+      align-items: center;
+      font-size: 21px;
+      font-weight: 800;
+      flex-shrink: 0;
     }
 
     .streak {
       margin: 8px 22px 20px;
+      padding: 9px 15px;
+      display: inline-block;
+      border-radius: 20px;
       background: #fff4d6;
       color: #a16207;
-      padding: 9px 14px;
-      border-radius: 20px;
-      display: inline-block;
       font-size: 14px;
       font-weight: 700;
     }
 
     .progress-card {
-      margin: 0 20px 22px;
+      margin: 0 20px 24px;
       padding: 20px;
+      border: 1px solid #edf0f7;
       border-radius: 22px;
       background: #f7f9ff;
-      border: 1px solid #edf0f7;
     }
 
     .progress-title {
@@ -101,6 +120,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
+      font-size: 15px;
       font-weight: 700;
     }
 
@@ -112,16 +132,16 @@
     .progress-bar {
       width: 100%;
       height: 10px;
-      background: #e5e7eb;
-      border-radius: 20px;
       overflow: hidden;
+      border-radius: 20px;
+      background: #e5e7eb;
     }
 
     .progress-fill {
       width: 50%;
       height: 100%;
-      background: #169b62;
       border-radius: 20px;
+      background: #169b62;
     }
 
     .progress-text {
@@ -132,9 +152,9 @@
 
     .section-title {
       margin: 0 22px 14px;
+      color: #172554;
       font-size: 21px;
       font-weight: 800;
-      color: #172554;
     }
 
     .tasks {
@@ -144,26 +164,27 @@
     }
 
     .task {
-      background: #ffffff;
-      border: 1px solid #edf0f7;
-      border-radius: 20px;
-      padding: 15px;
       display: flex;
       align-items: center;
       gap: 14px;
-      box-shadow: 0 4px 15px rgba(20, 40, 80, 0.05);
+      padding: 15px;
+      border: 1px solid #edf0f7;
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow:
+        0 4px 15px rgba(20, 40, 80, 0.05);
     }
 
     .task-icon {
       width: 52px;
       height: 52px;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border-radius: 16px;
       background: #eef3ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-size: 25px;
-      flex-shrink: 0;
     }
 
     .task-content {
@@ -183,28 +204,39 @@
     }
 
     .check {
-      width: 27px;
-      height: 27px;
-      border-radius: 50%;
-      background: #22a66f;
-      color: white;
+      width: 28px;
+      height: 28px;
       display: flex;
       justify-content: center;
       align-items: center;
+      border-radius: 50%;
+      background: #22a66f;
+      color: #ffffff;
       font-size: 15px;
+      font-weight: 700;
+    }
+
+    .check.pending {
+      background: #eef1f7;
+      color: #94a3b8;
     }
 
     .main-button {
-      margin: 22px 20px;
       width: calc(100% - 40px);
+      margin: 22px 20px;
+      padding: 17px;
       border: none;
       border-radius: 18px;
-      padding: 17px;
       background: #ed8b00;
-      color: white;
+      color: #ffffff;
       font-size: 17px;
       font-weight: 800;
-      box-shadow: 0 8px 20px rgba(237, 139, 0, 0.22);
+      box-shadow:
+        0 8px 20px rgba(237, 139, 0, 0.22);
+    }
+
+    .main-button:active {
+      transform: scale(.99);
     }
 
     .quick {
@@ -218,20 +250,26 @@
     }
 
     .quick-card {
+      padding: 18px 12px;
       border: 1px solid #edf0f7;
       border-radius: 18px;
-      padding: 18px 12px;
-      text-align: center;
       background: #ffffff;
+      text-align: center;
+      transition: .15s;
     }
 
-    .quick-card div {
-      font-size: 27px;
+    .quick-card:active {
+      transform: scale(.98);
+    }
+
+    .quick-card .quick-icon {
       margin-bottom: 7px;
+      font-size: 27px;
     }
 
     .quick-card strong {
       display: block;
+      color: #172554;
       font-size: 14px;
     }
 
@@ -239,42 +277,13 @@
       color: #64748b;
       font-size: 11px;
     }
-
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(430px, 100%);
-      height: 76px;
-      background: #ffffff;
-      border-top: 1px solid #e5e7eb;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      align-items: center;
-      z-index: 100;
-    }
-
-    .nav-item {
-      border: none;
-      background: transparent;
-      color: #94a3b8;
-      font-size: 10px;
-    }
-
-    .nav-item div {
-      font-size: 22px;
-      margin-bottom: 2px;
-    }
-
-    .nav-item.active {
-      color: #173b78;
-      font-weight: 700;
-    }
+    /* =========================
+       PAGE
+    ========================= */
 
     .page {
-      padding: 25px 20px 110px;
       min-height: 100vh;
+      padding: 25px 20px 110px;
     }
 
     .page-header {
@@ -286,6 +295,7 @@
 
     .page-header h2 {
       margin: 0;
+      color: #172554;
       font-size: 24px;
       font-weight: 800;
     }
@@ -300,61 +310,102 @@
       font-size: 21px;
     }
 
-    .lesson-card {
-      border: 1px solid #e8edf5;
-      border-radius: 20px;
-      padding: 18px;
-      margin-bottom: 12px;
-      background: #ffffff;
-      box-shadow: 0 4px 15px rgba(20,40,80,.05);
+    /* =========================
+       CHAPTER CARDS
+    ========================= */
+
+    .chapter-card {
+      width: 100%;
       display: flex;
       align-items: center;
       gap: 14px;
+      margin-bottom: 12px;
+      padding: 17px;
+      border: 1px solid #e8edf5;
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow:
+        0 4px 15px rgba(20, 40, 80, .05);
+      text-align: right;
     }
 
-    .lesson-icon {
-      width: 55px;
-      height: 55px;
-      border-radius: 16px;
-      background: #eef3ff;
+    .chapter-icon {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 27px;
+      align-items: center;
+      border-radius: 17px;
+      background: #eef3ff;
+      font-size: 28px;
     }
 
-    .lesson-info {
+    .chapter-info {
       flex: 1;
     }
 
-    .lesson-info h3 {
-      margin: 0 0 4px;
+    .chapter-info h3 {
+      margin: 0 0 5px;
+      color: #172554;
       font-size: 16px;
+      font-weight: 800;
     }
 
-    .lesson-info p {
+    .chapter-info p {
       margin: 0;
       color: #64748b;
       font-size: 12px;
+      line-height: 1.7;
     }
 
-    .lesson-arrow {
-      font-size: 25px;
+    .chapter-arrow {
       color: #94a3b8;
+      font-size: 25px;
     }
+
+    /* =========================
+       INFO CARD
+    ========================= */
+
+    .info-card {
+      margin-bottom: 16px;
+      padding: 20px;
+      border: 1px solid #e7ebf5;
+      border-radius: 22px;
+      background: #f7f9ff;
+    }
+
+    .info-card h3 {
+      margin: 0 0 8px;
+      color: #173b78;
+      font-size: 18px;
+    }
+
+    .info-card p {
+      margin: 0;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    /* =========================
+       MEMORY CARD
+    ========================= */
 
     .memory-card {
-      background: #f7f9ff;
+      padding: 28px 22px;
       border: 1px solid #e7ebf5;
       border-radius: 25px;
-      padding: 28px 22px;
+      background: #f7f9ff;
       text-align: center;
-      box-shadow: 0 8px 25px rgba(20,40,80,.07);
+      box-shadow:
+        0 8px 25px rgba(20,40,80,.07);
     }
 
     .memory-icon {
-      font-size: 55px;
       margin-bottom: 12px;
+      font-size: 55px;
     }
 
     .memory-label {
@@ -363,121 +414,72 @@
     }
 
     .memory-card h2 {
+      margin: 12px 0 20px;
       color: #172554;
       font-size: 22px;
       line-height: 1.8;
-      margin: 12px 0 20px;
     }
 
     .memory-answer {
-      background: #fff4d6;
-      border-radius: 18px;
       padding: 18px;
+      border-radius: 18px;
+      background: #fff4d6;
       color: #334155;
-      line-height: 2;
       font-size: 16px;
+      line-height: 2;
     }
 
     .memory-tip {
       margin-top: 20px;
-      background: #eaf8f1;
-      border-radius: 18px;
       padding: 15px;
+      border-radius: 18px;
+      background: #eaf8f1;
       color: #16734b;
-      line-height: 1.9;
       font-size: 15px;
+      line-height: 1.9;
     }
 
     .next {
       width: 100%;
       margin-top: 22px;
+      padding: 17px;
       border: none;
       border-radius: 18px;
-      padding: 17px;
       background: #ed8b00;
-      color: white;
+      color: #ffffff;
       font-size: 17px;
       font-weight: 800;
     }
 
-    .quiz-card {
-      background: #f7f9ff;
-      border: 1px solid #e7ebf5;
-      border-radius: 24px;
-      padding: 22px;
-    }
-
-    .quiz-number {
-      color: #64748b;
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
-
-    .quiz-question {
-      font-size: 20px;
-      font-weight: 800;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .option {
-      width: 100%;
-      border: 1px solid #e1e7f0;
-      background: white;
-      border-radius: 15px;
-      padding: 14px;
-      margin-bottom: 10px;
-      text-align: right;
-      font-size: 15px;
-      color: #172554;
-    }
-
-    .option:hover {
-      background: #eef3ff;
-    }
-
-    .quiz-result {
-      text-align: center;
-      padding-top: 55px;
-    }
-
-    .quiz-result .emoji {
-      font-size: 70px;
-    }
-
-    .quiz-result h2 {
-      font-size: 27px;
-    }
-
-    .quiz-result p {
-      color: #64748b;
-      line-height: 2;
-    }
+    /* =========================
+       ACCOUNT
+    ========================= */
 
     .account-box {
-      background: #f7f9ff;
-      border-radius: 24px;
       padding: 25px;
-      text-align: center;
       border: 1px solid #e7ebf5;
+      border-radius: 24px;
+      background: #f7f9ff;
+      text-align: center;
     }
 
     .account-avatar {
       width: 80px;
       height: 80px;
       margin: auto;
-      border-radius: 50%;
-      background: #173b78;
-      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
+      border-radius: 50%;
+      background: #173b78;
+      color: #ffffff;
       font-size: 35px;
       font-weight: 800;
     }
 
     .account-box h2 {
       margin: 12px 0 4px;
+      color: #172554;
     }
 
     .account-box p {
@@ -493,23 +495,65 @@
     }
 
     .stat {
-      background: white;
+      padding: 18px;
       border: 1px solid #edf0f7;
       border-radius: 18px;
-      padding: 18px;
+      background: #ffffff;
       text-align: center;
     }
 
     .stat strong {
       display: block;
-      font-size: 24px;
       color: #173b78;
+      font-size: 24px;
     }
 
     .stat span {
       color: #64748b;
       font-size: 12px;
     }
+
+    /* =========================
+       BOTTOM NAVIGATION
+    ========================= */
+
+    .bottom-nav {
+      position: fixed;
+      right: 50%;
+      bottom: 0;
+      transform: translateX(50%);
+      width: min(430px, 100%);
+      height: 76px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: center;
+      border-top: 1px solid #e5e7eb;
+      background: #ffffff;
+      z-index: 1000;
+    }
+
+    .nav-item {
+      height: 100%;
+      padding: 5px 2px;
+      border: none;
+      background: transparent;
+      color: #94a3b8;
+      font-size: 10px;
+    }
+
+    .nav-item div {
+      margin-bottom: 2px;
+      font-size: 22px;
+    }
+
+    .nav-item.active {
+      color: #173b78;
+      font-weight: 800;
+    }
+
+    /* =========================
+       DESKTOP
+    ========================= */
 
     @media (min-width: 500px) {
 
@@ -520,1443 +564,1332 @@
       .app {
         border-radius: 28px;
         overflow: hidden;
-        box-shadow: 0 10px 40px rgba(0,0,0,.12);
+        box-shadow:
+          0 10px 40px rgba(0,0,0,.12);
+      }
+
+      .bottom-nav {
+        bottom: 25px;
+        border-radius: 0 0 28px 28px;
       }
 
     }
 
   </style>
+
 </head>
+
 
 <body>
 
-<div class="app" id="app"></div>
 
-<nav class="bottom-nav">
+  <div
+    class="app"
+    id="app"
+  ></div>
 
-  <button class="nav-item active" onclick="showHome()">
-    <div>🏠</div>
-    الرئيسية
-  </button>
 
-  <button class="nav-item" onclick="showLessons()">
-    <div>📖</div>
-    دروسي
-  </button>
+  <!-- =========================
+       BOTTOM NAVIGATION
+  ========================= -->
 
-  <button class="nav-item" onclick="showMemory()">
-    <div>🧠</div>
-    احفظها
-  </button>
+  <nav class="bottom-nav">
 
-  <button class="nav-item" onclick="showQuiz()">
-    <div>❓</div>
-    اختبرني
-  </button>
+    <button
+      class="nav-item active"
+      onclick="showHome()"
+    >
 
-  <button class="nav-item" onclick="showAccount()">
-    <div>👤</div>
-    حسابي
-  </button>
+      <div>🏠</div>
 
-</nav>
+      الرئيسية
 
-<script>
-
-var memoryCards = [
-
-  {
-    icon: "⚗️",
-    question: "ما المقصود بالعنصر الكيميائي؟",
-    answer: "العنصر الكيميائي مادة نقية تتكون من نوع واحد من الذرات.",
-    tip: "العنصر = نوع واحد من الذرات"
-  },
-
-  {
-    icon: "⚛️",
-    question: "ممَّ تتكون المادة؟",
-    answer: "تتكون المادة من جسيمات صغيرة جدًا، ومن أهمها الذرات والجزيئات.",
-    tip: "المادة تتكون من جسيمات صغيرة جدًا."
-  },
-
-  {
-    icon: "🔬",
-    question: "ما الذرة؟",
-    answer: "الذرة هي أصغر وحدة من العنصر الكيميائي تحتفظ بخواصه الكيميائية.",
-    tip: "الذرة هي الوحدة الأساسية التي يتكون منها العنصر."
-  }
-
-];
-
-var memoryIndex = 0;
-
-var quizQuestions = [
-
-  {
-    question: "ما أصغر وحدة من العنصر الكيميائي تحتفظ بخواصه الكيميائية؟",
-    options: [
-      "الجزيء",
-      "الذرة",
-      "المركب",
-      "المادة"
-    ],
-    correct: 1
-  },
-
-  {
-    question: "العنصر الكيميائي يتكون من؟",
-    options: [
-      "نوع واحد من الذرات",
-      "عدة أنواع من الذرات دائمًا",
-      "جزيئات فقط",
-      "مركبات فقط"
-    ],
-    correct: 0
-  },
-
-  {
-    question: "من أهم الجسيمات التي تتكون منها المادة؟",
-    options: [
-      "الذرات والجزيئات",
-      "الضوء فقط",
-      "الحرارة فقط",
-      "الماء فقط"
-    ],
-    correct: 0
-  },
-
-  {
-    question: "أي مما يأتي يمثل وحدة أساسية للعنصر؟",
-    options: [
-      "الذرة",
-      "الحرارة",
-      "الطاقة",
-      "الضوء"
-    ],
-    correct: 0
-  },
-
-  {
-    question: "أي عبارة صحيحة؟",
-    options: [
-      "كل مادة تتكون من جسيمات صغيرة",
-      "العناصر لا تتكون من ذرات",
-      "الذرة أكبر من العنصر",
-      "الجزيء ليس له علاقة بالمادة"
-    ],
-    correct: 0
-  }
-
-];
-
-var quizIndex = 0;
-var quizScore = 0;
-
-function showHome() {
-
-  setActive(0);
-
-  var app = document.getElementById("app");
-
-  app.innerHTML = `
-
-    <div class="header">
-
-      <div class="welcome">
-        <small>مرحبًا بك 👋</small>
-        <h1>كيمياء بذكاء</h1>
-      </div>
-
-      <div class="profile">ك</div>
-
-    </div>
-
-    <div class="streak">
-      🔥 سلسلة التعلم: 7 أيام
-    </div>
-
-    <div class="progress-card">
-
-      <div class="progress-title">
-        <span>تقدم اليوم</span>
-        <span class="progress-percent">50%</span>
-      </div>
-
-      <div class="progress-bar">
-        <div class="progress-fill"></div>
-      </div>
-
-      <div class="progress-text">
-        أنجزت مهمتين من أصل أربع مهام اليوم
-      </div>
-
-    </div>
-
-    <h2 class="section-title">
-      🎯 مهمة اليوم
-    </h2>
-
-    <div class="tasks">
-
-      <div class="task">
-        <div class="task-icon">🧠</div>
-
-        <div class="task-content">
-          <h3>3 بطاقات للحفظ</h3>
-          <p>مراجعة سريعة للمعلومات</p>
-        </div>
-
-        <div class="check">✓</div>
-      </div>
-
-      <div class="task">
-        <div class="task-icon">🧮</div>
-
-        <div class="task-content">
-          <h3>قانون اليوم</h3>
-          <p>تعلم قانون الكيمياء</p>
-        </div>
-
-        <div class="check">✓</div>
-      </div>
-
-      <div class="task">
-        <div class="task-icon">📝</div>
-
-        <div class="task-content">
-          <h3>5 أسئلة</h3>
-          <p>اختبر معلوماتك</p>
-        </div>
-
-        <div class="check">?</div>
-      </div>
-
-      <div class="task">
-        <div class="task-icon">⚗️</div>
-
-        <div class="task-content">
-          <h3>مسألة اليوم</h3>
-          <p>حل المسألة خطوة بخطوة</p>
-        </div>
-
-        <div class="check">?</div>
-      </div>
-
-    </div>
-
-    <button class="main-button" onclick="startMission()">
-      🚀 ابدأ مهمة اليوم
     </button>
 
-    <div class="quick">
 
-      <h2 class="section-title" style="margin-left:0;margin-right:0;">
-        الوصول السريع
-      </h2>
+    <button
+      class="nav-item"
+      onclick="showLessons()"
+    >
 
-      <div class="quick-grid">
+      <div>📖</div>
 
-        <div class="quick-card" onclick="showMemory()">
-          <div>🧠</div>
-          <strong>احفظها</strong>
-          <span>بطاقات الحفظ</span>
-        </div>
+      دروسي
 
-        <div class="quick-card" onclick="showQuiz()">
-          <div>❓</div>
-          <strong>اختبرني</strong>
-          <span>اختبر معلوماتك</span>
-        </div>
+    </button>
 
-        <div class="quick-card" onclick="showAccount()">
-          <div>📈</div>
-          <strong>تقدمي</strong>
-          <span>إحصائياتك</span>
-        </div>
 
-        <div class="quick-card" onclick="showLessons()">
-          <div>📚</div>
-          <strong>دروسي</strong>
-          <span>كل الفصول</span>
-        </div>
+    <button
+      class="nav-item"
+      onclick="showMemory()"
+    >
 
-      </div>
+      <div>🧠</div>
 
-    </div>
+      احفظها
 
-  `;
+    </button>
 
-}
 
-function startMission() {
-  memoryIndex = 0;
-  showMemory();
-}
+    <button
+      class="nav-item"
+      onclick="showQuiz()"
+    >
 
-function showMemory() {
+      <div>❓</div>
 
-  setActive(2);
+      اختبرني
 
-  var app = document.getElementById("app");
+    </button>
 
-  var card = memoryCards[memoryIndex];
 
-  var buttonText = "التالي ←";
+    <button
+      class="nav-item"
+      onclick="showAccount()"
+    >
 
-  if (memoryIndex === memoryCards.length - 1) {
-    buttonText = "إنهاء البطاقات ✓";
-  }
+      <div>👤</div>
 
-  app.innerHTML = `
+      حسابي
 
-    <div class="page">
+    </button>
 
-      <div class="page-header">
+  </nav>
 
-        <button class="back" onclick="showHome()">
-          →
-        </button>
 
-        <h2>🧠 احفظها</h2>
+  <script>
 
-        <span>
-          ${memoryIndex + 1} / ${memoryCards.length}
-        </span>
+    /* =========================
+       المتغيرات الأساسية
+    ========================= */
 
-      </div>
+    var app =
+      document.getElementById("app");
 
-      <div class="memory-card">
 
-        <div class="memory-icon">
-          ${card.icon}
-        </div>
+    var currentPage =
+      "home";
 
-        <div class="memory-label">
-          معلومة كيميائية
-        </div>
 
-        <h2>
-          ${card.question}
-        </h2>
+    /* =========================
+       الصفحة الرئيسية
+    ========================= */
 
-        <div class="memory-answer">
-          ${card.answer}
-        </div>
+    function showHome() {
 
-        <div class="memory-tip">
-          💡 تذكّر:
-          <br>
-          ${card.tip}
-        </div>
+      currentPage = "home";
 
-      </div>
+      setActive(0);
 
-      <button class="next" onclick="nextMemory()">
-        ${buttonText}
-      </button>
 
-    </div>
+      app.innerHTML = `
 
-  `;
+        <div class="header">
 
-}
+          <div class="welcome">
 
-function nextMemory() {
+            <small>
+              مرحبًا بك 👋
+            </small>
 
-  if (memoryIndex < memoryCards.length - 1) {
-
-    memoryIndex++;
-    showMemory();
-
-  } else {
-
-    showMemoryFinished();
-
-  }
-
-}
-
-function showMemoryFinished() {
-
-  var app = document.getElementById("app");
-
-  app.innerHTML = `
-
-    <div class="page">
-
-      <div class="quiz-result">
-
-        <div class="emoji">🎉</div>
-
-        <h2>أحسنت!</h2>
-
-        <p>
-          لقد أكملت بطاقات الحفظ الثلاث بنجاح.
-          <br>
-          استمر في التعلم وتطوير مستواك في الكيمياء.
-        </p>
-
-        <button class="next" onclick="showHome()">
-          🏠 العودة إلى الرئيسية
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-  function showLessons() {
-
-  setActive(1);
-
-  var app = document.getElementById("app");
-
-  app.innerHTML = `
-
-    <div class="page">
-
-      <div class="page-header">
-
-        <span></span>
-
-        <h2>
-          📖 دروسي
-        </h2>
-
-        <span></span>
-
-      </div>
-
-
-      <div class="lesson-card" onclick="showChapter1()" style="cursor:pointer;">
-
-        <div class="lesson-icon">
-          ⚛️
-        </div>
-
-        <div class="lesson-info">
-
-          <h3>
-            الفصل الأول: الذرة والعنصر
-          </h3>
-
-          <p>
-            الذرة والعناصر والمواد
-          </p>
-
-        </div>
-
-        <div class="lesson-arrow">
-          ‹
-        </div>
-
-      </div>
-
-
-      <div class="lesson-card">
-
-        <div class="lesson-icon">
-          🧪
-        </div>
-
-        <div class="lesson-info">
-
-          <h3>
-            الفصل الثاني: المركبات
-          </h3>
-
-          <p>
-            المركبات والروابط الكيميائية
-          </p>
-
-        </div>
-
-        <div class="lesson-arrow">
-          ‹
-        </div>
-
-      </div>
-
-
-      <div class="lesson-card">
-
-        <div class="lesson-icon">
-          ⚗️
-        </div>
-
-        <div class="lesson-info">
-
-          <h3>
-            الفصل الثالث: التفاعلات الكيميائية
-          </h3>
-
-          <p>
-            مفهوم التفاعل وأنواعه
-          </p>
-
-        </div>
-
-        <div class="lesson-arrow">
-          ‹
-        </div>
-
-      </div>
-
-
-      <div class="lesson-card">
-
-        <div class="lesson-icon">
-          🔥
-        </div>
-
-        <div class="lesson-info">
-
-          <h3>
-            الفصل الرابع: الأحماض والقواعد
-          </h3>
-
-          <p>
-            مقدمة في الأحماض والقواعد
-          </p>
-
-        </div>
-
-        <div class="lesson-arrow">
-          ‹
-        </div>
-
-      </div>
-
-
-      <div class="lesson-card">
-
-        <div class="lesson-icon">
-          📊
-        </div>
-
-        <div class="lesson-info">
-
-          <h3>
-            الفصل الخامس: الحسابات الكيميائية
-          </h3>
-
-          <p>
-            المول والكتلة والحسابات
-          </p>
-
-        </div>
-
-        <div class="lesson-arrow">
-          ‹
-        </div>
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================
-   الاختبار
-========================= */
-
-function showQuiz() {
-
-  setActive(3);
-
-  quizIndex = 0;
-
-  quizScore = 0;
-
-  showQuestion();
-
-}
-
-
-function showQuestion() {
-
-  var app = document.getElementById("app");
-
-  var q = quizQuestions[quizIndex];
-
-  var optionsHTML = "";
-
-
-  for (var i = 0; i < q.options.length; i++) {
-
-    optionsHTML += `
-
-      <button
-        class="option"
-        onclick="answerQuestion(${i})"
-      >
-
-        ${q.options[i]}
-
-      </button>
-
-    `;
-
-  }
-
-
-  app.innerHTML = `
-
-    <div class="page">
-
-      <div class="page-header">
-
-        <button class="back" onclick="showHome()">
-          →
-        </button>
-
-        <h2>
-          ❓ اختبرني
-        </h2>
-
-        <span></span>
-
-      </div>
-
-
-      <div class="quiz-card">
-
-        <div class="quiz-number">
-
-          السؤال ${quizIndex + 1}
-          من
-          ${quizQuestions.length}
-
-        </div>
-
-
-        <div class="quiz-question">
-
-          ${q.question}
-
-        </div>
-
-
-        ${optionsHTML}
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-function answerQuestion(answer) {
-
-  var q = quizQuestions[quizIndex];
-
-
-  if (answer === q.correct) {
-
-    quizScore++;
-
-  }
-
-
-  quizIndex++;
-
-
-  if (quizIndex < quizQuestions.length) {
-
-    showQuestion();
-
-  } else {
-
-    showQuizResult();
-
-  }
-
-}
-
-
-function showQuizResult() {
-
-  var app = document.getElementById("app");
-
-  var percentage =
-    Math.round(
-      (quizScore / quizQuestions.length) * 100
-    );
-
-
-  var message = "حاول مرة أخرى 💪";
-
-
-  if (percentage >= 80) {
-
-    message = "ممتاز جدًا! 🔥";
-
-  } else if (percentage >= 60) {
-
-    message = "جيد جدًا! 👏";
-
-  }
-
-
-  app.innerHTML = `
-
-    <div class="page">
-
-      <div class="quiz-result">
-
-        <div class="emoji">
-          🏆
-        </div>
-
-
-        <h2>
-          ${message}
-        </h2>
-
-
-        <p>
-
-          نتيجتك:
-
-          <br>
-
-          <strong style="font-size:30px;color:#173b78;">
-            ${quizScore} / ${quizQuestions.length}
-          </strong>
-
-          <br>
-
-          النسبة:
-
-          ${percentage}%
-
-        </p>
-
-
-        <button class="next" onclick="showQuiz()">
-
-          🔄 إعادة الاختبار
-
-        </button>
-
-
-        <button
-          class="next"
-          style="background:#173b78;"
-          onclick="showHome()"
-        >
-
-          🏠 العودة إلى الرئيسية
-
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================
-   الحساب والتقدم
-========================= */
-
-function showAccount() {
-
-  setActive(4);
-
-  var app = document.getElementById("app");
-
-  app.innerHTML = `
-
-    <div class="page">
-
-      <div class="page-header">
-
-        <span></span>
-
-        <h2>
-          👤 حسابي
-        </h2>
-
-        <span></span>
-
-      </div>
-
-
-      <div class="account-box">
-
-        <div class="account-avatar">
-          ك
-        </div>
-
-
-        <h2>
-          طالب الكيمياء
-        </h2>
-
-
-        <p>
-          مرحبًا بك في كيمياء بذكاء 👋
-        </p>
-
-
-        <div class="stats">
-
-          <div class="stat">
-
-            <strong>
-              7
-            </strong>
-
-            <span>
-              أيام متتالية
-            </span>
+            <h1>
+              كيمياء بذكاء
+            </h1>
 
           </div>
 
 
-          <div class="stat">
-
-            <strong>
-              3
-            </strong>
-
-            <span>
-              بطاقات مكتملة
-            </span>
-
+          <div class="profile">
+            ك
           </div>
 
+        </div>
 
-          <div class="stat">
 
-            <strong>
-              50%
-            </strong>
+        <div class="streak">
+
+          🔥 سلسلة التعلم: 7 أيام
+
+        </div>
+
+
+        <div class="progress-card">
+
+          <div class="progress-title">
 
             <span>
               تقدم اليوم
             </span>
 
-          </div>
-
-
-          <div class="stat">
-
-            <strong>
-              ${quizScore}
-            </strong>
-
-            <span>
-              آخر نتيجة
+            <span class="progress-percent">
+              50%
             </span>
 
           </div>
 
-        </div>
 
-      </div>
+          <div class="progress-bar">
 
+            <div class="progress-fill"></div>
 
-      <button class="next" onclick="showHome()">
-
-        🏠 العودة إلى الرئيسية
-
-      </button>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================
-   تفعيل زر الشريط السفلي
-========================= */
-
-function setActive(index) {
-
-  var buttons =
-    document.querySelectorAll(".nav-item");
-
-
-  for (var i = 0; i < buttons.length; i++) {
-
-    buttons[i].classList.remove("active");
-
-  }
-
-
-  if (buttons[index]) {
-
-    buttons[index].classList.add("active");
-
-  }
-
-}
-
-
-/* =========================
-   تشغيل الصفحة الرئيسية
-========================= */
-
-  function showChapter1() {
-
-  var app = document.getElementById("app");
-
-  app.innerHTML = `
-
-    <div class="page">
-
-      <div class="page-header">
-
-        <button class="back" onclick="showLessons()">
-          →
-        </button>
-
-        <h2>
-          ⚛️ الفصل الأول
-        </h2>
-
-        <span></span>
-
-      </div>
-
-
-      <div class="account-box">
-
-        <div class="memory-icon">
-          ⚛️
-        </div>
-
-        <h2>
-          التركيب الذري للمادة
-        </h2>
-
-        <p>
-          الفصل الأول من كتاب الكيمياء
-        </p>
-
-      </div>
-
-
-      <div style="
-        margin-top:20px;
-        display:grid;
-        gap:12px;
-      ">
-
-
-        <button class="lesson-card"
-          onclick="showLessonAtomicIntro()"
-          style="
-            width:100%;
-            text-align:right;
-            cursor:pointer;
-          ">
-
-          <div class="lesson-icon">
-            ⚛️
           </div>
 
-          <div class="lesson-info">
+
+          <div class="progress-text">
+
+            أنجزت مهمتين من أصل أربع مهام اليوم
+
+          </div>
+
+        </div>
+
+
+        <h2 class="section-title">
+
+          🎯 مهمة اليوم
+
+        </h2>
+
+
+        <div class="tasks">
+
+
+          <div class="task">
+
+            <div class="task-icon">
+              🧠
+            </div>
+
+            <div class="task-content">
+
+              <h3>
+                3 بطاقات للحفظ
+              </h3>
+
+              <p>
+                مراجعة سريعة للمعلومات
+              </p>
+
+            </div>
+
+            <div class="check">
+              ✓
+            </div>
+
+          </div>
+
+
+          <div class="task">
+
+            <div class="task-icon">
+              🧮
+            </div>
+
+            <div class="task-content">
+
+              <h3>
+                قانون اليوم
+              </h3>
+
+              <p>
+                تعلم قانون الكيمياء
+              </p>
+
+            </div>
+
+            <div class="check">
+              ✓
+            </div>
+
+          </div>
+
+
+          <div class="task">
+
+            <div class="task-icon">
+              📝
+            </div>
+
+            <div class="task-content">
+
+              <h3>
+                5 أسئلة
+              </h3>
+
+              <p>
+                اختبر معلوماتك
+              </p>
+
+            </div>
+
+            <div class="check pending">
+              ?
+            </div>
+
+          </div>
+
+
+          <div class="task">
+
+            <div class="task-icon">
+              ⚗️
+            </div>
+
+            <div class="task-content">
+
+              <h3>
+                مسألة اليوم
+              </h3>
+
+              <p>
+                حل المسألة خطوة بخطوة
+              </p>
+
+            </div>
+
+            <div class="check pending">
+              ?
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <button
+          class="main-button"
+          onclick="startMission()"
+        >
+
+          🚀 ابدأ مهمة اليوم
+
+        </button>
+
+
+        <div class="quick">
+
+
+          <h2
+            class="section-title"
+            style="margin-left:0;margin-right:0;"
+          >
+
+            الوصول السريع
+
+          </h2>
+
+
+          <div class="quick-grid">
+
+
+            <div
+              class="quick-card"
+              onclick="showMemory()"
+            >
+
+              <div class="quick-icon">
+                🧠
+              </div>
+
+              <strong>
+                احفظها
+              </strong>
+
+              <span>
+                بطاقات الحفظ
+              </span>
+
+            </div>
+
+
+            <div
+              class="quick-card"
+              onclick="showQuiz()"
+            >
+
+              <div class="quick-icon">
+                ❓
+              </div>
+
+              <strong>
+                اختبرني
+              </strong>
+
+              <span>
+                اختبر معلوماتك
+              </span>
+
+            </div>
+
+
+            <div
+              class="quick-card"
+              onclick="showAccount()"
+            >
+
+              <div class="quick-icon">
+                📈
+              </div>
+
+              <strong>
+                تقدمي
+              </strong>
+
+              <span>
+                إحصائياتك
+              </span>
+
+            </div>
+
+
+            <div
+              class="quick-card"
+              onclick="showLessons()"
+            >
+
+              <div class="quick-icon">
+                📚
+              </div>
+
+              <strong>
+                دروسي
+              </strong>
+
+              <span>
+                كل الفصول
+              </span>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================
+       بدء المهمة
+    ========================= */
+
+    function startMission() {
+
+      showMemory();
+
+    }
+
+
+    /* =========================
+       صفحة الدروس
+    ========================= */
+
+    function showLessons() {
+
+      currentPage = "lessons";
+
+      setActive(1);
+
+
+      app.innerHTML = `
+
+        <div class="page">
+
+
+          <div class="page-header">
+
+            <span></span>
+
+            <h2>
+              📖 دروسي
+            </h2>
+
+            <span></span>
+
+          </div>
+
+
+          <div class="info-card">
 
             <h3>
-              1-1 مقدمة
+              تعلم الكيمياء بطريقة ذكية 🧪
             </h3>
 
             <p>
-              الذرات والوحدات الأساسية لبناء المادة
+
+              اختر الفصل الذي تريد دراسته،
+              وسنضيف داخله الدروس والشرح
+              والأسئلة والبطاقات تدريجيًا.
+
             </p>
 
           </div>
 
-          <div class="lesson-arrow">
-            ‹
+
+          <button
+            class="chapter-card"
+            onclick="showChapter1()"
+          >
+
+            <div class="chapter-icon">
+              ⚛️
+            </div>
+
+            <div class="chapter-info">
+
+              <h3>
+                الفصل الأول: التركيب الذري للمادة
+              </h3>
+
+              <p>
+                الذرة والنماذج الذرية
+                والترتيب الإلكتروني والجدول الدوري
+              </p>
+
+            </div>
+
+            <div class="chapter-arrow">
+              ‹
+            </div>
+
+          </button>
+
+
+          <button
+            class="chapter-card"
+            onclick="showChapterPlaceholder(2)"
+          >
+
+            <div class="chapter-icon">
+              🧪
+            </div>
+
+            <div class="chapter-info">
+
+              <h3>
+                الفصل الثاني
+              </h3>
+
+              <p>
+                سيتم إضافة محتوى الفصل لاحقًا
+              </p>
+
+            </div>
+
+            <div class="chapter-arrow">
+              ‹
+            </div>
+
+          </button>
+
+
+          <button
+            class="chapter-card"
+            onclick="showChapterPlaceholder(3)"
+          >
+
+            <div class="chapter-icon">
+              ⚗️
+            </div>
+
+            <div class="chapter-info">
+
+              <h3>
+                الفصل الثالث
+              </h3>
+
+              <p>
+                سيتم إضافة محتوى الفصل لاحقًا
+              </p>
+
+            </div>
+
+            <div class="chapter-arrow">
+              ‹
+            </div>
+
+          </button>
+
+
+          <button
+            class="chapter-card"
+            onclick="showChapterPlaceholder(4)"
+          >
+
+            <div class="chapter-icon">
+              🔥
+            </div>
+
+            <div class="chapter-info">
+
+              <h3>
+                الفصل الرابع
+              </h3>
+
+              <p>
+                سيتم إضافة محتوى الفصل لاحقًا
+              </p>
+
+            </div>
+
+            <div class="chapter-arrow">
+              ‹
+            </div>
+
+          </button>
+
+
+          <button
+            class="chapter-card"
+            onclick="showChapterPlaceholder(5)"
+          >
+
+            <div class="chapter-icon">
+              📊
+            </div>
+
+            <div class="chapter-info">
+
+              <h3>
+                الفصل الخامس
+              </h3>
+
+              <p>
+                سيتم إضافة محتوى الفصل لاحقًا
+              </p>
+
+            </div>
+
+            <div class="chapter-arrow">
+              ‹
+            </div>
+
+          </button>
+
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================
+       الفصل الأول
+    ========================= */
+
+    function showChapter1() {
+
+      currentPage = "chapter1";
+
+      setActive(1);
+
+
+      app.innerHTML = `
+
+        <div class="page">
+
+
+          <div class="page-header">
+
+            <button
+              class="back"
+              onclick="showLessons()"
+            >
+              →
+            </button>
+
+            <h2>
+              ⚛️ الفصل الأول
+            </h2>
+
+            <span></span>
+
           </div>
 
-        </button>
 
-
-        <button class="lesson-card"
-          onclick="showLessonAtomicModels()"
-          style="
-            width:100%;
-            text-align:right;
-            cursor:pointer;
-          ">
-
-          <div class="lesson-icon">
-            🔬
-          </div>
-
-          <div class="lesson-info">
+          <div class="info-card">
 
             <h3>
-              1-2 تطور مفهوم البناء الذري
+              التركيب الذري للمادة
             </h3>
 
             <p>
-              دالتون وثومسون ورذرفورد وبور
+
+              يحتوي هذا الفصل على مجموعة
+              من الموضوعات المتعلقة ببناء الذرة
+              وتطور النماذج الذرية والترتيب الإلكتروني.
+
             </p>
 
           </div>
 
-          <div class="lesson-arrow">
-            ‹
+
+          <button
+            class="chapter-card"
+            onclick="showLesson1()"
+          >
+
+            <div class="chapter-icon">
+              ⚛️
+            </div>
+
+            <div class="chapter-info">
+
+              <h3>
+                1-1 المقدمة
+              </h3>
+
+              <p>
+                مقدمة عن المادة والذرات
+              </p>
+
+            </div>
+
+            <div class="chapter-arrow">
+              ‹
+            </div>
+
+          </button>
+
+
+          <button
+            class="chapter-card"
+            onclick="showLesson2()"
+          >
+
+            <div class="chapter-icon">
+              🔬
+            </div>
+
+            <div class="chapter-info">
+
+              <h3>
+                1-2 تطور مفهوم البناء الذري
+              </h3>
+
+              <p>
+                تطور النماذج الذرية
+              </p>
+
+            </div>
+
+            <div class="chapter-arrow">
+              ‹
+            </div>
+
+          </button>
+
+
+          <button
+            class="chapter-card"
+            onclick="showLesson3()"
+          >
+
+            <div class="chapter-icon">
+              🧠
+            </div>
+
+            <div class="chapter-info">
+
+              <h3>
+                1-3 النظرية الذرية الحديثة
+              </h3>
+
+              <p>
+                النموذج الحديث للذرة
+              </p>
+
+            </div>
+
+            <div class="chapter-arrow">
+              ‹
+            </div>
+
+          </button>
+
+
+          <button
+            class="chapter-card"
+            onclick="showLesson4()"
+          >
+
+            <div class="chapter-icon">
+              ⚡
+            </div>
+
+            <div class="chapter-info">
+
+              <h3>
+                1-4 مستويات الطاقة
+              </h3>
+
+              <p>
+                مستويات الطاقة الرئيسية
+              </p>
+
+            </div>
+
+            <div class="chapter-arrow">
+              ‹
+            </div>
+
+          </button>
+
+
+          <button
+            class="chapter-card"
+            onclick="showLesson5()"
+          >
+
+            <div class="chapter-icon">
+              🔋
+            </div>
+
+            <div class="chapter-info">
+
+              <h3>
+                1-5 الترتيب الإلكتروني
+              </h3>
+
+              <p>
+                مبدأ أوفباو وقاعدة هوند
+              </p>
+
+            </div>
+
+            <div class="chapter-arrow">
+              ‹
+            </div>
+
+          </button>
+
+
+          <button
+            class="chapter-card"
+            onclick="showLesson6()"
+          >
+
+            <div class="chapter-icon">
+              🔵
+            </div>
+
+            <div class="chapter-info">
+
+              <h3>
+                1-6 رمز لويس
+              </h3>
+
+              <p>
+                إلكترونات التكافؤ ورمز لويس
+              </p>
+
+            </div>
+
+            <div class="chapter-arrow">
+              ‹
+            </div>
+
+          </button>
+
+
+        </div>
+
+      `;
+
+    }
+
+  /* =========================
+       الفصول غير المضافة
+    ========================= */
+
+    function showChapterPlaceholder(number) {
+
+      setActive(1);
+
+      app.innerHTML = `
+
+        <div class="page">
+
+          <div class="page-header">
+
+            <button
+              class="back"
+              onclick="showLessons()"
+            >
+              →
+            </button>
+
+            <h2>
+              📚 الفصل ${number}
+            </h2>
+
+            <span></span>
+
           </div>
 
-        </button>
 
+          <div class="memory-card">
 
-        <button class="lesson-card"
-          onclick="showLessonModernAtom()"
-          style="
-            width:100%;
-            text-align:right;
-            cursor:pointer;
-          ">
+            <div class="memory-icon">
+              🧪
+            </div>
 
-          <div class="lesson-icon">
-            🧠
+            <h2>
+              قريبًا
+            </h2>
+
+            <div class="memory-answer">
+
+              سيتم إضافة محتوى هذا الفصل
+              في مرحلة لاحقة.
+
+            </div>
+
           </div>
 
-          <div class="lesson-info">
 
-            <h3>
-              1-3 النظرية الذرية الحديثة
-            </h3>
+          <button
+            class="next"
+            onclick="showLessons()"
+          >
+
+            ↩ العودة إلى الدروس
+
+          </button>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================
+       الدروس المؤقتة
+       سيتم وضع المحتوى الحقيقي
+       في الدفعة الثانية
+    ========================= */
+
+    function showLesson1() {
+
+      showLessonPlaceholder(
+        "1-1",
+        "المقدمة"
+      );
+
+    }
+
+
+    function showLesson2() {
+
+      showLessonPlaceholder(
+        "1-2",
+        "تطور مفهوم البناء الذري"
+      );
+
+    }
+
+
+    function showLesson3() {
+
+      showLessonPlaceholder(
+        "1-3",
+        "النظرية الذرية الحديثة"
+      );
+
+    }
+
+
+    function showLesson4() {
+
+      showLessonPlaceholder(
+        "1-4",
+        "مستويات الطاقة"
+      );
+
+    }
+
+
+    function showLesson5() {
+
+      showLessonPlaceholder(
+        "1-5",
+        "الترتيب الإلكتروني"
+      );
+
+    }
+
+
+    function showLesson6() {
+
+      showLessonPlaceholder(
+        "1-6",
+        "رمز لويس"
+      );
+
+    }
+
+
+    function showLessonPlaceholder(
+      number,
+      title
+    ) {
+
+      setActive(1);
+
+      app.innerHTML = `
+
+        <div class="page">
+
+          <div class="page-header">
+
+            <button
+              class="back"
+              onclick="showChapter1()"
+            >
+              →
+            </button>
+
+            <h2>
+              ${number}
+            </h2>
+
+            <span></span>
+
+          </div>
+
+
+          <div class="memory-card">
+
+            <div class="memory-icon">
+              🧪
+            </div>
+
+            <div class="memory-label">
+              الفصل الأول
+            </div>
+
+            <h2>
+              ${title}
+            </h2>
+
+            <div class="memory-answer">
+
+              سيتم إضافة الشرح الكامل لهذا الدرس
+              في الدفعة الثانية.
+
+            </div>
+
+            <div class="memory-tip">
+
+              💡 هذا المكان مخصص لمحتوى
+              الدرس والشرح والأمثلة.
+
+            </div>
+
+          </div>
+
+
+          <button
+            class="next"
+            onclick="showChapter1()"
+          >
+
+            ↩ العودة إلى الفصل
+
+          </button>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================
+       احفظها
+    ========================= */
+
+    function showMemory() {
+
+      setActive(2);
+
+      app.innerHTML = `
+
+        <div class="page">
+
+          <div class="page-header">
+
+            <span></span>
+
+            <h2>
+              🧠 احفظها
+            </h2>
+
+            <span></span>
+
+          </div>
+
+
+          <div class="memory-card">
+
+            <div class="memory-icon">
+              🧠
+            </div>
+
+            <div class="memory-label">
+              بطاقات الحفظ
+            </div>
+
+            <h2>
+              ستجد هنا بطاقات الكيمياء
+            </h2>
+
+            <div class="memory-answer">
+
+              سيتم إضافة بطاقات الحفظ
+              ومعلومات الكيمياء تدريجيًا.
+
+            </div>
+
+            <div class="memory-tip">
+
+              💡 الهدف:
+              حفظ المعلومات المهمة
+              بطريقة سريعة وسهلة.
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================
+       الاختبار
+    ========================= */
+
+    function showQuiz() {
+
+      setActive(3);
+
+      app.innerHTML = `
+
+        <div class="page">
+
+          <div class="page-header">
+
+            <span></span>
+
+            <h2>
+              ❓ اختبرني
+            </h2>
+
+            <span></span>
+
+          </div>
+
+
+          <div class="memory-card">
+
+            <div class="memory-icon">
+              📝
+            </div>
+
+            <div class="memory-label">
+              الاختبارات
+            </div>
+
+            <h2>
+              اختبر معلوماتك في الكيمياء
+            </h2>
+
+            <div class="memory-answer">
+
+              سيتم إضافة الأسئلة
+              والتصحيح وحساب النتائج
+              في الدفعة الثالثة.
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================
+       الحساب
+    ========================= */
+
+    function showAccount() {
+
+      setActive(4);
+
+      app.innerHTML = `
+
+        <div class="page">
+
+          <div class="page-header">
+
+            <span></span>
+
+            <h2>
+              👤 حسابي
+            </h2>
+
+            <span></span>
+
+          </div>
+
+
+          <div class="account-box">
+
+            <div class="account-avatar">
+              ك
+            </div>
+
+            <h2>
+              طالب الكيمياء
+            </h2>
 
             <p>
-              مستويات الطاقة والنموذج الحديث للذرة
+              مرحبًا بك في كيمياء بذكاء 👋
             </p>
 
-          </div>
 
-          <div class="lesson-arrow">
-            ‹
-          </div>
+            <div class="stats">
 
-        </button>
+              <div class="stat">
 
+                <strong>
+                  7
+                </strong>
 
-        <button class="lesson-card"
-          onclick="showLessonElectronConfig()"
-          style="
-            width:100%;
-            text-align:right;
-            cursor:pointer;
-          ">
+                <span>
+                  أيام متتالية
+                </span>
 
-          <div class="lesson-icon">
-            ⚡
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              1-5 الترتيب الإلكتروني
-            </h3>
-
-            <p>
-              مبدأ أوفباو وقاعدة هوند
-            </p>
-
-          </div>
-
-          <div class="lesson-arrow">
-            ‹
-          </div>
-
-        </button>
+              </div>
 
 
-        <button class="lesson-card"
-          onclick="showLessonModernAtomicTheory()"
-          style="
-            width:100%;
-            text-align:right;
-            cursor:pointer;
-          ">
+              <div class="stat">
 
-          <div class="lesson-icon">
-            🔵
-          </div>
+                <strong>
+                  0
+                </strong>
 
-          <div class="lesson-info">
+                <span>
+                  دروس مكتملة
+                </span>
 
-            <h3>
-              1-6 رمز لويس
-            </h3>
+              </div>
 
-            <p>
-              إلكترونات التكافؤ ورمز لويس
-            </p>
+
+              <div class="stat">
+
+                <strong>
+                  0
+                </strong>
+
+                <span>
+                  بطاقات مكتملة
+                </span>
+
+              </div>
+
+
+              <div class="stat">
+
+                <strong>
+                  0%
+                </strong>
+
+                <span>
+                  التقدم
+                </span>
+
+              </div>
+
+            </div>
 
           </div>
 
-          <div class="lesson-arrow">
-            ‹
-          </div>
 
-        </button>
+          <button
+            class="next"
+            onclick="showHome()"
+          >
 
+            🏠 العودة إلى الرئيسية
 
-        <button class="lesson-card"
-          onclick="showLessonPeriodic()"
-          style="
-            width:100%;
-            text-align:right;
-            cursor:pointer;
-          ">
+          </button>
 
-          <div class="lesson-icon">
-            📊
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              الجدول الدوري والخواص الدورية
-            </h3>
-
-            <p>
-              الدورات والزمر والخواص الدورية للعناصر
-            </p>
-
-          </div>
-
-          <div class="lesson-arrow">
-            ‹
-          </div>
-
-        </button>
-
-
-      </div>
-
-
-      <button class="next" onclick="showLessons()">
-
-        📖 العودة إلى الدروس
-
-      </button>
-
-    </div>
-
-  `;
-
-}
-  
-showHome();function showLessonAtomicIntro() {
-
-  var app = document.getElementById("app");
-
-  app.innerHTML = `
-
-    <div class="page">
-
-      <div class="page-header">
-
-        <button class="back" onclick="showChapter1()">
-          →
-        </button>
-
-        <h2>
-          1-1 المقدمة
-        </h2>
-
-        <span></span>
-
-      </div>
-
-
-      <div class="memory-card">
-
-        <div class="memory-icon">
-          ⚛️
-        </div>
-
-        <div class="memory-label">
-          الفصل الأول: التركيب الذري للمادة
-        </div>
-
-
-        <h2>
-          مقدمة
-        </h2>
-
-
-        <div class="memory-answer">
-
-          جميع المواد الموجودة في الكون تتكون من جسيمات صغيرة.
-
-          <br><br>
-
-          وتشكل هذه الجسيمات الوحدات الأساسية لبناء المواد،
-          وقد سميت بالذرات.
 
         </div>
 
+      `;
 
-        <div class="memory-tip">
+    }
 
-          💡 تذكّر:
 
-          <br><br>
+    /* =========================
+       تفعيل الشريط السفلي
+    ========================= */
 
-          الذرات هي الوحدات الأساسية لبناء المواد.
+    function setActive(index) {
 
-        </div>
+      var buttons =
+        document.querySelectorAll(
+          ".nav-item"
+        );
 
-      </div>
 
+      for (
+        var i = 0;
+        i < buttons.length;
+        i++
+      ) {
 
-      <div class="lesson-card" style="
-        display:block;
-        margin-top:18px;
-      ">
+        buttons[i].classList.remove(
+          "active"
+        );
 
-        <h3 style="
-          margin-top:0;
-          color:#173b78;
-        ">
-          ماذا سندرس في هذا الفصل؟
-        </h3>
+      }
 
-        <p style="
-          color:#64748b;
-          line-height:2;
-          margin:0;
-        ">
 
-          سنتعرف على تطور النظريات والنماذج
-          التي فسرت البناء الذري، وصولًا إلى
-          النظريات الحديثة لمعرفة تركيب الذرة.
+      if (buttons[index]) {
 
-        </p>
+        buttons[index].classList.add(
+          "active"
+        );
 
-      </div>
+      }
 
+    }
 
-      <button class="next" onclick="showLessonAtomicModels()">
 
-        الدرس التالي ←
+    /* =========================
+       تشغيل التطبيق
+    ========================= */
 
-      </button>
+    showHome();
 
 
-      <button class="next"
-        style="background:#173b78;"
-        onclick="showChapter1()">
+  </script>
 
-        ↩ العودة إلى الفصل
-
-      </button>
-
-    </div>
-
-  `;
-
-}
-
-function showLessonAtomicModels() {
-
-  var app = document.getElementById("app");
-
-  app.innerHTML = `
-
-    <div class="page">
-
-      <div class="page-header">
-
-        <button class="back" onclick="showChapter1()">
-          →
-        </button>
-
-        <h2>
-          1-2 نماذج بناء الذرة
-        </h2>
-
-        <span></span>
-
-      </div>
-
-      <div class="memory-card">
-
-        <div class="memory-icon">
-          ⚛️
-        </div>
-
-        <div class="memory-label">
-          الدرس الثاني
-        </div>
-
-        <h2>
-          نماذج بناء الذرة
-        </h2>
-
-        <div class="memory-answer">
-
-          تطورت نماذج الذرة عبر التاريخ
-          لتفسير تركيب المادة وسلوكها.
-
-          <br><br>
-
-          ومن أهم النماذج التي ظهرت:
-          نموذج دالتون،
-          نموذج طومسون،
-          نموذج رذرفورد،
-          ونموذج بور.
-
-        </div>
-
-        <div class="memory-tip">
-
-          💡 تذكّر:
-
-          <br><br>
-
-          تطورت نماذج الذرة مع تطور
-          التجارب والاكتشافات العلمية.
-
-        </div>
-
-      </div>
-
-      <button class="next" onclick="showLessonAtomicModels2()">
-
-        الدرس التالي ←
-
-      </button>
-
-      <button
-        class="next"
-        style="background:#173b78;"
-        onclick="showChapter1()"
-      >
-
-        ↩ العودة إلى الفصل
-
-      </button>
-
-    </div>
-
-  `;
-
-}
-  function showLessonModernAtomicTheory() {
-
-  var app = document.getElementById("app");
-
-  app.innerHTML = `
-
-    <div class="page">
-
-      <div class="page-header">
-
-        <button class="back" onclick="showChapter1()">
-          →
-        </button>
-
-        <h2>
-          1-3 النظرية الذرية الحديثة
-        </h2>
-
-        <span></span>
-
-      </div>
-
-
-      <div class="memory-card">
-
-        <div class="memory-icon">
-          🧠
-        </div>
-
-
-        <div class="memory-label">
-          الدرس الثالث
-        </div>
-
-
-        <h2>
-          النظرية الذرية الحديثة
-        </h2>
-
-
-        <div class="memory-answer">
-
-          يصف النموذج الحديث للذرة
-          تركيب الذرة وسلوك الإلكترونات
-          بطريقة أكثر دقة من النماذج القديمة.
-
-          <br><br>
-
-          توجد الإلكترونات حول النواة
-          في مناطق تسمى
-          <strong>الأوربيتالات الذرية</strong>،
-          ولا يمكن تحديد موقع الإلكترون
-          وسرعته بدقة في الوقت نفسه.
-
-          <br><br>
-
-          وتعتمد طاقة الإلكترون
-          على مستوى الطاقة الذي يوجد فيه.
-
-        </div>
-
-
-        <div class="memory-tip">
-
-          💡 تذكّر:
-
-          <br><br>
-
-          النموذج الحديث للذرة يعتمد
-          على مستويات الطاقة والأوربيتالات
-          والاحتمال في تحديد موقع الإلكترون.
-
-        </div>
-
-      </div>
-
-
-      <button class="next" onclick="showLessonModernAtomicTheory2()">
-
-        الدرس التالي ←
-
-      </button>
-
-
-      <button
-        class="next"
-        style="background:#173b78;"
-        onclick="showChapter1()"
-      >
-
-        ↩ العودة إلى الفصل
-
-      </button>
-
-    </div>
-
-  `;
-
-}
-  
-</script>
 
 </body>
+
 </html>

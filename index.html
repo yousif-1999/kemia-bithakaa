@@ -1771,6 +1771,91 @@ showHome();function showLessonAtomicIntro() {
 
 }
 
+function showLessonAtomicModels() {
+
+  var app = document.getElementById("app");
+
+  app.innerHTML = `
+
+    <div class="page">
+
+      <div class="page-header">
+
+        <button class="back" onclick="showChapter1()">
+          →
+        </button>
+
+        <h2>
+          1-2 نماذج بناء الذرة
+        </h2>
+
+        <span></span>
+
+      </div>
+
+      <div class="memory-card">
+
+        <div class="memory-icon">
+          ⚛️
+        </div>
+
+        <div class="memory-label">
+          الدرس الثاني
+        </div>
+
+        <h2>
+          نماذج بناء الذرة
+        </h2>
+
+        <div class="memory-answer">
+
+          تطورت نماذج الذرة عبر التاريخ
+          لتفسير تركيب المادة وسلوكها.
+
+          <br><br>
+
+          ومن أهم النماذج التي ظهرت:
+          نموذج دالتون،
+          نموذج طومسون،
+          نموذج رذرفورد،
+          ونموذج بور.
+
+        </div>
+
+        <div class="memory-tip">
+
+          💡 تذكّر:
+
+          <br><br>
+
+          تطورت نماذج الذرة مع تطور
+          التجارب والاكتشافات العلمية.
+
+        </div>
+
+      </div>
+
+      <button class="next" onclick="showLessonAtomicModels2()">
+
+        الدرس التالي ←
+
+      </button>
+
+      <button
+        class="next"
+        style="background:#173b78;"
+        onclick="showChapter1()"
+      >
+
+        ↩ العودة إلى الفصل
+
+      </button>
+
+    </div>
+
+  `;
+
+}
 </script>
 
 </body>

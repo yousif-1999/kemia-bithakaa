@@ -2,2171 +2,2844 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>كيمياء بذكاء</title>
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: #eef1f7;
-      color: #172554;
-      font-family: "Cairo", sans-serif;
-    }
-
-    button {
-      font-family: "Cairo", sans-serif;
-      cursor: pointer;
-    }
-
-    .app {
-      width: 100%;
-      max-width: 430px;
-      min-height: 100vh;
-      margin: auto;
-      background: #ffffff;
-      padding-bottom: 95px;
-    }
-
-    .header {
-      padding: 28px 22px 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .welcome {
-      text-align: right;
-    }
-
-    .welcome small {
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    .welcome h1 {
-      margin: 3px 0 0;
-      color: #172554;
-      font-size: 25px;
-      font-weight: 800;
-    }
-
-    .profile {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: #173b78;
-      color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 21px;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-
-    .streak {
-      margin: 8px 22px 20px;
-      padding: 9px 15px;
-      display: inline-block;
-      border-radius: 20px;
-      background: #fff4d6;
-      color: #a16207;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .progress-card {
-      margin: 0 20px 24px;
-      padding: 20px;
-      border: 1px solid #edf0f7;
-      border-radius: 22px;
-      background: #f7f9ff;
-    }
-
-    .progress-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .progress-percent {
-      color: #169b62;
-      font-size: 18px;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 10px;
-      overflow: hidden;
-      border-radius: 20px;
-      background: #e5e7eb;
-    }
-
-    .progress-fill {
-      width: 50%;
-      height: 100%;
-      border-radius: 20px;
-      background: #169b62;
-    }
-
-    .progress-text {
-      margin-top: 10px;
-      color: #64748b;
-      font-size: 13px;
-    }
-
-    .section-title {
-      margin: 0 22px 14px;
-      color: #172554;
-      font-size: 21px;
-      font-weight: 800;
-    }
-
-    .tasks {
-      margin: 0 20px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .task {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 15px;
-      border: 1px solid #edf0f7;
-      border-radius: 20px;
-      background: #ffffff;
-      box-shadow:
-        0 4px 15px rgba(20, 40, 80, 0.05);
-    }
-
-    .task-icon {
-      width: 52px;
-      height: 52px;
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 16px;
-      background: #eef3ff;
-      font-size: 25px;
-    }
-
-    .task-content {
-      flex: 1;
-    }
-
-    .task-content h3 {
-      margin: 0 0 3px;
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .task-content p {
-      margin: 0;
-      color: #64748b;
-      font-size: 12px;
-    }
-
-    .check {
-      width: 28px;
-      height: 28px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      background: #22a66f;
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .check.pending {
-      background: #eef1f7;
-      color: #94a3b8;
-    }
-
-    .main-button {
-      width: calc(100% - 40px);
-      margin: 22px 20px;
-      padding: 17px;
-      border: none;
-      border-radius: 18px;
-      background: #ed8b00;
-      color: #ffffff;
-      font-size: 17px;
-      font-weight: 800;
-      box-shadow:
-        0 8px 20px rgba(237, 139, 0, 0.22);
-    }
-
-    .main-button:active {
-      transform: scale(.99);
-    }
-
-    .quick {
-      margin: 8px 20px 0;
-    }
-
-    .quick-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .quick-card {
-      padding: 18px 12px;
-      border: 1px solid #edf0f7;
-      border-radius: 18px;
-      background: #ffffff;
-      text-align: center;
-      transition: .15s;
-    }
-
-    .quick-card:active {
-      transform: scale(.98);
-    }
-
-    .quick-card .quick-icon {
-      margin-bottom: 7px;
-      font-size: 27px;
-    }
-
-    .quick-card strong {
-      display: block;
-      color: #172554;
-      font-size: 14px;
-    }
-
-    .quick-card span {
-      color: #64748b;
-      font-size: 11px;
-    }
-    /* =========================
-       PAGE
-    ========================= */
-
-    .page {
-      min-height: 100vh;
-      padding: 25px 20px 110px;
-    }
-
-    .page-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 25px;
-    }
-
-    .page-header h2 {
-      margin: 0;
-      color: #172554;
-      font-size: 24px;
-      font-weight: 800;
-    }
-
-    .back {
-      width: 44px;
-      height: 44px;
-      border: none;
-      border-radius: 50%;
-      background: #eef3ff;
-      color: #173b78;
-      font-size: 21px;
-    }
-
-    /* =========================
-       CHAPTER CARDS
-    ========================= */
-
-    .chapter-card {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
-      padding: 17px;
-      border: 1px solid #e8edf5;
-      border-radius: 20px;
-      background: #ffffff;
-      box-shadow:
-        0 4px 15px rgba(20, 40, 80, .05);
-      text-align: right;
-    }
-
-    .chapter-icon {
-      width: 56px;
-      height: 56px;
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 17px;
-      background: #eef3ff;
-      font-size: 28px;
-    }
-
-    .chapter-info {
-      flex: 1;
-    }
-
-    .chapter-info h3 {
-      margin: 0 0 5px;
-      color: #172554;
-      font-size: 16px;
-      font-weight: 800;
-    }
-
-    .chapter-info p {
-      margin: 0;
-      color: #64748b;
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    .chapter-arrow {
-      color: #94a3b8;
-      font-size: 25px;
-    }
-
-    /* =========================
-       INFO CARD
-    ========================= */
-
-    .info-card {
-      margin-bottom: 16px;
-      padding: 20px;
-      border: 1px solid #e7ebf5;
-      border-radius: 22px;
-      background: #f7f9ff;
-    }
-
-    .info-card h3 {
-      margin: 0 0 8px;
-      color: #173b78;
-      font-size: 18px;
-    }
-
-    .info-card p {
-      margin: 0;
-      color: #64748b;
-      font-size: 13px;
-      line-height: 2;
-    }
-
-    /* =========================
-       MEMORY CARD
-    ========================= */
-
-    .memory-card {
-      padding: 28px 22px;
-      border: 1px solid #e7ebf5;
-      border-radius: 25px;
-      background: #f7f9ff;
-      text-align: center;
-      box-shadow:
-        0 8px 25px rgba(20,40,80,.07);
-    }
-
-    .memory-icon {
-      margin-bottom: 12px;
-      font-size: 55px;
-    }
-
-    .memory-label {
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    .memory-card h2 {
-      margin: 12px 0 20px;
-      color: #172554;
-      font-size: 22px;
-      line-height: 1.8;
-    }
-
-    .memory-answer {
-      padding: 18px;
-      border-radius: 18px;
-      background: #fff4d6;
-      color: #334155;
-      font-size: 16px;
-      line-height: 2;
-    }
-
-    .memory-tip {
-      margin-top: 20px;
-      padding: 15px;
-      border-radius: 18px;
-      background: #eaf8f1;
-      color: #16734b;
-      font-size: 15px;
-      line-height: 1.9;
-    }
-
-    .next {
-      width: 100%;
-      margin-top: 22px;
-      padding: 17px;
-      border: none;
-      border-radius: 18px;
-      background: #ed8b00;
-      color: #ffffff;
-      font-size: 17px;
-      font-weight: 800;
-    }
-
-    /* =========================
-       ACCOUNT
-    ========================= */
-
-    .account-box {
-      padding: 25px;
-      border: 1px solid #e7ebf5;
-      border-radius: 24px;
-      background: #f7f9ff;
-      text-align: center;
-    }
-
-    .account-avatar {
-      width: 80px;
-      height: 80px;
-      margin: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      background: #173b78;
-      color: #ffffff;
-      font-size: 35px;
-      font-weight: 800;
-    }
-
-    .account-box h2 {
-      margin: 12px 0 4px;
-      color: #172554;
-    }
-
-    .account-box p {
-      margin: 0;
-      color: #64748b;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .stat {
-      padding: 18px;
-      border: 1px solid #edf0f7;
-      border-radius: 18px;
-      background: #ffffff;
-      text-align: center;
-    }
-
-    .stat strong {
-      display: block;
-      color: #173b78;
-      font-size: 24px;
-    }
-
-    .stat span {
-      color: #64748b;
-      font-size: 12px;
-    }
-
-    /* =========================
-       BOTTOM NAVIGATION
-    ========================= */
-
-    .bottom-nav {
-      position: fixed;
-      right: 50%;
-      bottom: 0;
-      transform: translateX(50%);
-      width: min(430px, 100%);
-      height: 76px;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      align-items: center;
-      border-top: 1px solid #e5e7eb;
-      background: #ffffff;
-      z-index: 1000;
-    }
-
-    .nav-item {
-      height: 100%;
-      padding: 5px 2px;
-      border: none;
-      background: transparent;
-      color: #94a3b8;
-      font-size: 10px;
-    }
-
-    .nav-item div {
-      margin-bottom: 2px;
-      font-size: 22px;
-    }
-
-    .nav-item.active {
-      color: #173b78;
-      font-weight: 800;
-    }
-
-    /* =========================
-       DESKTOP
-    ========================= */
-
-    @media (min-width: 500px) {
-
-      body {
-        padding: 25px 0;
-      }
-
-      .app {
-        border-radius: 28px;
-        overflow: hidden;
-        box-shadow:
-          0 10px 40px rgba(0,0,0,.12);
-      }
-
-      .bottom-nav {
-        bottom: 25px;
-        border-radius: 0 0 28px 28px;
-      }
-
-    }
-
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>كيمياء بذكاء</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#eef1f7;
+    font-family:Arial,"Tahoma",sans-serif;
+    color:#172554;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.app{
+    max-width:430px;
+    min-height:100vh;
+    margin:auto;
+    background:#fff;
+    padding-bottom:90px;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    padding:25px 20px 12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.welcome small{
+    color:#64748b;
+    font-size:14px;
+}
+
+.welcome h1{
+    margin:5px 0 0;
+    font-size:25px;
+}
+
+.profile{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#173b78;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:21px;
+    font-weight:bold;
+}
+
+/* ================= STREAK ================= */
+
+.streak{
+    margin:8px 20px 18px;
+    display:inline-block;
+    padding:9px 15px;
+    border-radius:20px;
+    background:#fff4d6;
+    color:#a16207;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-card{
+    margin:0 20px 22px;
+    padding:20px;
+    border-radius:22px;
+    background:#f7f9ff;
+    border:1px solid #edf0f7;
+}
+
+.progress-title{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+    font-weight:bold;
+}
+
+.progress-percent{
+    color:#169b62;
+}
+
+.progress-bar{
+    width:100%;
+    height:10px;
+    background:#e5e7eb;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:50%;
+    height:100%;
+    background:#169b62;
+}
+
+.progress-text{
+    margin-top:10px;
+    color:#64748b;
+    font-size:13px;
+}
+
+/* ================= TITLES ================= */
+
+.section-title{
+    margin:0 20px 14px;
+    font-size:20px;
+}
+
+/* ================= TASKS ================= */
+
+.tasks{
+    margin:0 20px;
+    display:grid;
+    gap:12px;
+}
+
+.task{
+    padding:15px;
+    border:1px solid #edf0f7;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    box-shadow:0 4px 15px rgba(20,40,80,.05);
+}
+
+.task-icon{
+    width:50px;
+    height:50px;
+    border-radius:15px;
+    background:#eef3ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+}
+
+.task-content{
+    flex:1;
+}
+
+.task-content h3{
+    margin:0 0 3px;
+    font-size:16px;
+}
+
+.task-content p{
+    margin:0;
+    color:#64748b;
+    font-size:12px;
+}
+
+.check{
+    width:27px;
+    height:27px;
+    border-radius:50%;
+    background:#22a66f;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* ================= MAIN BUTTON ================= */
+
+.main-button,
+.next-button{
+    width:calc(100% - 40px);
+    margin:22px 20px;
+    border:0;
+    border-radius:18px;
+    padding:16px;
+    background:#ed8b00;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+}
+
+/* ================= QUICK ================= */
+
+.quick{
+    margin:5px 20px 0;
+}
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.quick-card{
+    padding:18px 10px;
+    border:1px solid #edf0f7;
+    border-radius:18px;
+    text-align:center;
+    background:white;
+    cursor:pointer;
+}
+
+.quick-card .icon{
+    font-size:28px;
+    margin-bottom:7px;
+}
+
+.quick-card strong{
+    display:block;
+    font-size:14px;
+}
+
+.quick-card span{
+    color:#64748b;
+    font-size:11px;
+}
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(430px,100%);
+    height:76px;
+    background:white;
+    border-top:1px solid #e5e7eb;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    z-index:100;
+}
+
+.nav-item{
+    border:0;
+    background:transparent;
+    color:#94a3b8;
+    font-size:10px;
+}
+
+.nav-item .nav-icon{
+    font-size:22px;
+    margin-bottom:3px;
+}
+
+.nav-item.active{
+    color:#173b78;
+    font-weight:bold;
+}
+
+/* ================= GENERAL PAGE ================= */
+
+.page{
+    min-height:100vh;
+    padding:24px 20px 110px;
+}
+
+.page-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:22px;
+}
+
+.page-header h2{
+    margin:0;
+    font-size:23px;
+}
+
+.back-button{
+    width:43px;
+    height:43px;
+    border:0;
+    border-radius:50%;
+    background:#eef3ff;
+    color:#173b78;
+    font-size:20px;
+}
+
+/* ================= CHAPTER ================= */
+
+.chapter-header{
+    background:#173b78;
+    color:white;
+    padding:22px;
+    border-radius:22px;
+    margin-bottom:18px;
+}
+
+.chapter-header h2{
+    margin:0 0 7px;
+    font-size:21px;
+}
+
+.chapter-header p{
+    margin:0;
+    opacity:.9;
+    line-height:1.8;
+    font-size:13px;
+}
+
+.lesson-list{
+    display:grid;
+    gap:12px;
+}
+
+.lesson-card{
+    width:100%;
+    border:1px solid #e5eaf2;
+    background:white;
+    border-radius:20px;
+    padding:16px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    text-align:right;
+    box-shadow:0 4px 15px rgba(20,40,80,.05);
+}
+
+.lesson-icon{
+    width:53px;
+    height:53px;
+    border-radius:16px;
+    background:#eef3ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    flex-shrink:0;
+}
+
+.lesson-info{
+    flex:1;
+}
+
+.lesson-info h3{
+    margin:0 0 4px;
+    font-size:15px;
+}
+
+.lesson-info p{
+    margin:0;
+    color:#64748b;
+    font-size:11px;
+    line-height:1.7;
+}
+
+.lesson-arrow{
+    color:#94a3b8;
+    font-size:25px;
+}
+
+/* ================= LESSON CONTENT ================= */
+
+.lesson-content{
+    display:grid;
+    gap:14px;
+}
+
+.content-card{
+    background:#f7f9ff;
+    border:1px solid #e5eaf2;
+    border-radius:22px;
+    padding:19px;
+}
+
+.content-card h3{
+    margin:0 0 12px;
+    font-size:18px;
+    color:#173b78;
+}
+
+.content-card h4{
+    margin:18px 0 8px;
+    font-size:16px;
+}
+
+.content-card p{
+    margin:0 0 11px;
+    line-height:2;
+    font-size:15px;
+    color:#334155;
+}
+
+.memory-box{
+    background:#fff4d6;
+    border-radius:18px;
+    padding:16px;
+    margin-top:14px;
+}
+
+.memory-box strong{
+    display:block;
+    color:#a16207;
+    margin-bottom:7px;
+}
+
+.example-box{
+    background:#eaf8f1;
+    border-radius:18px;
+    padding:16px;
+    color:#166534;
+    line-height:2;
+}
+
+.exercise-box{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:17px;
+}
+
+.exercise-box h4{
+    margin:0 0 10px;
+    color:#173b78;
+}
+
+.answer-box{
+    margin-top:10px;
+    padding:12px;
+    border-radius:12px;
+    background:#eef3ff;
+}
+
+/* ================= TABLE ================= */
+
+.energy-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:12px;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.energy-table th,
+.energy-table td{
+    border:1px solid #dfe5ef;
+    padding:9px 5px;
+    text-align:center;
+    font-size:13px;
+}
+
+.energy-table th{
+    background:#eef3ff;
+    color:#173b78;
+}
+
+/* ================= MEMORY ================= */
+
+.memory-card{
+    background:#f7f9ff;
+    border:1px solid #e5eaf2;
+    border-radius:24px;
+    padding:25px 20px;
+    text-align:center;
+}
+
+.memory-icon{
+    font-size:52px;
+    margin-bottom:10px;
+}
+
+.memory-label{
+    color:#64748b;
+    font-size:13px;
+}
+
+.memory-card h2{
+    line-height:1.9;
+    font-size:21px;
+}
+
+.memory-answer{
+    background:#fff4d6;
+    padding:17px;
+    border-radius:17px;
+    line-height:2;
+}
+
+.memory-tip{
+    margin-top:15px;
+    background:#eaf8f1;
+    padding:15px;
+    border-radius:17px;
+    color:#166534;
+    line-height:1.9;
+}
+
+/* ================= QUIZ ================= */
+
+.quiz-card{
+    background:#f7f9ff;
+    border:1px solid #e5eaf2;
+    border-radius:24px;
+    padding:20px;
+}
+
+.quiz-number{
+    color:#64748b;
+    margin-bottom:12px;
+    font-size:13px;
+}
+
+.quiz-question{
+    font-size:19px;
+    font-weight:bold;
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+.option{
+    width:100%;
+    padding:14px;
+    margin-bottom:10px;
+    border:1px solid #dfe5ef;
+    background:white;
+    border-radius:15px;
+    text-align:right;
+    color:#172554;
+    font-size:15px;
+}
+
+.option:hover{
+    background:#eef3ff;
+}
+
+/* ================= ACCOUNT ================= */
+
+.account-box{
+    background:#f7f9ff;
+    border:1px solid #e5eaf2;
+    border-radius:24px;
+    padding:25px;
+    text-align:center;
+}
+
+.account-avatar{
+    width:78px;
+    height:78px;
+    margin:auto;
+    border-radius:50%;
+    background:#173b78;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.account-box h2{
+    margin:12px 0 4px;
+}
+
+.account-box p{
+    margin:0;
+    color:#64748b;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:18px;
+}
+
+.stat{
+    background:white;
+    border:1px solid #edf0f7;
+    border-radius:18px;
+    padding:17px;
+}
+
+.stat strong{
+    display:block;
+    font-size:23px;
+    color:#173b78;
+}
+
+.stat span{
+    color:#64748b;
+    font-size:11px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(min-width:500px){
+
+    body{
+        padding:25px 0;
+    }
+
+    .app{
+        border-radius:28px;
+        overflow:hidden;
+        box-shadow:0 10px 40px rgba(0,0,0,.12);
+    }
+
+}
+
+</style>
 </head>
-
 
 <body>
 
+<div class="app" id="app"></div>
 
-  <div
-    class="app"
-    id="app"
-  ></div>
+<nav class="bottom-nav">
 
+<button class="nav-item active" onclick="showHome()">
+    <div class="nav-icon">🏠</div>
+    الرئيسية
+</button>
 
-  <!-- =========================
-       BOTTOM NAVIGATION
-  ========================= -->
+<button class="nav-item" onclick="showChapter1()">
+    <div class="nav-icon">📖</div>
+    دروسي
+</button>
 
-  <nav class="bottom-nav">
+<button class="nav-item" onclick="showMemory()">
+    <div class="nav-icon">🧠</div>
+    احفظها
+</button>
 
-    <button
-      class="nav-item active"
-      onclick="showHome()"
-    >
+<button class="nav-item" onclick="showQuiz()">
+    <div class="nav-icon">❓</div>
+    اختبرني
+</button>
 
-      <div>🏠</div>
+<button class="nav-item" onclick="showAccount()">
+    <div class="nav-icon">👤</div>
+    حسابي
+</button>
 
-      الرئيسية
+</nav>
 
-    </button>
+<script>
 
+/* ==================================================
+   بيانات الفصل الأول
+================================================== */
 
-    <button
-      class="nav-item"
-      onclick="showLessons()"
-    >
+var lessons = [
 
-      <div>📖</div>
+    {
+        id:"1-1",
+        title:"مقدمة",
+        icon:"⚗️",
+        description:"الذرات والوحدات الأساسية لبناء المادة"
+    },
 
-      دروسي
+    {
+        id:"1-2",
+        title:"تطور مفهوم البناء الذري",
+        icon:"⚛️",
+        description:"نماذج دالتون وثومسون ورذرفورد"
+    },
 
-    </button>
+    {
+        id:"1-3",
+        title:"مدخل إلى البناء الإلكتروني الحديث",
+        icon:"🔬",
+        description:"نموذج بور والنظرية الذرية الحديثة"
+    },
 
+    {
+        id:"1-4",
+        title:"مستويات الطاقة",
+        icon:"⚡",
+        description:"مستويات الطاقة الرئيسية والثانوية"
+    },
 
-    <button
-      class="nav-item"
-      onclick="showMemory()"
-    >
+    {
+        id:"1-5",
+        title:"الترتيب الإلكتروني",
+        icon:"🧮",
+        description:"مبدأ أوفباو وقاعدة هوند"
+    },
 
-      <div>🧠</div>
+    {
+        id:"1-6",
+        title:"ترتيب لويس",
+        icon:"🔹",
+        description:"إلكترونات التكافؤ ورمز لويس"
+    }
 
-      احفظها
-
-    </button>
-
-
-    <button
-      class="nav-item"
-      onclick="showQuiz()"
-    >
-
-      <div>❓</div>
-
-      اختبرني
-
-    </button>
-
-
-    <button
-      class="nav-item"
-      onclick="showAccount()"
-    >
-
-      <div>👤</div>
-
-      حسابي
-
-    </button>
-
-  </nav>
-
-
-  <script>
-
-    /* =========================
-       المتغيرات الأساسية
-    ========================= */
-
-    var app =
-      document.getElementById("app");
-
-
-    var currentPage =
-      "home";
+];
 
 
-    /* =========================
-       الصفحة الرئيسية
-    ========================= */
+/* ==================================================
+   بيانات بطاقات الحفظ
+================================================== */
 
-    function showHome() {
+var memoryCards = [
 
-      currentPage = "home";
+    {
+        icon:"⚛️",
+        question:"ما المقصود بالذرة؟",
+        answer:"الذرة هي الوحدة الأساسية لبناء المواد.",
+        tip:"المواد تتكون من جسيمات صغيرة تسمى الذرات."
+    },
 
-      setActive(0);
+    {
+        icon:"🧠",
+        question:"ما هو عدد الكم الرئيسي؟",
+        answer:"هو عدد صحيح موجب يرمز له بالحرف n ويعبر عن مستويات الطاقة الرئيسية.",
+        tip:"n = 1, 2, 3, 4, 5, 6, 7 ..."
+    },
+
+    {
+        icon:"⚡",
+        question:"كيف تزداد طاقة مستوى الطاقة؟",
+        answer:"تزداد طاقة المستوى بزيادة قيمة عدد الكم الرئيسي n.",
+        tip:"كلما زادت قيمة n زادت طاقة المستوى."
+    },
+
+    {
+        icon:"🔬",
+        question:"ما هو الأوربيتال؟",
+        answer:"هو حيز في الفضاء المحيط بالنواة يمكن أن يوجد فيه الإلكترون باحتمال معين.",
+        tip:"الأوربيتال = احتمال وجود الإلكترون."
+    },
+
+    {
+        icon:"🧮",
+        question:"ما مستويات الطاقة الثانوية؟",
+        answer:"s و p و d و f.",
+        tip:"احفظها بالترتيب: s → p → d → f."
+    },
+
+    {
+        icon:"🔹",
+        question:"على ماذا يعتمد رمز لويس؟",
+        answer:"يعتمد على عدد الإلكترونات الموجودة في الغلاف الأخير، وهو غلاف التكافؤ.",
+        tip:"رمز لويس يهتم بإلكترونات الغلاف الخارجي."
+    }
+
+];
 
 
-      app.innerHTML = `
-
-        <div class="header">
-
-          <div class="welcome">
-
-            <small>
-              مرحبًا بك 👋
-            </small>
-
-            <h1>
-              كيمياء بذكاء
-            </h1>
-
-          </div>
+var memoryIndex = 0;
+var quizIndex = 0;
+var quizScore = 0;
 
 
-          <div class="profile">
+/* ==================================================
+   أسئلة الاختبار
+================================================== */
+
+var quizQuestions = [
+
+    {
+        question:"ما النموذج الذي تصور الذرة على هيئة كرة دقيقة صلبة غير قابلة للانقسام؟",
+        options:[
+            "نموذج دالتون",
+            "نموذج ثومسون",
+            "نموذج رذرفورد",
+            "نموذج بور"
+        ],
+        correct:0
+    },
+
+    {
+        question:"من العالم الذي اقترح أن البروتونات متمركزة في حجم صغير يسمى النواة؟",
+        options:[
+            "دالتون",
+            "ثومسون",
+            "رذرفورد",
+            "بور"
+        ],
+        correct:2
+    },
+
+    {
+        question:"بماذا يرمز لعدد الكم الرئيسي؟",
+        options:[
+            "p",
+            "n",
+            "s",
+            "d"
+        ],
+        correct:1
+    },
+
+    {
+        question:"أي مستوى رئيسي له الرمز M؟",
+        options:[
+            "n = 1",
+            "n = 2",
+            "n = 3",
+            "n = 4"
+        ],
+        correct:2
+    },
+
+    {
+        question:"ما المستويات الثانوية للطاقة؟",
+        options:[
+            "s و p و d و f",
+            "K و L و M و N",
+            "x و y و z فقط",
+            "a و b و c و d"
+        ],
+        correct:0
+    },
+
+    {
+        question:"على ماذا يعتمد رمز لويس؟",
+        options:[
+            "عدد النيوترونات",
+            "عدد البروتونات فقط",
+            "إلكترونات الغلاف الأخير",
+            "كتلة الذرة"
+        ],
+        correct:2
+    }
+
+];
+
+
+/* ==================================================
+   تفعيل أزرار الشريط السفلي
+================================================== */
+
+function setActive(index){
+
+    var buttons=document.querySelectorAll(".nav-item");
+
+    for(var i=0;i<buttons.length;i++){
+        buttons[i].classList.remove("active");
+    }
+
+    if(buttons[index]){
+        buttons[index].classList.add("active");
+    }
+}
+
+
+/* ==================================================
+   الرئيسية
+================================================== */
+
+function showHome(){
+
+    setActive(0);
+
+    var app=document.getElementById("app");
+
+    app.innerHTML=`
+
+    <div class="header">
+
+        <div class="welcome">
+
+            <small>مرحبًا بك 👋</small>
+
+            <h1>كيمياء بذكاء</h1>
+
+        </div>
+
+        <div class="profile">
             ك
-          </div>
-
         </div>
 
-
-        <div class="streak">
-
-          🔥 سلسلة التعلم: 7 أيام
-
-        </div>
+    </div>
 
 
-        <div class="progress-card">
+    <div class="streak">
+        🔥 سلسلة التعلم: 7 أيام
+    </div>
 
-          <div class="progress-title">
 
-            <span>
-              تقدم اليوم
-            </span>
+    <div class="progress-card">
+
+        <div class="progress-title">
+
+            <span>تقدم اليوم</span>
 
             <span class="progress-percent">
-              50%
+                50%
             </span>
 
-          </div>
+        </div>
 
-
-          <div class="progress-bar">
+        <div class="progress-bar">
 
             <div class="progress-fill"></div>
 
-          </div>
+        </div>
 
-
-          <div class="progress-text">
-
+        <div class="progress-text">
             أنجزت مهمتين من أصل أربع مهام اليوم
-
-          </div>
-
         </div>
 
-
-        <h2 class="section-title">
-
-          🎯 مهمة اليوم
-
-        </h2>
+    </div>
 
 
-        <div class="tasks">
+    <h2 class="section-title">
+        🎯 مهمة اليوم
+    </h2>
 
 
-          <div class="task">
+    <div class="tasks">
 
-            <div class="task-icon">
-              🧠
-            </div>
+        <div class="task">
+
+            <div class="task-icon">🧠</div>
 
             <div class="task-content">
 
-              <h3>
-                3 بطاقات للحفظ
-              </h3>
+                <h3>بطاقات للحفظ</h3>
 
-              <p>
-                مراجعة سريعة للمعلومات
-              </p>
+                <p>مراجعة سريعة للمعلومات</p>
 
             </div>
 
-            <div class="check">
-              ✓
-            </div>
+            <div class="check">✓</div>
 
-          </div>
+        </div>
 
 
-          <div class="task">
+        <div class="task">
 
-            <div class="task-icon">
-              🧮
-            </div>
+            <div class="task-icon">🧮</div>
 
             <div class="task-content">
 
-              <h3>
-                قانون اليوم
-              </h3>
+                <h3>الترتيب الإلكتروني</h3>
 
-              <p>
-                تعلم قانون الكيمياء
-              </p>
+                <p>تعلم أساسيات الترتيب الإلكتروني</p>
 
             </div>
 
-            <div class="check">
-              ✓
-            </div>
+            <div class="check">✓</div>
 
-          </div>
+        </div>
 
 
-          <div class="task">
+        <div class="task">
 
-            <div class="task-icon">
-              📝
-            </div>
+            <div class="task-icon">📝</div>
 
             <div class="task-content">
 
-              <h3>
-                5 أسئلة
-              </h3>
+                <h3>اختبر معلوماتك</h3>
 
-              <p>
-                اختبر معلوماتك
-              </p>
+                <p>أسئلة من الفصل الأول</p>
 
             </div>
 
-            <div class="check pending">
-              ?
-            </div>
+            <div class="check">?</div>
 
-          </div>
+        </div>
 
 
-          <div class="task">
+        <div class="task">
 
-            <div class="task-icon">
-              ⚗️
-            </div>
+            <div class="task-icon">📖</div>
 
             <div class="task-content">
 
-              <h3>
-                مسألة اليوم
-              </h3>
+                <h3>دروس الفصل الأول</h3>
 
-              <p>
-                حل المسألة خطوة بخطوة
-              </p>
+                <p>اقرأ الدروس بالتسلسل</p>
 
             </div>
 
-            <div class="check pending">
-              ?
-            </div>
-
-          </div>
-
-
-        </div>
-
-
-        <button
-          class="main-button"
-          onclick="startMission()"
-        >
-
-          🚀 ابدأ مهمة اليوم
-
-        </button>
-
-
-        <div class="quick">
-
-
-          <h2
-            class="section-title"
-            style="margin-left:0;margin-right:0;"
-          >
-
-            الوصول السريع
-
-          </h2>
-
-
-          <div class="quick-grid">
-
-
-            <div
-              class="quick-card"
-              onclick="showMemory()"
-            >
-
-              <div class="quick-icon">
-                🧠
-              </div>
-
-              <strong>
-                احفظها
-              </strong>
-
-              <span>
-                بطاقات الحفظ
-              </span>
-
-            </div>
-
-
-            <div
-              class="quick-card"
-              onclick="showQuiz()"
-            >
-
-              <div class="quick-icon">
-                ❓
-              </div>
-
-              <strong>
-                اختبرني
-              </strong>
-
-              <span>
-                اختبر معلوماتك
-              </span>
-
-            </div>
-
-
-            <div
-              class="quick-card"
-              onclick="showAccount()"
-            >
-
-              <div class="quick-icon">
-                📈
-              </div>
-
-              <strong>
-                تقدمي
-              </strong>
-
-              <span>
-                إحصائياتك
-              </span>
-
-            </div>
-
-
-            <div
-              class="quick-card"
-              onclick="showLessons()"
-            >
-
-              <div class="quick-icon">
-                📚
-              </div>
-
-              <strong>
-                دروسي
-              </strong>
-
-              <span>
-                كل الفصول
-              </span>
-
-            </div>
-
-
-          </div>
-
-        </div>
-
-      `;
-
-    }
-
-
-    /* =========================
-       بدء المهمة
-    ========================= */
-
-    function startMission() {
-
-      showMemory();
-
-    }
-
-
-    /* =========================
-       صفحة الدروس
-    ========================= */
-
-    function showLessons() {
-
-      currentPage = "lessons";
-
-      setActive(1);
-
-
-      app.innerHTML = `
-
-        <div class="page">
-
-
-          <div class="page-header">
-
-            <span></span>
-
-            <h2>
-              📖 دروسي
-            </h2>
-
-            <span></span>
-
-          </div>
-
-
-          <div class="info-card">
-
-            <h3>
-              تعلم الكيمياء بطريقة ذكية 🧪
-            </h3>
-
-            <p>
-
-              اختر الفصل الذي تريد دراسته،
-              وسنضيف داخله الدروس والشرح
-              والأسئلة والبطاقات تدريجيًا.
-
-            </p>
-
-          </div>
-
-
-          <button
-            class="chapter-card"
-            onclick="showChapter1()"
-          >
-
-            <div class="chapter-icon">
-              ⚛️
-            </div>
-
-            <div class="chapter-info">
-
-              <h3>
-                الفصل الأول: التركيب الذري للمادة
-              </h3>
-
-              <p>
-                الذرة والنماذج الذرية
-                والترتيب الإلكتروني والجدول الدوري
-              </p>
-
-            </div>
-
-            <div class="chapter-arrow">
-              ‹
-            </div>
-
-          </button>
-
-
-          <button
-            class="chapter-card"
-            onclick="showChapterPlaceholder(2)"
-          >
-
-            <div class="chapter-icon">
-              🧪
-            </div>
-
-            <div class="chapter-info">
-
-              <h3>
-                الفصل الثاني
-              </h3>
-
-              <p>
-                سيتم إضافة محتوى الفصل لاحقًا
-              </p>
-
-            </div>
-
-            <div class="chapter-arrow">
-              ‹
-            </div>
-
-          </button>
-
-
-          <button
-            class="chapter-card"
-            onclick="showChapterPlaceholder(3)"
-          >
-
-            <div class="chapter-icon">
-              ⚗️
-            </div>
-
-            <div class="chapter-info">
-
-              <h3>
-                الفصل الثالث
-              </h3>
-
-              <p>
-                سيتم إضافة محتوى الفصل لاحقًا
-              </p>
-
-            </div>
-
-            <div class="chapter-arrow">
-              ‹
-            </div>
-
-          </button>
-
-
-          <button
-            class="chapter-card"
-            onclick="showChapterPlaceholder(4)"
-          >
-
-            <div class="chapter-icon">
-              🔥
-            </div>
-
-            <div class="chapter-info">
-
-              <h3>
-                الفصل الرابع
-              </h3>
-
-              <p>
-                سيتم إضافة محتوى الفصل لاحقًا
-              </p>
-
-            </div>
-
-            <div class="chapter-arrow">
-              ‹
-            </div>
-
-          </button>
-
-
-          <button
-            class="chapter-card"
-            onclick="showChapterPlaceholder(5)"
-          >
-
-            <div class="chapter-icon">
-              📊
-            </div>
-
-            <div class="chapter-info">
-
-              <h3>
-                الفصل الخامس
-              </h3>
-
-              <p>
-                سيتم إضافة محتوى الفصل لاحقًا
-              </p>
-
-            </div>
-
-            <div class="chapter-arrow">
-              ‹
-            </div>
-
-          </button>
-
-
-        </div>
-
-      `;
-
-    }
-
-
-    /* =========================
-       الفصل الأول
-    ========================= */
-
-    function showChapter1() {
-
-      currentPage = "chapter1";
-
-      setActive(1);
-
-
-      app.innerHTML = `
-
-        <div class="page">
-
-
-          <div class="page-header">
-
-            <button
-              class="back"
-              onclick="showLessons()"
-            >
-              →
-            </button>
-
-            <h2>
-              ⚛️ الفصل الأول
-            </h2>
-
-            <span></span>
-
-          </div>
-
-
-          <div class="info-card">
-
-            <h3>
-              التركيب الذري للمادة
-            </h3>
-
-            <p>
-
-              يحتوي هذا الفصل على مجموعة
-              من الموضوعات المتعلقة ببناء الذرة
-              وتطور النماذج الذرية والترتيب الإلكتروني.
-
-            </p>
-
-          </div>
-
-
-          <button
-            class="chapter-card"
-            onclick="showLesson1()"
-          >
-
-            <div class="chapter-icon">
-              ⚛️
-            </div>
-
-            <div class="chapter-info">
-
-              <h3>
-                1-1 المقدمة
-              </h3>
-
-              <p>
-                مقدمة عن المادة والذرات
-              </p>
-
-            </div>
-
-            <div class="chapter-arrow">
-              ‹
-            </div>
-
-          </button>
-
-
-          <button
-            class="chapter-card"
-            onclick="showLesson2()"
-          >
-
-            <div class="chapter-icon">
-              🔬
-            </div>
-
-            <div class="chapter-info">
-
-              <h3>
-                1-2 تطور مفهوم البناء الذري
-              </h3>
-
-              <p>
-                تطور النماذج الذرية
-              </p>
-
-            </div>
-
-            <div class="chapter-arrow">
-              ‹
-            </div>
-
-          </button>
-
-
-          <button
-            class="chapter-card"
-            onclick="showLesson3()"
-          >
-
-            <div class="chapter-icon">
-              🧠
-            </div>
-
-            <div class="chapter-info">
-
-              <h3>
-                1-3 النظرية الذرية الحديثة
-              </h3>
-
-              <p>
-                النموذج الحديث للذرة
-              </p>
-
-            </div>
-
-            <div class="chapter-arrow">
-              ‹
-            </div>
-
-          </button>
-
-
-          <button
-            class="chapter-card"
-            onclick="showLesson4()"
-          >
-
-            <div class="chapter-icon">
-              ⚡
-            </div>
-
-            <div class="chapter-info">
-
-              <h3>
-                1-4 مستويات الطاقة
-              </h3>
-
-              <p>
-                مستويات الطاقة الرئيسية
-              </p>
-
-            </div>
-
-            <div class="chapter-arrow">
-              ‹
-            </div>
-
-          </button>
-
-
-          <button
-            class="chapter-card"
-            onclick="showLesson5()"
-          >
-
-            <div class="chapter-icon">
-              🔋
-            </div>
-
-            <div class="chapter-info">
-
-              <h3>
-                1-5 الترتيب الإلكتروني
-              </h3>
-
-              <p>
-                مبدأ أوفباو وقاعدة هوند
-              </p>
-
-            </div>
-
-            <div class="chapter-arrow">
-              ‹
-            </div>
-
-          </button>
-
-
-          <button
-            class="chapter-card"
-            onclick="showLesson6()"
-          >
-
-            <div class="chapter-icon">
-              🔵
-            </div>
-
-            <div class="chapter-info">
-
-              <h3>
-                1-6 رمز لويس
-              </h3>
-
-              <p>
-                إلكترونات التكافؤ ورمز لويس
-              </p>
-
-            </div>
-
-            <div class="chapter-arrow">
-              ‹
-            </div>
-
-          </button>
-
-
-        </div>
-
-      `;
-
-    }
-
-  /* =========================
-       الفصول غير المضافة
-    ========================= */
-
-    function showChapterPlaceholder(number) {
-
-      setActive(1);
-
-      app.innerHTML = `
-
-        <div class="page">
-
-          <div class="page-header">
-
-            <button
-              class="back"
-              onclick="showLessons()"
-            >
-              →
-            </button>
-
-            <h2>
-              📚 الفصل ${number}
-            </h2>
-
-            <span></span>
-
-          </div>
-
-
-          <div class="memory-card">
-
-            <div class="memory-icon">
-              🧪
-            </div>
-
-            <h2>
-              قريبًا
-            </h2>
-
-            <div class="memory-answer">
-
-              سيتم إضافة محتوى هذا الفصل
-              في مرحلة لاحقة.
-
-            </div>
-
-          </div>
-
-
-          <button
-            class="next"
-            onclick="showLessons()"
-          >
-
-            ↩ العودة إلى الدروس
-
-          </button>
-
-        </div>
-
-      `;
-
-    }
-
-
-    /* =========================
-       الدروس المؤقتة
-       سيتم وضع المحتوى الحقيقي
-       في الدفعة الثانية
-    ========================= */
-
-    function showLesson1() {
-
-      showLessonPlaceholder(
-        "1-1",
-        "المقدمة"
-      );
-
-    }
-
-
-    function showLesson2() {
-
-      showLessonPlaceholder(
-        "1-2",
-        "تطور مفهوم البناء الذري"
-      );
-function showLesson3() {
-
-    var app = document.getElementById("app");
-
-    app.innerHTML = `
-    <div class="page">
-
-        <div class="page-header">
-
-            <button class="back" onclick="showChapter1()">
-                ←
-            </button>
-
-            <h2>النظرية الذرية الحديثة</h2>
-
-        </div>
-
-        <div class="lesson-content">
-
-            <div class="lesson-card">
-
-                <h3>1-3 النظرية الذرية الحديثة</h3>
-
-                <p>
-                    فسّر نموذج بور تركيب ذرة الهيدروجين وهي أبسط نظام ذري،
-                    لأنها تحتوي على بروتون واحد وإلكترون واحد فقط.
-                </p>
-
-                <p>
-                    ولكن هذا النموذج فشل في تفسير بعض الظواهر الطبيعية
-                    للعناصر الأخرى التي تحتوي على عدد أكبر من الإلكترونات.
-                </p>
-
-                <p>
-                    نشط الكثير من العلماء في وضع الأساس العلمي للنظرية
-                    الذرية الحديثة، حيث طور العلماء نظرية الكم التي تنص
-                    على احتمال وجود الإلكترون في حيز محدد في الفضاء المحيط
-                    بالنواة وليس في مدارات محددة الأبعاد كما وضح بور.
-                </p>
-
-                <div class="memory-card">
-
-                    <div class="memory-icon">🧠</div>
-
-                    <div class="memory-label">
-                        تذكر
-                    </div>
-
-                    <p>
-                        الإلكترون لا يوجد في مدار محدد حول النواة،
-                        وإنما يوجد باحتمال معين في منطقة من الفضاء
-                        المحيط بالنواة تسمى الأوربيتال.
-                    </p>
-
-                </div>
-                </div>
-
-            <div class="lesson-card">
-
-                <h3>1-3-1 نموذج رذرفورد</h3>
-
-                <p>
-                    في أوائل القرن العشرين وبعد اكتشاف البروتون،
-                    والذي هو جسيم موجب الشحنة كتلته أكبر بكثير من كتلة الإلكترونات،
-                    قدم العالم رذرفورد تصوره بأن البروتونات متمركزة في حجم صغير
-                    في وسط الذرة أطلق عليه اسم النواة.
-                </p>
-
-                <p>
-                    وأنها تحتوي على معظم كتلة الذرة، وأن الإلكترونات تدور حولها.
-                    لذا فإن أغلب حجم الذرة فراغ، وإن عدد الإلكترونات السالبة
-                    التي تدور حول النواة تعادل الشحنات الموجبة للبروتونات.
-                </p>
-
-                <p>
-                    وهذه الإلكترونات تدور بسرعة كبيرة وفي مدارات مختلفة البعد
-                    عن النواة، كما تدور الكواكب حول الشمس؛ لذا سمي هذا النموذج
-                    بالنموذج الكوكبي.
-                </p>
-
-                <div class="memory-card">
-
-                    <div class="memory-icon">💡</div>
-
-                    <div class="memory-label">
-                        تذكر
-                    </div>
-
-                    <p>
-                        نموذج رذرفورد: النواة في مركز الذرة،
-                        والإلكترونات تدور حولها، ومعظم حجم الذرة فراغ.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="lesson-card">
-
-                <h3>1-3-2 نموذج بور</h3>
-
-                <p>
-                    اقترح العالم بور، وهو عالم دنماركي، عام 1913 أن
-                    الإلكترونات تدور حول النواة في مستويات ذات طاقة
-                    وأنصاف أقطار محددة.
-                </p>
-
-                <p>
-                    ولكل مستوى طاقة رقم يميزه ويصف طاقته يسمى
-                    بعدد الكم الرئيسي.
-                </p>
-
-                <p>
-                    فالإلكترون في مستوى الطاقة الأول يكون عدد الكم الرئيسي
-                    له مساوياً لواحد، أما الإلكترون في مستوى الطاقة الثاني
-                    فيكون عدد الكم الرئيسي له مساوياً لاثنين، وهكذا.
-                </p>
-
-                <div class="memory-card">
-
-                    <div class="memory-icon">🧠</div>
-
-                    <div class="memory-label">
-                        احفظ
-                    </div>
-
-                    <p>
-                        عدد الكم الرئيسي يرمز له بالحرف:
-                        <strong>n</strong>
-                    </p>
-
-                    <p>
-                        مستوى الطاقة الأول:
-                        <strong>n = 1</strong>
-                        <br>
-                        مستوى الطاقة الثاني:
-                        <strong>n = 2</strong>
-                    </p>
-
-                </div>
-
-            </div>
-            <div class="lesson-card">
-
-                <h3>الأوربيتال (Orbital)</h3>
-
-                <p>
-                    أطلق عليه اسم الأوربيتال (Orbital)، وهو حيز في الفضاء
-                    المحيط بالنواة يمكن أن يوجد فيه الإلكترون باحتمال معين.
-                </p>
-
-                <p>
-                    وتختلف الأوربيتالات الذرية في أحجامها وأشكالها،
-                    كما تختلف حسب نوع المستوى الثانوي الذي تنتمي إليه.
-                </p>
-
-                <h3>1-4 مستويات الطاقة</h3>
-
-                <p>
-                    تدور الإلكترونات بشكل مستمر حول النواة في مدارات مختلفة،
-                    حيث إنها تدور على أبعاد مختلفة، وكلما كانت الطاقة التي
-                    يمتلكها الإلكترون أكبر، أصبح مدار دورانه حول النواة أبعد.
-                </p>
-
-                <h3>1-4-1 مستويات الطاقة الرئيسية</h3>
-
-                <p>
-                    يعبر عن مستويات الطاقة الرئيسية بعدد الكم الرئيسي،
-                    ويرمز له بالحرف (n)، ويأخذ قيماً صحيحة موجبة:
-                    1، 2، 3، 4، 5، 6، 7 ...
-                </p>
-
-                <div class="memory-card">
-
-                    <div class="memory-icon">🧠</div>
-
-                    <div class="memory-label">
-                        احفظها
-                    </div>
-
-                    <p>
-                        K → n = 1
-                        <br>
-                        L → n = 2
-                        <br>
-                        M → n = 3
-                        <br>
-                        N → n = 4
-                        <br>
-                        O → n = 5
-                        <br>
-                        P → n = 6
-                        <br>
-                        Q → n = 7
-                    </p>
-
-                </div>
-
-                <p>
-                    كلما كانت قيمة n كبيرة كانت المسافة التي يبعد بها
-                    الإلكترون عن النواة أكبر، وبالتالي زادت طاقته.
-                </p>
-
-                <h3>1-4-2 مستويات الطاقة الثانوية</h3>
-
-                <p>
-                    تحتوي مستويات الطاقة الرئيسية على مستويات طاقة ثانوية
-                    يرمز لها بالحروف:
-                    <strong>s ، p ، d ، f</strong>.
-                </p>
-
-                <div class="memory-card">
-
-                    <div class="memory-icon">
-                    احفظ
-                    </div>
-
-                    <p>
-                        المستوى الرئيسي الأول K يحتوي على مستوى ثانوي واحد:
-                        <strong>1s</strong>
-                    </p>
-
-                    <p>
-                        المستوى الرئيسي الثاني L يحتوي على مستويين ثانويين:
-                        <strong>2s ، 2p</strong>
-                    </p>
-
-                    <p>
-                        المستوى الرئيسي الثالث M يحتوي على ثلاثة مستويات ثانوية:
-                        <strong>3s ، 3p ، 3d</strong>
-                    </p>
-
-                    <p>
-                        المستوى الرئيسي الرابع N يحتوي على أربعة مستويات ثانوية:
-                        <strong>4s ، 4p ، 4d ، 4f</strong>
-                    </p>
-
-                </div>
-
-                <h3>أشكال الأوربيتالات</h3>
-
-                <p>
-                    الأوربيتال (s) له شكل كروي، أما الأوربيتالات (p)
-                    فلها ثلاثة أوربيتالات متكافئة موزعة في الفراغ
-                    بثلاثة اتجاهات متعامدة، ويرمز لها:
-                    <strong>pₓ ، pᵧ ، p𝓏</strong>.
-                </p>
-
-                <div class="memory-card">
-
-                    <div class="memory-icon">💡</div>
-
-                    <div class="memory-label">
-                        خلاصة الدرس
-                    </div>
-
-                    <p>
-                        الإلكترون يوجد في أوربيتال وليس في مدار محدد.
-                        <br><br>
-                        تزداد طاقة المستوى بزيادة قيمة n.
-                        <br><br>
-                        مستويات الطاقة الثانوية هي:
-                        <strong>s ، p ، d ، f</strong>.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="lesson-navigation">
-
-            <button class="next"
-                onclick="showLesson4()">
-                الدرس التالي ←
-            </button>
-
-            <button class="next"
-                style="background:#173b78;"
-                onclick="showChapter1()">
-                العودة إلى الفصل ↩
-            </button>
+            <div class="check">→</div>
 
         </div>
 
     </div>
+
+
+    <button class="main-button" onclick="showChapter1()">
+        🚀 ابدأ دراسة الفصل الأول
+    </button>
+
+
+    <div class="quick">
+
+        <h2 class="section-title" style="margin-left:0;margin-right:0;">
+            الوصول السريع
+        </h2>
+
+        <div class="quick-grid">
+
+            <div class="quick-card" onclick="showMemory()">
+
+                <div class="icon">🧠</div>
+
+                <strong>احفظها</strong>
+
+                <span>بطاقات الحفظ</span>
+
+            </div>
+
+
+            <div class="quick-card" onclick="showQuiz()">
+
+                <div class="icon">❓</div>
+
+                <strong>اختبرني</strong>
+
+                <span>أسئلة الفصل</span>
+
+            </div>
+
+
+            <div class="quick-card" onclick="showAccount()">
+
+                <div class="icon">📈</div>
+
+                <strong>تقدمي</strong>
+
+                <span>إحصائياتك</span>
+
+            </div>
+
+
+            <div class="quick-card" onclick="showChapter1()">
+
+                <div class="icon">📚</div>
+
+                <strong>دروسي</strong>
+
+                <span>الفصل الأول</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
     `;
 }
-                    
-   
-    function showLesson4() {
-
-      showLessonPlaceholder(
-        "1-4",
-        "مستويات الطاقة"
-      );
-
-    }
 
 
-    function showLesson5() {
+/* ==================================================
+   صفحة الفصل الأول
+================================================== */
 
-      showLessonPlaceholder(
-        "1-5",
-        "الترتيب الإلكتروني"
-      );
+function showChapter1(){
 
-    }
+    setActive(1);
 
+    var app=document.getElementById("app");
 
-    function showLesson6() {
+    var html=`
 
-      showLessonPlaceholder(
-        "1-6",
-        "رمز لويس"
-      );
+    <div class="page">
 
-    }
+        <div class="page-header">
 
-
-    function showLessonPlaceholder(
-      number,
-      title
-    ) {
-
-      setActive(1);
-
-      app.innerHTML = `
-
-        <div class="page">
-
-          <div class="page-header">
-
-            <button
-              class="back"
-              onclick="showChapter1()"
-            >
-              →
+            <button class="back-button" onclick="showHome()">
+                →
             </button>
 
-            <h2>
-              ${number}
-            </h2>
+            <h2>📖 دروسي</h2>
 
             <span></span>
-
-          </div>
-
-
-          <div class="memory-card">
-
-            <div class="memory-icon">
-              🧪
-            </div>
-
-            <div class="memory-label">
-              الفصل الأول
-            </div>
-
-            <h2>
-              ${title}
-            </h2>
-
-            <div class="memory-answer">
-
-              سيتم إضافة الشرح الكامل لهذا الدرس
-              في الدفعة الثانية.
-
-            </div>
-
-            <div class="memory-tip">
-
-              💡 هذا المكان مخصص لمحتوى
-              الدرس والشرح والأمثلة.
-
-            </div>
-
-          </div>
-
-
-          <button
-            class="next"
-            onclick="showChapter1()"
-          >
-
-            ↩ العودة إلى الفصل
-
-          </button>
 
         </div>
 
-      `;
 
-    }
-
-
-    /* =========================
-       احفظها
-    ========================= */
-
-    function showMemory() {
-
-      setActive(2);
-
-      app.innerHTML = `
-
-        <div class="page">
-
-          <div class="page-header">
-
-            <span></span>
+        <div class="chapter-header">
 
             <h2>
-              🧠 احفظها
-            </h2>
-
-            <span></span>
-
-          </div>
-
-
-          <div class="memory-card">
-
-            <div class="memory-icon">
-              🧠
-            </div>
-
-            <div class="memory-label">
-              بطاقات الحفظ
-            </div>
-
-            <h2>
-              ستجد هنا بطاقات الكيمياء
-            </h2>
-
-            <div class="memory-answer">
-
-              سيتم إضافة بطاقات الحفظ
-              ومعلومات الكيمياء تدريجيًا.
-
-            </div>
-
-            <div class="memory-tip">
-
-              💡 الهدف:
-              حفظ المعلومات المهمة
-              بطريقة سريعة وسهلة.
-
-            </div>
-
-          </div>
-
-        </div>
-
-      `;
-
-    }
-
-
-    /* =========================
-       الاختبار
-    ========================= */
-
-    function showQuiz() {
-
-      setActive(3);
-
-      app.innerHTML = `
-
-        <div class="page">
-
-          <div class="page-header">
-
-            <span></span>
-
-            <h2>
-              ❓ اختبرني
-            </h2>
-
-            <span></span>
-
-          </div>
-
-
-          <div class="memory-card">
-
-            <div class="memory-icon">
-              📝
-            </div>
-
-            <div class="memory-label">
-              الاختبارات
-            </div>
-
-            <h2>
-              اختبر معلوماتك في الكيمياء
-            </h2>
-
-            <div class="memory-answer">
-
-              سيتم إضافة الأسئلة
-              والتصحيح وحساب النتائج
-              في الدفعة الثالثة.
-
-            </div>
-
-          </div>
-
-        </div>
-
-      `;
-
-    }
-
-
-    /* =========================
-       الحساب
-    ========================= */
-
-    function showAccount() {
-
-      setActive(4);
-
-      app.innerHTML = `
-
-        <div class="page">
-
-          <div class="page-header">
-
-            <span></span>
-
-            <h2>
-              👤 حسابي
-            </h2>
-
-            <span></span>
-
-          </div>
-
-
-          <div class="account-box">
-
-            <div class="account-avatar">
-              ك
-            </div>
-
-            <h2>
-              طالب الكيمياء
+                الفصل الأول: التركيب الذري للمادة
             </h2>
 
             <p>
-              مرحبًا بك في كيمياء بذكاء 👋
+                دراسة تطور المفهوم الذري والنظرية الذرية الحديثة
+                والترتيب الإلكتروني ورمز لويس والجدول الدوري.
+            </p>
+
+        </div>
+
+
+        <div class="lesson-list">
+    `;
+
+
+    for(var i=0;i<lessons.length;i++){
+
+        html+=`
+
+        <button class="lesson-card"
+            onclick="openLesson(${i})">
+
+            <div class="lesson-icon">
+                ${lessons[i].icon}
+            </div>
+
+            <div class="lesson-info">
+
+                <h3>
+                    ${lessons[i].id}
+                    -
+                    ${lessons[i].title}
+                </h3>
+
+                <p>
+                    ${lessons[i].description}
+                </p>
+
+            </div>
+
+            <div class="lesson-arrow">
+                ‹
+            </div>
+
+        </button>
+
+        `;
+    }
+
+
+    html+=`
+
+        </div>
+
+    </div>
+
+    `;
+
+    app.innerHTML=html;
+}
+
+
+/* ==================================================
+   فتح الدرس
+================================================== */
+
+function openLesson(index){
+
+    if(index===0){
+        showLesson1();
+    }
+
+    else if(index===1){
+        showLesson2();
+    }
+
+    else if(index===2){
+        showLesson3();
+    }
+
+    else if(index===3){
+        showLesson4();
+    }
+
+    else if(index===4){
+        showLesson5();
+    }
+
+    else if(index===5){
+        showLesson6();
+    }
+
+}
+
+
+/* ==================================================
+   الدرس 1-1
+================================================== */
+
+function showLesson1(){
+
+    setActive(1);
+
+    var app=document.getElementById("app");
+
+    app.innerHTML=`
+
+    <div class="page">
+
+        <div class="page-header">
+
+            <button class="back-button" onclick="showChapter1()">
+                →
+            </button>
+
+            <h2>1-1 مقدمة</h2>
+
+            <span></span>
+
+        </div>
+
+
+        <div class="lesson-content">
+
+            <div class="content-card">
+
+                <h3>1-1 مقدمة</h3>
+
+                <p>
+                    سبق أن تعلمت في السنين السابقة لدراستك لعلم الكيمياء
+                    أن جميع المواد الموجودة في الكون تتكون من جسيمات صغيرة
+                    تشكل الوحدات الأساسية لبناء هذه المواد، سميت بالذرات
+                    (Atoms).
+                </p>
+
+                <p>
+                    وكلمة الذرات تعني في اللغة اللاتينية
+                    غير القابلة للانقسام.
+                </p>
+
+                <p>
+                    ولقد مر تفسير البناء الذري خلال القرنين الماضيين
+                    بعدة نظريات، وسندرس في هذا الفصل كيفية الوصول
+                    إلى آخر النظريات الحديثة لمعرفة البناء الذري.
+                </p>
+
+                <div class="memory-box">
+
+                    <strong>🧠 احفظها</strong>
+
+                    الذرات هي الوحدات الأساسية لبناء المواد.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>🎯 أهداف الفصل</h3>
+
+                <p>
+                    • التعرف على تطور المفهوم الذري.
+                </p>
+
+                <p>
+                    • فهم النظرية الذرية الحديثة.
+                </p>
+
+                <p>
+                    • التمكن من كتابة الترتيب الإلكتروني.
+                </p>
+
+                <p>
+                    • التعرف على ترتيب لويس للعناصر.
+                </p>
+
+                <p>
+                    • استيعاب فكرة متطورة عن الجدول الدوري.
+                </p>
+
+                <p>
+                    • إدراك الخواص الدورية للعناصر حسب ترتيبها
+                    في الجدول الدوري.
+                </p>
+
+            </div>
+
+
+            <div class="example-box">
+
+                <strong>📌 هل تعلم؟</strong>
+
+                الرأي هو فكرة ليست مؤكدة، أما النظرية فإنها تستخدم
+                أسبابًا لشرح ملاحظات وبيانات مختبرية.
+
+            </div>
+
+        </div>
+
+
+        <button class="next-button" onclick="showLesson2()">
+            الدرس التالي ←
+        </button>
+
+    </div>
+
+    `;
+}
+
+
+/* ==================================================
+   الدرس 1-2
+================================================== */
+
+function showLesson2(){
+
+    setActive(1);
+
+    var app=document.getElementById("app");
+
+    app.innerHTML=`
+
+    <div class="page">
+
+        <div class="page-header">
+
+            <button class="back-button" onclick="showChapter1()">
+                →
+            </button>
+
+            <h2>1-2 تطور مفهوم البناء الذري</h2>
+
+            <span></span>
+
+        </div>
+
+
+        <div class="lesson-content">
+
+            <div class="content-card">
+
+                <h3>1-2 تطور مفهوم البناء الذري</h3>
+
+                <p>
+                    اقترح العلماء نماذج مختلفة لتركيب الذرة،
+                    وكل نموذج كان الأفضل في وقته.
+                </p>
+
+                <p>
+                    ثم نتيجة الملاحظات والتجارب أخذ النموذج يتطور
+                    وصولًا للأكثر قبولًا من الناحية العلمية.
+                </p>
+
+                <p>
+                    وسنتعرف إلى هذه النماذج حسب تسلسلها الزمني.
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>1-2-1 نموذج دالتون</h3>
+
+                <p>
+                    في بداية القرن التاسع عشر تصور العالم دالتون
+                    الذرة على هيئة كرة دقيقة صلبة غير قابلة للانقسام.
+                </p>
+
+                <p>
+                    لكل عنصر نوع معين من الذرات الخاصة به،
+                    وأن هذه الذرات ترتبط بطرائق بسيطة لتكوين
+                    الذرات المركبة.
+                </p>
+
+                <div class="memory-box">
+
+                    <strong>🧠 احفظ</strong>
+
+                    تصور دالتون الذرة على هيئة كرة دقيقة صلبة
+                    غير قابلة للانقسام.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>1-2-2 نموذج ثومسون</h3>
+
+                <p>
+                    في نهاية القرن التاسع عشر قدم العالم ثومسون
+                    تصورًا آخر للذرة، بعد اكتشافه أن الذرة تتكون
+                    من جسيمات أصغر تحمل شحنات سالبة أطلق عليها
+                    اسم الإلكترونات.
+                </p>
+
+                <p>
+                    تصور ثومسون الذرة بأنها كرة موجبة الشحنة
+                    تلتصق عليها الإلكترونات السالبة الشحنة.
+                </p>
+
+                <p>
+                    وتعادل الشحنة الموجبة للكرة الشحنات السالبة
+                    للإلكترونات، لذا تكون الذرة متعادلة الشحنة.
+                </p>
+
+                <div class="memory-box">
+
+                    <strong>🧠 احفظ</strong>
+
+                    نموذج ثومسون:
+                    كرة موجبة الشحنة تلتصق عليها الإلكترونات
+                    سالبة الشحنة.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>1-2-3 نموذج رذرفورد</h3>
+
+                <p>
+                    في أوائل القرن العشرين وبعد اكتشاف البروتون،
+                    وهو جسيم موجب الشحنة كتلته أكبر بكثير من كتلة
+                    الإلكترونات، قدم العالم رذرفورد تصوره للذرة.
+                </p>
+
+                <p>
+                    تصور رذرفورد أن البروتونات متمركزة في حجم صغير
+                    في وسط الذرة أطلق عليه اسم النواة.
+                </p>
+
+                <p>
+                    وأن النواة تحتوي على معظم كتلة الذرة،
+                    وأن الإلكترونات تدور حولها.
+                </p>
+
+                <p>
+                    لذا فإن أغلب حجم الذرة فراغ.
+                </p>
+
+                <p>
+                    وسميت هذه الفكرة بالنموذج الكوكبي،
+                    لأن الإلكترونات تدور حول النواة كما تدور
+                    الكواكب حول الشمس.
+                </p>
+
+                <div class="memory-box">
+
+                    <strong>💡 تذكر</strong>
+
+                    النواة في مركز الذرة، والإلكترونات تدور حولها،
+                    وأغلب حجم الذرة فراغ.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button class="next-button" onclick="showLesson3()">
+            الدرس التالي ←
+        </button>
+
+    </div>
+
+    `;
+}
+
+  /* ==================================================
+   الدرس 1-3
+   النظرية الذرية الحديثة
+================================================== */
+
+function showLesson3(){
+
+    setActive(1);
+
+    var app=document.getElementById("app");
+
+    app.innerHTML=`
+
+    <div class="page">
+
+        <div class="page-header">
+
+            <button class="back-button" onclick="showChapter1()">
+                →
+            </button>
+
+            <h2>1-3 النظرية الذرية الحديثة</h2>
+
+            <span></span>
+
+        </div>
+
+
+        <div class="lesson-content">
+
+            <div class="content-card">
+
+                <h3>نموذج بور</h3>
+
+                <p>
+                    فسر نموذج بور تركيب ذرة الهيدروجين، وهي أبسط نظام ذري،
+                    لأنها تحتوي على بروتون واحد وإلكترون واحد فقط.
+                </p>
+
+                <p>
+                    لكن نموذج بور فشل في تفسير بعض الظواهر الطبيعية
+                    للعناصر الأخرى التي تحتوي على عدد أكبر من الإلكترونات.
+                </p>
+
+                <p>
+                    لذلك نشط الكثير من العلماء في وضع الأساس العلمي
+                    للنظرية الذرية الحديثة.
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>النظرية الذرية الحديثة</h3>
+
+                <p>
+                    طور العلماء نظرية تعرف بنظرية الكم، والتي تنص على
+                    احتمال وجود الإلكترون في حيز محدد في الفضاء المحيط
+                    بالنواة، وليس في مدارات محددة الأبعاد كما وضح بور.
+                </p>
+
+                <div class="memory-box">
+
+                    <strong>🧠 احفظها</strong>
+
+                    الإلكترون لا يوجد في مدار محدد الأبعاد حول النواة،
+                    وإنما يوجد باحتمال معين في حيز من الفضاء المحيط بالنواة.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>الأوربيتال Orbital</h3>
+
+                <p>
+                    الحيز من الفضاء المحيط بالنواة الذي يوجد فيه احتمال
+                    معين لوجود الإلكترون يسمى الأوربيتال.
+                </p>
+
+                <p>
+                    ويمكن وصف الأوربيتال بأنه السحابة الإلكترونية المحيطة
+                    بالنواة.
+                </p>
+
+                <div class="example-box">
+
+                    <strong>📌 تذكر</strong>
+
+                    الأوربيتال هو المنطقة التي يحتمل وجود الإلكترون فيها
+                    حول النواة.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>ملاحظة مهمة</h3>
+
+                <p>
+                    تختلف الأوربيتالات الذرية في أحجامها وأشكالها،
+                    ويرتبط ذلك بمستويات الطاقة الثانوية التي توجد فيها.
+                </p>
+
+                <p>
+                    وسنتعرف في الدرس التالي على مستويات الطاقة الرئيسية
+                    والثانوية وكيفية توزيع الإلكترونات فيها.
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>📝 مراجعة سريعة</h3>
+
+                <div class="exercise-box">
+
+                    <h4>سؤال 1</h4>
+
+                    <p>
+                        لماذا لم يكن نموذج بور كافيًا لتفسير جميع الذرات؟
+                    </p>
+
+                    <div class="answer-box">
+                        لأن نموذج بور نجح في تفسير ذرة الهيدروجين،
+                        لكنه فشل في تفسير بعض الظواهر للعناصر الأخرى
+                        التي تحتوي على عدد أكبر من الإلكترونات.
+                    </div>
+
+                </div>
+
+
+                <div class="exercise-box">
+
+                    <h4>سؤال 2</h4>
+
+                    <p>
+                        ما المقصود بالأوربيتال؟
+                    </p>
+
+                    <div class="answer-box">
+                        هو حيز في الفضاء المحيط بالنواة يوجد فيه
+                        احتمال معين لوجود الإلكترون.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button class="next-button" onclick="showLesson4()">
+            الدرس التالي: مستويات الطاقة ←
+        </button>
+
+
+        <button class="next-button"
+                style="background:#173b78;"
+                onclick="showChapter1()">
+
+            ↩ العودة إلى الفصل الأول
+
+        </button>
+
+    </div>
+
+    `;
+}
+
+
+/* ==================================================
+   الدرس 1-4
+   مستويات الطاقة
+================================================== */
+
+function showLesson4(){
+
+    setActive(1);
+
+    var app=document.getElementById("app");
+
+    app.innerHTML=`
+
+    <div class="page">
+
+        <div class="page-header">
+
+            <button class="back-button" onclick="showChapter1()">
+                →
+            </button>
+
+            <h2>1-4 مستويات الطاقة</h2>
+
+            <span></span>
+
+        </div>
+
+
+        <div class="lesson-content">
+
+            <div class="content-card">
+
+                <h3>مستويات الطاقة</h3>
+
+                <p>
+                    توجد الإلكترونات في مستويات طاقة مختلفة حول النواة،
+                    وتكون هذه المستويات على أبعاد مختلفة عن النواة.
+                </p>
+
+                <p>
+                    كلما ابتعد الإلكترون عن النواة ازدادت طاقته.
+                </p>
+
+                <div class="memory-box">
+
+                    <strong>🧠 القاعدة الأساسية</strong>
+
+                    كلما زادت المسافة عن النواة زادت طاقة الإلكترون.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>مستويات الطاقة الرئيسية</h3>
+
+                <p>
+                    يعبر عن مستويات الطاقة الرئيسية بعدد الكم الرئيسي،
+                    ويرمز له بالحرف:
+                    <strong>n</strong>.
+                </p>
+
+                <p>
+                    ويأخذ عدد الكم الرئيسي قيمًا صحيحة موجبة:
+                </p>
+
+                <div class="example-box">
+
+                    n = 1 ، 2 ، 3 ، 4 ، 5 ، 6 ، 7 ...
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>رموز مستويات الطاقة الرئيسية</h3>
+
+                <table class="energy-table">
+
+                    <tr>
+                        <th>عدد الكم الرئيسي n</th>
+                        <th>رمز المستوى</th>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>K</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>L</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>M</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>N</td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>O</td>
+                    </tr>
+
+                    <tr>
+                        <td>6</td>
+                        <td>P</td>
+                    </tr>
+
+                    <tr>
+                        <td>7</td>
+                        <td>Q</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>العلاقة بين الطاقة والبعد عن النواة</h3>
+
+                <p>
+                    كلما كانت قيمة عدد الكم الرئيسي n كبيرة،
+                    كان المستوى أبعد عن النواة وامتلك الإلكترون
+                    طاقة أكبر.
+                </p>
+
+                <div class="memory-box">
+
+                    <strong>💡 احفظ</strong>
+
+                    n ↑
+                    &nbsp; → &nbsp;
+                    البعد عن النواة ↑
+                    &nbsp; → &nbsp;
+                    الطاقة ↑
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>مستويات الطاقة الثانوية</h3>
+
+                <p>
+                    يحتوي كل مستوى رئيسي من مستويات الطاقة على مستويات
+                    طاقة ثانوية، ويرمز لها بالحروف:
+                </p>
+
+                <div class="example-box">
+
+                    <strong>s &nbsp; p &nbsp; d &nbsp; f</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>توزيع المستويات الثانوية</h3>
+
+                <table class="energy-table">
+
+                    <tr>
+                        <th>المستوى الرئيسي</th>
+                        <th>المستويات الثانوية</th>
+                    </tr>
+
+                    <tr>
+                        <td>K</td>
+                        <td>1s</td>
+                    </tr>
+
+                    <tr>
+                        <td>L</td>
+                        <td>2s ، 2p</td>
+                    </tr>
+
+                    <tr>
+                        <td>M</td>
+                        <td>3s ، 3p ، 3d</td>
+                    </tr>
+
+                    <tr>
+                        <td>N</td>
+                        <td>4s ، 4p ، 4d ، 4f</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>📝 مراجعة سريعة</h3>
+
+                <div class="exercise-box">
+
+                    <h4>سؤال 1</h4>
+
+                    <p>
+                        بماذا يرمز لعدد الكم الرئيسي؟
+                    </p>
+
+                    <div class="answer-box">
+                        يرمز له بالحرف n.
+                    </div>
+
+                </div>
+
+
+                <div class="exercise-box">
+
+                    <h4>سؤال 2</h4>
+
+                    <p>
+                        ما المستويات الثانوية للطاقة؟
+                    </p>
+
+                    <div class="answer-box">
+                        s ، p ، d ، f.
+                    </div>
+
+                </div>
+
+
+                <div class="exercise-box">
+
+                    <h4>سؤال 3</h4>
+
+                    <p>
+                        ماذا يحدث لطاقة الإلكترون عند زيادة بعده عن النواة؟
+                    </p>
+
+                    <div class="answer-box">
+                        تزداد طاقة الإلكترون.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button class="next-button" onclick="showLesson5()">
+            الدرس التالي: الترتيب الإلكتروني ←
+        </button>
+
+
+        <button class="next-button"
+                style="background:#173b78;"
+                onclick="showChapter1()">
+
+            ↩ العودة إلى الفصل الأول
+
+        </button>
+
+    </div>
+
+    `;
+}
+/* ==================================================
+   الدرس 1-5
+   الترتيب الإلكتروني
+================================================== */
+
+function showLesson5(){
+
+    setActive(1);
+
+    var app=document.getElementById("app");
+
+    app.innerHTML=`
+
+    <div class="page">
+
+        <div class="page-header">
+
+            <button class="back-button" onclick="showChapter1()">
+                →
+            </button>
+
+            <h2>1-5 الترتيب الإلكتروني</h2>
+
+            <span></span>
+
+        </div>
+
+
+        <div class="lesson-content">
+
+            <div class="content-card">
+
+                <h3>ما المقصود بالترتيب الإلكتروني؟</h3>
+
+                <p>
+                    الترتيب الإلكتروني هو الطريقة التي تتوزع بها
+                    الإلكترونات في مستويات الطاقة الرئيسية والثانوية
+                    حول نواة الذرة.
+                </p>
+
+                <p>
+                    ويعتمد ترتيب الإلكترونات على مستويات الطاقة
+                    والأوربيتالات المتاحة لها.
+                </p>
+
+                <div class="memory-box">
+
+                    <strong>🧠 احفظها</strong>
+
+                    الترتيب الإلكتروني يوضح كيفية توزيع إلكترونات
+                    الذرة في مستويات الطاقة والأوربيتالات.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>المستويات الثانوية</h3>
+
+                <p>
+                    تنقسم مستويات الطاقة الرئيسية إلى مستويات ثانوية
+                    يرمز لها بالحروف:
+                </p>
+
+                <div class="example-box">
+
+                    <strong>
+                        s &nbsp;&nbsp; p &nbsp;&nbsp; d &nbsp;&nbsp; f
+                    </strong>
+
+                </div>
+
+                <table class="energy-table">
+
+                    <tr>
+                        <th>المستوى الثانوي</th>
+                        <th>عدد الأوربيتالات</th>
+                        <th>أقصى عدد للإلكترونات</th>
+                    </tr>
+
+                    <tr>
+                        <td>s</td>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+
+                    <tr>
+                        <td>p</td>
+                        <td>3</td>
+                        <td>6</td>
+                    </tr>
+
+                    <tr>
+                        <td>d</td>
+                        <td>5</td>
+                        <td>10</td>
+                    </tr>
+
+                    <tr>
+                        <td>f</td>
+                        <td>7</td>
+                        <td>14</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>مبدأ أوفباو</h3>
+
+                <p>
+                    عند كتابة الترتيب الإلكتروني للإلكترونات،
+                    تشغل الإلكترونات الأوربيتالات ذات الطاقة الأقل
+                    أولاً ثم تنتقل إلى الأوربيتالات ذات الطاقة الأعلى.
+                </p>
+
+                <div class="memory-box">
+
+                    <strong>📌 القاعدة</strong>
+
+                    الإلكترونات تشغل الأوربيتالات الأقل طاقة أولاً.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>ترتيب ملء المستويات الثانوية</h3>
+
+                <p>
+                    من الترتيبات المستخدمة عند كتابة الترتيب الإلكتروني:
+                </p>
+
+                <div class="example-box">
+
+                    1s
+                    <br>
+                    2s
+                    <br>
+                    2p
+                    <br>
+                    3s
+                    <br>
+                    3p
+                    <br>
+                    4s
+                    <br>
+                    3d
+                    <br>
+                    4p
+                    <br>
+                    5s
+                    <br>
+                    4d
+                    <br>
+                    5p
+                    <br>
+                    6s
+                    <br>
+                    4f
+                    <br>
+                    5d
+                    <br>
+                    6p
+                    <br>
+                    7s
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>قاعدة هوند</h3>
+
+                <p>
+                    عند توزيع الإلكترونات في أوربيتالات متساوية في الطاقة،
+                    تشغل الإلكترونات الأوربيتالات فرادى أولاً قبل أن
+                    يبدأ ازدواج الإلكترونات.
+                </p>
+
+                <div class="memory-box">
+
+                    <strong>🧠 تذكر</strong>
+
+                    الإلكترونات تشغل الأوربيتالات المتساوية في الطاقة
+                    فرادى أولاً ثم يحدث الازدواج.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>مبدأ باولي</h3>
+
+                <p>
+                    لا يمكن لإلكترونين في الذرة نفسها أن تكون لهما
+                    مجموعة أعداد الكم نفسها.
+                </p>
+
+                <p>
+                    ولذلك فإن الأوربيتال الواحد يمكن أن يحتوي على
+                    إلكترونين كحد أقصى، ويكون الإلكترونان متعاكسي
+                    الاتجاه في اللف المغزلي.
+                </p>
+
+                <div class="example-box">
+
+                    أوربيتال واحد
+                    <br><br>
+                    ↑↓
+                    <br><br>
+                    أقصى عدد = 2 إلكترون
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>مثال: ترتيب إلكترونات ذرة الهيدروجين</h3>
+
+                <p>
+                    تحتوي ذرة الهيدروجين المتعادلة على إلكترون واحد.
+                </p>
+
+                <div class="example-box">
+
+                    H = 1s¹
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>مثال: الهيليوم</h3>
+
+                <p>
+                    تحتوي ذرة الهيليوم المتعادلة على إلكترونين.
+                </p>
+
+                <div class="example-box">
+
+                    He = 1s²
+
+                </div>
+
+                <div class="memory-box">
+
+                    <strong>💡 تذكر</strong>
+
+                    الأس 2 في 1s² يعني وجود إلكترونين
+                    في المستوى الثانوي 1s.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>📝 مراجعة الدرس</h3>
+
+                <div class="exercise-box">
+
+                    <h4>سؤال 1</h4>
+
+                    <p>
+                        كم إلكترونًا يستطيع المستوى الثانوي s أن يستوعب؟
+                    </p>
+
+                    <div class="answer-box">
+                        إلكترونين.
+                    </div>
+
+                </div>
+
+
+                <div class="exercise-box">
+
+                    <h4>سؤال 2</h4>
+
+                    <p>
+                        كم إلكترونًا يستطيع المستوى الثانوي p أن يستوعب؟
+                    </p>
+
+                    <div class="answer-box">
+                        ستة إلكترونات.
+                    </div>
+
+                </div>
+
+
+                <div class="exercise-box">
+
+                    <h4>سؤال 3</h4>
+
+                    <p>
+                        ما المبدأ الذي ينص على أن الإلكترونات
+                        تشغل الأوربيتالات الأقل طاقة أولاً؟
+                    </p>
+
+                    <div class="answer-box">
+                        مبدأ أوفباو.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button class="next-button" onclick="showLesson6()">
+            الدرس التالي: ترتيب لويس ←
+        </button>
+
+
+        <button class="next-button"
+                style="background:#173b78;"
+                onclick="showChapter1()">
+
+            ↩ العودة إلى الفصل الأول
+
+        </button>
+
+    </div>
+
+    `;
+}
+
+
+/* ==================================================
+   الدرس 1-6
+   ترتيب لويس
+================================================== */
+
+function showLesson6(){
+
+    setActive(1);
+
+    var app=document.getElementById("app");
+
+    app.innerHTML=`
+
+    <div class="page">
+
+        <div class="page-header">
+
+            <button class="back-button" onclick="showChapter1()">
+                →
+            </button>
+
+            <h2>1-6 ترتيب لويس</h2>
+
+            <span></span>
+
+        </div>
+
+
+        <div class="lesson-content">
+
+            <div class="content-card">
+
+                <h3>ما المقصود بترتيب لويس؟</h3>
+
+                <p>
+                    يستخدم رمز لويس لتمثيل إلكترونات التكافؤ
+                    الموجودة في الغلاف الإلكتروني الخارجي للذرة.
+                </p>
+
+                <p>
+                    وتسمى الإلكترونات الموجودة في الغلاف الخارجي
+                    بإلكترونات التكافؤ.
+                </p>
+
+                <div class="memory-box">
+
+                    <strong>🧠 احفظها</strong>
+
+                    إلكترونات التكافؤ هي الإلكترونات الموجودة
+                    في الغلاف الإلكتروني الخارجي.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>أهمية إلكترونات التكافؤ</h3>
+
+                <p>
+                    تعد إلكترونات التكافؤ مهمة في دراسة سلوك العناصر
+                    الكيميائي، لأنها تشارك في تكوين الروابط الكيميائية.
+                </p>
+
+                <p>
+                    لذلك فإن معرفة عدد إلكترونات التكافؤ تساعد على
+                    فهم كيفية تفاعل العناصر مع بعضها.
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>طريقة كتابة رمز لويس</h3>
+
+                <p>
+                    يكتب رمز العنصر الكيميائي، ثم تمثل إلكترونات التكافؤ
+                    بنقاط توضع حول رمز العنصر.
+                </p>
+
+                <div class="example-box">
+
+                    رمز العنصر
+                    <br><br>
+                    +
+                    <br><br>
+                    نقاط تمثل إلكترونات التكافؤ
+                    <br><br>
+                    =
+                    <br><br>
+                    رمز لويس
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>مثال</h3>
+
+                <p>
+                    إذا كان للعنصر عدد من إلكترونات التكافؤ،
+                    فإن هذه الإلكترونات تمثل بنقاط حول رمز العنصر.
+                </p>
+
+                <div class="memory-box">
+
+                    <strong>📌 تذكر</strong>
+
+                    عدد النقاط في رمز لويس يمثل عدد إلكترونات التكافؤ
+                    للعنصر.
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>📝 مراجعة الدرس</h3>
+
+                <div class="exercise-box">
+
+                    <h4>سؤال 1</h4>
+
+                    <p>
+                        ماذا تمثل نقاط رمز لويس؟
+                    </p>
+
+                    <div class="answer-box">
+                        تمثل إلكترونات التكافؤ.
+                    </div>
+
+                </div>
+
+
+                <div class="exercise-box">
+
+                    <h4>سؤال 2</h4>
+
+                    <p>
+                        أين توجد إلكترونات التكافؤ؟
+                    </p>
+
+                    <div class="answer-box">
+                        توجد في الغلاف الإلكتروني الخارجي للذرة.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button class="next-button" onclick="showChapter1()">
+
+            ✓ أكملت دروس الفصل الأول
+
+        </button>
+
+
+        <button class="next-button"
+                style="background:#173b78;"
+                onclick="showHome()">
+
+            🏠 العودة إلى الرئيسية
+
+        </button>
+
+    </div>
+
+    `;
+}
+
+
+/* ==================================================
+   بطاقات الحفظ
+================================================== */
+
+function showMemory(){
+
+    setActive(2);
+
+    var app=document.getElementById("app");
+
+    var card=memoryCards[memoryIndex];
+
+    app.innerHTML=`
+
+    <div class="page">
+
+        <div class="page-header">
+
+            <button class="back-button" onclick="showHome()">
+                →
+            </button>
+
+            <h2>🧠 احفظها</h2>
+
+            <span>
+                ${memoryIndex+1}/${memoryCards.length}
+            </span>
+
+        </div>
+
+
+        <div class="memory-card">
+
+            <div class="memory-icon">
+                ${card.icon}
+            </div>
+
+            <div class="memory-label">
+                بطاقة مراجعة
+            </div>
+
+            <h2>
+                ${card.question}
+            </h2>
+
+            <div class="memory-answer">
+                ${card.answer}
+            </div>
+
+            <div class="memory-tip">
+
+                💡 تذكّر:
+
+                <br>
+
+                ${card.tip}
+
+            </div>
+
+        </div>
+
+
+        <button class="next-button" onclick="nextMemory()">
+
+            ${memoryIndex===memoryCards.length-1
+                ? "إنهاء البطاقات ✓"
+                : "البطاقة التالية ←"}
+
+        </button>
+
+    </div>
+
+    `;
+}
+
+
+function nextMemory(){
+
+    if(memoryIndex < memoryCards.length-1){
+
+        memoryIndex++;
+
+        showMemory();
+
+    }else{
+
+        memoryIndex=0;
+
+        showHome();
+
+    }
+
+}
+/* ==================================================
+   الاختبار
+================================================== */
+
+function showQuiz(){
+
+    setActive(3);
+
+    quizIndex=0;
+    quizScore=0;
+
+    showQuestion();
+}
+
+
+function showQuestion(){
+
+    var app=document.getElementById("app");
+
+    var q=quizQuestions[quizIndex];
+
+    var options="";
+
+    for(var i=0;i<q.options.length;i++){
+
+        options+=`
+
+        <button class="option"
+                onclick="answerQuestion(${i})">
+
+            ${q.options[i]}
+
+        </button>
+
+        `;
+    }
+
+
+    app.innerHTML=`
+
+    <div class="page">
+
+        <div class="page-header">
+
+            <button class="back-button" onclick="showHome()">
+                →
+            </button>
+
+            <h2>❓ اختبرني</h2>
+
+            <span></span>
+
+        </div>
+
+
+        <div class="quiz-card">
+
+            <div class="quiz-number">
+
+                السؤال ${quizIndex+1}
+                من
+                ${quizQuestions.length}
+
+            </div>
+
+
+            <div class="quiz-question">
+
+                ${q.question}
+
+            </div>
+
+
+            ${options}
+
+        </div>
+
+    </div>
+
+    `;
+}
+
+
+function answerQuestion(answer){
+
+    var q=quizQuestions[quizIndex];
+
+    if(answer===q.correct){
+
+        quizScore++;
+
+    }
+
+    quizIndex++;
+
+    if(quizIndex<quizQuestions.length){
+
+        showQuestion();
+
+    }else{
+
+        showQuizResult();
+
+    }
+
+}
+
+
+function showQuizResult(){
+
+    var app=document.getElementById("app");
+
+    var percentage=Math.round(
+        (quizScore/quizQuestions.length)*100
+    );
+
+    var message="حاول مرة أخرى 💪";
+
+    if(percentage>=80){
+
+        message="ممتاز جدًا! 🔥";
+
+    }else if(percentage>=60){
+
+        message="جيد جدًا! 👏";
+
+    }
+
+
+    app.innerHTML=`
+
+    <div class="page">
+
+        <div class="quiz-card"
+             style="text-align:center;padding:35px 20px;">
+
+            <div style="font-size:65px;">
+                🏆
+            </div>
+
+            <h2>
+                ${message}
+            </h2>
+
+            <p>
+                نتيجتك
+            </p>
+
+            <div style="
+                font-size:35px;
+                font-weight:bold;
+                color:#173b78;
+            ">
+
+                ${quizScore} / ${quizQuestions.length}
+
+            </div>
+
+            <p>
+                النسبة:
+                <strong>${percentage}%</strong>
+            </p>
+
+        </div>
+
+
+        <button class="next-button"
+                onclick="showQuiz()">
+
+            🔄 إعادة الاختبار
+
+        </button>
+
+
+        <button class="next-button"
+                style="background:#173b78;"
+                onclick="showHome()">
+
+            🏠 الرئيسية
+
+        </button>
+
+    </div>
+
+    `;
+}
+
+
+/* ==================================================
+   الحساب
+================================================== */
+
+function showAccount(){
+
+    setActive(4);
+
+    var app=document.getElementById("app");
+
+    app.innerHTML=`
+
+    <div class="page">
+
+        <div class="page-header">
+
+            <button class="back-button"
+                    onclick="showHome()">
+
+                →
+
+            </button>
+
+            <h2>👤 حسابي</h2>
+
+            <span></span>
+
+        </div>
+
+
+        <div class="account-box">
+
+            <div class="account-avatar">
+                ك
+            </div>
+
+            <h2>
+                طالب الكيمياء
+            </h2>
+
+            <p>
+                مرحبًا بك في كيمياء بذكاء 👋
             </p>
 
 
             <div class="stats">
 
-              <div class="stat">
+                <div class="stat">
 
-                <strong>
-                  7
-                </strong>
+                    <strong>
+                        7
+                    </strong>
 
-                <span>
-                  أيام متتالية
-                </span>
+                    <span>
+                        أيام متتالية
+                    </span>
 
-              </div>
-
-
-              <div class="stat">
-
-                <strong>
-                  0
-                </strong>
-
-                <span>
-                  دروس مكتملة
-                </span>
-
-              </div>
+                </div>
 
 
-              <div class="stat">
+                <div class="stat">
 
-                <strong>
-                  0
-                </strong>
+                    <strong>
+                        6
+                    </strong>
 
-                <span>
-                  بطاقات مكتملة
-                </span>
+                    <span>
+                        دروس الفصل
+                    </span>
 
-              </div>
+                </div>
 
 
-              <div class="stat">
+                <div class="stat">
 
-                <strong>
-                  0%
-                </strong>
+                    <strong>
+                        ${quizScore}
+                    </strong>
 
-                <span>
-                  التقدم
-                </span>
+                    <span>
+                        آخر نتيجة
+                    </span>
 
-              </div>
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        50%
+                    </strong>
+
+                    <span>
+                        تقدم اليوم
+                    </span>
+
+                </div>
 
             </div>
 
-          </div>
-
-
-          <button
-            class="next"
-            onclick="showHome()"
-          >
-
-            🏠 العودة إلى الرئيسية
-
-          </button>
-
-
         </div>
 
-      `;
 
-    }
+        <button class="next-button"
+                onclick="showChapter1()">
 
+            📖 العودة إلى دروسي
 
-    /* =========================
-       تفعيل الشريط السفلي
-    ========================= */
+        </button>
 
-    function setActive(index) {
+    </div>
 
-      var buttons =
-        document.querySelectorAll(
-          ".nav-item"
-        );
+    `;
+}
 
 
-      for (
-        var i = 0;
-        i < buttons.length;
-        i++
-      ) {
+/* ==================================================
+   تشغيل التطبيق
+================================================== */
 
-        buttons[i].classList.remove(
-          "active"
-        );
+showHome();
 
-      }
-
-
-      if (buttons[index]) {
-
-        buttons[index].classList.add(
-          "active"
-        );
-
-      }
-
-    }
-
-
-    /* =========================
-       تشغيل التطبيق
-    ========================= */
-
-    showHome();
-
-
-  </script>
-
+</script>
 
 </body>
 

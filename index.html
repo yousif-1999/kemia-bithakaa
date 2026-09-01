@@ -9,50 +9,24 @@
 
 <style>
 
-/* =========================
-   التصميم الأساسي
-========================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    direction: rtl;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background: #ffffff;
-    color: #123b78;
-    font-family: "Tahoma", "Arial", sans-serif;
-    direction: rtl;
-}
-
-button {
-    font-family: inherit;
-}
-
-.app {
-    width: 100%;
-    min-height: calc(100vh - 90px);
-    padding: 18px 16px 110px;
-}
-
-/* =========================
-   صفحات الدروس
-========================= */
+/* =========================================
+   قالب موحد لجميع دروس الفصل الأول
+========================================= */
 
 .page {
     width: 100%;
     max-width: 760px;
     margin: 0 auto;
+    padding: 5px 0 25px;
     direction: rtl;
+    text-align: right;
 }
+
+/* عنوان الدرس */
 
 .page-header {
     width: 100%;
+    min-height: 65px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -60,486 +34,333 @@ button {
     margin-bottom: 22px;
 }
 
-.page-header h2,
-.page-header h1 {
-    margin: 0;
+.page-header h2 {
     flex: 1;
-    text-align: right;
+    margin: 0;
     color: #123b78;
     font-size: 28px;
     font-weight: 800;
     line-height: 1.5;
+    text-align: right;
 }
+
+/* زر الرجوع */
 
 .back {
     width: 44px;
     height: 44px;
     min-width: 44px;
-    border: 1px solid #d5dce8;
+    border: 1px solid #d6dce6;
     border-radius: 9px;
     background: #ffffff;
     color: #123b78;
     font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
 }
 
-/* =========================
-   بطاقات الدروس
-========================= */
+/* =========================================
+   بطاقات محتوى الدرس
+========================================= */
 
 .lesson-card {
-    width: 100% !important;
-    display: block !important;
-    position: relative;
-    margin: 0 0 16px;
-    padding: 28px 26px !important;
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 27px 25px;
     background: #ffffff;
-    border: 1px solid #dfe6f0;
-    border-radius: 25px;
-    box-shadow: 0 4px 15px rgba(20, 60, 110, 0.05);
+    border: 1px solid #dfe6ef;
+    border-radius: 24px;
+    box-shadow: 0 3px 14px rgba(18,59,120,0.045);
     direction: rtl;
     text-align: right;
-    overflow: hidden;
 }
 
 .lesson-card h3 {
-    margin: 0 0 22px;
+    margin: 0 0 20px;
     color: #123b78;
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 800;
     line-height: 1.6;
     text-align: right;
 }
 
 .lesson-card h4 {
-    margin: 0 0 18px;
+    margin: 0 0 14px;
     color: #123b78;
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 800;
-    line-height: 1.7;
-    text-align: right;
+    line-height: 1.6;
 }
 
 .lesson-card p {
     margin: 0 0 20px;
     color: #123b78;
-    font-size: 19px;
-    line-height: 2.1;
-    text-align: right;
-    white-space: normal;
-    word-break: normal;
-    overflow-wrap: break-word;
-}
-
-.lesson-card ul,
-.lesson-card ol {
-    margin: 15px 0;
-    padding-right: 28px;
-    padding-left: 0;
-}
-
-.lesson-card li {
-    margin-bottom: 12px;
-    color: #123b78;
     font-size: 18px;
-    line-height: 1.9;
+    font-weight: 400;
+    line-height: 2;
+    text-align: right;
+    direction: rtl;
 }
 
-/* منع تخربط النص إلى أعمدة */
-.lesson-card > div {
-    max-width: 100%;
+.lesson-card p:last-child {
+    margin-bottom: 0;
 }
 
-/* =========================
-   العناوين داخل الدرس
-========================= */
+/* =========================================
+   صندوق احفظها
+========================================= */
 
-.lesson-title {
+.memory-box {
+    width: 100%;
+    margin: 24px 0 0;
+    padding: 18px 20px;
+    background: #fff2c9;
+    border-radius: 22px;
     color: #123b78;
-    font-size: 27px;
-    font-weight: 800;
-    margin: 0 0 25px;
-    line-height: 1.6;
-}
-
-.section-title {
-    color: #123b78;
-    font-size: 23px;
-    font-weight: 800;
-    margin: 28px 0 18px;
-    line-height: 1.6;
-}
-
-/* =========================
-   احفظها
-========================= */
-
-.memory-box,
-.remember-box {
-    margin: 25px 0;
-    padding: 20px 22px;
-    background: #fff3c9;
-    border-radius: 24px;
-    border: none;
-    color: #123b78;
+    direction: rtl;
     text-align: right;
 }
 
-.memory-box h3,
-.remember-box h3 {
-    margin: 0 0 12px;
+.memory-box strong,
+.memory-box h3 {
+    display: block;
+    margin: 0 0 10px;
     color: #123b78;
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 800;
 }
 
-.memory-box p,
-.remember-box p {
+.memory-box p {
     margin: 0;
     color: #123b78;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.9;
 }
 
-/* =========================
-   أزرار التنقل داخل الدرس
-========================= */
+/* =========================================
+   صندوق المثال
+========================================= */
 
-.lesson-buttons,
+.example-box {
+    width: 100%;
+    margin: 20px 0;
+    padding: 22px;
+    background: #f4f7fc;
+    border: 1px solid #e0e7f2;
+    border-radius: 18px;
+    color: #123b78;
+    font-size: 18px;
+    line-height: 2;
+    text-align: center;
+}
+
+/* =========================================
+   الأسئلة والمراجعة
+========================================= */
+
+.exercise-box {
+    width: 100%;
+    margin-top: 18px;
+    padding: 20px;
+    background: #f7f9fc;
+    border: 1px solid #e1e7ef;
+    border-radius: 18px;
+}
+
+.exercise-box h4 {
+    margin: 0 0 12px;
+    color: #123b78;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.exercise-box p {
+    margin: 0 0 15px;
+}
+
+/* الإجابة */
+
+.answer-box {
+    padding: 14px 16px;
+    background: #fff2c9;
+    border-radius: 14px;
+    color: #123b78;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* =========================================
+   أزرار الانتقال بين الدروس
+========================================= */
+
 .lesson-actions {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 12px;
-    margin-top: 28px;
+    margin-top: 25px;
 }
 
-.next,
-.next-button {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    min-width: 150px;
+.next-button,
+.previous-button {
     min-height: 48px;
-    padding: 10px 22px !important;
-    border: none !important;
-    border-radius: 12px !important;
-    background: #173b78 !important;
-    color: #ffffff !important;
-    font-size: 17px !important;
+    padding: 11px 20px;
+    border-radius: 11px;
+    font-size: 17px;
     font-weight: 700;
     cursor: pointer;
     transition: 0.2s ease;
 }
 
-.next:hover,
+/* التالي */
+
+.next-button {
+    border: none;
+    background: #173b78;
+    color: #ffffff;
+}
+
 .next-button:hover {
-    background: #123264 !important;
-    transform: translateY(-1px);
+    background: #123264;
 }
 
-.previous,
+/* السابق */
+
 .previous-button {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    min-width: 150px;
-    min-height: 48px;
-    padding: 10px 22px !important;
-    border: 1px solid #173b78 !important;
-    border-radius: 12px !important;
-    background: #ffffff !important;
-    color: #173b78 !important;
-    font-size: 17px !important;
-    font-weight: 700;
-    cursor: pointer;
+    border: 1px solid #173b78;
+    background: #ffffff;
+    color: #173b78;
 }
 
-/* إذا كان زر العودة يحمل class back */
-.page-header .back {
-    flex-shrink: 0;
-}
+/* =========================================
+   العودة إلى الفصل
+========================================= */
 
-/* =========================
-   زر العودة إلى الفصل
-========================= */
-
-.chapter-back,
-.back-to-chapter {
+.chapter-back {
     width: 100%;
     min-height: 50px;
-    margin-top: 25px;
+    margin-top: 16px;
     border: none;
-    border-radius: 13px;
+    border-radius: 12px;
     background: #c97832;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     cursor: pointer;
 }
 
-/* =========================
-   الصفحة الرئيسية للدروس
-========================= */
+/* =========================================
+   منع أي تنسيق قديم من تخريب النص
+========================================= */
 
-.chapter-header {
+.lesson-content {
     width: 100%;
-    padding: 28px 25px;
-    margin-bottom: 25px;
-    background: #173b78;
-    border-radius: 25px;
-    color: #ffffff;
-    text-align: right;
-}
-
-.chapter-header h2,
-.chapter-header h3 {
-    margin: 0 0 12px;
-    color: #ffffff;
-    font-size: 25px;
-    line-height: 1.6;
-}
-
-.chapter-header p {
-    margin: 0;
-    color: #ffffff;
-    font-size: 17px;
-    line-height: 1.9;
-}
-
-/* بطاقات قائمة الدروس */
-
-.chapter-card {
-    width: 100%;
-    min-height: 115px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 22px;
-    margin-bottom: 16px;
-    border: 1px solid #dfe6f0;
-    border-radius: 24px;
-    background: #ffffff;
-    color: #123b78;
-    text-align: right;
-    cursor: pointer;
-    box-shadow: 0 4px 14px rgba(20, 60, 110, 0.04);
-}
-
-.chapter-card:hover {
-    transform: translateY(-2px);
-}
-
-.chapter-icon {
-    width: 78px;
-    height: 78px;
-    min-width: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    background: #eef3ff;
-    font-size: 38px;
-}
-
-.chapter-info {
-    flex: 1;
-    min-width: 0;
-}
-
-.chapter-info h3 {
-    margin: 0 0 8px;
-    color: #123b78;
-    font-size: 20px;
-    font-weight: 800;
-    line-height: 1.6;
-}
-
-.chapter-info p {
-    margin: 0;
-    color: #6680a5;
-    font-size: 15px;
-    line-height: 1.7;
-}
-
-/* =========================
-   شريط التنقل السفلي
-========================= */
-
-.bottom-nav {
-    position: fixed;
-    z-index: 1000;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 8px 8px 5px;
-    background: rgba(255, 255, 255, 0.98);
-    border-top: 1px solid #e1e5ec;
-    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.04);
-    direction: rtl;
-}
-
-.nav-item {
-    flex: 1;
-    height: 75px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    padding: 3px;
-    border: none;
-    background: transparent;
-    color: #9a9a9a;
-    font-size: 12px;
-    cursor: pointer;
-}
-
-.nav-icon {
-    height: 39px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 29px;
-    line-height: 1;
-}
-
-.nav-item.active {
-    color: #173b78;
-    font-weight: 700;
-}
-
-/* =========================
-   الجداول والمعادلات
-========================= */
-
-.lesson-card table {
-    width: 100%;
-    margin: 20px 0;
-    border-collapse: collapse;
-    direction: rtl;
-}
-
-.lesson-card th,
-.lesson-card td {
-    padding: 12px;
-    border: 1px solid #d9e1ed;
-    text-align: center;
-    font-size: 17px;
-    color: #123b78;
-}
-
-.lesson-card th {
-    background: #eef3ff;
-    font-weight: 800;
-}
-
-.formula {
-    direction: ltr;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    font-size: 20px;
-    margin: 20px 0;
-}
-
-/* =========================
-   الصور داخل الدروس
-========================= */
-
-.lesson-card img {
     display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 20px auto;
-    border-radius: 15px;
+    direction: rtl;
 }
 
-/* =========================
+.lesson-content .content-card {
+    width: 100%;
+    display: block;
+    margin-bottom: 16px;
+    padding: 27px 25px;
+    background: #ffffff;
+    border: 1px solid #dfe6ef;
+    border-radius: 24px;
+    box-shadow: 0 3px 14px rgba(18,59,120,0.045);
+    direction: rtl;
+    text-align: right;
+}
+
+.lesson-content .content-card h3 {
+    color: #123b78;
+    font-size: 23px;
+    line-height: 1.6;
+    margin: 0 0 20px;
+}
+
+.lesson-content .content-card p {
+    color: #123b78;
+    font-size: 18px;
+    line-height: 2;
+    margin: 0 0 20px;
+}
+
+/* =========================================
    الهاتف
-========================= */
+========================================= */
 
 @media (max-width: 600px) {
 
     .app {
-        padding: 14px 10px 105px;
+        padding: 12px 10px 105px;
     }
 
-    .page-header h2,
-    .page-header h1 {
+    .page {
+        padding: 0;
+    }
+
+    .page-header {
+        min-height: 58px;
+        margin-bottom: 18px;
+    }
+
+    .page-header h2 {
         font-size: 25px;
+        line-height: 1.45;
+    }
+
+    .back {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
     }
 
     .lesson-card {
-        padding: 23px 18px !important;
+        padding: 23px 18px;
         border-radius: 22px;
     }
 
     .lesson-card h3 {
-        font-size: 22px;
-    }
-
-    .lesson-card h4 {
-        font-size: 20px;
+        font-size: 21px;
+        margin-bottom: 17px;
     }
 
     .lesson-card p {
-        font-size: 18px;
+        font-size: 17px;
         line-height: 2;
     }
 
-    .lesson-card li {
-        font-size: 17px;
+    .memory-box {
+        padding: 17px;
+        border-radius: 19px;
     }
 
-    .lesson-buttons,
+    .memory-box strong,
+    .memory-box h3 {
+        font-size: 19px;
+    }
+
+    .memory-box p {
+        font-size: 16px;
+    }
+
     .lesson-actions {
         flex-direction: column;
     }
 
-    .next,
     .next-button,
-    .previous,
     .previous-button {
         width: 100%;
     }
 
-    .chapter-header {
-        padding: 24px 19px;
-    }
-
-    .chapter-header h2,
-    .chapter-header h3 {
-        font-size: 22px;
-    }
-
-    .chapter-card {
-        min-height: 105px;
-        padding: 16px;
-        gap: 14px;
-    }
-
-    .chapter-icon {
-        width: 65px;
-        height: 65px;
-        min-width: 65px;
-        font-size: 32px;
-    }
-
-    .chapter-info h3 {
-        font-size: 18px;
-    }
-
-    .chapter-info p {
-        font-size: 13px;
+    .chapter-back {
+        font-size: 16px;
     }
 }
-</style>
-    
 </style>
 </head>
 

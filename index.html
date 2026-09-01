@@ -442,9 +442,130 @@
 </nav>
 
 <script>
+
   function startMission() {
-    alert("🚀 سنبدأ مهمة اليوم قريبًا!");
-  }
+  document.querySelector(".app").innerHTML = `
+    <div style="
+      min-height:100vh;
+      padding:25px 20px 100px;
+      background:#ffffff;
+      direction:rtl;
+      text-align:right;
+      font-family:'Cairo',sans-serif;
+    ">
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:30px;
+      ">
+        <button onclick="location.reload()" style="
+          border:none;
+          background:#eef3ff;
+          color:#173b78;
+          width:45px;
+          height:45px;
+          border-radius:50%;
+          font-size:22px;
+        ">→</button>
+
+        <div style="
+          color:#64748b;
+          font-size:15px;
+          font-weight:700;
+        ">1 / 3</div>
+      </div>
+
+      <div style="
+        text-align:center;
+        color:#173b78;
+        font-size:25px;
+        font-weight:800;
+        margin-bottom:25px;
+      ">
+        🧠 بطاقة الحفظ
+      </div>
+
+      <div style="
+        background:#f7f9ff;
+        border:1px solid #e7ebf5;
+        border-radius:25px;
+        padding:28px 22px;
+        text-align:center;
+        box-shadow:0 8px 25px rgba(20,40,80,.07);
+      ">
+
+        <div style="
+          font-size:45px;
+          margin-bottom:15px;
+        ">⚗️</div>
+
+        <div style="
+          color:#64748b;
+          font-size:14px;
+          margin-bottom:10px;
+        ">
+          معلومة كيميائية
+        </div>
+
+        <h2 style="
+          color:#172554;
+          font-size:23px;
+          line-height:1.7;
+          margin:10px 0 20px;
+        ">
+          ما المقصود بالعنصر الكيميائي؟
+        </h2>
+
+        <div style="
+          background:#fff4d6;
+          border-radius:18px;
+          padding:18px;
+          color:#334155;
+          font-size:16px;
+          line-height:2;
+        ">
+          العنصر الكيميائي مادة نقية تتكون من نوع واحد من الذرات.
+        </div>
+
+        <div style="
+          margin-top:20px;
+          background:#eaf8f1;
+          border-radius:18px;
+          padding:15px;
+          color:#16734b;
+          font-size:15px;
+          line-height:1.9;
+        ">
+          💡 تذكّر:<br>
+          العنصر = نوع واحد من الذرات
+        </div>
+
+      </div>
+
+      <button onclick="nextCard()" style="
+        width:100%;
+        margin-top:25px;
+        border:none;
+        border-radius:18px;
+        padding:17px;
+        background:#ed8b00;
+        color:white;
+        font-family:'Cairo',sans-serif;
+        font-size:17px;
+        font-weight:800;
+      ">
+        التالي ←
+      </button>
+
+    </div>
+  `;
+}
+
+function nextCard() {
+  alert("البطاقة الثانية ستكون هنا 🧠");
+}
 </script>
 
 </body>

@@ -1,1263 +1,738 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>كيمياء بذكاء</title>
+  <title>كيمياء بذكاء</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-* {
-  box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  background: #eef1f7;
-  font-family: "Cairo", sans-serif;
-  color: #172554;
-}
+    body {
+      margin: 0;
+      background: #eef1f7;
+      font-family: "Cairo", sans-serif;
+      color: #172554;
+    }
 
-.app {
-  max-width: 430px;
-  min-height: 100vh;
-  margin: auto;
-  background: #ffffff;
-  padding-bottom: 100px;
-}
+    .app {
+      max-width: 430px;
+      min-height: 100vh;
+      margin: auto;
+      background: #ffffff;
+      padding-bottom: 95px;
+    }
 
-.header {
-  padding: 28px 22px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    .header {
+      padding: 28px 22px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.welcome {
-  text-align: right;
-}
+    .welcome {
+      text-align: right;
+    }
 
-.welcome small {
-  color: #64748b;
-  font-size: 14px;
-}
+    .welcome small {
+      color: #64748b;
+      font-size: 14px;
+    }
 
-.welcome h1 {
-  margin: 3px 0 0;
-  font-size: 25px;
-  font-weight: 800;
-  color: #172554;
-}
+    .welcome h1 {
+      margin: 3px 0 0;
+      font-size: 25px;
+      font-weight: 800;
+      color: #172554;
+    }
 
-.profile {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #173b78;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  font-weight: 700;
-}
+    .profile {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #173b78;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+    }
 
-.streak {
-  margin: 8px 22px 20px;
-  background: #fff4d6;
-  color: #a16207;
-  padding: 9px 14px;
-  border-radius: 20px;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 700;
-}
+    .streak {
+      margin: 8px 22px 20px;
+      background: #fff4d6;
+      color: #a16207;
+      padding: 9px 14px;
+      border-radius: 20px;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+    }
 
-.progress-card {
-  margin: 0 20px 22px;
-  padding: 20px;
-  border-radius: 22px;
-  background: #f7f9ff;
-  border: 1px solid #edf0f7;
-}
+    .progress-card {
+      margin: 0 20px 22px;
+      padding: 20px;
+      border-radius: 22px;
+      background: #f7f9ff;
+      border: 1px solid #edf0f7;
+    }
 
-.progress-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-  font-weight: 700;
-}
+    .progress-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
 
-.progress-percent {
-  color: #169b62;
-  font-size: 18px;
-}
+    .progress-percent {
+      color: #169b62;
+      font-size: 18px;
+    }
 
-.progress-bar {
-  width: 100%;
-  height: 10px;
-  background: #e5e7eb;
-  border-radius: 20px;
-  overflow: hidden;
-}
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background: #e5e7eb;
+      border-radius: 20px;
+      overflow: hidden;
+    }
 
-.progress-fill {
-  width: 50%;
-  height: 100%;
-  background: #169b62;
-  border-radius: 20px;
-  transition: width 0.4s ease;
-}
+    .progress-fill {
+      width: 50%;
+      height: 100%;
+      background: #169b62;
+      border-radius: 20px;
+    }
 
-.progress-text {
-  margin-top: 10px;
-  color: #64748b;
-  font-size: 13px;
-}
+    .progress-text {
+      margin-top: 10px;
+      color: #64748b;
+      font-size: 13px;
+    }
 
-.section-title {
-  margin: 0 22px 14px;
-  font-size: 21px;
-  font-weight: 800;
-  color: #172554;
-}
+    .section-title {
+      margin: 0 22px 14px;
+      font-size: 21px;
+      font-weight: 800;
+      color: #172554;
+    }
 
-.tasks {
-  margin: 0 20px;
-  display: grid;
-  gap: 12px;
-}
+    .tasks {
+      margin: 0 20px;
+      display: grid;
+      gap: 12px;
+    }
 
-.task {
-  background: #ffffff;
-  border: 1px solid #edf0f7;
-  border-radius: 20px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  box-shadow: 0 4px 15px rgba(20, 40, 80, 0.05);
-  cursor: pointer;
-}
+    .task {
+      background: #ffffff;
+      border: 1px solid #edf0f7;
+      border-radius: 20px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 4px 15px rgba(20, 40, 80, 0.05);
+    }
 
-.task-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
-  background: #eef3ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 25px;
-  flex-shrink: 0;
-}
+    .task-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: #eef3ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      flex-shrink: 0;
+    }
 
-.task-content {
-  flex: 1;
-}
+    .task-content {
+      flex: 1;
+    }
 
-.task-content h3 {
-  margin: 0 0 3px;
-  font-size: 16px;
-  font-weight: 700;
-}
+    .task-content h3 {
+      margin: 0 0 3px;
+      font-size: 16px;
+      font-weight: 700;
+    }
 
-.task-content p {
-  margin: 0;
-  color: #64748b;
-  font-size: 12px;
-}
+    .task-content p {
+      margin: 0;
+      color: #64748b;
+      font-size: 12px;
+    }
 
-.check {
-  width: 27px;
-  height: 27px;
-  border-radius: 50%;
-  background: #22a66f;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-}
+    .check {
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      background: #22a66f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+    }
 
-.arrow {
-  color: #94a3b8;
-  font-size: 25px;
-}
+    .arrow {
+      color: #94a3b8;
+      font-size: 25px;
+    }
 
-.main-button {
-  margin: 22px 20px;
-  width: calc(100% - 40px);
-  border: none;
-  border-radius: 18px;
-  padding: 17px;
-  background: #ed8b00;
-  color: white;
-  font-family: "Cairo", sans-serif;
-  font-size: 17px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(237, 139, 0, 0.25);
-}
+    .main-button {
+      margin: 22px 20px;
+      width: calc(100% - 40px);
+      border: none;
+      border-radius: 18px;
+      padding: 17px;
+      background: #ed8b00;
+      color: white;
+      font-family: "Cairo", sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+    }
 
-.quick {
-  margin: 8px 20px 0;
-}
+    .quick {
+      margin: 8px 20px 0;
+    }
 
-.quick-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
+    .quick-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
 
-.quick-card {
-  border: 1px solid #edf0f7;
-  border-radius: 18px;
-  padding: 18px 12px;
-  text-align: center;
-  background: #ffffff;
-}
+    .quick-card {
+      border: 1px solid #edf0f7;
+      border-radius: 18px;
+      padding: 18px 12px;
+      text-align: center;
+      background: #ffffff;
+      cursor: pointer;
+    }
 
-.quick-card div {
-  font-size: 27px;
-  margin-bottom: 7px;
-}
+    .quick-card div {
+      font-size: 27px;
+      margin-bottom: 7px;
+    }
 
-.quick-card strong {
-  display: block;
-  font-size: 14px;
-}
+    .quick-card strong {
+      display: block;
+      font-size: 14px;
+    }
 
-.quick-card span {
-  color: #64748b;
-  font-size: 11px;
-}
+    .quick-card span {
+      color: #64748b;
+      font-size: 11px;
+    }
 
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(430px, 100%);
-  height: 76px;
-  background: #ffffff;
-  border-top: 1px solid #e5e7eb;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  align-items: center;
-  z-index: 100;
-}
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(430px, 100%);
+      height: 76px;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: center;
+      z-index: 100;
+    }
 
-.nav-item {
-  border: none;
-  background: transparent;
-  font-family: "Cairo", sans-serif;
-  color: #94a3b8;
-  font-size: 10px;
-  cursor: pointer;
-}
+    .nav-item {
+      border: none;
+      background: transparent;
+      font-family: "Cairo", sans-serif;
+      color: #94a3b8;
+      font-size: 10px;
+      cursor: pointer;
+    }
 
-.nav-item div {
-  font-size: 22px;
-  margin-bottom: 2px;
-}
+    .nav-item div {
+      font-size: 22px;
+      margin-bottom: 2px;
+    }
 
-.nav-item.active {
-  color: #173b78;
-  font-weight: 700;
-}
+    .nav-item.active {
+      color: #173b78;
+      font-weight: 700;
+    }
 
-.page {
-  min-height: 100vh;
-  padding: 25px 20px 100px;
-  background: #ffffff;
-}
+    .mission {
+      min-height: 100vh;
+      padding: 25px 20px 100px;
+      background: #ffffff;
+    }
 
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
+    .mission-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
 
-.back-button {
-  border: none;
-  background: #eef3ff;
-  color: #173b78;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  font-size: 22px;
-  cursor: pointer;
-}
+    .back-button {
+      border: none;
+      background: #eef3ff;
+      color: #173b78;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 22px;
+      cursor: pointer;
+    }
 
-.page-number {
-  color: #64748b;
-  font-size: 15px;
-  font-weight: 700;
-}
+    .counter {
+      color: #64748b;
+      font-size: 15px;
+      font-weight: 700;
+    }
 
-.card-title {
-  text-align: center;
-  color: #173b78;
-  font-size: 25px;
-  font-weight: 800;
-  margin-bottom: 25px;
-}
+    .mission-title {
+      text-align: center;
+      color: #173b78;
+      font-size: 25px;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
 
-.study-card {
-  background: #f7f9ff;
-  border: 1px solid #e7ebf5;
-  border-radius: 25px;
-  padding: 28px 22px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(20,40,80,.07);
-}
+    .card {
+      background: #f7f9ff;
+      border: 1px solid #e7ebf5;
+      border-radius: 25px;
+      padding: 28px 22px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(20, 40, 80, 0.07);
+    }
 
-.big-icon {
-  font-size: 45px;
-  margin-bottom: 15px;
-}
+    .card-icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
 
-.info-label {
-  color: #64748b;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
+    .card-label {
+      color: #64748b;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
 
-.study-card h2 {
-  color: #172554;
-  font-size: 23px;
-  line-height: 1.7;
-  margin: 10px 0 20px;
-}
+    .card h2 {
+      color: #172554;
+      font-size: 23px;
+      line-height: 1.7;
+      margin: 10px 0 20px;
+    }
 
-.answer-box {
-  background: #fff4d6;
-  border-radius: 18px;
-  padding: 18px;
-  color: #334155;
-  font-size: 16px;
-  line-height: 2;
-}
+    .answer {
+      background: #fff4d6;
+      border-radius: 18px;
+      padding: 18px;
+      color: #334155;
+      font-size: 16px;
+      line-height: 2;
+    }
 
-.remember-box {
-  margin-top: 20px;
-  background: #eaf8f1;
-  border-radius: 18px;
-  padding: 15px;
-  color: #16734b;
-  font-size: 15px;
-  line-height: 1.9;
-}
+    .remember {
+      margin-top: 20px;
+      background: #eaf8f1;
+      border-radius: 18px;
+      padding: 15px;
+      color: #16734b;
+      font-size: 15px;
+      line-height: 1.9;
+    }
 
-.next-button {
-  width: 100%;
-  margin-top: 25px;
-  border: none;
-  border-radius: 18px;
-  padding: 17px;
-  background: #ed8b00;
-  color: white;
-  font-family: "Cairo", sans-serif;
-  font-size: 17px;
-  font-weight: 800;
-  cursor: pointer;
-}
+    .next-button {
+      width: 100%;
+      margin-top: 25px;
+      border: none;
+      border-radius: 18px;
+      padding: 17px;
+      background: #ed8b00;
+      color: white;
+      font-family: "Cairo", sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+    }
 
-.finish-button {
-  width: 100%;
-  margin-top: 25px;
-  border: none;
-  border-radius: 18px;
-  padding: 17px;
-  background: #22a66f;
-  color: white;
-  font-family: "Cairo", sans-serif;
-  font-size: 17px;
-  font-weight: 800;
-  cursor: pointer;
-}
+    .finish-button {
+      background: #22a66f;
+    }
 
-.quiz-question {
-  background: #f7f9ff;
-  border-radius: 22px;
-  padding: 22px;
-  margin-bottom: 20px;
-  border: 1px solid #e7ebf5;
-}
+    .result {
+      text-align: center;
+      padding-top: 80px;
+    }
 
-.quiz-question h2 {
-  font-size: 20px;
-  line-height: 1.8;
-  margin: 0;
-}
+    .result-icon {
+      font-size: 70px;
+      margin-bottom: 20px;
+    }
 
-.option {
-  width: 100%;
-  border: 1px solid #e2e8f0;
-  background: white;
-  padding: 15px;
-  border-radius: 15px;
-  margin-top: 10px;
-  text-align: right;
-  font-family: "Cairo", sans-serif;
-  font-size: 15px;
-  cursor: pointer;
-}
+    .result h2 {
+      font-size: 27px;
+      color: #172554;
+    }
 
-.option:hover {
-  background: #eef3ff;
-}
+    .result p {
+      color: #64748b;
+      line-height: 2;
+      font-size: 16px;
+    }
 
-.result-box {
-  text-align: center;
-  background: #eaf8f1;
-  border-radius: 22px;
-  padding: 30px 20px;
-  margin-top: 25px;
-}
+    @media (min-width: 500px) {
+      body {
+        padding: 25px 0;
+      }
 
-.result-score {
-  font-size: 45px;
-  font-weight: 800;
-  color: #169b62;
-}
-
-.result-text {
-  font-size: 18px;
-  font-weight: 700;
-  color: #16734b;
-}
-
-</style>
+      .app {
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="app" id="app"></div>
+<div class="app" id="app">
+
+  <div class="header">
+
+    <div class="welcome">
+      <small>مرحبًا بك 👋</small>
+      <h1>كيمياء بذكاء</h1>
+    </div>
+
+    <div class="profile">ك</div>
+
+  </div>
+
+  <div class="streak">
+    🔥 سلسلة التعلم: 7 أيام
+  </div>
+
+  <div class="progress-card">
+
+    <div class="progress-title">
+      <span>تقدم اليوم</span>
+      <span class="progress-percent">50%</span>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+
+    <div class="progress-text">
+      أنجزت مهمتين من أصل أربع مهام اليوم
+    </div>
+
+  </div>
+
+  <h2 class="section-title">
+    🎯 مهمة اليوم
+  </h2>
+
+  <div class="tasks">
+
+    <div class="task">
+      <div class="task-icon">🧠</div>
+
+      <div class="task-content">
+        <h3>3 بطاقات للحفظ</h3>
+        <p>مراجعة سريعة للمعلومات</p>
+      </div>
+
+      <div class="check">✓</div>
+    </div>
+
+    <div class="task">
+      <div class="task-icon">🧮</div>
+
+      <div class="task-content">
+        <h3>قانون اليوم</h3>
+        <p>تعلم قانون الكيمياء</p>
+      </div>
+
+      <div class="check">✓</div>
+    </div>
+
+    <div class="task">
+      <div class="task-icon">📝</div>
+
+      <div class="task-content">
+        <h3>5 أسئلة</h3>
+        <p>اختبر معلوماتك</p>
+      </div>
+
+      <div class="arrow">‹</div>
+    </div>
+
+    <div class="task">
+      <div class="task-icon">⚗️</div>
+
+      <div class="task-content">
+        <h3>مسألة اليوم</h3>
+        <p>حل المسألة خطوة بخطوة</p>
+      </div>
+
+      <div class="arrow">‹</div>
+    </div>
+
+  </div>
+
+  <button class="main-button" onclick="startMission()">
+    🚀 ابدأ مهمة اليوم
+  </button>
+
+  <div class="quick">
+
+    <h2 class="section-title" style="margin-left:0;margin-right:0;">
+      الوصول السريع
+    </h2>
+
+    <div class="quick-grid">
+
+      <div class="quick-card">
+        <div>🧮</div>
+        <strong>احفظها</strong>
+        <span>قوانين الكيمياء</span>
+      </div>
+
+      <div class="quick-card">
+        <div>🔴</div>
+        <strong>أخطائي</strong>
+        <span>راجع أخطاءك</span>
+      </div>
+
+      <div class="quick-card">
+        <div>📈</div>
+        <strong>تقدمي</strong>
+        <span>إحصائياتك</span>
+      </div>
+
+      <div class="quick-card">
+        <div>📚</div>
+        <strong>دروسي</strong>
+        <span>كل الفصول</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<nav class="bottom-nav">
+
+  <button class="nav-item active">
+    <div>🏠</div>
+    الرئيسية
+  </button>
+
+  <button class="nav-item">
+    <div>📖</div>
+    دروسي
+  </button>
+
+  <button class="nav-item">
+    <div>🧠</div>
+    احفظها
+  </button>
+
+  <button class="nav-item">
+    <div>❓</div>
+    اختبرني
+  </button>
+
+  <button class="nav-item">
+    <div>👤</div>
+    حسابي
+  </button>
+
+</nav>
 
 <script>
 
-/* =========================================
-   حالة التطبيق
-========================================= */
-
-let missionDone = localStorage.getItem("missionDone") === "true";
-let quizDone = localStorage.getItem("quizDone") === "true";
-
-
-/* =========================================
-   الصفحة الرئيسية
-========================================= */
-
-function showHome() {
-
-  let completed = 2;
-
-  if (missionDone) {
-    completed = 3;
-  }
-
-  if (quizDone) {
-    completed = 4;
-  }
-
-  let percent = Math.round((completed / 4) * 100);
-
-  document.getElementById("app").innerHTML = `
-
-    <div class="header">
-
-      <div class="welcome">
-        <small>مرحبًا بك 👋</small>
-        <h1>كيمياء بذكاء</h1>
-      </div>
-
-      <div class="profile">ك</div>
-
-    </div>
-
-
-    <div class="streak">
-      🔥 سلسلة التعلم: 7 أيام
-    </div>
-
-
-    <div class="progress-card">
-
-      <div class="progress-title">
-        <span>تقدم اليوم</span>
-        <span class="progress-percent">${percent}%</span>
-      </div>
-
-      <div class="progress-bar">
-        <div class="progress-fill" style="width:${percent}%"></div>
-      </div>
-
-      <div class="progress-text">
-        أنجزت ${completed} مهام من أصل أربع مهام اليوم
-      </div>
-
-    </div>
-
-
-    <h2 class="section-title">
-      🎯 مهمة اليوم
-    </h2>
-
-
-    <div class="tasks">
-
-
-      <div class="task" onclick="startMission()">
-
-        <div class="task-icon">
-          🧠
-        </div>
-
-        <div class="task-content">
-
-          <h3>3 بطاقات للحفظ</h3>
-
-          <p>
-            مراجعة سريعة للمعلومات
-          </p>
-
-        </div>
-
-        ${
-          missionDone
-          ? `<div class="check">✓</div>`
-          : `<div class="arrow">‹</div>`
-        }
-
-      </div>
-
-
-      <div class="task">
-
-        <div class="task-icon">
-          🧮
-        </div>
-
-        <div class="task-content">
-
-          <h3>قانون اليوم</h3>
-
-          <p>
-            تعلم قانون الكيمياء
-          </p>
-
-        </div>
-
-        <div class="check">
-          ✓
-        </div>
-
-      </div>
-
-
-      <div class="task" onclick="startQuiz()">
-
-        <div class="task-icon">
-          📝
-        </div>
-
-        <div class="task-content">
-
-          <h3>5 أسئلة</h3>
-
-          <p>
-            اختبر معلوماتك
-          </p>
-
-        </div>
-
-        ${
-          quizDone
-          ? `<div class="check">✓</div>`
-          : `<div class="arrow">‹</div>`
-        }
-
-      </div>
-
-
-      <div class="task">
-
-        <div class="task-icon">
-          ⚗️
-        </div>
-
-        <div class="task-content">
-
-          <h3>مسألة اليوم</h3>
-
-          <p>
-            حل المسألة خطوة بخطوة
-          </p>
-
-        </div>
-
-        <div class="arrow">
-          ‹
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <button class="main-button" onclick="startMission()">
-      🚀 ابدأ مهمة اليوم
-    </button>
-
-
-    <div class="quick">
-
-      <h2 class="section-title"
-          style="margin-left:0;margin-right:0;">
-        الوصول السريع
-      </h2>
-
-      <div class="quick-grid">
-
-        <div class="quick-card">
-          <div>🧮</div>
-          <strong>احفظها</strong>
-          <span>قوانين الكيمياء</span>
-        </div>
-
-        <div class="quick-card">
-          <div>🔴</div>
-          <strong>أخطائي</strong>
-          <span>راجع أخطاءك</span>
-        </div>
-
-        <div class="quick-card">
-          <div>📈</div>
-          <strong>تقدمي</strong>
-          <span>إحصائياتك</span>
-        </div>
-
-        <div class="quick-card">
-          <div>📚</div>
-          <strong>دروسي</strong>
-          <span>كل الفصول</span>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <nav class="bottom-nav">
-
-      <button class="nav-item active">
-        <div>🏠</div>
-        الرئيسية
-      </button>
-
-      <button class="nav-item">
-        <div>📖</div>
-        دروسي
-      </button>
-
-      <button class="nav-item">
-        <div>🧠</div>
-        احفظها
-      </button>
-
-      <button class="nav-item">
-        <div>❓</div>
-        اختبرني
-      </button>
-
-      <button class="nav-item">
-        <div>👤</div>
-        حسابي
-      </button>
-
-    </nav>
-
-  `;
-}
-
-
-/* =========================================
-   المهمة - البطاقة الأولى
-========================================= */
-
-function startMission() {
-
-  showCard1();
-
-}
-
-
-/* =========================================
-   البطاقة الأولى
-========================================= */
-
-function showCard1() {
-
-  document.getElementById("app").innerHTML = `
-
-    <div class="page">
-
-      <div class="topbar">
-
-        <button class="back-button"
-                onclick="showHome()">
-          →
-        </button>
-
-        <div class="page-number">
-          1 / 3
-        </div>
-
-      </div>
-
-
-      <div class="card-title">
-        🧠 بطاقة الحفظ
-      </div>
-
-
-      <div class="study-card">
-
-        <div class="big-icon">
-          ⚗️
-        </div>
-
-        <div class="info-label">
-          معلومة كيميائية
-        </div>
-
-        <h2>
-          ما المقصود بالعنصر الكيميائي؟
-        </h2>
-
-        <div class="answer-box">
-          العنصر الكيميائي مادة نقية تتكون من نوع واحد من الذرات.
-        </div>
-
-        <div class="remember-box">
-          💡 تذكّر:<br>
-          العنصر = نوع واحد من الذرات
-        </div>
-
-      </div>
-
-
-      <button class="next-button"
-              onclick="showCard2()">
-        التالي ←
-      </button>
-
-    </div>
-
-  `;
-}
-
-
-/* =========================================
-   البطاقة الثانية
-========================================= */
-
-function showCard2() {
-
-  document.getElementById("app").innerHTML = `
-
-    <div class="page">
-
-      <div class="topbar">
-
-        <button class="back-button"
-                onclick="showHome()">
-          →
-        </button>
-
-        <div class="page-number">
-          2 / 3
-        </div>
-
-      </div>
-
-
-      <div class="card-title">
-        🧠 بطاقة الحفظ
-      </div>
-
-
-      <div class="study-card">
-
-        <div class="big-icon">
-          ⚛️
-        </div>
-
-        <div class="info-label">
-          معلومة كيميائية
-        </div>
-
-        <h2>
-          ممَّ تتكون المادة؟
-        </h2>
-
-        <div class="answer-box">
-          تتكون المادة من جسيمات صغيرة جدًا، ومن أهمها الذرات والجزيئات.
-        </div>
-
-        <div class="remember-box">
-          💡 تذكّر:<br>
-          المادة تتكون من جسيمات صغيرة جدًا.
-        </div>
-
-      </div>
-
-
-      <button class="next-button"
-              onclick="showCard3()">
-        التالي ←
-      </button>
-
-    </div>
-
-  `;
-}
-
-
-/* =========================================
-   البطاقة الثالثة
-========================================= */
-
-function showCard3() {
-
-  document.getElementById("app").innerHTML = `
-
-    <div class="page">
-
-      <div class="topbar">
-
-        <button class="back-button"
-                onclick="showHome()">
-          →
-        </button>
-
-        <div class="page-number">
-          3 / 3
-        </div>
-
-      </div>
-
-
-      <div class="card-title">
-        🧠 بطاقة الحفظ
-      </div>
-
-
-      <div class="study-card">
-
-        <div class="big-icon">
-          🔬
-        </div>
-
-        <div class="info-label">
-          معلومة كيميائية
-        </div>
-
-        <h2>
-          ما هي الذرة؟
-        </h2>
-
-        <div class="answer-box">
-          الذرة هي أصغر جزء من العنصر الكيميائي يحتفظ بخواصه الكيميائية.
-        </div>
-
-        <div class="remember-box">
-          💡 تذكّر:<br>
-          الذرة هي الوحدة الأساسية التي يتكون منها العنصر.
-        </div>
-
-      </div>
-
-
-      <button class="finish-button"
-              onclick="finishMission()">
-        إنهاء المهمة ✓
-      </button>
-
-    </div>
-
-  `;
-}
-
-
-/* =========================================
-   إنهاء مهمة البطاقات
-========================================= */
-
-function finishMission() {
-
-  missionDone = true;
-
-  localStorage.setItem("missionDone", "true");
-
-  showMissionComplete();
-
-}
-
-
-/* =========================================
-   شاشة إتمام المهمة
-========================================= */
-
-function showMissionComplete() {
-
-  document.getElementById("app").innerHTML = `
-
-    <div class="page">
-
-      <div style="
-        text-align:center;
-        padding-top:70px;
-      ">
-
-        <div style="
-          font-size:75px;
-          margin-bottom:20px;
-        ">
-          🎉
-        </div>
-
-        <h1 style="
-          color:#173b78;
-          font-size:28px;
-          margin-bottom:15px;
-        ">
-          أحسنت!
-        </h1>
-
-        <p style="
-          color:#64748b;
-          font-size:16px;
-          line-height:2;
-        ">
-          لقد أكملت بطاقات الحفظ الثلاث بنجاح.
-        </p>
-
-        <div style="
-          background:#eaf8f1;
-          color:#16734b;
-          border-radius:20px;
-          padding:20px;
-          margin-top:25px;
-          font-weight:700;
-        ">
-          ✅ تقدم اليوم أصبح 75%
-        </div>
-
-      </div>
-
-
-      <button class="main-button"
-              onclick="showHome()">
-        العودة إلى الرئيسية
-      </button>
-
-
-      <button class="next-button"
-              onclick="startQuiz()">
-        📝 ابدأ الأسئلة الخمسة
-      </button>
-
-    </div>
-
-  `;
-}
-
-
-/* =========================================
-   الأسئلة
-========================================= */
-
-const questions = [
-
-  {
-    question: "ما المقصود بالعنصر الكيميائي؟",
-
-    options: [
-      "مادة تتكون من نوع واحد من الذرات",
-      "مادة تتكون من عدة أنواع من الذرات",
-      "مجموعة من الجزيئات فقط",
-      "مادة لا تحتوي على ذرات"
-    ],
-
-    correct: 0
-  },
-
-
-  {
-    question: "ما أصغر وحدة تحتفظ بخواص العنصر الكيميائي؟",
-
-    options: [
-      "الجزيء",
-      "الذرة",
-      "المركب",
-      "المحلول"
-    ],
-
-    correct: 1
-  },
-
-
-  {
-    question: "ممَّ تتكون المادة؟",
-
-    options: [
-      "من الضوء فقط",
-      "من الحرارة فقط",
-      "من جسيمات صغيرة جدًا",
-      "من الفراغ"
-    ],
-
-    correct: 2
-  },
-
-
-  {
-    question: "أي مما يأتي يمثل عنصرًا كيميائيًا؟",
-
-    options: [
-      "الماء",
-      "ثاني أكسيد الكربون",
-      "الأكسجين",
-      "ملح الطعام"
-    ],
-
-    correct: 2
-  },
-
-
-  {
-    question: "ما الوحدة الأساسية التي يتكون منها العنصر؟",
-
-    options: [
-      "الذرة",
-      "المحلول",
-      "المركب",
-      "الخليط"
-    ],
-
-    correct: 0
-  }
-
-];
-
-
-let currentQuestion = 0;
-let score = 0;
-
-
-/* =========================================
-   بدء الاختبار
-========================================= */
-
-function startQuiz() {
-
-  currentQuestion = 0;
-  score = 0;
-
-  showQuestion();
-
-}
-
-
-/* =========================================
-   عرض السؤال
-========================================= */
-
-function showQuestion() {
-
-  if (currentQuestion >= questions.length) {
-
-    showQuizResult();
-
-    return;
-  }
-
-
-  const q = questions[currentQuestion];
-
-
-  let optionsHTML = "";
-
-
-  for (let i = 0; i < q.options.length; i++) {
-
-    optionsHTML += `
-
-      <button class="option"
-              onclick="answerQuestion(${i})">
-
-        ${q.options[i]}
-
-      </button>
-
-    `;
+  var cards = [
+    {
+      icon: "⚗️",
+      question: "ما المقصود بالعنصر الكيميائي؟",
+      answer: "العنصر الكيميائي مادة نقية تتكون من نوع واحد من الذرات.",
+      remember: "العنصر = نوع واحد من الذرات"
+    },
+    {
+      icon: "⚛️",
+      question: "ممَّ تتكون المادة؟",
+      answer: "تتكون المادة من جسيمات صغيرة جدًا، ومن أهمها الذرات والجزيئات.",
+      remember: "المادة تتكون من جسيمات صغيرة جدًا."
+    },
+    {
+      icon: "🔬",
+      question: "ما الذرة؟",
+      answer: "الذرة هي أصغر وحدة من العنصر الكيميائي تحتفظ بخواصه الكيميائية.",
+      remember: "الذرة هي الوحدة الأساسية التي يتكون منها العنصر."
+    }
+  ];
+
+  var currentCard = 0;
+
+
+  function startMission() {
+
+    currentCard = 0;
+
+    showCard();
 
   }
 
 
-  document.getElementById("app").innerHTML = `
+  function showCard() {
 
-    <div class="page">
+    var app = document.getElementById("app");
 
-      <div class="topbar">
+    var card = cards[currentCard];
 
-        <button class="back-button"
-                onclick="showHome()">
-          →
-        </button>
+    var number = currentCard + 1;
 
-        <div class="page-number">
-          ${currentQuestion + 1} / ${questions.length}
-        </div>
+    var buttonText = "التالي ←";
 
-      </div>
+    var buttonClass = "next-button";
 
+    var buttonAction = "nextCard()";
 
-      <div class="card-title">
-        📝 اختبر معلوماتك
-      </div>
+    if (currentCard === cards.length - 1) {
 
+      buttonText = "إنهاء المهمة ✓";
 
-      <div class="quiz-question">
+      buttonClass = "next-button finish-button";
 
-        <h2>
-          ${q.question}
-        </h2>
+      buttonAction = "finishMission()";
 
-      </div>
+    }
 
+    app.innerHTML =
 
-      <div>
-        ${optionsHTML}
-      </div>
+      '<div class="mission">' +
 
+        '<div class="mission-top">' +
 
-      <div style="
-        margin-top:25px;
-        text-align:center;
-        color:#64748b;
-        font-size:13px;
-      ">
-        اختر الإجابة الصحيحة
-      </div>
+          '<button class="back-button" onclick="goHome()">→</button>' +
 
-    </div>
+          '<div class="counter">' +
+            number + ' / ' + cards.length +
+          '</div>' +
 
-  `;
+        '</div>' +
 
-}
+        '<div class="mission-title">' +
+          '🧠 بطاقة الحفظ' +
+        '</div>' +
 
+        '<div class="card">' +
 
-/* =========================================
-   الإجابة عن السؤال
-========================================= */
+          '<div class="card-icon">' +
+            card.icon +
+          '</div>' +
 
-function answerQuestion(selected) {
+          '<div class="card-label">' +
+            'معلومة كيميائية' +
+          '</div>' +
 
-  const correctAnswer =
-    questions[currentQuestion].correct;
+          '<h2>' +
+            card.question +
+          '</h2>' +
 
+          '<div class="answer">' +
+            card.answer +
+          '</div>' +
 
-  if (selected === correctAnswer) {
+          '<div class="remember">' +
+            '💡 تذكّر:<br>' +
+            card.remember +
+          '</div>' +
 
-    score++;
+        '</div>' +
+
+        '<button class="' + buttonClass + '" onclick="' + buttonAction + '">' +
+          buttonText +
+        '</button>' +
+
+      '</div>';
 
   }
 
 
-  currentQuestion++;
+  function nextCard() {
 
-  showQuestion();
+    if (currentCard < cards.length - 1) {
 
-}
+      currentCard++;
 
+      showCard();
 
-/* =========================================
-   نتيجة الاختبار
-========================================= */
+    }
 
-function showQuizResult() {
-
-  quizDone = true;
-
-  localStorage.setItem("quizDone", "true");
+  }
 
 
-  document.getElementById("app").innerHTML = `
+  function finishMission() {
 
-    <div class="page">
+    var app = document.getElementById("app");
 
-      <div style="
-        text-align:center;
-        padding-top:60px;
-      ">
+    app.innerHTML =
 
-        <div style="
-          font-size:70px;
-          margin-bottom:20px;
-        ">
-          🏆
-        </div>
+      '<div class="mission">' +
 
+        '<div class="result">' +
 
-        <h1 style="
-          color:#173b78;
-          font-size:27px;
-        ">
-          انتهى الاختبار!
-        </h1>
+          '<div class="result-icon">🎉</div>' +
 
+          '<h2>أحسنت!</h2>' +
 
-        <div class="result-box">
+          '<p>' +
+            'لقد أكملت بطاقات الحفظ الثلاث بنجاح.' +
+            '<br>' +
+            'استمر في التعلم وطور مستواك في الكيمياء.' +
+          '</p>' +
 
-          <div class="result-score">
-            ${score} / 5
-          </div>
+          '<button class="next-button" onclick="goHome()">' +
+            'العودة إلى الرئيسية 🏠' +
+          '</button>' +
 
-          <div class="result-text">
+        '</div>' +
 
-            ${
-              score === 5
-              ? "ممتاز جدًا! 🌟"
-              : score >= 3
-              ? "أحسنت! استمر بالتعلم 💪"
-              : "راجع المعلومات وحاول مرة أخرى 📚"
-            }
+      '</div>';
 
-          </div>
-
-        </div>
+  }
 
 
-        <div style="
-          margin-top:25px;
-          color:#64748b;
-          line-height:2;
-        ">
-          أكملت اختبار الأسئلة الخمسة.
-        </div>
+  function goHome() {
 
-      </div>
+    location.reload();
 
+  }
 
-      <button class="main
+</script>
+
+</body>
+</html>

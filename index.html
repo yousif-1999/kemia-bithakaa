@@ -9,611 +9,536 @@
 
 <style>
 
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    background:#eef1f7;
-    font-family:Arial,"Tahoma",sans-serif;
-    color:#172554;
-}
-
-button{
-    font-family:inherit;
-    cursor:pointer;
-}
-
-.app{
-    max-width:430px;
-    min-height:100vh;
-    margin:auto;
-    background:#fff;
-    padding-bottom:90px;
-}
-
-/* ================= HEADER ================= */
-
-.header{
-    padding:25px 20px 12px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.welcome small{
-    color:#64748b;
-    font-size:14px;
-}
-
-.welcome h1{
-    margin:5px 0 0;
-    font-size:25px;
-}
-
-.profile{
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    background:#173b78;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:21px;
-    font-weight:bold;
-}
-
-/* ================= STREAK ================= */
-
-.streak{
-    margin:8px 20px 18px;
-    display:inline-block;
-    padding:9px 15px;
-    border-radius:20px;
-    background:#fff4d6;
-    color:#a16207;
-    font-size:14px;
-    font-weight:bold;
-}
-
-/* ================= PROGRESS ================= */
-
-.progress-card{
-    margin:0 20px 22px;
-    padding:20px;
-    border-radius:22px;
-    background:#f7f9ff;
-    border:1px solid #edf0f7;
-}
-
-.progress-title{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:12px;
-    font-weight:bold;
-}
-
-.progress-percent{
-    color:#169b62;
-}
-
-.progress-bar{
-    width:100%;
-    height:10px;
-    background:#e5e7eb;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.progress-fill{
-    width:50%;
-    height:100%;
-    background:#169b62;
-}
-
-.progress-text{
-    margin-top:10px;
-    color:#64748b;
-    font-size:13px;
-}
-
-/* ================= TITLES ================= */
-
-.section-title{
-    margin:0 20px 14px;
-    font-size:20px;
-}
-
-/* ================= TASKS ================= */
-
-.tasks{
-    margin:0 20px;
-    display:grid;
-    gap:12px;
-}
-
-.task{
-    padding:15px;
-    border:1px solid #edf0f7;
-    border-radius:20px;
-    display:flex;
-    align-items:center;
-    gap:13px;
-    box-shadow:0 4px 15px rgba(20,40,80,.05);
-}
-
-.task-icon{
-    width:50px;
-    height:50px;
-    border-radius:15px;
-    background:#eef3ff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
-}
-
-.task-content{
-    flex:1;
-}
-
-.task-content h3{
-    margin:0 0 3px;
-    font-size:16px;
-}
-
-.task-content p{
-    margin:0;
-    color:#64748b;
-    font-size:12px;
-}
-
-.check{
-    width:27px;
-    height:27px;
-    border-radius:50%;
-    background:#22a66f;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-/* ================= MAIN BUTTON ================= */
-
-.main-button,
-.next-button{
-    width:calc(100% - 40px);
-    margin:22px 20px;
-    border:0;
-    border-radius:18px;
-    padding:16px;
-    background:#ed8b00;
-    color:white;
-    font-size:17px;
-    font-weight:bold;
-}
-
-/* ================= QUICK ================= */
-
-.quick{
-    margin:5px 20px 0;
-}
-
-.quick-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
-
-.quick-card{
-    padding:18px 10px;
-    border:1px solid #edf0f7;
-    border-radius:18px;
-    text-align:center;
-    background:white;
-    cursor:pointer;
-}
-
-.quick-card .icon{
-    font-size:28px;
-    margin-bottom:7px;
-}
-
-.quick-card strong{
-    display:block;
-    font-size:14px;
-}
-
-.quick-card span{
-    color:#64748b;
-    font-size:11px;
-}
-
-/* ================= BOTTOM NAV ================= */
-
-.bottom-nav{
-    position:fixed;
-    bottom:0;
-    left:50%;
-    transform:translateX(-50%);
-    width:min(430px,100%);
-    height:76px;
-    background:white;
-    border-top:1px solid #e5e7eb;
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    z-index:100;
-}
-
-.nav-item{
-    border:0;
-    background:transparent;
-    color:#94a3b8;
-    font-size:10px;
-}
-
-.nav-item .nav-icon{
-    font-size:22px;
-    margin-bottom:3px;
-}
-
-.nav-item.active{
-    color:#173b78;
-    font-weight:bold;
-}
-
-/* ================= GENERAL PAGE ================= */
-
-.page{
-    min-height:100vh;
-    padding:24px 20px 110px;
-}
-
-.page-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:22px;
-}
-
-.page-header h2{
-    margin:0;
-    font-size:23px;
-}
-
-.back-button{
-    width:43px;
-    height:43px;
-    border:0;
-    border-radius:50%;
-    background:#eef3ff;
-    color:#173b78;
-    font-size:20px;
-}
-
-/* ================= CHAPTER ================= */
-
-.chapter-header{
-    background:#173b78;
-    color:white;
-    padding:22px;
-    border-radius:22px;
-    margin-bottom:18px;
-}
-
-.chapter-header h2{
-    margin:0 0 7px;
-    font-size:21px;
-}
-
-.chapter-header p{
-    margin:0;
-    opacity:.9;
-    line-height:1.8;
-    font-size:13px;
-}
-
-.lesson-list{
-    display:grid;
-    gap:12px;
-}
-
-.lesson-card{
-    width:100%;
-    border:1px solid #e5eaf2;
-    background:white;
-    border-radius:20px;
-    padding:16px;
-    display:flex;
-    align-items:center;
-    gap:13px;
-    text-align:right;
-    box-shadow:0 4px 15px rgba(20,40,80,.05);
-}
-
-.lesson-icon{
-    width:53px;
-    height:53px;
-    border-radius:16px;
-    background:#eef3ff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:25px;
-    flex-shrink:0;
-}
-
-.lesson-info{
-    flex:1;
-}
-
-.lesson-info h3{
-    margin:0 0 4px;
-    font-size:15px;
-}
-
-.lesson-info p{
-    margin:0;
-    color:#64748b;
-    font-size:11px;
-    line-height:1.7;
-}
-
-.lesson-arrow{
-    color:#94a3b8;
-    font-size:25px;
-}
-
-/* ================= LESSON CONTENT ================= */
-
-.lesson-content{
-    display:grid;
-    gap:14px;
-}
-
-.content-card{
-    background:#f7f9ff;
-    border:1px solid #e5eaf2;
-    border-radius:22px;
-    padding:19px;
-}
-
-.content-card h3{
-    margin:0 0 12px;
-    font-size:18px;
-    color:#173b78;
-}
-
-.content-card h4{
-    margin:18px 0 8px;
-    font-size:16px;
-}
-
-.content-card p{
-    margin:0 0 11px;
-    line-height:2;
-    font-size:15px;
-    color:#334155;
-}
-
-.memory-box{
-    background:#fff4d6;
-    border-radius:18px;
-    padding:16px;
-    margin-top:14px;
-}
-
-.memory-box strong{
-    display:block;
-    color:#a16207;
-    margin-bottom:7px;
-}
-
-.example-box{
-    background:#eaf8f1;
-    border-radius:18px;
-    padding:16px;
-    color:#166534;
-    line-height:2;
-}
-
-.exercise-box{
-    background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:18px;
-    padding:17px;
-}
-
-.exercise-box h4{
-    margin:0 0 10px;
-    color:#173b78;
-}
-
-.answer-box{
-    margin-top:10px;
-    padding:12px;
-    border-radius:12px;
-    background:#eef3ff;
-}
-
-/* ================= TABLE ================= */
-
-.energy-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:12px;
-    background:white;
-    border-radius:12px;
-    overflow:hidden;
-}
-
-.energy-table th,
-.energy-table td{
-    border:1px solid #dfe5ef;
-    padding:9px 5px;
-    text-align:center;
-    font-size:13px;
-}
-
-.energy-table th{
-    background:#eef3ff;
-    color:#173b78;
-}
-
-/* ================= MEMORY ================= */
-
-.memory-card{
-    background:#f7f9ff;
-    border:1px solid #e5eaf2;
-    border-radius:24px;
-    padding:25px 20px;
-    text-align:center;
-}
-
-.memory-icon{
-    font-size:52px;
-    margin-bottom:10px;
-}
-
-.memory-label{
-    color:#64748b;
-    font-size:13px;
-}
-
-.memory-card h2{
-    line-height:1.9;
-    font-size:21px;
-}
-
-.memory-answer{
-    background:#fff4d6;
-    padding:17px;
-    border-radius:17px;
-    line-height:2;
-}
-
-.memory-tip{
-    margin-top:15px;
-    background:#eaf8f1;
-    padding:15px;
-    border-radius:17px;
-    color:#166534;
-    line-height:1.9;
-}
-
-/* ================= QUIZ ================= */
-
-.quiz-card{
-    background:#f7f9ff;
-    border:1px solid #e5eaf2;
-    border-radius:24px;
-    padding:20px;
-}
-
-.quiz-number{
-    color:#64748b;
-    margin-bottom:12px;
-    font-size:13px;
-}
-
-.quiz-question{
-    font-size:19px;
-    font-weight:bold;
-    line-height:1.9;
-    margin-bottom:18px;
-}
-
-.option{
-    width:100%;
-    padding:14px;
-    margin-bottom:10px;
-    border:1px solid #dfe5ef;
-    background:white;
-    border-radius:15px;
-    text-align:right;
-    color:#172554;
-    font-size:15px;
-}
-
-.option:hover{
-    background:#eef3ff;
-}
-
-/* ================= ACCOUNT ================= */
-
-.account-box{
-    background:#f7f9ff;
-    border:1px solid #e5eaf2;
-    border-radius:24px;
-    padding:25px;
-    text-align:center;
-}
-
-.account-avatar{
-    width:78px;
-    height:78px;
-    margin:auto;
-    border-radius:50%;
-    background:#173b78;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:32px;
-    font-weight:bold;
-}
-
-.account-box h2{
-    margin:12px 0 4px;
-}
-
-.account-box p{
-    margin:0;
-    color:#64748b;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-top:18px;
-}
-
-.stat{
-    background:white;
-    border:1px solid #edf0f7;
-    border-radius:18px;
-    padding:17px;
-}
-
-.stat strong{
-    display:block;
-    font-size:23px;
-    color:#173b78;
-}
-
-.stat span{
-    color:#64748b;
-    font-size:11px;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(min-width:500px){
+/* =========================
+   التصميم الأساسي
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    direction: rtl;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #123b78;
+    font-family: "Tahoma", "Arial", sans-serif;
+    direction: rtl;
+}
+
+button {
+    font-family: inherit;
+}
+
+.app {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    padding: 18px 16px 110px;
+}
+
+/* =========================
+   صفحات الدروس
+========================= */
+
+.page {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    direction: rtl;
+}
+
+.page-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.page-header h2,
+.page-header h1 {
+    margin: 0;
+    flex: 1;
+    text-align: right;
+    color: #123b78;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.back {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border: 1px solid #d5dce8;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #123b78;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* =========================
+   بطاقات الدروس
+========================= */
+
+.lesson-card {
+    width: 100% !important;
+    display: block !important;
+    position: relative;
+    margin: 0 0 16px;
+    padding: 28px 26px !important;
+    background: #ffffff;
+    border: 1px solid #dfe6f0;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(20, 60, 110, 0.05);
+    direction: rtl;
+    text-align: right;
+    overflow: hidden;
+}
+
+.lesson-card h3 {
+    margin: 0 0 22px;
+    color: #123b78;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.6;
+    text-align: right;
+}
 
-    body{
-        padding:25px 0;
+.lesson-card h4 {
+    margin: 0 0 18px;
+    color: #123b78;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.7;
+    text-align: right;
+}
+
+.lesson-card p {
+    margin: 0 0 20px;
+    color: #123b78;
+    font-size: 19px;
+    line-height: 2.1;
+    text-align: right;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.lesson-card ul,
+.lesson-card ol {
+    margin: 15px 0;
+    padding-right: 28px;
+    padding-left: 0;
+}
+
+.lesson-card li {
+    margin-bottom: 12px;
+    color: #123b78;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+/* منع تخربط النص إلى أعمدة */
+.lesson-card > div {
+    max-width: 100%;
+}
+
+/* =========================
+   العناوين داخل الدرس
+========================= */
+
+.lesson-title {
+    color: #123b78;
+    font-size: 27px;
+    font-weight: 800;
+    margin: 0 0 25px;
+    line-height: 1.6;
+}
+
+.section-title {
+    color: #123b78;
+    font-size: 23px;
+    font-weight: 800;
+    margin: 28px 0 18px;
+    line-height: 1.6;
+}
+
+/* =========================
+   احفظها
+========================= */
+
+.memory-box,
+.remember-box {
+    margin: 25px 0;
+    padding: 20px 22px;
+    background: #fff3c9;
+    border-radius: 24px;
+    border: none;
+    color: #123b78;
+    text-align: right;
+}
+
+.memory-box h3,
+.remember-box h3 {
+    margin: 0 0 12px;
+    color: #123b78;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.memory-box p,
+.remember-box p {
+    margin: 0;
+    color: #123b78;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+/* =========================
+   أزرار التنقل داخل الدرس
+========================= */
+
+.lesson-buttons,
+.lesson-actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.next,
+.next-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    min-height: 48px;
+    padding: 10px 22px !important;
+    border: none !important;
+    border-radius: 12px !important;
+    background: #173b78 !important;
+    color: #ffffff !important;
+    font-size: 17px !important;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.next:hover,
+.next-button:hover {
+    background: #123264 !important;
+    transform: translateY(-1px);
+}
+
+.previous,
+.previous-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    min-height: 48px;
+    padding: 10px 22px !important;
+    border: 1px solid #173b78 !important;
+    border-radius: 12px !important;
+    background: #ffffff !important;
+    color: #173b78 !important;
+    font-size: 17px !important;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* إذا كان زر العودة يحمل class back */
+.page-header .back {
+    flex-shrink: 0;
+}
+
+/* =========================
+   زر العودة إلى الفصل
+========================= */
+
+.chapter-back,
+.back-to-chapter {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 13px;
+    background: #c97832;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* =========================
+   الصفحة الرئيسية للدروس
+========================= */
+
+.chapter-header {
+    width: 100%;
+    padding: 28px 25px;
+    margin-bottom: 25px;
+    background: #173b78;
+    border-radius: 25px;
+    color: #ffffff;
+    text-align: right;
+}
+
+.chapter-header h2,
+.chapter-header h3 {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 25px;
+    line-height: 1.6;
+}
+
+.chapter-header p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+/* بطاقات قائمة الدروس */
+
+.chapter-card {
+    width: 100%;
+    min-height: 115px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    border: 1px solid #dfe6f0;
+    border-radius: 24px;
+    background: #ffffff;
+    color: #123b78;
+    text-align: right;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(20, 60, 110, 0.04);
+}
+
+.chapter-card:hover {
+    transform: translateY(-2px);
+}
+
+.chapter-icon {
+    width: 78px;
+    height: 78px;
+    min-width: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: #eef3ff;
+    font-size: 38px;
+}
+
+.chapter-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.chapter-info h3 {
+    margin: 0 0 8px;
+    color: #123b78;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.6;
+}
+
+.chapter-info p {
+    margin: 0;
+    color: #6680a5;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* =========================
+   شريط التنقل السفلي
+========================= */
+
+.bottom-nav {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 8px 8px 5px;
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 1px solid #e1e5ec;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.04);
+    direction: rtl;
+}
+
+.nav-item {
+    flex: 1;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 3px;
+    border: none;
+    background: transparent;
+    color: #9a9a9a;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.nav-icon {
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 29px;
+    line-height: 1;
+}
+
+.nav-item.active {
+    color: #173b78;
+    font-weight: 700;
+}
+
+/* =========================
+   الجداول والمعادلات
+========================= */
+
+.lesson-card table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    direction: rtl;
+}
+
+.lesson-card th,
+.lesson-card td {
+    padding: 12px;
+    border: 1px solid #d9e1ed;
+    text-align: center;
+    font-size: 17px;
+    color: #123b78;
+}
+
+.lesson-card th {
+    background: #eef3ff;
+    font-weight: 800;
+}
+
+.formula {
+    direction: ltr;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+/* =========================
+   الصور داخل الدروس
+========================= */
+
+.lesson-card img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 15px;
+}
+
+/* =========================
+   الهاتف
+========================= */
+
+@media (max-width: 600px) {
+
+    .app {
+        padding: 14px 10px 105px;
     }
 
-    .app{
-        border-radius:28px;
-        overflow:hidden;
-        box-shadow:0 10px 40px rgba(0,0,0,.12);
+    .page-header h2,
+    .page-header h1 {
+        font-size: 25px;
     }
 
+    .lesson-card {
+        padding: 23px 18px !important;
+        border-radius: 22px;
+    }
+
+    .lesson-card h3 {
+        font-size: 22px;
+    }
+
+    .lesson-card h4 {
+        font-size: 20px;
+    }
+
+    .lesson-card p {
+        font-size: 18px;
+        line-height: 2;
+    }
+
+    .lesson-card li {
+        font-size: 17px;
+    }
+
+    .lesson-buttons,
+    .lesson-actions {
+        flex-direction: column;
+    }
+
+    .next,
+    .next-button,
+    .previous,
+    .previous-button {
+        width: 100%;
+    }
+
+    .chapter-header {
+        padding: 24px 19px;
+    }
+
+    .chapter-header h2,
+    .chapter-header h3 {
+        font-size: 22px;
+    }
+
+    .chapter-card {
+        min-height: 105px;
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .chapter-icon {
+        width: 65px;
+        height: 65px;
+        min-width: 65px;
+        font-size: 32px;
+    }
+
+    .chapter-info h3 {
+        font-size: 18px;
+    }
+
+    .chapter-info p {
+        font-size: 13px;
+    }
+}
+</style>
     
 </style>
 </head>

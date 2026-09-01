@@ -930,7 +930,7 @@ function showMemoryFinished() {
       </div>
 
 
-      <div class="lesson-card">
+      <div class="lesson-card" onclick="showChapter1()" style="cursor:pointer;">
 
         <div class="lesson-icon">
           ⚛️
@@ -1411,7 +1411,365 @@ function setActive(index) {
    تشغيل الصفحة الرئيسية
 ========================= */
 
-showHome();
+  function showChapter1() {
+
+  var app = document.getElementById("app");
+
+  app.innerHTML = `
+
+    <div class="page">
+
+      <div class="page-header">
+
+        <button class="back" onclick="showLessons()">
+          →
+        </button>
+
+        <h2>
+          ⚛️ الفصل الأول
+        </h2>
+
+        <span></span>
+
+      </div>
+
+
+      <div class="account-box">
+
+        <div class="memory-icon">
+          ⚛️
+        </div>
+
+        <h2>
+          التركيب الذري للمادة
+        </h2>
+
+        <p>
+          الفصل الأول من كتاب الكيمياء
+        </p>
+
+      </div>
+
+
+      <div style="
+        margin-top:20px;
+        display:grid;
+        gap:12px;
+      ">
+
+
+        <button class="lesson-card"
+          onclick="showLessonAtomicIntro()"
+          style="
+            width:100%;
+            text-align:right;
+            cursor:pointer;
+          ">
+
+          <div class="lesson-icon">
+            ⚛️
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              1-1 مقدمة
+            </h3>
+
+            <p>
+              الذرات والوحدات الأساسية لبناء المادة
+            </p>
+
+          </div>
+
+          <div class="lesson-arrow">
+            ‹
+          </div>
+
+        </button>
+
+
+        <button class="lesson-card"
+          onclick="showLessonAtomicModels()"
+          style="
+            width:100%;
+            text-align:right;
+            cursor:pointer;
+          ">
+
+          <div class="lesson-icon">
+            🔬
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              1-2 تطور مفهوم البناء الذري
+            </h3>
+
+            <p>
+              دالتون وثومسون ورذرفورد وبور
+            </p>
+
+          </div>
+
+          <div class="lesson-arrow">
+            ‹
+          </div>
+
+        </button>
+
+
+        <button class="lesson-card"
+          onclick="showLessonModernAtom()"
+          style="
+            width:100%;
+            text-align:right;
+            cursor:pointer;
+          ">
+
+          <div class="lesson-icon">
+            🧠
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              1-3 النظرية الذرية الحديثة
+            </h3>
+
+            <p>
+              مستويات الطاقة والنموذج الحديث للذرة
+            </p>
+
+          </div>
+
+          <div class="lesson-arrow">
+            ‹
+          </div>
+
+        </button>
+
+
+        <button class="lesson-card"
+          onclick="showLessonElectronConfig()"
+          style="
+            width:100%;
+            text-align:right;
+            cursor:pointer;
+          ">
+
+          <div class="lesson-icon">
+            ⚡
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              1-5 الترتيب الإلكتروني
+            </h3>
+
+            <p>
+              مبدأ أوفباو وقاعدة هوند
+            </p>
+
+          </div>
+
+          <div class="lesson-arrow">
+            ‹
+          </div>
+
+        </button>
+
+
+        <button class="lesson-card"
+          onclick="showLessonLewis()"
+          style="
+            width:100%;
+            text-align:right;
+            cursor:pointer;
+          ">
+
+          <div class="lesson-icon">
+            🔵
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              1-6 رمز لويس
+            </h3>
+
+            <p>
+              إلكترونات التكافؤ ورمز لويس
+            </p>
+
+          </div>
+
+          <div class="lesson-arrow">
+            ‹
+          </div>
+
+        </button>
+
+
+        <button class="lesson-card"
+          onclick="showLessonPeriodic()"
+          style="
+            width:100%;
+            text-align:right;
+            cursor:pointer;
+          ">
+
+          <div class="lesson-icon">
+            📊
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              الجدول الدوري والخواص الدورية
+            </h3>
+
+            <p>
+              الدورات والزمر والخواص الدورية للعناصر
+            </p>
+
+          </div>
+
+          <div class="lesson-arrow">
+            ‹
+          </div>
+
+        </button>
+
+
+      </div>
+
+
+      <button class="next" onclick="showLessons()">
+
+        📖 العودة إلى الدروس
+
+      </button>
+
+    </div>
+
+  `;
+
+}
+  
+showHome();function showLessonAtomicIntro() {
+
+  var app = document.getElementById("app");
+
+  app.innerHTML = `
+
+    <div class="page">
+
+      <div class="page-header">
+
+        <button class="back" onclick="showChapter1()">
+          →
+        </button>
+
+        <h2>
+          1-1 المقدمة
+        </h2>
+
+        <span></span>
+
+      </div>
+
+
+      <div class="memory-card">
+
+        <div class="memory-icon">
+          ⚛️
+        </div>
+
+        <div class="memory-label">
+          الفصل الأول: التركيب الذري للمادة
+        </div>
+
+
+        <h2>
+          مقدمة
+        </h2>
+
+
+        <div class="memory-answer">
+
+          جميع المواد الموجودة في الكون تتكون من جسيمات صغيرة.
+
+          <br><br>
+
+          وتشكل هذه الجسيمات الوحدات الأساسية لبناء المواد،
+          وقد سميت بالذرات.
+
+        </div>
+
+
+        <div class="memory-tip">
+
+          💡 تذكّر:
+
+          <br><br>
+
+          الذرات هي الوحدات الأساسية لبناء المواد.
+
+        </div>
+
+      </div>
+
+
+      <div class="lesson-card" style="
+        display:block;
+        margin-top:18px;
+      ">
+
+        <h3 style="
+          margin-top:0;
+          color:#173b78;
+        ">
+          ماذا سندرس في هذا الفصل؟
+        </h3>
+
+        <p style="
+          color:#64748b;
+          line-height:2;
+          margin:0;
+        ">
+
+          سنتعرف على تطور النظريات والنماذج
+          التي فسرت البناء الذري، وصولًا إلى
+          النظريات الحديثة لمعرفة تركيب الذرة.
+
+        </p>
+
+      </div>
+
+
+      <button class="next" onclick="showLessonAtomicModels()">
+
+        الدرس التالي ←
+
+      </button>
+
+
+      <button class="next"
+        style="background:#173b78;"
+        onclick="showChapter1()">
+
+        ↩ العودة إلى الفصل
+
+      </button>
+
+    </div>
+
+  `;
+
+}
 
 </script>
 

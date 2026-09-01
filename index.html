@@ -1583,7 +1583,7 @@ function setActive(index) {
 
 
         <button class="lesson-card"
-          onclick="showLessonLewis()"
+          onclick="showLessonModernAtomicTheory()"
           style="
             width:100%;
             text-align:right;
@@ -1856,6 +1856,106 @@ function showLessonAtomicModels() {
   `;
 
 }
+  function showLessonModernAtomicTheory() {
+
+  var app = document.getElementById("app");
+
+  app.innerHTML = `
+
+    <div class="page">
+
+      <div class="page-header">
+
+        <button class="back" onclick="showChapter1()">
+          →
+        </button>
+
+        <h2>
+          1-3 النظرية الذرية الحديثة
+        </h2>
+
+        <span></span>
+
+      </div>
+
+
+      <div class="memory-card">
+
+        <div class="memory-icon">
+          🧠
+        </div>
+
+
+        <div class="memory-label">
+          الدرس الثالث
+        </div>
+
+
+        <h2>
+          النظرية الذرية الحديثة
+        </h2>
+
+
+        <div class="memory-answer">
+
+          يصف النموذج الحديث للذرة
+          تركيب الذرة وسلوك الإلكترونات
+          بطريقة أكثر دقة من النماذج القديمة.
+
+          <br><br>
+
+          توجد الإلكترونات حول النواة
+          في مناطق تسمى
+          <strong>الأوربيتالات الذرية</strong>،
+          ولا يمكن تحديد موقع الإلكترون
+          وسرعته بدقة في الوقت نفسه.
+
+          <br><br>
+
+          وتعتمد طاقة الإلكترون
+          على مستوى الطاقة الذي يوجد فيه.
+
+        </div>
+
+
+        <div class="memory-tip">
+
+          💡 تذكّر:
+
+          <br><br>
+
+          النموذج الحديث للذرة يعتمد
+          على مستويات الطاقة والأوربيتالات
+          والاحتمال في تحديد موقع الإلكترون.
+
+        </div>
+
+      </div>
+
+
+      <button class="next" onclick="showLessonModernAtomicTheory2()">
+
+        الدرس التالي ←
+
+      </button>
+
+
+      <button
+        class="next"
+        style="background:#173b78;"
+        onclick="showChapter1()"
+      >
+
+        ↩ العودة إلى الفصل
+
+      </button>
+
+    </div>
+
+  `;
+
+}
+  
 </script>
 
 </body>

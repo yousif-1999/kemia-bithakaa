@@ -1291,6 +1291,122 @@ li {
     background: #123263;
 }
 
+
+
+/* =========================================================
+   اختيار الفصول
+   ========================================================= */
+
+.chapter-select-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.chapter-select-card {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #dfe6f2;
+    border-radius: 24px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 8px 25px rgba(23, 59, 120, 0.06);
+    transition: 0.2s;
+    text-align: right;
+}
+
+.chapter-select-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(23, 59, 120, 0.10);
+}
+
+.chapter-select-icon {
+    width: 68px;
+    height: 68px;
+    min-width: 68px;
+    border-radius: 18px;
+    background: #edf2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+}
+
+.chapter-select-info {
+    flex: 1;
+}
+
+.chapter-select-info h3 {
+    color: #173b78;
+    font-size: 22px;
+    margin-bottom: 4px;
+}
+
+.chapter-select-info p {
+    color: #7b89a4;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.chapter-select-arrow {
+    color: #9aa8c0;
+    font-size: 28px;
+}
+
+.chapter2-banner {
+    background: #f1f6ea;
+    color: #173b78;
+    border: 1px solid #dbe8cf;
+    border-right: 5px solid #3d7f50;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.ministry-year {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: #fff1d6;
+    color: #7a5116;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.source-note {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: #f8fafc;
+    border: 1px solid #e5eaf2;
+    border-radius: 12px;
+    color: #6e7c96;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    .chapter-select-card {
+        padding: 18px;
+    }
+
+    .chapter-select-icon {
+        width: 58px;
+        height: 58px;
+        min-width: 58px;
+        font-size: 29px;
+    }
+
+    .chapter-select-info h3 {
+        font-size: 19px;
+    }
+}
+
 </style>
 
 </head>
@@ -1323,7 +1439,7 @@ li {
     <button
         class="nav-item"
         id="nav-lessons"
-        onclick="showChapter1()">
+        onclick="showChapters()">
 
         <div class="nav-icon">📖</div>
 
@@ -1546,6 +1662,27 @@ function showHome() {
 
                 </button>
 
+
+
+            <div class="start-card" style="margin-top:15px;">
+
+                <h3>
+                    🧪 الفصل الثاني
+                </h3>
+
+                <p>
+                    الزمرتان الأولى والثانية: الصوديوم والكالسيوم ومركباتهما.
+                </p>
+
+                <button
+                    class="chapter-button"
+                    onclick="showChapter2()">
+
+                    📖 افتح الفصل الثاني
+
+                </button>
+
+            </div>
             </div>
 
         </div>
@@ -1558,7 +1695,7 @@ function showHome() {
    قائمة دروس الفصل الأول
    ========================================================= */
 
-function showChapter1() {
+function showChapter1Lessons() {
 
     setActive(1);
 
@@ -2057,7 +2194,7 @@ function showMinistryIdeas() {
 
                 <button
                     class="back-button"
-                    onclick="showChapter1()">
+                    onclick="showChapter1Lessons()">
                     ←
                 </button>
 
@@ -2113,7 +2250,7 @@ function showMinistryIdeas() {
 
                 <button
                     class="chapter-button"
-                    onclick="showChapter1()">
+                    onclick="showChapter1Lessons()">
                     📚 العودة إلى دروس الفصل
                 </button>
 
@@ -2157,7 +2294,7 @@ function showChapterQuestions() {
 
                 <button
                     class="back-button"
-                    onclick="showChapter1()">
+                    onclick="showChapter1Lessons()">
                     ←
                 </button>
 
@@ -2487,7 +2624,7 @@ function lessonButtons(previousFunction, nextFunction, nextText) {
 
             <button
                 class="chapter-button"
-                onclick="showChapter1()">
+                onclick="showChapter1Lessons()">
 
                 📖 العودة إلى دروس الفصل
 
@@ -2516,7 +2653,7 @@ function showLesson1() {
         <div class="page">
 
             <div class="page-header">
-                <button class="back-button" onclick="showChapter1()">←</button>
+                <button class="back-button" onclick="showChapter1Lessons()">←</button>
                 <h2>1-1 مقدمة وتطور مفهوم البناء الذري</h2>
                 <span></span>
             </div>
@@ -2625,7 +2762,7 @@ function showLesson2() {
         <div class="page">
 
             <div class="page-header">
-                <button class="back-button" onclick="showChapter1()">←</button>
+                <button class="back-button" onclick="showChapter1Lessons()">←</button>
                 <h2>1-3 مدخل إلى البناء الإلكتروني الحديث</h2>
                 <span></span>
             </div>
@@ -2709,7 +2846,7 @@ function showLesson3() {
         <div class="page">
 
             <div class="page-header">
-                <button class="back-button" onclick="showChapter1()">←</button>
+                <button class="back-button" onclick="showChapter1Lessons()">←</button>
                 <h2>1-4 مستويات الطاقة</h2>
                 <span></span>
             </div>
@@ -2795,7 +2932,7 @@ function showLesson4() {
         <div class="page">
 
             <div class="page-header">
-                <button class="back-button" onclick="showChapter1()">←</button>
+                <button class="back-button" onclick="showChapter1Lessons()">←</button>
                 <h2>1-4-3 عدد الأوربيتالات والإلكترونات</h2>
                 <span></span>
             </div>
@@ -2883,7 +3020,7 @@ function showLesson5() {
         <div class="page">
 
             <div class="page-header">
-                <button class="back-button" onclick="showChapter1()">←</button>
+                <button class="back-button" onclick="showChapter1Lessons()">←</button>
                 <h2>1-5 الترتيب الإلكتروني</h2>
                 <span></span>
             </div>
@@ -2989,7 +3126,7 @@ function showLesson6() {
         <div class="page">
 
             <div class="page-header">
-                <button class="back-button" onclick="showChapter1()">←</button>
+                <button class="back-button" onclick="showChapter1Lessons()">←</button>
                 <h2>1-6 ترتيب لويس (رمز لويس)</h2>
                 <span></span>
             </div>
@@ -3072,7 +3209,7 @@ function showLesson7() {
         <div class="page">
 
             <div class="page-header">
-                <button class="back-button" onclick="showChapter1()">←</button>
+                <button class="back-button" onclick="showChapter1Lessons()">←</button>
                 <h2>1-7 الجدول الدوري</h2>
                 <span></span>
             </div>
@@ -3148,7 +3285,7 @@ function showLesson8() {
         <div class="page">
 
             <div class="page-header">
-                <button class="back-button" onclick="showChapter1()">←</button>
+                <button class="back-button" onclick="showChapter1Lessons()">←</button>
                 <h2>1-8 تصنيف العناصر تبعاً لترتيبها الإلكتروني</h2>
                 <span></span>
             </div>
@@ -3235,7 +3372,7 @@ function showLesson9() {
         <div class="page">
 
             <div class="page-header">
-                <button class="back-button" onclick="showChapter1()">←</button>
+                <button class="back-button" onclick="showChapter1Lessons()">←</button>
                 <h2>1-9 كيفية معرفة الدورة والزمرة</h2>
                 <span></span>
             </div>
@@ -3312,7 +3449,7 @@ function showLesson10() {
         <div class="page">
 
             <div class="page-header">
-                <button class="back-button" onclick="showChapter1()">←</button>
+                <button class="back-button" onclick="showChapter1Lessons()">←</button>
                 <h2>1-10 الخواص الدورية</h2>
                 <span></span>
             </div>
@@ -3432,6 +3569,666 @@ function showLesson10() {
 
     `;
 }
+
+
+
+/* =========================================================
+   اختيار الفصول
+   ========================================================= */
+
+function showChapters() {
+
+    setActive(1);
+
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="lessons-page">
+
+            <h1 class="lessons-heading">
+                📚 فصول الكيمياء
+            </h1>
+
+            <p class="lessons-subheading">
+                اختر الفصل الذي تريد دراسته
+            </p>
+
+            <div class="chapter-select-grid">
+
+                <div class="chapter-select-card" onclick="showChapter1Lessons()">
+                    <div class="chapter-select-icon">⚛️</div>
+                    <div class="chapter-select-info">
+                        <h3>الفصل الأول: التركيب الذري للمادة</h3>
+                        <p>البناء الذري، مستويات الطاقة، الترتيب الإلكتروني، لويس، الجدول الدوري والخواص الدورية.</p>
+                    </div>
+                    <div class="chapter-select-arrow">←</div>
+                </div>
+
+                <div class="chapter-select-card" onclick="showChapter2()">
+                    <div class="chapter-select-icon">🧪</div>
+                    <div class="chapter-select-info">
+                        <h3>الفصل الثاني: الزمرتان الأولى والثانية</h3>
+                        <p>الفلزات القلوية وفلزات الأرض القلوية، الصوديوم، مركباته، الكالسيوم ومركباته.</p>
+                    </div>
+                    <div class="chapter-select-arrow">←</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الفصل الثاني
+   ========================================================= */
+
+function showChapter2() {
+
+    setActive(1);
+
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="lessons-page">
+
+            <h1 class="lessons-heading">
+                📖 دروسي
+            </h1>
+
+            <p class="lessons-subheading">
+                الفصل الثاني: الزمرتان الأولى والثانية
+            </p>
+
+            <div class="chapter2-banner">
+                <strong>📌 الفصل الثاني</strong><br>
+                الزمرة الأولى: الفلزات القلوية، والزمرة الثانية: فلزات الأرض القلوية.
+                ويشمل الفصل الصفات العامة، الصوديوم ومركباته، والكالسيوم ومركباته.
+            </div>
+
+            <div class="lesson-card" onclick="showLesson2_1()">
+                <div class="lesson-card-icon">🧭</div>
+                <div class="lesson-card-info">
+                    <h3>2-1 الصفات العامة للزمرتين الأولى والثانية</h3>
+                    <p>مواقع العناصر، إلكترونات التكافؤ، الفعالية، الخواص الفيزيائية والكيميائية.</p>
+                </div>
+                <div class="lesson-arrow">←</div>
+            </div>
+
+            <div class="lesson-card" onclick="showLesson2_2()">
+                <div class="lesson-card-icon">🔩</div>
+                <div class="lesson-card-info">
+                    <h3>2-2 الصوديوم</h3>
+                    <p>خواص الصوديوم، وجوده، حفظه، تفاعلاته واستعمالاته.</p>
+                </div>
+                <div class="lesson-arrow">←</div>
+            </div>
+
+            <div class="lesson-card" onclick="showLesson2_3()">
+                <div class="lesson-card-icon">🧂</div>
+                <div class="lesson-card-info">
+                    <h3>2-3 مركبات الصوديوم</h3>
+                    <p>كشف اللهب، كلوريد الصوديوم، التميؤ، وهيدروكسيد الصوديوم.</p>
+                </div>
+                <div class="lesson-arrow">←</div>
+            </div>
+
+            <div class="lesson-card" onclick="showLesson2_4()">
+                <div class="lesson-card-icon">🪨</div>
+                <div class="lesson-card-info">
+                    <h3>2-4 الكالسيوم</h3>
+                    <p>الخواص، وجود الكالسيوم، تكافؤه، واستخلاصه.</p>
+                </div>
+                <div class="lesson-arrow">←</div>
+            </div>
+
+            <div class="lesson-card" onclick="showLesson2_5()">
+                <div class="lesson-card-icon">🏗️</div>
+                <div class="lesson-card-info">
+                    <h3>2-5 مركبات الكالسيوم</h3>
+                    <p>هيدروكسيد الكالسيوم، ماء الكلس، كبريتات الكالسيوم والجبس.</p>
+                </div>
+                <div class="lesson-arrow">←</div>
+            </div>
+
+            <div class="lesson-card" onclick="showChapter2MinistryIdeas()">
+                <div class="lesson-card-icon">🎯</div>
+                <div class="lesson-card-info">
+                    <h3>أفكار وزارية</h3>
+                    <p>أفكار تدريبية مركزة مأخوذة من الموضوعات والعناوين الوزارية في الملزمة.</p>
+                </div>
+                <div class="lesson-arrow">←</div>
+            </div>
+
+            <div class="lesson-card" onclick="showChapter2Questions()">
+                <div class="lesson-card-icon">📝</div>
+                <div class="lesson-card-info">
+                    <h3>أسئلة الفصل الثاني وحلولها</h3>
+                    <p>أسئلة الفصل الواردة في الملزمة مع إجاباتها المنظمة.</p>
+                </div>
+                <div class="lesson-arrow">←</div>
+            </div>
+
+            <div class="lesson-navigation">
+                <button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button>
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+function lessonButtons2(previousFunction, nextFunction, nextText) {
+    return `
+        <div class="lesson-navigation">
+            <button class="previous-button" onclick="${previousFunction}()">← السابق</button>
+            <button class="next-button" onclick="${nextFunction}()">${nextText}</button>
+            <button class="chapter-button" onclick="showChapter2()">📖 العودة إلى دروس الفصل الثاني</button>
+        </div>
+    `;
+}
+
+
+function showLesson2_1() {
+    setActive(1);
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+        <div class="page">
+            <div class="page-header">
+                <button class="back-button" onclick="showChapter2()">←</button>
+                <h2>2-1 الصفات العامة</h2>
+                <span></span>
+            </div>
+
+            <h1 class="lesson-title">الزمرتان الأولى والثانية</h1>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+                    <h3>📍 موقع عناصر الزمرتين</h3>
+                    <p>
+                        تحتل عناصر الزمرتين الأولى والثانية الطرف الأيسر من الجدول الدوري، وتُرتب حسب ازدياد أعدادها الذرية.
+                    </p>
+                    <table class="simple-table">
+                        <tr><th>الزمرة الأولى IA</th><th>الزمرة الثانية IIA</th></tr>
+                        <tr><td>Li, Na, K, Rb, Cs, Fr</td><td>Be, Mg, Ca, Sr, Ba, Ra</td></tr>
+                    </table>
+                    <div class="memory-box">
+                        <strong>🧠 احفظها</strong>
+                        IA = الفلزات القلوية، IIA = فلزات الأرض القلوية.
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>⚛️ الترتيب الإلكتروني والتكافؤ</h3>
+                    <p>
+                        الغلاف الخارجي لعناصر الزمرة الأولى يحتوي على إلكترون واحد، أما الغلاف الخارجي لعناصر الزمرة الثانية فيحتوي على إلكترونين.
+                    </p>
+                    <p>
+                        عناصر الزمرة الأولى تفقد إلكترون التكافؤ لتكوّن أيونات موجبة أحادية الشحنة، وعناصر الزمرة الثانية تفقد إلكترونَي التكافؤ لتكوّن أيونات موجبة ثنائية الشحنة.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h3>📌 الصفات العامة المهمة</h3>
+                    <p>لهذه العناصر كهروسلبية وطاقة تأين واطئتان، ولا توجد عناصر الزمرتين حرة في الطبيعة بسبب شدة فعاليتها.</p>
+                    <p>تُظهر عناصر الزمرتين سلوك عوامل مختزلة قوية لأنها تميل بسهولة إلى فقد إلكترونات التكافؤ الخارجية لسهولة تأكسدها.</p>
+                    <p>عناصر الزمرة الثانية أقل فلزية من عناصر الزمرة الأولى، وطاقة تأينها أعلى بسبب نقصان الحجم الذري.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>🔥 الخواص الفيزيائية</h3>
+                    <p>
+                        تتناقص درجات الانصهار والغليان مع تزايد الأعداد الذرية لعناصر الزمرتين. كما أن كثافتها لا تسير بانتظام في الزيادة أو النقصان.
+                    </p>
+                    <p>
+                        كثافة العناصر الثلاثة الأولى Li وNa وK أقل من كثافة الماء عند 25°C وفق الملزمة.
+                    </p>
+                    <div class="example-box">
+                        <strong>ألوان اللهب</strong><br>
+                        الليثيوم: قرمزي — الصوديوم: أصفر براق/ذهبي — الكالسيوم: أحمر طابوقي — السترونتيوم: قرمزي — الباريوم: أخضر مصفر.
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🧪 الخواص الكيميائية</h3>
+                    <p>
+                        تتحد عناصر الزمرتين مع اللافلزات وتعطي أملاحًا مستقرة كثيرة الذوبان في الماء، مع ملاحظة أن أملاح الليثيوم أقل ذوبانًا بسبب صغر حجم الليثيوم وقوة جذب النواة لإلكتروناته.
+                    </p>
+                </div>
+
+            </div>
+
+            ${lessonButtons2("showChapter1Lessons", "showLesson2_2", "الدرس التالي →")}
+        </div>
+    `;
+}
+
+
+function showLesson2_2() {
+    setActive(1);
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+        <div class="page">
+            <div class="page-header">
+                <button class="back-button" onclick="showChapter2()">←</button>
+                <h2>2-2 الصوديوم</h2>
+                <span></span>
+            </div>
+
+            <h1 class="lesson-title">الصوديوم Na</h1>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+                    <h3>🔬 معلومات أساسية</h3>
+                    <table class="simple-table">
+                        <tr><th>الرمز</th><th>العدد الذري</th><th>عدد الكتلة</th><th>التكافؤ</th></tr>
+                        <tr><td>Na</td><td>11</td><td>23</td><td>أحادي</td></tr>
+                    </table>
+                    <div class="electron-config">Na: 1s² 2s² 2p⁶ 3s¹</div>
+                    <p>توزيع الغلافات: K = 2 ، L = 8 ، M = 1.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>✨ خواص الصوديوم الفيزيائية</h3>
+                    <p>فلز لين، وله بريق فضي إذا قطع حديثًا، كثافته أقل من كثافة الماء.</p>
+                    <p>درجة انصهاره وفق الملزمة: 97.81°C، ودرجة غليانه 882.9°C.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>⚗️ خواص الصوديوم الكيميائية</h3>
+                    <p>يتحد مباشرة مع أوكسجين الهواء، لذلك يزول بريق القطعة المقطوعة حديثًا وتكتسي بطبقة بيضاء من أوكسيد الصوديوم.</p>
+                    <div class="electron-config">2Na + Cl₂ → 2NaCl</div>
+                    <div class="electron-config">2Na + 2H₂O → 2NaOH + H₂↑</div>
+                    <div class="electron-config">2Na + 2HCl → 2NaCl + H₂</div>
+                    <div class="electron-config">2Na + MgO → Na₂O + Mg</div>
+                    <div class="electron-config">3Na + AlCl₃ → 3NaCl + Al</div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🛡️ لماذا يُحفظ الصوديوم في البنزين النقي والكيروسين؟</h3>
+                    <p>لشدة فعاليته، ولأنه يشتعل عند تعرضه للهواء، بينما لا يتفاعل مع النفط المستخدم للحفظ، فيمنع تماسه مع الماء والهواء.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>⛏️ استعمالات الصوديوم</h3>
+                    <p>يستخدم كعامل مختزل قوي في بعض التفاعلات العضوية، ويستعمل في إنتاج NaCN، وفي عمليات التعدين للتخلص من أوكسجين الهواء المتحد مع الفلزات أو الذائب في منصهراتها.</p>
+                </div>
+
+            </div>
+
+            ${lessonButtons2("showLesson2_1", "showLesson2_3", "الدرس التالي →")}
+        </div>
+    `;
+}
+
+
+function showLesson2_3() {
+    setActive(1);
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+        <div class="page">
+            <div class="page-header">
+                <button class="back-button" onclick="showChapter2()">←</button>
+                <h2>2-3 مركبات الصوديوم</h2>
+                <span></span>
+            </div>
+
+            <h1 class="lesson-title">مركبات الصوديوم</h1>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+                    <h3>🔥 كشف اللهب</h3>
+                    <p>يُستخدم الكشف الجاف باللهب للكشف عن وجود الصوديوم في مركباته، حيث يلون لهب مصباح بنزن باللون الأصفر البراق (الذهبي).</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>🧂 كلوريد الصوديوم NaCl</h3>
+                    <p>هو أكثر مركبات الصوديوم انتشارًا، ويوجد في الصخور الملحية والترسبات تحت سطح الأرض، وبكميات كبيرة في مياه البحار والبحيرات والينابيع.</p>
+                    <p>يستخرج من الترسبات تحت الأرض بإذابة الملح بالماء ثم سحب المحلول وتبخير الماء، ومن مياه البحر بضخها إلى أحواض ضحلة وترك الماء يتبخر بحرارة الشمس، وهي الطريقة المستخدمة في ملاحات الفاو جنوب العراق وفق الملزمة.</p>
+                    <div class="memory-box">
+                        <strong>🏭 أهميته الصناعية</strong>
+                        يدخل في تحضير كربونات الصوديوم، وهيدروكسيد الصوديوم، وغاز الكلور، ويستخدم في حفظ الأغذية، ودباغة الجلود، وصناعة الثلج وتثبيت الأصباغ.
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>💧 التميؤ</h3>
+                    <p>التميؤ هو ظاهرة امتصاص المادة للرطوبة من الجو والتحول إلى مادة مبتلة.</p>
+                    <p>الملح النقي لا يتميأ، بينما ملح الطعام العادي يتميأ بسبب احتوائه على شوائب من كلوريد الكالسيوم أو كلوريد المغنيسيوم.</p>
+                    <table class="simple-table">
+                        <tr><th>الملح النقي</th><th>الملح العادي</th></tr>
+                        <tr><td>لا يمتص الرطوبة</td><td>يمتص الرطوبة ويتميه</td></tr>
+                        <tr><td>لا يحتوي شوائب</td><td>يحتوي شوائب مثل CaCl₂ وMgCl₂</td></tr>
+                    </table>
+                </div>
+
+                <div class="content-card">
+                    <h3>🧼 هيدروكسيد الصوديوم NaOH</h3>
+                    <p>مادة صلبة كثيرة الذوبان، تتميأ عند تعرضها للهواء الرطب، وتتفاعل الطبقة المتميئة منها مع CO₂ فتتكون قشرة جافة من كربونات الصوديوم على السطح.</p>
+                    <div class="electron-config">CO₂ + 2NaOH → Na₂CO₃ + H₂O</div>
+                    <p>من استعمالاته: صناعة الصابون والمنظفات، وصناعة الأنسجة والورق، وتحضير مركبات صناعية عديدة.</p>
+                </div>
+
+            </div>
+
+            ${lessonButtons2("showLesson2_2", "showLesson2_4", "الدرس التالي →")}
+        </div>
+    `;
+}
+
+
+function showLesson2_4() {
+    setActive(1);
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+        <div class="page">
+            <div class="page-header">
+                <button class="back-button" onclick="showChapter2()">←</button>
+                <h2>2-4 الكالسيوم</h2>
+                <span></span>
+            </div>
+
+            <h1 class="lesson-title">الكالسيوم Ca</h1>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+                    <h3>🔬 معلومات أساسية</h3>
+                    <table class="simple-table">
+                        <tr><th>الرمز</th><th>العدد الذري</th><th>عدد الكتلة</th><th>توزيع الغلافات</th></tr>
+                        <tr><td>Ca</td><td>20</td><td>40</td><td>K=2 ، L=8 ، M=8 ، N=2</td></tr>
+                    </table>
+                    <p>يقع الكالسيوم في الزمرة الثانية، وتكافؤه ثنائي لأن غلافه الخارجي يحوي إلكترونين.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>🌍 وجود الكالسيوم</h3>
+                    <p>لا يوجد الكالسيوم حرًا في الطبيعة لشدة فعاليته، وإنما يوجد متحدًا مع عناصر أخرى في صورة كربونات مثل المرمر وحجر الكلس، وكبريتات مثل الجبس، وفوسفات، وسليكات.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>⚡ استخلاص الكالسيوم</h3>
+                    <p>يُستخلص الكالسيوم بالتحليل الكهربائي لمنصهر كلوريد وفلوريد الكالسيوم.</p>
+                    <div class="info-box">✅ سبب عدم وجوده حرًا: شدة فعاليته واتحاده مع غيره من العناصر.</div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🧠 لماذا يسهل انتزاع إلكتروني التكافؤ من الكالسيوم؟</h3>
+                    <p>بسبب كبر حجم ذراته وابتعاد إلكترونات التكافؤ عن النواة وقلة تأثير جذب النواة لها، مما يسهل انتزاعهما.</p>
+                </div>
+
+            </div>
+
+            ${lessonButtons2("showLesson2_3", "showLesson2_5", "الدرس التالي →")}
+        </div>
+    `;
+}
+
+
+function showLesson2_5() {
+    setActive(1);
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+        <div class="page">
+            <div class="page-header">
+                <button class="back-button" onclick="showChapter2()">←</button>
+                <h2>2-5 مركبات الكالسيوم</h2>
+                <span></span>
+            </div>
+
+            <h1 class="lesson-title">مركبات الكالسيوم والجبس</h1>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+                    <h3>🧪 هيدروكسيد الكالسيوم Ca(OH)₂</h3>
+                    <p>يُحضّر بإضافة الماء إلى أوكسيد الكالسيوم CaO، في عملية تعرف بإطفاء الجير.</p>
+                    <div class="electron-config">CaO + H₂O → Ca(OH)₂</div>
+                </div>
+
+                <div class="content-card">
+                    <h3>💧 ماء الكلس</h3>
+                    <p>عند تمرير غاز CO₂ في محلول هيدروكسيد الكالسيوم الصافي يتعكر المحلول بسبب تكوّن راسب أبيض من كربونات الكالسيوم.</p>
+                    <div class="electron-config">Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O</div>
+                    <p>ويؤكد التعكر تكوّن كربونات الكالسيوم الراسبة.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>🏗️ كبريتات الكالسيوم والجبس</h3>
+                    <p>الجبس الاعتيادي هو CaSO₄·2H₂O، ويرتبط فيه جزيئان من ماء التبلور.</p>
+                    <p>عند فقد ماء التبلور جزئيًا بالتسخين يتحول إلى جبس باريس.</p>
+                    <div class="electron-config">2(CaSO₄·2H₂O) → (CaSO₄)₂·H₂O + 3H₂O</div>
+                    <div class="electron-config">(CaSO₄)₂·H₂O + 3H₂O → 2(CaSO₄·2H₂O)</div>
+                </div>
+
+                <div class="content-card">
+                    <h3>📊 قارن بين الجبس الاعتيادي وجبس باريس</h3>
+                    <table class="simple-table">
+                        <tr><th>الجبس الاعتيادي</th><th>جبس باريس</th></tr>
+                        <tr><td>جزيئتان من ماء التبلور</td><td>جزيئة واحدة من ماء التبلور</td></tr>
+                        <tr><td>CaSO₄·2H₂O</td><td>(CaSO₄)₂·H₂O</td></tr>
+                        <tr><td>يفقد ماء التبلور بالتسخين</td><td>يلتقط الماء ويتحول إلى الجبس الاعتيادي</td></tr>
+                        <tr><td>يستخدم في البناء</td><td>يستخدم في البناء والتجبير وصنع التماثيل</td></tr>
+                    </table>
+                </div>
+
+            </div>
+
+            ${lessonButtons2("showLesson2_4", "showChapter2MinistryIdeas", "أفكار وزارية →")}
+        </div>
+    `;
+}
+
+
+/* =========================================================
+   أفكار وزارية الفصل الثاني
+   ========================================================= */
+
+var chapter2MinistryIdeas = [
+    {title:"لماذا لا توجد عناصر الزمرتين الأولى والثانية حرة في الطبيعة؟", answer:"لشدة فعاليتها واتحادها مع عناصر أخرى لتكوين مركبات ثابتة.", year:"فكرة وزارية مكررة في الملزمة"},
+    {title:"ما الاختلاف في الصفات العامة بين عناصر الزمرة الأولى والثانية؟", answer:"عناصر الزمرة الثانية أقل فلزية من عناصر الزمرة الأولى، وطاقة تأينها أعلى بسبب نقصان الحجم الذري.", year:"مذكورة في قسم الصفات العامة"},
+    {title:"علل: تسلك عناصر الزمرتين الأولى والثانية سلوك عوامل مختزلة قوية.", answer:"لأنها تميل بسهولة إلى فقد إلكترونات التكافؤ الخارجية لسهولة تأكسدها.", year:"وردت مع سنوات وزارية في الملزمة"},
+    {title:"علل: سميت عناصر الزمرة الأولى بالفلزات القلوية.", answer:"لأن محاليلها عالية القاعدية.", year:"وردت كسؤال وزاري في الملزمة"},
+    {title:"علل: أملاح الليثيوم أقل ذوبانًا في الماء من غيرها من أملاح الزمرة الأولى.", answer:"لصغر حجم الليثيوم وقوة جذب النواة لإلكتروناته.", year:"فكرة مهمة"},
+    {title:"علل: يزول بريق قطعة الصوديوم المقطوعة حديثًا بعد فترة.", answer:"لأنه يتحد مباشرة مع أوكسجين الهواء فتتكون طبقة بيضاء من أوكسيد الصوديوم.", year:"عدة سنوات مذكورة في الملزمة"},
+    {title:"لماذا يُحفظ الصوديوم في البنزين النقي والكيروسين؟", answer:"لشدة فعاليته واشتعاله عند تعرضه للهواء، ولأن النفط المستخدم للحفظ لا يتفاعل معه ويمنع تماسه مع الماء والهواء.", year:"فكرة وزارية"},
+    {title:"كيف يتم الكشف عن الصوديوم في مركباته؟", answer:"باستعمال كشف اللهب، إذ يلون الصوديوم لهب مصباح بنزن بالأصفر البراق (الذهبي).", year:"فكرة وزارية"},
+    {title:"علل: يستخدم الصوديوم في عمليات التعدين.", answer:"للتخلص من أوكسجين الهواء المتحد مع الفلزات أو الذائب في منصهراتها.", year:"وردت كمسألة مهمة"},
+    {title:"لماذا يتعكر ماء الكلس عند تمرير CO₂ فيه؟", answer:"بسبب تكون راسب أبيض من كربونات الكالسيوم CaCO₃.", year:"فكرة وزارية"},
+    {title:"كيف يُستخلص الكالسيوم؟", answer:"بالتحليل الكهربائي لمنصهر كلوريد وفلوريد الكالسيوم.", year:"فكرة وزارية"},
+    {title:"لماذا لا يوجد الكالسيوم حرًا في الطبيعة؟", answer:"لشدة فعاليته واتحاده مع عناصر أخرى.", year:"فكرة وزارية"},
+    {title:"علل: يسهل انتزاع إلكتروني التكافؤ من الكالسيوم.", answer:"بسبب كبر حجم ذراته وابتعاد إلكترونات التكافؤ عن النواة وقلة تأثير جذب النواة لها.", year:"فكرة وزارية"},
+    {title:"علل: تميؤ ملح الطعام العادي وعدم تميؤ الملح النقي.", answer:"لوجود شوائب من كلوريد الكالسيوم أو كلوريد المغنيسيوم في الملح العادي، وهما يميلان لامتصاص الرطوبة.", year:"فكرة وزارية"},
+    {title:"ما الفرق بين الملح النقي والملح العادي؟", answer:"الملح النقي لا يمتص الرطوبة ولا يحتوي الشوائب، أما الملح العادي فيمتص الرطوبة ويحتوي شوائب مثل CaCl₂ وMgCl₂.", year:"سؤال مقارنة مهم"},
+    {title:"لماذا تتكون قشرة جافة على سطح حبيبات NaOH في الجو الرطب؟", answer:"تتميه الحبيبات ثم تتفاعل الطبقة المتميئة مع CO₂ لتكوين Na₂CO₃ الذي لا يذوب في محلول NaOH المركز، فتتكون القشرة الجافة.", year:"فكرة وزارية"},
+    {title:"ما استعمالات هيدروكسيد الصوديوم؟", answer:"في صناعة الصابون والمنظفات، والأنسجة والورق، وتحضير مركبات صناعية عديدة.", year:"فكرة مهمة"},
+    {title:"ما أهمية كلوريد الصوديوم الصناعية؟", answer:"يدخل في تحضير كربونات الصوديوم وهيدروكسيد الصوديوم وغاز الكلور، ويستعمل في حفظ الأغذية ودباغة الجلود وصناعة الثلج وتثبيت الأصباغ.", year:"أهمية صناعية"}
+];
+
+function showChapter2MinistryIdeas() {
+    setActive(1);
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+        <div class="page">
+            <div class="page-header">
+                <button class="back-button" onclick="showChapter2()">←</button>
+                <h2>🎯 أفكار وزارية</h2>
+                <span></span>
+            </div>
+
+            <div class="ministry-ideas-intro">
+                <strong>📌 أفكار وزارية للفصل الثاني</strong><br>
+                الأفكار التالية مستخرجة من الموضوعات والتعليلات والأسئلة والسنوات الوزارية الظاهرة في ملزمة «فخامة الكيمياء».
+                لا تُعرض على أنها نص حرفي لأسئلة وزارة بعينها إلا عندما تذكر الملزمة ذلك صراحة.
+            </div>
+
+            ${chapter2MinistryIdeas.map(function(item, index) {
+                return `
+                    <div class="ministry-idea-card">
+                        <h3>${index + 1}- ${item.title}</h3>
+                        <button class="ministry-toggle" onclick="toggleChapter2MinistryIdea(${index})">👁️ إظهار الحل</button>
+                        <div id="ch2-ministry-answer-${index}" class="ministry-idea-answer">
+                            <strong>✅ الحل:</strong><br>${item.answer}
+                            <div class="ministry-year">${item.year}</div>
+                        </div>
+                    </div>
+                `;
+            }).join("")}
+
+            <div class="lesson-navigation">
+                <button class="previous-button" onclick="showLesson2_5()">← العودة للدرس الأخير</button>
+                <button class="next-button" onclick="showChapter2Questions()">📝 أسئلة الفصل الثاني →</button>
+                <button class="chapter-button" onclick="showChapter2()">📖 العودة إلى دروس الفصل الثاني</button>
+            </div>
+        </div>
+    `;
+}
+
+function toggleChapter2MinistryIdea(index) {
+    var box = document.getElementById("ch2-ministry-answer-" + index);
+    if (!box) return;
+    box.classList.toggle("show");
+}
+
+
+/* =========================================================
+   أسئلة الفصل الثاني وحلولها
+   ========================================================= */
+
+var chapter2MCQ = [
+    {q:"من عناصر الزمرة الأولى:", options:["الهيليوم","الراديوم","الصوديوم","البورون"], answer:2, explanation:"الصوديوم Na من عناصر الزمرة الأولى IA."},
+    {q:"البوتاسيوم أكثر فعالية من الليثيوم لأن:", options:["له إلكترونا تكافؤ","نصف قطر ذرته أكبر","لا يملك إلكترون تكافؤ","يوجد حرًا في الطبيعة"], answer:1, explanation:"زيادة الحجم الذري تسهّل فقد إلكترون التكافؤ، فتزداد الفعالية بحسب الملزمة."},
+    {q:"تكافؤ المغنسيوم في مركباته:", options:["1","2","3","4"], answer:1, explanation:"المغنسيوم من الزمرة الثانية ويمتلك إلكتروني تكافؤ، لذا تكافؤه 2."},
+    {q:"إذا فقدت ذرة الليثيوم إلكترون التكافؤ تتحول إلى:", options:["أيون أحادي الشحنة الموجبة","أيون سالب","أيون ثنائي الشحنة الموجبة","أيون ثنائي الشحنة السالبة"], answer:0, explanation:"الليثيوم يفقد إلكترون التكافؤ الواحد فيكوّن Li⁺."},
+    {q:"لون لهب الصوديوم في كشف اللهب هو:", options:["أحمر طابوقي","أصفر براق/ذهبي","قرمزي","أخضر مصفر"], answer:1, explanation:"الصوديوم يلون لهب مصباح بنزن بالأصفر البراق (الذهبي)."},
+    {q:"العنصر الذي لا يوجد حرًا في الطبيعة بسبب شدة فعاليته هو:", options:["الصوديوم","الهليوم","النيون","الأرغون"], answer:0, explanation:"الصوديوم لا يوجد حرًا بسبب شدة فعاليته واتحاده مع عناصر أخرى."},
+    {q:"التفاعل الذي يعطي هيدروكسيد الصوديوم وغاز الهيدروجين هو تفاعل الصوديوم مع:", options:["الكلور","الماء","MgO","AlCl₃"], answer:1, explanation:"2Na + 2H₂O → 2NaOH + H₂↑."},
+    {q:"المادة التي تتميه في الملح العادي وتسبب امتصاص الرطوبة هي من الشوائب:", options:["CaCl₂ وMgCl₂","NaCl فقط","NaOH وNa₂CO₃","CaO وNaCl"], answer:0, explanation:"الملح العادي يحتوي شوائب مثل كلوريد الكالسيوم وكلوريد المغنيسيوم."},
+    {q:"المركب الذي يُستعمل في التجبير وصنع التماثيل والبناء هو:", options:["NaCl","NaOH","جبس باريس","Na₂CO₃"], answer:2, explanation:"جبس باريس من استعمالاته التجبير وصنع التماثيل والبناء."},
+    {q:"يُستخلص الكالسيوم بواسطة:", options:["التسخين فقط","التحليل الكهربائي لمنصهر كلوريد وفلوريد الكالسيوم","التبخير","الترشيح"], answer:1, explanation:"وفق الملزمة يُستخلص الكالسيوم بالتحليل الكهربائي لمنصهر كلوريد وفلوريد الكالسيوم."}
+];
+
+function showChapter2Questions() {
+    setActive(1);
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+        <div class="page">
+            <div class="page-header">
+                <button class="back-button" onclick="showChapter2()">←</button>
+                <h2>📝 أسئلة الفصل الثاني</h2>
+                <span></span>
+            </div>
+
+            <div class="chapter2-banner">
+                <strong>أسئلة الفصل الثاني وحلولها</strong><br>
+                تتضمن أسئلة الاختيار الواردة في الملزمة، والأسئلة المقالية مع الحلول التي وردت فيها.
+            </div>
+
+            <div class="content-card">
+                <h3>1-2 اختر ما يناسب التعبيرات الآتية</h3>
+                ${chapter2MCQ.map(function(item, index) {
+                    return `
+                        <div class="exercise-box" style="margin-bottom:15px;">
+                            <p><strong>${index + 1}. ${item.q}</strong></p>
+                            <p>A. ${item.options[0]}<br>B. ${item.options[1]}<br>C. ${item.options[2]}<br>D. ${item.options[3]}</p>
+                            <div class="answer-box">✅ الإجابة: ${String.fromCharCode(65 + item.answer)} — ${item.options[item.answer]}<br><br>${item.explanation}</div>
+                        </div>
+                    `;
+                }).join("")}
+            </div>
+
+            <div class="content-card">
+                <h3>2-2 أجب عن الأسئلة الآتية</h3>
+
+                <div class="exercise-box">
+                    <p><strong>اذكر الفرق بين الجبس الاعتيادي وجبس باريس.</strong></p>
+                    <div class="answer-box">✅ الجبس الاعتيادي يحتوي جزيئتين من ماء التبلور وصيغته CaSO₄·2H₂O، أما جبس باريس فيحتوي جزيئة واحدة وصيغته (CaSO₄)₂·H₂O. عند التحول إلى جبس باريس يفقد ماء التبلور، وعند التقاطه للماء يعود إلى الجبس الاعتيادي. ويُستخدم جبس باريس في البناء والتجبير وصنع التماثيل.</div>
+                </div>
+
+                <div class="exercise-box">
+                    <p><strong>لكلوريد الصوديوم أهمية صناعية كبيرة. لماذا؟ اذكر ثلاث فوائد له.</strong></p>
+                    <div class="answer-box">✅ لأنه يُستعمل في تحضير كربونات الصوديوم وهيدروكسيد الصوديوم وغاز الكلور. ومن فوائده: صناعة الورق والزجاج وخميرة الخبز، وصناعة الصابون والورق وتصفية النفط الخام، وتحضير غاز الكلور.</div>
+                </div>
+
+                <div class="exercise-box">
+                    <p><strong>أيّهما أكثر فلزية: الباريوم أم التليوم وفق المقارنة الواردة في الملزمة؟</strong></p>
+                    <div class="answer-box">✅ الباريوم، لأن الباريوم من الزمرة الثانية، وتزداد الخواص الفلزية بزيادة العدد الذري في الزمرة الواحدة وفق الفكرة المستخدمة في الملزمة.</div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>3-2 وضح علميًا لماذا</h3>
+
+                <div class="exercise-box">
+                    <p><strong>لماذا لا ينتسب الألمنيوم Al إلى مجموعة عناصر الزمرة الأولى؟</strong></p>
+                    <div class="answer-box">✅ لأن الغلاف الخارجي يحتوي على ثلاثة إلكترونات، لذلك يقع الألمنيوم في الزمرة الثالثة وفق قاعدة عدد إلكترونات الغلاف الخارجي.</div>
+                </div>
+
+                <div class="exercise-box">
+                    <p><strong>لماذا تتميه حبيبات NaOH أولًا ثم تتكون على سطحها قشرة جافة في الجو الرطب؟</strong></p>
+                    <div class="answer-box">✅ تمتص حبيبات NaOH الرطوبة من الجو، ثم تتفاعل الطبقة المتميئة مع CO₂ لتكوين Na₂CO₃ الذي لا يذوب في محلول NaOH المركز، فتتكون قشرة جافة.</div>
+                </div>
+
+                <div class="exercise-box">
+                    <p><strong>لماذا يُحفظ الصوديوم في النفط؟</strong></p>
+                    <div class="answer-box">✅ لأنه لا يتفاعل مع النفط المستخدم للحفظ، كما أن النفط يمنع تماسه مع الماء والهواء، فيحميه من الاشتعال.</div>
+                </div>
+
+                <div class="exercise-box">
+                    <p><strong>لماذا سُميت عناصر الزمرة الأولى بالفلزات القلوية؟</strong></p>
+                    <div class="answer-box">✅ لأن محاليلها عالية القاعدية.</div>
+                </div>
+
+                <div class="exercise-box">
+                    <p><strong>لماذا يختفي لمعان قطعة الصوديوم المقطوعة حديثًا بعد فترة؟</strong></p>
+                    <div class="answer-box">✅ لأنه يتحد مباشرة مع أوكسجين الهواء فتزول لمعته وتتكون طبقة بيضاء من أوكسيد الصوديوم.</div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>4-2 وضح علميًا لماذا</h3>
+                <div class="exercise-box">
+                    <p><strong>يسهل انتزاع إلكتروني التكافؤ من عنصر الكالسيوم.</strong></p>
+                    <div class="answer-box">✅ بسبب كبر حجم ذراته وبعد إلكترونات التكافؤ عن النواة وقلة تأثير جذب النواة لها.</div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>5-2 ما الفرق بين كلوريد الصوديوم النقي وملح الطعام؟</h3>
+                <table class="simple-table">
+                    <tr><th>كلوريد الصوديوم النقي</th><th>ملح الطعام العادي</th></tr>
+                    <tr><td>لا يمتص الرطوبة ولا يتميه</td><td>يمتص الرطوبة ويتميه</td></tr>
+                    <tr><td>لا يحتوي على الشوائب</td><td>يحتوي شوائب مثل CaCl₂ وMgCl₂</td></tr>
+                </table>
+            </div>
+
+            <div class="source-note">
+                المصدر: «فخامة الكيمياء» للصف الثالث المتوسط، صفحات الفصل الثاني. تم الحفاظ على ترتيب الأفكار والصياغة التعليمية للمصدر قدر الإمكان.
+            </div>
+
+            <div class="lesson-navigation">
+                <button class="previous-button" onclick="showChapter2MinistryIdeas()">← أفكار وزارية</button>
+                <button class="chapter-button" onclick="showChapter2()">📖 العودة إلى دروس الفصل الثاني</button>
+            </div>
+        </div>
+    `;
+}
+
 
 function showMemory() {
 
@@ -3688,7 +4485,19 @@ var quizQuestions = [
     {"q": "عند دراسة الدورة والزمرة لعناصر المجموعة A، ما المعلومتان الأكثر فائدة من الترتيب الإلكتروني؟", "options": ["أكبر n وعدد إلكترونات التكافؤ", "عدد النيوترونات والكتلة", "عدد الأوربيتالات فقط", "عدد البروتونات غير المزدوجة"], "answer": 0, "explanation": "أكبر n يحدد الدورة، وعدد إلكترونات التكافؤ يساعد في تحديد الزمرة الرئيسية."},
     {"q": "أي خاصية دورية ترتبط مباشرة بحجم الذرة؟", "options": ["نصف القطر الذري", "طاقة التأين", "السالبية الكهربائية", "العدد الذري"], "answer": 0, "explanation": "نصف القطر الذري يعبر عن حجم الذرة."},
     {"q": "أي خاصية تقيس الطاقة اللازمة لنزع إلكترون من الذرة الغازية؟", "options": ["طاقة التأين", "نصف القطر الذري", "السالبية الكهربائية", "عدد النيوترونات"], "answer": 0, "explanation": "طاقة التأين هي الطاقة اللازمة لنزع إلكترون من الذرة في الحالة الغازية."},
-    {"q": "أي خاصية تصف جذب إلكترونات الرابطة في الجزيء؟", "options": ["السالبية الكهربائية", "العدد الذري", "نصف القطر الذري", "العدد الكتلي"], "answer": 0, "explanation": "السالبية الكهربائية تصف جذب إلكترونات الرابطة نحو الذرة."}
+    {"q": "أي خاصية تصف جذب إلكترونات الرابطة في الجزيء؟", "options": ["السالبية الكهربائية", "العدد الذري", "نصف القطر الذري", "العدد الكتلي"], "answer": 0, "explanation": "السالبية الكهربائية تصف جذب إلكترونات الرابطة نحو الذرة."},
+
+    {"q":"من عناصر الزمرة الأولى IA:","options":["He","Ra","Na","B"],"answer":2,"explanation":"الصوديوم Na من عناصر الزمرة الأولى."},
+    {"q":"عناصر الزمرة الثانية تكون أيونات موجبة ثنائية الشحنة بسبب:","options":["امتلاكها إلكترونًا واحدًا","فقدان إلكتروني التكافؤ","اكتسابها إلكترونين","عدم وجود إلكترونات تكافؤ"],"answer":1,"explanation":"عناصر IIA تمتلك إلكترونين في الغلاف الخارجي وتفقدهما لتكوّن M²⁺."},
+    {"q":"لون لهب الصوديوم هو:","options":["أحمر طابوقي","أصفر براق/ذهبي","قرمزي","أخضر مصفر"],"answer":1,"explanation":"الصوديوم يعطي لهبًا أصفر براقًا أو ذهبيًا."},
+    {"q":"ما سبب زوال بريق الصوديوم المقطوع حديثًا؟","options":["اتحاده مع النيتروجين","اتحاده مع أوكسجين الهواء","ذوبانه في الماء","فقده إلكترونين"],"answer":1,"explanation":"الصوديوم يتحد مباشرة مع أوكسجين الهواء فتتكون طبقة بيضاء من أكسيده."},
+    {"q":"المعادلة الصحيحة لتفاعل الصوديوم مع الماء هي:","options":["2Na + 2H₂O → 2NaOH + H₂","Na + Cl₂ → NaCl","CaO + H₂O → Ca(OH)₂","CO₂ + 2NaOH → Na₂CO₃ + H₂O"],"answer":0,"explanation":"الصوديوم مع الماء يعطي هيدروكسيد الصوديوم وغاز الهيدروجين."},
+    {"q":"كشف اللهب يكشف عن الصوديوم بواسطة اللون:","options":["الأصفر البراق","الأزرق","الأخضر","الأسود"],"answer":0,"explanation":"لهب الصوديوم أصفر براق/ذهبي."},
+    {"q":"ما سبب تميؤ ملح الطعام العادي؟","options":["وجود NaCl النقي فقط","وجود CaCl₂ أو MgCl₂ كشـوائب","وجود CaO فقط","عدم وجود شوائب"],"answer":1,"explanation":"الشوائب من CaCl₂ وMgCl₂ تميل إلى امتصاص الرطوبة من الجو."},
+    {"q":"يتكون هيدروكسيد الكالسيوم عند إضافة الماء إلى:","options":["CaCO₃","CaO","NaOH","NaCl"],"answer":1,"explanation":"CaO + H₂O → Ca(OH)₂."},
+    {"q":"يتعكر ماء الكلس الصافي عند تمرير:","options":["H₂","Cl₂","CO₂","O₂"],"answer":2,"explanation":"CO₂ يتفاعل مع Ca(OH)₂ مكونًا راسب CaCO₃ الأبيض."},
+    {"q":"الجبس الاعتيادي يحتوي على:","options":["جزيئة واحدة من ماء التبلور","جزيئتين من ماء التبلور","ثلاث جزيئات","لا يحتوي ماء تبلور"],"answer":1,"explanation":"الجبس الاعتيادي CaSO₄·2H₂O يحتوي جزيئتين من ماء التبلور."}
+
 ];
 
 function shuffleArray(array) {
@@ -3857,7 +4666,7 @@ function showQuizResult() {
 
                 <button class="next-button" onclick="showQuiz()" style="margin-top:15px;">🔄 اختبار جديد</button>
                 <button class="previous-button" onclick="showWrongQuestions()" style="margin-top:10px;">🧠 مراجعة أخطائي</button>
-                <button class="chapter-button" onclick="showChapter1()" style="margin-top:10px;">📚 العودة للدروس</button>
+                <button class="chapter-button" onclick="showChapter1Lessons()" style="margin-top:10px;">📚 العودة للدروس</button>
             </div>
         </div>`;
 }

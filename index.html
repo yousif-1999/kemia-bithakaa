@@ -1407,6 +1407,21 @@ li {
     }
 }
 
+
+/* =========================================================
+   الرسومات داخل كل فصل
+   ========================================================= */
+.drawings-section{margin-top:18px;padding:16px;border-radius:20px;background:linear-gradient(135deg,#f8fbff,#f4f8fc);border:1px solid #dbe7f2;}
+.drawings-section h3{margin:0 0 6px;font-size:20px;color:#17324d;}
+.drawings-subtitle{margin:0 0 14px;color:#66788a;font-size:14px;line-height:1.8;}
+.drawings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;}
+.drawing-card{background:#fff;border:1px solid #e3ebf2;border-radius:18px;padding:12px;box-shadow:0 4px 16px rgba(16,42,67,.06);}
+.drawing-card h4{margin:0 0 6px;color:#17324d;font-size:16px;}
+.drawing-card p{margin:0 0 10px;color:#66788a;font-size:13px;line-height:1.7;}
+.drawing-box{display:flex;justify-content:center;align-items:center;min-height:170px;padding:8px;background:#fbfdff;border-radius:14px;overflow:hidden;}
+.drawing-box svg{width:100%;height:auto;max-height:240px;}
+@media(max-width:560px){.drawings-grid{grid-template-columns:1fr}.drawing-box{min-height:150px}}
+
 </style>
 
 </head>
@@ -2083,6 +2098,15 @@ function showChapter1Lessons() {
                 </div>
                 <div class="lesson-arrow">←</div>
 
+            </div>
+
+            <div class="lesson-card" onclick="showChapterDrawings(1)">
+                <div class="lesson-card-icon">🖼️</div>
+                <div class="lesson-card-info">
+                    <h3>الرسومات</h3>
+                    <p>رسومات ومخططات المركبات والأجهزة والأشكال المهمة الخاصة بالفصل الأول.</p>
+                </div>
+                <div class="lesson-arrow">←</div>
             </div>
 
             <div
@@ -3837,6 +3861,7 @@ function showChapter2() {
 
             <div class="lesson-card" onclick="showChapterWrong(2)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الثاني</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الثاني.</p></div><div class="lesson-arrow">←</div></div>
 
+            <div class="lesson-card" onclick="showChapterDrawings(2)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات المركبات وتجارب وأجهزة الفصل الثاني.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapter2MinistryIdeas()">
                 <div class="lesson-card-icon">🎯</div>
                 <div class="lesson-card-info">
@@ -4395,6 +4420,7 @@ function showChapter3() {
             <div class="lesson-card" onclick="showChapterMemory(3)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الثالث</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterQuiz(3)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الثالث</h3><p>اختبار من أسئلة الفصل الثالث فقط.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterWrong(3)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الثالث</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الثالث.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapterDrawings(3)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات استخلاص الألمنيوم، الثرميت، والمركبات المهمة في الفصل الثالث.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapter3MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار تدريبية مركزة مستخرجة من التعليلات والأسئلة والسنوات الوزارية في الملزمة.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapter3Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الثالث وحلولها</h3><p>أسئلة الفصل الثالث الواردة في الملزمة مع حلولها المنظمة.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
@@ -4526,7 +4552,8 @@ function showChapter4(){
       <div class="lesson-card" onclick="showChapterMemory(4)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الرابع</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapterQuiz(4)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الرابع</h3><p>اختبار الفصل الرابع فقط مع مسائل التركيز.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapterWrong(4)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الرابع</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الرابع.</p></div><div class="lesson-arrow">←</div></div>
-      <div class="lesson-card" onclick="showChapter4MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار مركزة من التعليلات والنقاط الامتحانية المهمة في الفصل الرابع.</p></div><div class="lesson-arrow">←</div></div>
+      <div class="lesson-card" onclick="showChapterDrawings(4)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات القياس والتحضير والتعبير عن تركيز المحاليل.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapter4MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار مركزة من التعليلات والنقاط الامتحانية المهمة في الفصل الرابع.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapter4Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الرابع وحلولها</h3><p>أسئلة الفصل الرابع مع الحلول المنظمة.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
     </div>`;
@@ -4623,6 +4650,7 @@ function showChapter5() {
             <div class="lesson-card" onclick="showChapterMemory(5)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الخامس</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterQuiz(5)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الخامس</h3><p>اختبار الفصل الخامس فقط.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterWrong(5)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الخامس</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الخامس.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapterDrawings(5)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات السليكون ومركباته وعمليات تحضيره المهمة.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapter5MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار مركزة من التعليلات والأسئلة والسنوات الوزارية الواردة في الملزمة.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapter5Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الخامس وحلولها</h3><p>أسئلة الفصل الخامس مع الحلول المنظمة حسب الملزمة.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
@@ -4720,6 +4748,7 @@ function showChapter6(){
   <div class="lesson-card" onclick="showChapterMemory(6)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل السادس</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterQuiz(6)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل السادس</h3><p>اختبار الفصل السادس فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterWrong(6)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل السادس</h3><p>مراجعة أخطاء اختبار الفصل السادس.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapterDrawings(6)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات المركبات العضوية وأجهزة تحضير الميثان والإثيلين والأسيتيلين.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapter6MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>تعليلات ونقاط مهمة مركزة من الفصل السادس.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapter6Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل السادس وحلولها</h3><p>أسئلة الفصل السادس مع حلولها المنظمة.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
@@ -4762,6 +4791,85 @@ function showChapter6Questions(){setActive(1);var app=document.getElementById("a
 /* =========================================================
    الحفظ والاختبارات المرتبطة بكل فصل
    ========================================================= */
+
+
+/* =========================================================
+   الرسومات الخاصة بكل فصل
+   ========================================================= */
+function showChapterDrawings(ch){
+    setActive(1);
+    var app=document.getElementById("app");
+    var chapterNames={1:"التركيب الذري للمادة",2:"الزمرتان الأولى والثانية",3:"الزمرة الثالثة",4:"المحاليل",5:"الزمرة الرابعة",6:"الكيمياء العضوية"};
+    var drawings=chapterDrawingData[ch]||[];
+    app.innerHTML=`<div class="page">
+      <div class="page-header"><button class="back-button" onclick="${ch===1?'showChapter1Lessons':'showChapter'+ch}()">←</button><h2>🖼️ رسومات الفصل ${ch}</h2><span></span></div>
+      <div class="drawings-section">
+        <h3>🖼️ رسومات الفصل ${ch}: ${chapterNames[ch]||''}</h3>
+        <p class="drawings-subtitle">قسم خاص يجمع الرسومات والمخططات التعليمية المتعلقة بالمركبات والأجهزة والأشكال المهمة في هذا الفصل.</p>
+        <div class="drawings-grid">${drawings.map(function(d){return `<div class="drawing-card"><h4>${d.title}</h4><p>${d.desc}</p><div class="drawing-box">${d.svg}</div></div>`}).join('')}</div>
+      </div>
+      <div class="lesson-navigation"><button class="chapter-button" onclick="${ch===1?'showChapter1Lessons':'showChapter'+ch}()">📖 العودة إلى الفصل</button></div>
+    </div>`;
+}
+
+function atomSvg(){return `<svg viewBox="0 0 320 190" role="img" aria-label="نموذج مبسط للذرة"><circle cx="160" cy="95" r="28" fill="#eef5ff" stroke="#4b78a8" stroke-width="3"/><text x="160" y="102" text-anchor="middle" font-size="18">نواة</text><ellipse cx="160" cy="95" rx="108" ry="48" fill="none" stroke="#7f9fbd" stroke-width="3"/><ellipse cx="160" cy="95" rx="48" ry="108" fill="none" stroke="#9bb2c7" stroke-width="3"/><circle cx="268" cy="95" r="7" fill="#ff9f43"/><circle cx="160" cy="-13" r="7" fill="#ff9f43"/><circle cx="52" cy="95" r="7" fill="#ff9f43"/><circle cx="160" cy="203" r="7" fill="#ff9f43"/></svg>`}
+function orbitalsSvg(){return `<svg viewBox="0 0 320 190"><g transform="translate(22,22)"><rect width="70" height="54" rx="10" fill="#edf6ff" stroke="#6d91b2"/><text x="35" y="32" text-anchor="middle" font-size="18">1s</text><text x="104" y="32" font-size="16">↑↓</text></g><g transform="translate(22,96)"><rect width="70" height="54" rx="10" fill="#edf6ff" stroke="#6d91b2"/><text x="35" y="32" text-anchor="middle" font-size="18">2s</text><text x="104" y="32" font-size="16">↑↓</text></g><g transform="translate(170,22)"><rect width="125" height="54" rx="10" fill="#f6f3ff" stroke="#8d83b4"/><text x="12" y="32" font-size="18">2p</text><text x="58" y="32" font-size="16">↑</text><text x="82" y="32" font-size="16">↑</text><text x="106" y="32" font-size="16">↑</text></g><g transform="translate(170,96)"><rect width="125" height="54" rx="10" fill="#f6f3ff" stroke="#8d83b4"/><text x="12" y="32" font-size="18">3p</text><text x="58" y="32" font-size="16">↑↓</text><text x="82" y="32" font-size="16">↑</text><text x="106" y="32" font-size="16">↑</text></g></svg>`}
+function lewisSvg(){return `<svg viewBox="0 0 320 190"><circle cx="160" cy="95" r="35" fill="#eef8ef" stroke="#5c9a68" stroke-width="3"/><text x="160" y="102" text-anchor="middle" font-size="22">X</text><g fill="#2f5d3a"><circle cx="145" cy="48" r="4"/><circle cx="175" cy="48" r="4"/><circle cx="145" cy="142" r="4"/><circle cx="175" cy="142" r="4"/><circle cx="110" cy="95" r="4"/><circle cx="95" cy="95" r="4"/><circle cx="210" cy="95" r="4"/><circle cx="225" cy="95" r="4"/></g></svg>`}
+function periodicSvg(){return `<svg viewBox="0 0 320 190"><g fill="#f1f6fb" stroke="#7f9fbd"><rect x="15" y="20" width="38" height="28"/><rect x="57" y="20" width="38" height="28"/><rect x="99" y="20" width="38" height="28"/><rect x="141" y="20" width="38" height="28"/><rect x="183" y="20" width="38" height="28"/><rect x="225" y="20" width="38" height="28"/><rect x="267" y="20" width="38" height="28"/><rect x="15" y="54" width="38" height="28"/><rect x="57" y="54" width="38" height="28"/><rect x="99" y="54" width="38" height="28"/><rect x="141" y="54" width="38" height="28"/><rect x="183" y="54" width="38" height="28"/><rect x="225" y="54" width="38" height="28"/><rect x="267" y="54" width="38" height="28"/><rect x="15" y="88" width="38" height="28"/><rect x="57" y="88" width="38" height="28"/><rect x="99" y="88" width="38" height="28"/><rect x="141" y="88" width="38" height="28"/><rect x="183" y="88" width="38" height="28"/><rect x="225" y="88" width="38" height="28"/><rect x="267" y="88" width="38" height="28"/><rect x="57" y="122" width="38" height="28"/><rect x="99" y="122" width="38" height="28"/><rect x="141" y="122" width="38" height="28"/><rect x="183" y="122" width="38" height="28"/><rect x="225" y="122" width="38" height="28"/></g><text x="160" y="177" text-anchor="middle" font-size="14">اتجاه التدرج الدوري</text></svg>`}
+function flameSvg(){return `<svg viewBox="0 0 320 190"><path d="M130 155 C98 135 112 102 141 88 C132 69 149 54 167 40 C162 67 192 76 185 99 C207 90 220 111 208 130 C198 149 171 159 145 159 Z" fill="#ffb347" stroke="#d97d17" stroke-width="3"/><path d="M150 146 C132 132 145 115 161 104 C158 91 170 81 177 75 C176 96 194 104 187 119 C181 133 166 143 150 146 Z" fill="#fff4b8"/><text x="80" y="174" font-size="15">اختبار اللهب</text></svg>`}
+function sodiumWaterSvg(){return `<svg viewBox="0 0 320 190"><rect x="35" y="55" width="95" height="100" rx="8" fill="#e8f6ff" stroke="#6288a8" stroke-width="3"/><rect x="190" y="55" width="95" height="100" rx="8" fill="#e8f6ff" stroke="#6288a8" stroke-width="3"/><circle cx="82" cy="95" r="11" fill="#b7d7f2"/><text x="82" y="126" text-anchor="middle" font-size="14">Na</text><path d="M138 102 H183" stroke="#6d91b2" stroke-width="3" marker-end="url(#a)"/><defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#6d91b2"/></marker></defs><text x="237" y="96" text-anchor="middle" font-size="17">NaOH</text><text x="237" y="122" text-anchor="middle" font-size="13">وماء الهيدروجين</text></svg>`}
+function hallSvg(){return `<svg viewBox="0 0 320 190"><rect x="58" y="38" width="205" height="118" rx="12" fill="#f1f6fb" stroke="#7894ac" stroke-width="3"/><rect x="85" y="65" width="151" height="64" rx="8" fill="#e7edf3" stroke="#7894ac"/><line x1="103" y1="78" x2="103" y2="116" stroke="#555" stroke-width="8"/><line x1="218" y1="78" x2="218" y2="116" stroke="#555" stroke-width="8"/><text x="74" y="27" font-size="14">قطب</text><text x="212" y="27" font-size="14">قطب</text><path d="M150 110 H174" stroke="#c56b4e" stroke-width="8"/><text x="160" y="177" text-anchor="middle" font-size="14">خلية التحليل الكهربائي لاستخلاص الألمنيوم</text></svg>`}
+function thermiteSvg(){return `<svg viewBox="0 0 320 190"><path d="M110 35 H210 L195 155 H125 Z" fill="#e9eef4" stroke="#718aa0" stroke-width="3"/><path d="M121 105 H199 L193 146 H127 Z" fill="#c8b69a"/><path d="M130 82 Q160 50 190 82" fill="none" stroke="#e18d37" stroke-width="8"/><text x="160" y="178" text-anchor="middle" font-size="15">تفاعل الثرميت</text></svg>`}
+function amphotericSvg(){return `<svg viewBox="0 0 320 190"><circle cx="160" cy="95" r="26" fill="#edf4fb" stroke="#6d91b2" stroke-width="3"/><text x="160" y="102" text-anchor="middle" font-size="16">Al(OH)₃</text><path d="M123 95 H54" stroke="#7292ac" stroke-width="3"/><path d="M197 95 H266" stroke="#7292ac" stroke-width="3"/><text x="46" y="77" text-anchor="middle" font-size="15">HCl</text><text x="274" y="77" text-anchor="middle" font-size="15">NaOH</text><text x="43" y="125" text-anchor="middle" font-size="13">حمض</text><text x="275" y="125" text-anchor="middle" font-size="13">قاعدة</text></svg>`}
+function beakerSvg(){return `<svg viewBox="0 0 320 190"><path d="M90 35 H230 L218 155 Q160 174 102 155 Z" fill="#eaf5ff" stroke="#6f8fa8" stroke-width="3"/><path d="M102 105 Q160 90 218 105 V155 Q160 173 102 155 Z" fill="#bfe0f5" opacity=".95"/><line x1="105" y1="90" x2="215" y2="90" stroke="#6f8fa8" stroke-dasharray="5 5"/><text x="160" y="178" text-anchor="middle" font-size="14">محلول: مذاب + مذيب</text></svg>`}
+function measuringSvg(){return `<svg viewBox="0 0 320 190"><rect x="65" y="32" width="60" height="125" rx="8" fill="#f5f9fc" stroke="#6f8fa8" stroke-width="3"/><rect x="76" y="98" width="38" height="48" fill="#bfe0f5"/><g stroke="#6f8fa8"><line x1="78" y1="55" x2="96" y2="55"/><line x1="78" y1="70" x2="96" y2="70"/><line x1="78" y1="85" x2="96" y2="85"/></g><path d="M202 148 H282 M242 148 V98 M220 98 H264" stroke="#667f94" stroke-width="3" fill="none"/><path d="M229 98 L229 82 M255 98 L255 82" stroke="#667f94" stroke-width="5"/><text x="94" y="174" text-anchor="middle" font-size="13">مخبار مدرج</text><text x="242" y="174" text-anchor="middle" font-size="13">ميزان</text></svg>`}
+function siliconSvg(){return `<svg viewBox="0 0 320 190"><g stroke="#6f8fa8" stroke-width="3" fill="#eaf3fb"><circle cx="78" cy="55" r="16"/><circle cx="138" cy="55" r="16"/><circle cx="198" cy="55" r="16"/><circle cx="108" cy="112" r="16"/><circle cx="168" cy="112" r="16"/><circle cx="228" cy="112" r="16"/><line x1="94" y1="55" x2="122" y2="55"/><line x1="154" y1="55" x2="182" y2="55"/><line x1="89" y1="66" x2="99" y2="99"/><line x1="153" y1="66" x2="153" y2="99"/><line x1="208" y1="67" x2="197" y2="99"/><line x1="124" y1="112" x2="152" y2="112"/><line x1="184" y1="112" x2="212" y2="112"/></g><text x="160" y="177" text-anchor="middle" font-size="14">شبكة مبسطة لذرات السليكون</text></svg>`}
+function furnaceSvg(){return `<svg viewBox="0 0 320 190"><rect x="62" y="40" width="196" height="112" rx="14" fill="#edf2f6" stroke="#70899e" stroke-width="3"/><rect x="94" y="65" width="132" height="62" rx="8" fill="#d9e0e6" stroke="#70899e"/><path d="M115 112 Q160 55 205 112" fill="none" stroke="#df8741" stroke-width="9"/><text x="160" y="176" text-anchor="middle" font-size="14">فرن/جهاز تحضير السليكون</text></svg>`}
+function methaneSvg(){return `<svg viewBox="0 0 320 190"><circle cx="160" cy="95" r="24" fill="#cfe4f7" stroke="#5c86aa" stroke-width="3"/><text x="160" y="102" text-anchor="middle" font-size="16">C</text><g fill="#f3d7a4" stroke="#b88640" stroke-width="2"><circle cx="78" cy="95" r="14"/><circle cx="242" cy="95" r="14"/><circle cx="160" cy="20" r="14"/><circle cx="160" cy="170" r="14"/></g><g stroke="#5c86aa" stroke-width="4"><line x1="136" y1="95" x2="92" y2="95"/><line x1="184" y1="95" x2="228" y2="95"/><line x1="160" y1="71" x2="160" y2="34"/><line x1="160" y1="119" x2="160" y2="156"/></g><text x="160" y="187" text-anchor="middle" font-size="13">CH₄ — الميثان</text></svg>`}
+function ethyleneSvg(){return `<svg viewBox="0 0 320 190"><circle cx="130" cy="95" r="25" fill="#cfe4f7"/><circle cx="190" cy="95" r="25" fill="#cfe4f7"/><line x1="152" y1="84" x2="168" y2="84" stroke="#5b7fa0" stroke-width="5"/><line x1="152" y1="106" x2="168" y2="106" stroke="#5b7fa0" stroke-width="5"/><text x="96" y="57" font-size="14">H</text><text x="218" y="57" font-size="14">H</text><text x="96" y="145" font-size="14">H</text><text x="218" y="145" font-size="14">H</text><text x="160" y="178" text-anchor="middle" font-size="13">C₂H₄ — الإثيلين</text></svg>`}
+function acetyleneSvg(){return `<svg viewBox="0 0 320 190"><circle cx="120" cy="95" r="25" fill="#cfe4f7"/><circle cx="200" cy="95" r="25" fill="#cfe4f7"/><line x1="143" y1="82" x2="177" y2="82" stroke="#5b7fa0" stroke-width="4"/><line x1="143" y1="95" x2="177" y2="95" stroke="#5b7fa0" stroke-width="4"/><line x1="143" y1="108" x2="177" y2="108" stroke="#5b7fa0" stroke-width="4"/><line x1="95" y1="95" x2="74" y2="95" stroke="#5b7fa0" stroke-width="4"/><line x1="225" y1="95" x2="246" y2="95" stroke="#5b7fa0" stroke-width="4"/><text x="68" y="79" font-size="14">H</text><text x="250" y="79" font-size="14">H</text><text x="160" y="178" text-anchor="middle" font-size="13">C₂H₂ — الأسيتيلين</text></svg>`}
+function ethanolSvg(){return `<svg viewBox="0 0 320 190"><circle cx="90" cy="95" r="22" fill="#cfe4f7"/><circle cx="150" cy="95" r="22" fill="#cfe4f7"/><circle cx="210" cy="95" r="22" fill="#f4d7a0"/><line x1="112" y1="95" x2="128" y2="95" stroke="#5b7fa0" stroke-width="4"/><line x1="172" y1="95" x2="188" y2="95" stroke="#5b7fa0" stroke-width="4"/><text x="210" y="101" text-anchor="middle" font-size="14">O</text><text x="252" y="82" font-size="15">H</text><line x1="228" y1="91" x2="246" y2="91" stroke="#5b7fa0" stroke-width="4"/><text x="160" y="176" text-anchor="middle" font-size="13">C₂H₅OH — كحول الإثيل</text></svg>`}
+function benzeneSvg(){return `<svg viewBox="0 0 320 190"><polygon points="160,35 220,70 220,135 160,170 100,135 100,70" fill="#f4f7fb" stroke="#607f9b" stroke-width="4"/><circle cx="160" cy="102" r="34" fill="none" stroke="#8aa3b8" stroke-width="3"/><text x="160" y="187" text-anchor="middle" font-size="13">C₆H₆ — البنزين/البنزول</text></svg>`}
+function prepAppSvg(){return `<svg viewBox="0 0 320 190"><path d="M70 55 H140 V130 Q105 150 70 130 Z" fill="#edf4f8" stroke="#6d889d" stroke-width="3"/><path d="M140 82 H190 V60 H230 V145" fill="none" stroke="#6d889d" stroke-width="5"/><path d="M230 145 H275" stroke="#6d889d" stroke-width="5"/><rect x="250" y="118" width="38" height="35" rx="5" fill="#d7eafa" stroke="#6d889d" stroke-width="3"/><text x="105" y="96" text-anchor="middle" font-size="13">مادة صلبة</text><text x="160" y="176" text-anchor="middle" font-size="13">جهاز تحضير وجمع الغاز بإزاحة الماء</text></svg>`}
+
+var chapterDrawingData={
+1:[
+ {title:"نموذج مبسط للذرة",desc:"النواة ومستويات/مدارات حولها لتمثيل البناء الذري.",svg:atomSvg()},
+ {title:"مخطط الأوربيتالات",desc:"تمثيل مبسط لملء المستويات الثانوية بالإلكترونات.",svg:orbitalsSvg()},
+ {title:"ترتيب لويس",desc:"تمثيل إلكترونات التكافؤ حول رمز العنصر.",svg:lewisSvg()},
+ {title:"الجدول الدوري",desc:"مخطط مبسط يوضح ترتيب العناصر والتدرج الدوري.",svg:periodicSvg()}
+],
+2:[
+ {title:"اختبار اللهب",desc:"رسم تعليمي لفكرة الكشف عن بعض عناصر الزمرتين بطريقة اللهب.",svg:flameSvg()},
+ {title:"تفاعل الصوديوم مع الماء",desc:"مخطط مبسط لحركة التفاعل والناتج في المحلول.",svg:sodiumWaterSvg()},
+ {title:"مركبات الصوديوم والكالسيوم",desc:"بطاقة رسومية لتثبيت صيغ المركبات المهمة في الفصل.",svg:`<svg viewBox="0 0 320 190"><rect x="35" y="32" width="110" height="125" rx="12" fill="#f1f7fd" stroke="#6f8fa8"/><rect x="175" y="32" width="110" height="125" rx="12" fill="#f4f1fb" stroke="#897ca8"/><text x="90" y="74" text-anchor="middle" font-size="20">NaOH</text><text x="90" y="105" text-anchor="middle" font-size="20">Na₂CO₃</text><text x="230" y="74" text-anchor="middle" font-size="20">CaCO₃</text><text x="230" y="105" text-anchor="middle" font-size="20">Ca(OH)₂</text><text x="160" y="178" text-anchor="middle" font-size="13">أمثلة من المركبات المدروسة</text></svg>`}
+],
+3:[
+ {title:"خلية استخلاص الألمنيوم",desc:"مخطط مبسط لجهاز التحليل الكهربائي في طريقة هول.",svg:hallSvg()},
+ {title:"تفاعل الثرميت",desc:"رسم تعليمي للتفاعل ذي الحرارة العالية المستخدم في الفصل.",svg:thermiteSvg()},
+ {title:"هيدروكسيد الألمنيوم",desc:"تمثيل مبسط للسلوك الأمفوتيري مع الحمض والقاعدة.",svg:amphotericSvg()},
+ {title:"مركبات الألمنيوم",desc:"بطاقة تثبيت لصيغ الألومينا وهيدروكسيد الألمنيوم والشب.",svg:`<svg viewBox="0 0 320 190"><rect x="38" y="34" width="244" height="120" rx="14" fill="#f7fafc" stroke="#7892a8"/><text x="160" y="69" text-anchor="middle" font-size="22">Al₂O₃</text><text x="160" y="100" text-anchor="middle" font-size="22">Al(OH)₃</text><text x="160" y="131" text-anchor="middle" font-size="20">KAl(SO₄)₂·12H₂O</text><text x="160" y="177" text-anchor="middle" font-size="13">الألومينا — هيدروكسيد الألمنيوم — الشب</text></svg>`}
+],
+4:[
+ {title:"المحلول",desc:"تمثيل مبسط لمحلول مكوّن من مذاب ومذيب.",svg:beakerSvg()},
+ {title:"القياس الكتلي والحجمي",desc:"أمثلة رسومية لأدوات القياس المستخدمة عند حساب التركيز والكثافة.",svg:measuringSvg()},
+ {title:"التركيز بالنسبة المئوية",desc:"مخطط تعليمي لفكرة نسبة المذاب إلى كمية المحلول.",svg:`<svg viewBox="0 0 320 190"><path d="M70 44 H130 V130 Q100 150 70 130 Z" fill="#eaf6ff" stroke="#6d8aa0" stroke-width="3"/><circle cx="92" cy="95" r="5" fill="#7c9fbc"/><circle cx="112" cy="112" r="5" fill="#7c9fbc"/><circle cx="200" cy="44" r="44" fill="#eef5fb" stroke="#708ba2" stroke-width="3"/><text x="200" y="49" text-anchor="middle" font-size="20">%</text><path d="M138 92 H154" stroke="#708ba2" stroke-width="3" marker-end="url(#p)"/><defs><marker id="p" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#708ba2"/></marker></defs><text x="160" y="176" text-anchor="middle" font-size="13">المذاب مقارنة بكمية المحلول</text></svg>`},
+ {title:"الكثافة",desc:"تمثيل العلاقة بين الكتلة والحجم عند دراسة التركيز والكثافة.",svg:`<svg viewBox="0 0 320 190"><circle cx="100" cy="98" r="48" fill="#f1f5f8" stroke="#738ca0" stroke-width="3"/><line x1="100" y1="48" x2="100" y2="148" stroke="#738ca0" stroke-width="3"/><text x="100" y="103" text-anchor="middle" font-size="22">m</text><rect x="190" y="50" width="72" height="98" rx="10" fill="#edf6ff" stroke="#708aa0" stroke-width="3"/><text x="226" y="105" text-anchor="middle" font-size="22">V</text><text x="160" y="178" text-anchor="middle" font-size="14">الكثافة = الكتلة ÷ الحجم</text></svg>`}
+],
+5:[
+ {title:"بنية السليكون",desc:"تمثيل شبكي مبسط لارتباط ذرات السليكون.",svg:siliconSvg()},
+ {title:"جهاز التحضير",desc:"مخطط تعليمي مبسط لجهاز التسخين/الفرن المستخدم في التحضير.",svg:furnaceSvg()},
+ {title:"السليكا والسيليكات",desc:"بطاقة رسومية لتثبيت السيليكا والسليكات والمركبات المرتبطة بها.",svg:`<svg viewBox="0 0 320 190"><polygon points="105,95 160,57 215,95 160,133" fill="#eef4f9" stroke="#718da4" stroke-width="3"/><circle cx="160" cy="95" r="18" fill="#d4e4f2" stroke="#718da4" stroke-width="2"/><circle cx="117" cy="73" r="10" fill="#e0c99c"/><circle cx="203" cy="73" r="10" fill="#e0c99c"/><circle cx="117" cy="117" r="10" fill="#e0c99c"/><circle cx="203" cy="117" r="10" fill="#e0c99c"/><text x="160" y="175" text-anchor="middle" font-size="13">وحدة مبسطة للسليكا/السليكات</text></svg>`},
+ {title:"كاربيد السليكون والسيليكونات",desc:"بطاقة صيغية للمركبات المهمة المذكورة في الفصل.",svg:`<svg viewBox="0 0 320 190"><rect x="38" y="40" width="105" height="95" rx="12" fill="#f1f6fa" stroke="#718ca1"/><rect x="177" y="40" width="105" height="95" rx="12" fill="#f6f2fb" stroke="#8a7daa"/><text x="90" y="95" text-anchor="middle" font-size="26">SiC</text><text x="230" y="95" text-anchor="middle" font-size="24">Si–O–Si</text><text x="160" y="170" text-anchor="middle" font-size="13">كاربيد السليكون — السليكونات</text></svg>`}
+],
+6:[
+ {title:"الميثان CH₄",desc:"التركيب التساهمي الرباعي لذرة الكاربون في الميثان.",svg:methaneSvg()},
+ {title:"الإثيلين C₂H₄",desc:"أصرة تساهمية مزدوجة بين ذرتي الكاربون.",svg:ethyleneSvg()},
+ {title:"الأسيتيلين C₂H₂",desc:"أصرة تساهمية ثلاثية بين ذرتي الكاربون.",svg:acetyleneSvg()},
+ {title:"كحول الإثيل C₂H₅OH",desc:"تمثيل مبسط لتركيب الإيثانول.",svg:ethanolSvg()},
+ {title:"البنزين C₆H₆",desc:"تمثيل حلقي مبسط للبنزين/البنزول.",svg:benzeneSvg()},
+ {title:"أجهزة تحضير الغازات",desc:"مخطط تعليمي مبسط لفكرة التحضير وجمع الغاز بإزاحة الماء، كما في تجارب الفصل.",svg:prepAppSvg()}
+]};
 
 var chapterMemoryData = {
     1: [

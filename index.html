@@ -963,6 +963,66 @@ button {
     transform: translateY(-1px);
 }
 
+
+/* =========================================================
+   شارات مستوى السؤال وبطاقات المراجعة
+   ========================================================= */
+
+.quiz-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 12px 0 8px;
+}
+
+.difficulty-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 13px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #173b78;
+    border: 1px solid #dce4f7;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.progress-track {
+    width: 100%;
+    height: 10px;
+    background: #e8edf6;
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 12px 0 4px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: #173b78;
+    border-radius: 999px;
+    transition: width .25s ease;
+}
+
+.review-card {
+    border-right: 5px solid #d9822b;
+}
+
+.review-question {
+    font-size: 19px;
+    font-weight: 800;
+    color: #173b78;
+    margin-bottom: 12px;
+}
+
+.small-muted {
+    color: #7b89a4;
+    font-size: 14px;
+}
+
 /* =========================================================
    استجابة الهاتف
    ========================================================= */
@@ -1180,6 +1240,49 @@ var quizAnswered = false;
 var quizSessionQuestions = [];
 var quizWrongAnswers = 0;
 var quizSessionSize = 10;
+
+var quizLastWrongQuestions = [];
+
+function getWrongQuestions() {
+    try {
+        return JSON.parse(localStorage.getItem("kemia_wrong_questions") || "[]");
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveWrongQuestion(question) {
+    var wrong = getWrongQuestions();
+    var exists = wrong.some(function(item) { return item.q === question.q; });
+    if (!exists) {
+        wrong.push(question);
+        localStorage.setItem("kemia_wrong_questions", JSON.stringify(wrong));
+    }
+}
+
+function removeWrongQuestion(question) {
+    var wrong = getWrongQuestions().filter(function(item) {
+        return item.q !== question.q;
+    });
+    localStorage.setItem("kemia_wrong_questions", JSON.stringify(wrong));
+}
+
+function getDifficulty(question, index) {
+    if (question.difficulty) return question.difficulty;
+    if (index % 5 === 4) return "صعب";
+    if (index % 2 === 0) return "متوسط";
+    return "سهل";
+}
+
+function escapeHtml(text) {
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
 
 function getCompletedLessons() {
     try {
@@ -4544,6 +4647,7 @@ function showQuiz() {
     quizScore = 0;
     quizWrongAnswers = 0;
     quizAnswered = false;
+    quizLastWrongQuestions = [];
     quizSessionQuestions = shuffleArray(quizQuestions).slice(0, quizSessionSize);
     renderQuizQuestion();
 }
@@ -4555,6 +4659,10 @@ function renderQuizQuestion() {
         showQuizResult();
         return;
     }
+
+    var difficulty = getDifficulty(q, quizIndex);
+    var progress = Math.round(((quizIndex) / quizSessionQuestions.length) * 100);
+
     app.innerHTML = `
         <div class="page">
             <div class="page-header">
@@ -4562,15 +4670,32 @@ function renderQuizQuestion() {
                 <h2>❓ اختبرني</h2>
                 <span></span>
             </div>
+
             <div class="content-card">
-                <h3>السؤال ${quizIndex + 1} من ${quizSessionQuestions.length}</h3>
+                <div class="quiz-meta">
+                    <span class="small-muted">السؤال ${quizIndex + 1} من ${quizSessionQuestions.length}</span>
+                    <span class="difficulty-badge">المستوى: ${difficulty}</span>
+                </div>
+
+                <div class="progress-track">
+                    <div class="progress-bar" style="width:${progress}%;"></div>
+                </div>
+
                 <div class="info-box">النتيجة الحالية: ${quizScore}</div>
+
                 <p style="font-size:22px;font-weight:700;margin-top:18px;">${q.q}</p>
+
                 <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px;">
                     ${q.options.map(function(option, i) {
                         return `<button class="chapter-button" onclick="answerQuiz(${i})">${String.fromCharCode(65+i)}. ${option}</button>`;
                     }).join("")}
                 </div>
+            </div>
+
+            <div class="content-card">
+                <h3>📚 مراجعة الأخطاء</h3>
+                <p>عدد الأسئلة المحفوظة للمراجعة: <strong>${getWrongQuestions().length}</strong></p>
+                <button class="chapter-button" onclick="showWrongQuestions()">🧠 راجع أخطائي</button>
             </div>
         </div>`;
 }
@@ -4578,13 +4703,19 @@ function renderQuizQuestion() {
 function answerQuiz(selected) {
     if (quizAnswered) return;
     quizAnswered = true;
+
     var q = quizSessionQuestions[quizIndex];
     var buttons = document.querySelectorAll('.chapter-button');
+
     if (selected === q.answer) {
         quizScore++;
+        removeWrongQuestion(q);
     } else {
         quizWrongAnswers++;
+        quizLastWrongQuestions.push(q);
+        saveWrongQuestion(q);
     }
+
     buttons.forEach(function(btn, i) {
         btn.disabled = true;
         if (i === q.answer) {
@@ -4595,41 +4726,49 @@ function answerQuiz(selected) {
             btn.style.borderColor = '#d9534f';
         }
     });
+
     var card = document.querySelector('.content-card');
     var feedback = document.createElement("div");
     feedback.className = "answer-box";
     feedback.style.marginTop = "15px";
     feedback.innerHTML = selected === q.answer
-        ? "✅ إجابة صحيحة"
+        ? "✅ إجابة صحيحة — تم حذف السؤال من قائمة أخطائك."
         : "❌ إجابة غير صحيحة — الإجابة الصحيحة: " + q.options[q.answer];
     card.appendChild(feedback);
+
     if (q.explanation) {
         var explanation = document.createElement("div");
         explanation.className = "memory-box";
         explanation.style.marginTop = "12px";
-        explanation.innerHTML = "💡 " + q.explanation;
+        explanation.innerHTML = "💡 الشرح: " + q.explanation;
         card.appendChild(explanation);
     }
+
     setTimeout(function(){
         quizAnswered = false;
         quizIndex++;
         renderQuizQuestion();
-    }, 1100);
+    }, 1400);
 }
 
 function showQuizResult() {
     var total = quizSessionQuestions.length || quizSessionSize;
     var percentage = Math.round((quizScore / total) * 100);
     var message = percentage >= 90 ? "ممتاز جدًا! 🔥" : percentage >= 70 ? "أحسنت! 👏" : percentage >= 50 ? "جيد، راجع بعض الدروس." : "تحتاج إلى مراجعة الفصل ثم إعادة الاختبار.";
+
     var best = parseInt(localStorage.getItem("kemia_best_quiz_score") || "0", 10);
     if (quizScore > best) {
         best = quizScore;
         localStorage.setItem("kemia_best_quiz_score", String(best));
     }
+
     localStorage.setItem("kemia_last_quiz_score", String(quizScore));
     localStorage.setItem("kemia_last_quiz_total", String(total));
     localStorage.setItem("kemia_last_quiz_percent", String(percentage));
+
+    var wrongCount = getWrongQuestions().length;
     var app = document.getElementById("app");
+
     app.innerHTML = `
         <div class="page">
             <div class="page-header">
@@ -4637,20 +4776,97 @@ function showQuizResult() {
                 <h2>🏆 نتيجة الاختبار</h2>
                 <span></span>
             </div>
+
             <div class="content-card" style="text-align:center;">
                 <h3>${message}</h3>
                 <div class="electron-config">${quizScore} / ${total}</div>
                 <p>الإجابات الصحيحة: <strong>${quizScore}</strong></p>
                 <p>الإجابات الخاطئة: <strong>${quizWrongAnswers}</strong></p>
                 <p>النسبة: <strong>${percentage}%</strong></p>
+
                 <div class="memory-box">
                     <strong>🏅 أفضل نتيجة</strong>
                     ${best} / ${total}
                 </div>
+
+                <div class="memory-box">
+                    <strong>🧠 الأسئلة المحفوظة للمراجعة</strong>
+                    ${wrongCount} سؤال
+                </div>
+
                 <button class="next-button" onclick="showQuiz()" style="margin-top:15px;">🔄 اختبار جديد</button>
-                <button class="previous-button" onclick="showChapter1()" style="margin-top:10px;">📚 العودة للدروس</button>
+                <button class="previous-button" onclick="showWrongQuestions()" style="margin-top:10px;">🧠 مراجعة أخطائي</button>
+                <button class="chapter-button" onclick="showChapter1()" style="margin-top:10px;">📚 العودة للدروس</button>
             </div>
         </div>`;
+}
+
+function showWrongQuestions() {
+    setActive(2);
+    var wrong = getWrongQuestions();
+    var app = document.getElementById("app");
+
+    if (!wrong.length) {
+        app.innerHTML = `
+            <div class="page">
+                <div class="page-header">
+                    <button class="back-button" onclick="showQuiz()">←</button>
+                    <h2>🧠 مراجعة أخطائي</h2>
+                    <span></span>
+                </div>
+                <div class="content-card" style="text-align:center;">
+                    <h3>رائع! 🎉</h3>
+                    <p>لا توجد أسئلة محفوظة للمراجعة حالياً.</p>
+                    <div class="memory-box">
+                        <strong>نصيحة</strong>
+                        أجب عن الاختبار، وسيتم حفظ الأسئلة التي تخطئ فيها تلقائياً هنا.
+                    </div>
+                    <button class="next-button" onclick="showQuiz()">❓ ابدأ اختباراً</button>
+                </div>
+            </div>`;
+        return;
+    }
+
+    app.innerHTML = `
+        <div class="page">
+            <div class="page-header">
+                <button class="back-button" onclick="showQuiz()">←</button>
+                <h2>🧠 مراجعة أخطائي</h2>
+                <span></span>
+            </div>
+
+            <div class="content-card">
+                <h3>لديك ${wrong.length} سؤال للمراجعة</h3>
+                <p>راجع السؤال والإجابة الصحيحة والشرح، ثم أعد الاختبار لتتأكد من إتقان الفكرة.</p>
+            </div>
+
+            ${wrong.map(function(q, index) {
+                return `
+                    <div class="content-card review-card">
+                        <div class="small-muted">سؤال ${index + 1}</div>
+                        <div class="review-question">${q.q}</div>
+                        <div class="answer-box">✅ الإجابة الصحيحة: ${q.options[q.answer]}</div>
+                        ${q.explanation ? `<div class="memory-box">💡 الشرح: ${q.explanation}</div>` : ""}
+                        <button class="chapter-button" onclick="removeOneWrongQuestion(${JSON.stringify(q.q)})" style="margin-top:12px;">✓ أتقنت هذا السؤال</button>
+                    </div>`;
+            }).join("")}
+
+            <div class="lesson-navigation">
+                <button class="next-button" onclick="showQuiz()">❓ اختبرني مرة أخرى</button>
+                <button class="chapter-button" onclick="clearWrongQuestions()">🗑️ مسح قائمة المراجعة</button>
+            </div>
+        </div>`;
+}
+
+function removeOneWrongQuestion(text) {
+    var wrong = getWrongQuestions().filter(function(item) { return item.q !== text; });
+    localStorage.setItem("kemia_wrong_questions", JSON.stringify(wrong));
+    showWrongQuestions();
+}
+
+function clearWrongQuestions() {
+    localStorage.removeItem("kemia_wrong_questions");
+    showWrongQuestions();
 }
 
 
@@ -4693,6 +4909,12 @@ function showAccount() {
                 <p>${bestScore !== null ? 'أفضل نتيجة: <strong>' + bestScore + ' / ' + (lastTotal || quizSessionSize) + '</strong>' : 'أفضل نتيجة ستظهر بعد أول اختبار.'}</p>
                 <button class="next-button" onclick="showQuiz()" style="margin-top:10px;">❓ ابدأ اختباراً</button>
             </div>
+            <div class="content-card">
+                <h3>🧠 مراجعة أخطائي</h3>
+                <p>عدد الأسئلة المحفوظة للمراجعة: <strong>${getWrongQuestions().length}</strong></p>
+                <button class="chapter-button" onclick="showWrongQuestions()">📖 فتح المراجعة</button>
+            </div>
+
             <div class="content-card">
                 <h3>📚 الدروس المكتملة</h3>
                 <p>${completed ? getCompletedLessons().map(function(n){ return '✅ الدرس ' + n; }).join(' &nbsp; ') : 'لم تُكمل أي درس بعد.'}</p>

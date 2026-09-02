@@ -1451,7 +1451,7 @@ li {
     <button
         class="nav-item"
         id="nav-memory"
-        onclick="showMemory()">
+        onclick="showMemoryChooser()">
 
         <div class="nav-icon">🧠</div>
 
@@ -1463,7 +1463,7 @@ li {
     <button
         class="nav-item"
         id="nav-quiz"
-        onclick="showQuiz()">
+        onclick="showQuizChooser()">
 
         <div class="nav-icon">❓</div>
 
@@ -1720,6 +1720,26 @@ function showHome() {
                     onclick="showChapter4()">
 
                     📖 افتح الفصل الرابع
+
+                </button>
+
+            </div>
+
+            <div class="start-card" style="margin-top:15px;">
+
+                <h3>
+                    🧱 الفصل الخامس
+                </h3>
+
+                <p>
+                    الزمرة الرابعة: الكاربون والسليكون، تحضير السليكون، خواصه ومركباته واستعمالاته.
+                </p>
+
+                <button
+                    class="chapter-button"
+                    onclick="showChapter5()">
+
+                    📖 افتح الفصل الخامس
 
                 </button>
 
@@ -2025,6 +2045,39 @@ function showChapter1Lessons() {
             </div>
 
 
+
+            <div class="lesson-card" onclick="showChapterMemory(1)">
+
+                <div class="lesson-card-icon">🧠</div>
+                <div class="lesson-card-info">
+                    <h3>احفظها — الفصل الأول</h3>
+                    <p>بطاقات ونقاط الحفظ الخاصة بالفصل الأول فقط.</p>
+                </div>
+                <div class="lesson-arrow">←</div>
+
+            </div>
+
+            <div class="lesson-card" onclick="showChapterQuiz(1)">
+
+                <div class="lesson-card-icon">❓</div>
+                <div class="lesson-card-info">
+                    <h3>اختبرني — الفصل الأول</h3>
+                    <p>اختبار من أسئلة الفصل الأول فقط.</p>
+                </div>
+                <div class="lesson-arrow">←</div>
+
+            </div>
+
+            <div class="lesson-card" onclick="showChapterWrong(1)">
+
+                <div class="lesson-card-icon">🔄</div>
+                <div class="lesson-card-info">
+                    <h3>مراجعة أخطائي — الفصل الأول</h3>
+                    <p>راجع الأسئلة التي أخطأت فيها في الفصل الأول.</p>
+                </div>
+                <div class="lesson-arrow">←</div>
+
+            </div>
 
             <div
                 class="lesson-card"
@@ -3673,6 +3726,15 @@ function showChapters() {
                     <div class="chapter-select-arrow">←</div>
                 </div>
 
+                <div class="chapter-select-card" onclick="showChapter5()">
+                    <div class="chapter-select-icon">🧱</div>
+                    <div class="chapter-select-info">
+                        <h3>الفصل الخامس: الزمرة الرابعة</h3>
+                        <p>الكاربون والسليكون، طرق التحضير، الخواص، السليكا والسليكات وكاربيد السليكون والسليكونات.</p>
+                    </div>
+                    <div class="chapter-select-arrow">←</div>
+                </div>
+
             </div>
 
         </div>
@@ -3753,6 +3815,12 @@ function showChapter2() {
                 </div>
                 <div class="lesson-arrow">←</div>
             </div>
+
+            <div class="lesson-card" onclick="showChapterMemory(2)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الثاني</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
+
+            <div class="lesson-card" onclick="showChapterQuiz(2)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الثاني</h3><p>اختبار من أسئلة الفصل الثاني فقط.</p></div><div class="lesson-arrow">←</div></div>
+
+            <div class="lesson-card" onclick="showChapterWrong(2)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الثاني</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الثاني.</p></div><div class="lesson-arrow">←</div></div>
 
             <div class="lesson-card" onclick="showChapter2MinistryIdeas()">
                 <div class="lesson-card-icon">🎯</div>
@@ -4309,6 +4377,9 @@ function showChapter3() {
             <div class="lesson-card" onclick="showLesson3_3()"><div class="lesson-card-icon">🔥</div><div class="lesson-card-info"><h3>3-3 خواص الألمنيوم وتفاعلاته</h3><p>خواصه الفيزيائية والكيميائية، الثرميت، والسلوك الأمفوتيري.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showLesson3_4()"><div class="lesson-card-icon">✈️</div><div class="lesson-card-info"><h3>3-4 سبائك الألمنيوم</h3><p>السبائك، الديورالومين، وبرونز الألمنيوم ومقارنة استعمالاتهما.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showLesson3_5()"><div class="lesson-card-icon">🧪</div><div class="lesson-card-info"><h3>3-5 مركبات الألمنيوم</h3><p>هيدروكسيد الألمنيوم، أوكسيد الألمنيوم، الشب، والكشف عن أيون الألمنيوم.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapterMemory(3)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الثالث</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapterQuiz(3)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الثالث</h3><p>اختبار من أسئلة الفصل الثالث فقط.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapterWrong(3)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الثالث</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الثالث.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapter3MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار تدريبية مركزة مستخرجة من التعليلات والأسئلة والسنوات الوزارية في الملزمة.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapter3Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الثالث وحلولها</h3><p>أسئلة الفصل الثالث الواردة في الملزمة مع حلولها المنظمة.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
@@ -4437,6 +4508,9 @@ function showChapter4(){
       <div class="lesson-card" onclick="showLesson4_3()"><div class="lesson-card-icon">⚖️</div><div class="lesson-card-info"><h3>4-3 التركيز بالنسبة المئوية الكتلية</h3><p>القوانين والخطوات والأمثلة الحسابية على النسبة الكتلية.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showLesson4_4()"><div class="lesson-card-icon">🧴</div><div class="lesson-card-info"><h3>4-4 التركيز بالنسبة المئوية الحجمية</h3><p>قوانين النسبة الحجمية وتطبيقاتها مع أمثلة محلولة.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showLesson4_5()"><div class="lesson-card-icon">📐</div><div class="lesson-card-info"><h3>4-5 التركيز بالكتلة/الحجم والكثافة</h3><p>التركيز غ/ل، الكثافة، وتحويل الوحدات وحل المسائل المركبة.</p></div><div class="lesson-arrow">←</div></div>
+      <div class="lesson-card" onclick="showChapterMemory(4)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الرابع</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
+      <div class="lesson-card" onclick="showChapterQuiz(4)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الرابع</h3><p>اختبار الفصل الرابع فقط مع مسائل التركيز.</p></div><div class="lesson-arrow">←</div></div>
+      <div class="lesson-card" onclick="showChapterWrong(4)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الرابع</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الرابع.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapter4MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار مركزة من التعليلات والنقاط الامتحانية المهمة في الفصل الرابع.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapter4Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الرابع وحلولها</h3><p>أسئلة الفصل الرابع مع الحلول المنظمة.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
@@ -4511,7 +4585,223 @@ function showChapter4Questions(){
  <div class="lesson-navigation"><button class="previous-button" onclick="showChapter4MinistryIdeas()">← أفكار وزارية</button><button class="chapter-button" onclick="showChapter4()">📖 العودة إلى دروس الفصل الرابع</button></div></div>`;
 }
 
+
+/* =========================================================
+   الفصل الخامس
+   ========================================================= */
+
+function showChapter5() {
+    setActive(1);
+    var app = document.getElementById("app");
+    app.innerHTML = `
+        <div class="lessons-page">
+            <h1 class="lessons-heading">📖 دروسي</h1>
+            <p class="lessons-subheading">الفصل الخامس: الزمرة الرابعة</p>
+            <div class="chapter2-banner">
+                <strong>📌 الفصل الخامس</strong><br>
+                يركز الفصل على عناصر الزمرة الرابعة، ولا سيما السليكون، وطرق تحضيره وتنقيته وخواصه ومركباته واستعمالاته.
+            </div>
+            <div class="lesson-card" onclick="showLesson5_1()"><div class="lesson-card-icon">🧱</div><div class="lesson-card-info"><h3>5-1 الزمرة الرابعة</h3><p>عناصر الزمرة الرابعة، التدرج من اللافلزية إلى الفلزية والإلكترونات الخارجية.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showLesson5_2()"><div class="lesson-card-icon">🔥</div><div class="lesson-card-info"><h3>5-2 السليكون وطرق تحضيره</h3><p>وجود السليكون، صوره، التحضير المختبري والصناعي، وتنقية السليكون عالي النقاوة.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showLesson5_3()"><div class="lesson-card-icon">⚡</div><div class="lesson-card-info"><h3>5-3 خواص السليكون واستعمالاته</h3><p>الخواص الفيزيائية والكيميائية للسليكون واستخداماته المهمة.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showLesson5_4()"><div class="lesson-card-icon">🧪</div><div class="lesson-card-info"><h3>5-4 مركبات السليكون</h3><p>السيلانات، السليكا، السليكات، كاربيد السليكون والسليكونات العضوية.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapterMemory(5)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الخامس</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapterQuiz(5)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الخامس</h3><p>اختبار الفصل الخامس فقط.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapterWrong(5)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الخامس</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الخامس.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapter5MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار مركزة من التعليلات والأسئلة والسنوات الوزارية الواردة في الملزمة.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapter5Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الخامس وحلولها</h3><p>أسئلة الفصل الخامس مع الحلول المنظمة حسب الملزمة.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
+        </div>
+    `;
+}
+
+function lessonButtons5(previousFunction,nextFunction,nextText){
+    return `<div class="lesson-navigation"><button class="previous-button" onclick="${previousFunction}()">← السابق</button><button class="next-button" onclick="${nextFunction}()">${nextText}</button><button class="chapter-button" onclick="showChapter5()">📖 العودة إلى دروس الفصل الخامس</button></div>`;
+}
+
+function showLesson5_1(){
+ setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter5()">←</button><h2>5-1 الزمرة الرابعة</h2><span></span></div><h1 class="lesson-title">عناصر الزمرة الرابعة</h1><div class="lesson-content">
+ <div class="content-card"><h3>🧱 عناصر الزمرة الرابعة</h3><p>عناصر الزمرة الرابعة الواردة في الملزمة هي: <strong>الكاربون C، السليكون Si، الجرمانيوم Ge، القصدير Sn، الرصاص Pb</strong>.</p><p>تنتقل الصفات من اللافلزية عند الكاربون إلى أشباه الفلزات عند السليكون والجرمانيوم، ثم إلى الصفات الفلزية عند القصدير والرصاص كلما انتقلنا إلى أسفل الزمرة.</p></div>
+ <div class="content-card"><h3>📈 التدرج في الخواص</h3><p>تزداد الصفة الفلزية بزيادة العدد الذري، بينما تقل درجات الانصهار والغليان بالانتقال من أعلى الزمرة إلى أسفلها.</p></div>
+ <div class="content-card"><h3>⚛️ إلكترونات الغلاف الخارجي</h3><p>تمتلك عناصر الزمرة الرابعة أربعة إلكترونات في غلافها الخارجي، وترتيب هذا الغلاف هو <strong>ns² np²</strong>. لذلك يمكنها أن تكتسب أو تفقد أو تساهم بأربعة إلكترونات للوصول إلى ترتيب إلكتروني مستقر.</p></div>
+ <div class="content-card"><h3>🔗 طبيعة المركبات</h3><p>مركبات السليكون والكاربون تساهمية وذات حالة تأكسد رباعية، بينما الجرمانيوم والقصدير والرصاص تكوّن مركبات تساهمية وأيونية معًا.</p></div>
+ <div class="memory-box"><strong>🧠 احفظها</strong>من أعلى الزمرة إلى أسفلها: تزداد الفلزية، وتقل درجات الانصهار والغليان.</div>
+ </div>${lessonButtons5("showChapter4","showLesson5_2","الدرس التالي →")}</div>`;
+}
+
+function showLesson5_2(){
+ setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter5()">←</button><h2>5-2 السليكون وطرق تحضيره</h2><span></span></div><h1 class="lesson-title">السليكون: وجوده وتحضيره وتنقيته</h1><div class="lesson-content">
+ <div class="content-card"><h3>⚛️ وجود السليكون</h3><p>السليكون من أكثر العناصر انتشارًا في قشرة الأرض، ويشكل نحو <strong>28%</strong> منها. لا يوجد حرًا في الطبيعة، بل يوجد متحدًا مع الأوكسجين وفي الصخور والترسبات الطينية والرملية وعلى هيئة السليكا والسليكات.</p></div>
+ <div class="content-card"><h3>🔬 صور السليكون</h3><p><strong>السليكون المتبلور:</strong> مسحوقه بني غامق وهو أقل فعالية.</p><p><strong>السليكون غير المتبلور:</strong> مسحوقه رصاصي غامق وهو أكثر فعالية.</p></div>
+ <div class="content-card"><h3>🧪 التحضير المختبري</h3><p>السليكون غير المتبلور يحضر بتسخين البوتاسيوم مع رباعي فلوريد السليكون:</p><div class="electron-config">SiF₄ + 4K → Si + 4KF</div><p>أما السليكون المتبلور فيحضر بإذابة السليكون في منصهر الألمنيوم ثم تبريد المحلول فتتكون البلورات.</p></div>
+ <div class="content-card"><h3>🏭 التحضير الصناعي</h3><p>يحضر السليكون الصناعي باختزال السليكا SiO₂ بالكاربون أو المغنسيوم عند درجات حرارة عالية، ومن المعادلات الواردة:</p><div class="electron-config">SiO₂ + 2C → 2CO↑ + Si</div></div>
+ <div class="content-card"><h3>🧹 تنقية السليكون</h3><p>ينقى السليكون الصناعي بتحويله إلى رباعي كلوريد السليكون باستخدام الكلور ثم اختزاله بالمغنسيوم:</p><div class="electron-config">Si + 2Cl₂ → SiCl₄<br>SiCl₄ + 2Mg → Si + 2MgCl₂</div><p>ثم تزال MgCl₂ بالغسل بالماء الحار.</p></div>
+ <div class="content-card"><h3>💎 السليكون عالي النقاوة</h3><p>هو السليكون الخالي من الشوائب الناتج بطريقة منطقة التكرير، حيث يسخن قالب أسطواني من السليكون بواسطة مصدر حراري حلقي متحرك لتتركز الشوائب في النهاية البعيدة ثم تزال.</p></div>
+ </div>${lessonButtons5("showLesson5_1","showLesson5_3","الدرس التالي →")}</div>`;
+}
+
+function showLesson5_3(){
+ setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter5()">←</button><h2>5-3 خواص السليكون واستعمالاته</h2><span></span></div><h1 class="lesson-title">خواص السليكون واستخداماته</h1><div class="lesson-content">
+ <div class="content-card"><h3>⚙️ الخواص الفيزيائية</h3><p>السليكون شبه فلز، صلب جدًا، ذو درجة انصهار عالية تقارب <strong>1410°C</strong>، له مظهر بريق فلزي، وهو شبه موصل للتيار الكهربائي.</p></div>
+ <div class="content-card"><h3>🧪 الخواص الكيميائية</h3><p>خامل تجاه معظم الحوامض، ويذوب في المحاليل المائية للقواعد محررًا الهيدروجين:</p><div class="electron-config">Si + 2NaOH + H₂O → Na₂SiO₃ + 2H₂↑</div><p>فعال جدًا تجاه الكلور:</p><div class="electron-config">Si + 2Cl₂ → SiCl₄</div><p>لا يتأثر بالهواء في درجات الحرارة الاعتيادية، ويتفاعل عند نحو <strong>950°C</strong>.</p></div>
+ <div class="content-card"><h3>☀️ لماذا يستخدم في الإلكترونيات؟</h3><p>يدخل في صناعة الأجهزة والدوائر الكهربائية والحاسبات الإلكترونية والخلايا الشمسية لأنه <strong>شبه موصل للتيار الكهربائي</strong>.</p></div>
+ <div class="content-card"><h3>🏭 أهم الاستعمالات</h3><p>1- الصناعة الإلكترونية والدوائر المتكاملة والخلايا الشمسية.<br>2- السبائك المستخدمة في الصناعات.<br>3- صناعة الزجاج والسمنت والسيراميك.<br>4- صناعة المواد السيليكونية العضوية مثل الزيوت والبلاستيكات.</p></div>
+ </div>${lessonButtons5("showLesson5_2","showLesson5_4","الدرس التالي →")}</div>`;
+}
+
+function showLesson5_4(){
+ setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter5()">←</button><h2>5-4 مركبات السليكون</h2><span></span></div><h1 class="lesson-title">السيلانات والسليكا والسليكات والسليكونات</h1><div class="lesson-content">
+ <div class="content-card"><h3>1️⃣ مركبات السليكون مع الهيدروجين</h3><p>منها SiH₄، ويحضر من تفاعل سليسيد المغنسيوم مع حامض الهيدروكلوريك:</p><div class="electron-config">Mg₂Si + 4HCl → SiH₄ + 2MgCl₂</div><p>ويشتعل السيلان في الهواء مكوّنًا السليكا والماء:</p><div class="electron-config">SiH₄ + 2O₂ → SiO₂ + 2H₂O</div></div>
+ <div class="content-card"><h3>2️⃣ السليكا SiO₂</h3><p>توجد في الطبيعة كسليكا نقية مثل حجر الصوان والكوارتز، وغير نقية مثل الرمل.</p><p>من خواصها: لا تتفاعل مع معظم الحوامض، لكنها تتفاعل مع HF والقواعد، كما تتفاعل مع الأكاسيد أو الكاربونات الفلزية بالتسخين الشديد لتكوين السليكات.</p><div class="electron-config">SiO₂ + 6HF → H₂SiF₆ + 2H₂O</div></div>
+ <div class="content-card"><h3>💧 جل السليكا</h3><p>مسحوق غير بلوري يتكون بعد تجفيف السليكا المائية، ويستعمل عاملًا مجففًا بسبب مساحته السطحية الكبيرة وقابليته العالية لامتصاص الماء.</p></div>
+ <div class="content-card"><h3>3️⃣ السليكات وماء الزجاج</h3><p>السليكات أملاح يدخل السليكون في تركيبها. وتحضر من تفاعل أوكسيد أو كاربونات الفلز مع السليكا بالتسخين الشديد.</p><div class="electron-config">CaO + SiO₂ → CaSiO₃<br>Na₂CO₃ + SiO₂ → Na₂SiO₃ + CO₂</div><p>ماء الزجاج هو المحلول المائي لسليكات الصوديوم ويستخدم في حماية الأقمشة والورق من الحرائق، كمادة لاصقة، وفي البناء مع السمنت.</p></div>
+ <div class="content-card"><h3>4️⃣ كاربيد السليكون SiC</h3><p>يرتبط الكاربون مع السليكون بأواصر تساهمية في بنية شبكية عالية الصلادة، لذلك يستخدم كمادة جالية.</p><div class="electron-config">Si + C → SiC<br>SiO₂ + 3C → SiC + 2CO</div></div>
+ <div class="content-card"><h3>5️⃣ السليكونات</h3><p>مركبات عضوية للسليكون غير سامة ومستقرة ضمن مدى واسع من درجات الحرارة. ومن أنواعها: <strong>زيوت السليكون، مطاط السليكون، والراتنجات السيليكونية</strong>.</p></div>
+ </div>${lessonButtons5("showLesson5_3","showChapter5MinistryIdeas","أفكار وزارية →")}</div>`;
+}
+
+const chapter5MinistryIdeas = [
+ {title:"لماذا تمتلك عناصر الزمرة الرابعة أربعة إلكترونات في الغلاف الخارجي؟",answer:"لأن ترتيب غلافها الخارجي هو ns² np²، أي أربعة إلكترونات تكافؤ."},
+ {title:"لماذا لا يوجد السليكون حرًا في الطبيعة؟",answer:"لأنه يوجد متحدًا مع الأوكسجين وفي الصخور على هيئة السليكا والسليكات وغيرها من المركبات."},
+ {title:"ما الفرق بين السليكون المتبلور وغير المتبلور؟",answer:"المتبلور مسحوقه بني غامق وأقل فعالية، وغير المتبلور مسحوقه رصاصي غامق وأكثر فعالية."},
+ {title:"لماذا يعد السليكون شبه موصل مهمًا؟",answer:"لأنه شبه موصل للتيار الكهربائي، لذلك يدخل في الصناعة الإلكترونية والدوائر المتكاملة والخلايا الشمسية."},
+ {title:"كيف ينقى السليكون الصناعي؟",answer:"يحوّل أولًا إلى SiCl₄ باستخدام Cl₂، ثم يختزل Mg إلى Si، وتزال MgCl₂ بالغسل بالماء الحار."},
+ {title:"لماذا تستعمل السليكا جل كعامل مجفف؟",answer:"بسبب مساحتها السطحية الكبيرة وقابليتها العالية لامتصاص الماء."},
+ {title:"لماذا تستعمل السليكا في قطع الزجاج وتخديش الحديد الصلب؟",answer:"لأن السليكا النقية مثل الكوارتز وحجر الصوان شديدة الصلادة."},
+ {title:"كيف تحضر سليكات الكالسيوم؟",answer:"بتفاعل أوكسيد الكالسيوم مع السليكا بالتسخين الشديد: CaO + SiO₂ → CaSiO₃."},
+ {title:"لماذا يستخدم كاربيد السليكون كمادة جالية؟",answer:"لأن بنيته الشبكية تمنحه صلادة عالية."},
+ {title:"ما أهم أنواع السليكونات؟",answer:"زيوت السليكون، مطاط السليكون، والراتنجات السيليكونية."}
+];
+
+function showChapter5MinistryIdeas(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter5()">←</button><h2>🎯 أفكار وزارية</h2><span></span></div><div class="ministry-ideas-intro"><strong>📌 أفكار وزارية للفصل الخامس</strong><br>أفكار مركزة مبنية على التعليلات والسنوات والأسئلة المهمة الواردة في ملزمة «فخامة الكيمياء».</div>${chapter5MinistryIdeas.map(function(item,index){return `<div class="ministry-idea-card"><h3>${index+1}- ${item.title}</h3><button class="ministry-toggle" onclick="toggleChapter5MinistryIdea(${index})">👁️ إظهار الحل</button><div id="ch5-ministry-answer-${index}" class="ministry-idea-answer"><strong>✅ الحل:</strong><br>${item.answer}</div></div>`}).join("")}<div class="lesson-navigation"><button class="previous-button" onclick="showLesson5_4()">← العودة للدرس الأخير</button><button class="next-button" onclick="showChapter5Questions()">📝 أسئلة الفصل الخامس →</button><button class="chapter-button" onclick="showChapter5()">📖 العودة إلى دروس الفصل الخامس</button></div></div>`}
+function toggleChapter5MinistryIdea(index){var box=document.getElementById("ch5-ministry-answer-"+index);if(box)box.classList.toggle("show");}
+
+function showChapter5Questions(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter5()">←</button><h2>📝 أسئلة الفصل الخامس</h2><span></span></div><div class="chapter2-banner"><strong>أسئلة الفصل الخامس وحلولها</strong><br>الأسئلة والحلول المنظمة كما وردت في جزء أسئلة الفصل الخامس من الملزمة.</div>
+ <div class="content-card"><h3>1-5 اكتب معادلات موزونة</h3><div class="exercise-box"><p><strong>تحضير السليكون غير المتبلور:</strong></p><div class="answer-box">✅ SiF₄ + 4K → Si + 4KF</div></div><div class="exercise-box"><p><strong>تحضير السليكون الصناعي:</strong></p><div class="answer-box">✅ SiO₂ + 2C → 2CO↑ + Si</div></div></div>
+ <div class="content-card"><h3>2-5 اكتب الترتيب الإلكتروني</h3><div class="exercise-box"><p><strong>14Si</strong></p><div class="answer-box">✅ 1s² 2s² 2p⁶ 3s² 3p²</div></div><div class="exercise-box"><p><strong>Si⁺⁴</strong></p><div class="answer-box">✅ 1s² 2s² 2p⁶</div></div></div>
+ <div class="content-card"><h3>3-5 السليكون عالي النقاوة</h3><div class="exercise-box"><p>ما هو السليكون عالي النقاوة وكيف يحضر؟</p><div class="answer-box">✅ هو السليكون الخالي من الشوائب الناتج بطريقة منطقة التكرير؛ يصنع قالبًا أسطوانيًا ويسخن أحد طرفيه بمصدر حراري حلقي متحرك، فتنتقل الشوائب تدريجيًا إلى الطرف البعيد ثم تقطع وتزال.</div></div></div>
+ <div class="content-card"><h3>4-5 طرائق تحضير السليكون</h3><div class="exercise-box"><p><strong>مختبريًا:</strong></p><div class="answer-box">✅ غير المتبلور: SiF₄ + 4K → Si + 4KF، والمتبلور يحضر بإذابة السليكون في منصهر الألمنيوم ثم تبريد المحلول.</div></div><div class="exercise-box"><p><strong>صناعيًا:</strong></p><div class="answer-box">✅ اختزال السليكا بالكاربون أو المغنسيوم عند درجات حرارة عالية، ومن المعادلات: SiO₂ + 2C → 2CO↑ + Si.</div></div></div>
+ <div class="content-card"><h3>5-5 عدد استعمالات متنوعة للسليكون ومركباته</h3><div class="answer-box">✅ الصناعة الإلكترونية والخلايا الشمسية، السبائك، الزجاج والسمنت والسيراميك، المواد السيليكونية العضوية، السليكا النقية لقطع الزجاج وتخديش الحديد، السليكا جل كعامل مجفف، وماء الزجاج في حماية الأقمشة والورق والبناء.</div></div>
+ <div class="content-card"><h3>6-5 أكمل الفراغات</h3><div class="exercise-box"><p>1. توجد السليكا في الطبيعة بنوعين: ______ و ______.</p><div class="answer-box">✅ نقية مثل الكوارتز وحجر الصوان، وغير نقية مثل الرمل والطين.</div></div><div class="exercise-box"><p>2. تحضر السليكات من التسخين الشديد للسليكا مع ______ أو ______.</p><div class="answer-box">✅ كاربونات فلزية أو أوكسيد فلزي.</div></div><div class="exercise-box"><p>3. لعناصر الزمرة الرابعة حالات التأكسد الشائعة ______ و ______.</p><div class="answer-box">✅ +2 و +4.</div></div><div class="exercise-box"><p>4. الحالة التأكسدية الرباعية (+4) تكون مستقرة في ______ و ______.</p><div class="answer-box">✅ الكاربون والسليكون.</div></div><div class="exercise-box"><p>5. يتفاعل السليكون عند 950°C مع الأوكسجين ليعطي ______.</p><div class="answer-box">✅ ثنائي أوكسيد السليكون SiO₂.</div></div></div>
+ <div class="source-note">المصدر: «فخامة الكيمياء» للصف الثالث المتوسط، صفحات الفصل الخامس 55–61 وأسئلة الفصل وحلولها.</div>
+ <div class="lesson-navigation"><button class="previous-button" onclick="showChapter5MinistryIdeas()">← أفكار وزارية</button><button class="chapter-button" onclick="showChapter5()">📖 العودة إلى دروس الفصل الخامس</button></div></div>`}
+
+
+/* =========================================================
+   الحفظ والاختبارات المرتبطة بكل فصل
+   ========================================================= */
+
+var chapterMemoryData = {
+    1: [
+        {t:"الذرة",x:"الذرة هي الوحدة الأساسية لبناء المواد."},
+        {t:"النماذج الذرية",x:"من الأسماء الأساسية في الفصل: دالتون، ثومسون، رذرفورد، وبور، ثم النظرية الذرية الحديثة."},
+        {t:"السعة الإلكترونية",x:"s يستوعب 2 إلكترون، p يستوعب 6، d يستوعب 10، f يستوعب 14 إلكترونًا."},
+        {t:"أوفباو وهوند",x:"تمتلئ المستويات الفرعية حسب تدرج الطاقة، وتوزع الإلكترونات في الأوربيتالات المفردة قبل الازدواج حسب قاعدة هوند."},
+        {t:"لويس",x:"رمز لويس يعتمد على إلكترونات التكافؤ في الغلاف الخارجي."},
+        {t:"البلوكات",x:"s يسار الجدول، p يمينه، d وسطه، f أسفله."},
+        {t:"الخواص الدورية",x:"في الدورة: نصف القطر يقل والكهرسلبية والخواص اللافلزية تزداد غالبًا. في الزمرة: نصف القطر والخواص الفلزية يزدادان."}
+    ],
+    2: [
+        {t:"الزمرتان الأولى والثانية",x:"الزمرة الأولى IA هي الفلزات القلوية، والزمرة الثانية IIA هي فلزات الأرض القلوية."},
+        {t:"إلكترونات التكافؤ",x:"لعناصر IA إلكترون تكافؤ واحد، ولعناصر IIA إلكترونا تكافؤ."},
+        {t:"الفعالية",x:"تسلك عناصر الزمرتين سلوك عوامل مختزلة قوية لسهولة فقد إلكترونات التكافؤ الخارجية."},
+        {t:"الصوديوم",x:"رمزه Na وعدده الذري 11 وعدد كتلته 23، وغلافاته K=2 وL=8 وM=1."},
+        {t:"كشف الصوديوم",x:"يكشف عن الصوديوم باختبار اللهب، ويعطي لونًا أصفر براقًا ذهبيًا."},
+        {t:"كلوريد الصوديوم",x:"الملح النقي لا يتميه، أما ملح الطعام العادي فيتميه بسبب شوائب مثل CaCl₂ وMgCl₂."},
+        {t:"الكالسيوم",x:"رمزه Ca وعدده الذري 20 وعدد كتلته 40، وتوزيع غلافاته K=2 وL=8 وM=8 وN=2."},
+        {t:"جبس باريس",x:"ينتج من فقدان الجبس الاعتيادي جزءًا من ماء التبلور بالتسخين، ويستعمل في التجبير وصنع التماثيل والبناء."}
+    ],
+    3: [
+        {t:"الزمرة الثالثة",x:"تضم B وAl وGa وIn وTl، وغلافها الخارجي يحتوي ثلاثة إلكترونات."},
+        {t:"الألمنيوم",x:"العدد الذري 13 وعدد الكتلة 27 وتوزيع الغلافات K=2 وL=8 وM=3."},
+        {t:"خامات الألمنيوم",x:"البوكسايت هو الخام الرئيس، والألومينا ناتج تنقية البوكسايت، والكريولايت يستعمل في طريقة هول."},
+        {t:"طريقة هول",x:"تعتمد على التحليل الكهربائي للألومينا النقية مذابة في منصهر الكريولايت وبمساعدة أقطاب كربونية."},
+        {t:"الثرميت",x:"تفاعل الألمنيوم مع أوكسيد الحديد الثالثي ويحرر طاقة حرارية عالية وينتج منصهر الحديد."},
+        {t:"السلوك الأمفوتيري",x:"الألمنيوم يتفاعل مع الحوامض والقواعد، ومن أمثلته تفاعله مع HCl مخففًا."},
+        {t:"سبائك الألمنيوم",x:"الديورالومين خفيف وصلب ويستعمل في بعض أجزاء الطائرات، وبرونز الألمنيوم يقاوم التآكل ويستعمل في أدوات الزينة."},
+        {t:"هيدروكسيد الألمنيوم",x:"راسب أبيض جيلاتيني ويظهر عند إضافة قاعدة مناسبة إلى محلول أحد أملاح الألمنيوم."}
+    ],
+    4: [
+        {t:"المحلول",x:"خليط متجانس من مادتين أو أكثر لا يحدث بينهما تفاعل كيميائي، وفيه مذيب ومذاب."},
+        {t:"المحلول المشبع",x:"يحتوي أكبر كمية ممكنة من المذاب عند درجة حرارة وضغط محددين."},
+        {t:"الإلكتروليت",x:"المحلول الإلكتروليتي يتأين فيه المذاب، وقد يكون قويًا أو ضعيفًا."},
+        {t:"قابلية الذوبان",x:"هي أكبر كمية من المادة المذابة يمكن أن تذوب في كمية ثابتة من مذيب معين عند درجة حرارة معلومة."},
+        {t:"عوامل الذوبان",x:"طبيعة المذاب والمذيب، درجة الحرارة، والضغط."},
+        {t:"النسبة الكتلية",x:"النسبة الكتلية للمذاب = كتلة المذاب ÷ كتلة المحلول × 100%."},
+        {t:"النسبة الحجمية",x:"النسبة الحجمية للمذاب = حجم المذاب ÷ حجم المحلول × 100%."},
+        {t:"التركيز والكثافة",x:"التركيز بالكتلة/الحجم = كتلة المذاب ÷ حجم المحلول، والكثافة = الكتلة ÷ الحجم."}
+    ],
+    5: [
+        {t:"الزمرة الرابعة",x:"تضم C وSi وGe وSn وPb، وتنتقل الصفات من اللافلزية إلى أشباه الفلزات ثم الفلزية من أعلى الزمرة إلى أسفلها."},
+        {t:"إلكترونات التكافؤ",x:"لعناصر الزمرة الرابعة أربعة إلكترونات في الغلاف الخارجي، بترتيب ns²np²."},
+        {t:"السليكون",x:"رمزه Si وعدده الذري 14 وعدد كتلته 28، ولا يوجد حرًا في الطبيعة."},
+        {t:"صور السليكون",x:"المتبلور مسحوقه بني غامق وأقل فعالية، وغير المتبلور مسحوقه رصاصي غامق وأكثر فعالية."},
+        {t:"تنقية السليكون",x:"يحول السليكون إلى SiCl₄ ثم يختزل بالمغنسيوم، وتزال MgCl₂ بالغسل بالماء الحار."},
+        {t:"السليكا",x:"SiO₂، وتوجد نقية مثل الكوارتز وحجر الصوان وغير نقية مثل الرمل."},
+        {t:"السليكا جل",x:"مسحوق غير بلوري يستعمل عاملًا مجففًا بسبب مساحته السطحية الكبيرة وقابليته العالية لامتصاص الماء."},
+        {t:"كاربيد السليكون",x:"SiC ذو بنية شبكية عالية الصلادة لذلك يستعمل كمادة جالية."}
+    ]
+};
+
+var chapter2QuizQuestions = [
+ {q:"أي زمرة تضم الفلزات القلوية؟",options:["IA","IIA","IIIA","IVA"],answer:0,explain:"الزمرة الأولى IA هي الفلزات القلوية."},
+ {q:"كم إلكترون تكافؤ لعناصر الزمرة الثانية؟",options:["1","2","3","4"],answer:1,explain:"الغلاف الخارجي لعناصر IIA هو ns²."},
+ {q:"ما رمز الصوديوم؟",options:["So","Na","N","S"],answer:1,explain:"رمز الصوديوم Na."},
+ {q:"ما لون لهب الصوديوم في اختبار اللهب؟",options:["أخضر","أحمر طابوقي","أصفر براق ذهبي","قرمزي"],answer:2,explain:"يكشف الصوديوم بلون أصفر براق ذهبي."},
+ {q:"ما تكافؤ المغنسيوم الشائع؟",options:["1","2","3","4"],answer:1,explain:"المغنسيوم من IIA وله تكافؤ ثنائي."},
+ {q:"ما الغاز المتصاعد من تفاعل الصوديوم مع الماء؟",options:["O₂","Cl₂","H₂","CO₂"],answer:2,explain:"ينتج الهيدروجين: 2Na + 2H₂O → 2NaOH + H₂."},
+ {q:"ما سبب عدم وجود الصوديوم حرًا في الطبيعة؟",options:["لضعف فعاليته","لشدة فعاليته","لعدم وجوده","لارتفاع كثافته"],answer:1,explain:"شدة فعاليته تجعله متحدًا مع غيره من العناصر."},
+ {q:"ما المادة التي تمثل جبس باريس؟",options:["CaSO₄·2H₂O","(CaSO₄)₂·H₂O","CaCO₃","Ca(OH)₂"],answer:1,explain:"جبس باريس يحتوي جزيئة واحدة من ماء التبلور للصيغة الموضحة في الملزمة."}
+];
+var chapter3QuizQuestions = [
+ {q:"كم إلكترونًا في الغلاف الخارجي لعناصر الزمرة الثالثة؟",options:["1","2","3","4"],answer:2,explain:"تحتوي على ثلاثة إلكترونات في الغلاف الخارجي."},
+ {q:"ما الخام الرئيس لاستخلاص الألمنيوم؟",options:["الكريولايت","البوكسايت","الكوارتز","الجبس"],answer:1,explain:"البوكسايت هو الخام الرئيس للألمنيوم."},
+ {q:"ما دور الكريولايت في طريقة هول؟",options:["يزيد درجة الانصهار","يخفض درجة انصهار الألومينا","يمنع التحليل الكهربائي","يؤكسد الألمنيوم"],answer:1,explain:"الكريولايت يخفض درجة انصهار الألومينا."},
+ {q:"الألمنيوم في تفاعل الثرميت يعمل عاملًا...",options:["مؤكسدًا","مختزلًا","متعادلًا","حفازًا"],answer:1,explain:"الألمنيوم يختزل أوكسيد الحديد الثالثي."},
+ {q:"ماذا ينتج عن احتراق مسحوق الألمنيوم؟",options:["AlCl₃","Al₂O₃","Al(OH)₃","Al₂(SO₄)₃"],answer:1,explain:"4Al + 3O₂ → 2Al₂O₃ + طاقة."},
+ {q:"السلوك الأمفوتيري للألمنيوم يعني تفاعله مع...",options:["الماء فقط","الحوامض فقط","القواعد فقط","الحوامض والقواعد"],answer:3,explain:"الألمنيوم يتفاعل مع الحوامض والقواعد."},
+ {q:"ما السبيكة الخفيفة والصلبة المستعملة في بعض أجزاء الطائرات؟",options:["برونز الألمنيوم","الديورالومين","الشب","الحديد"],answer:1,explain:"الديورالومين يمتاز بالخفة والصلابة."},
+ {q:"ما لون راسب هيدروكسيد الألمنيوم؟",options:["أسود","أبيض جيلاتيني","أخضر","أصفر"],answer:1,explain:"يتكون راسب أبيض جيلاتيني من Al(OH)₃."}
+];
+var chapter4QuizQuestions = [
+ {q:"المادة الموجودة بوفرة في المحلول تسمى...",options:["المذاب","المذيب","الراسب","الإلكتروليت"],answer:1,explain:"المادة الموجودة بوفرة هي المذيب."},
+ {q:"المحلول الذي لا يستطيع إذابة زيادة من المذاب عند ظروف محددة هو...",options:["غير مشبع","مشبع","مخفف","غازي"],answer:1,explain:"هذا تعريف المحلول المشبع."},
+ {q:"أي مما يأتي يزيد سرعة ذوبان مسحوق السكر؟",options:["تقليل مساحة السطح","التحريك","تقليل حركة الجزيئات","فتح غطاء المشروب"],answer:1,explain:"التحريك يزيد ملامسة سطح المذاب بالمذيب."},
+ {q:"ما العوامل المؤثرة في قابلية الذوبان؟",options:["اللون فقط","طبيعة المذاب والمذيب والحرارة والضغط","الكتلة فقط","الحجم فقط"],answer:1,explain:"هذه هي العوامل الثلاثة المذكورة في الملزمة."},
+ {q:"النسبة الكتلية للمذاب تساوي...",options:["كتلة المذاب ÷ كتلة المحلول ×100","كتلة المحلول ÷ كتلة المذاب ×100","الحجم ÷ الكتلة","الكتلة ÷ الحجم فقط"],answer:0,explain:"القانون: كتلة المذاب ÷ كتلة المحلول × 100%."},
+ {q:"إذا كانت كتلة المذاب 5 g وكتلة المذيب 20 g، فإن النسبة الكتلية للمذاب هي...",options:["5%","10%","20%","25%"],answer:2,explain:"كتلة المحلول 25 g، والنسبة = 5/25×100 = 20%."},
+ {q:"عند فتح قنينة المشروب الغازي تقل قابلية ذوبان CO₂ بسبب...",options:["زيادة الضغط","قلة الضغط","زيادة الكتلة","انخفاض الحجم"],answer:1,explain:"فتح الغطاء يقلل الضغط فوق المحلول فتتكون الفقاعات."},
+ {q:"وحدة التركيز بالكتلة/الحجم في الملزمة هي...",options:["g/L","kg/m³ فقط","% فقط","mL/g"],answer:0,explain:"التركيز = غرام من المذاب لكل لتر من المحلول."}
+];
+var chapter5QuizQuestions = [
+ {q:"ما ترتيب الغلاف الخارجي لعناصر الزمرة الرابعة؟",options:["ns¹","ns²","ns²np²","ns²np⁵"],answer:2,explain:"لعناصر الزمرة الرابعة أربعة إلكترونات تكافؤ ns²np²."},
+ {q:"ما العدد الذري للسليكون؟",options:["12","13","14","15"],answer:2,explain:"العدد الذري للسليكون 14."},
+ {q:"أي صورة من السليكون أقل فعالية؟",options:["غير المتبلور","المتبلور","كلاهما متساويان","لا توجد له صور"],answer:1,explain:"السليكون المتبلور أقل فعالية."},
+ {q:"كيف يحضر السليكون الصناعي؟",options:["باختزال السليكا","بغلي الماء","بتفاعل NaCl","بتسخين الجبس"],answer:0,explain:"يحضر باختزال SiO₂ بالكاربون أو المغنسيوم عند درجات حرارة عالية."},
+ {q:"لماذا يستخدم السليكون في الأجهزة الإلكترونية؟",options:["لأنه فلز شديد التوصيل","لأنه شبه موصل","لأنه غاز","لأنه يذوب في الماء"],answer:1,explain:"السليكون شبه موصل للتيار الكهربائي."},
+ {q:"ما صيغة السليكا؟",options:["SiO","SiO₂","Si₂O","SiCl₄"],answer:1,explain:"ثنائي أوكسيد السليكون هو SiO₂."},
+ {q:"لماذا تستخدم السليكا جل عاملًا مجففًا؟",options:["لقلة سطحها","لمساحتها السطحية الكبيرة وقابليتها لامتصاص الماء","لأنها موصلة للكهرباء","لأنها فلز"],answer:1,explain:"هذه الصفة ناتجة عن المساحة السطحية الكبيرة وقابلية امتصاص الماء."},
+ {q:"كاربيد السليكون SiC يستخدم كمادة جالية بسبب...",options:["بنيته الرخوة","بنيته الشبكية عالية الصلادة","ذوبانه العالي","لونه"],answer:1,explain:"بنيته الشبكية تمنحه صلادة عالية."}
+];
+
+function showChapterMemory(ch){
+ setActive(1); var app=document.getElementById('app'); var names={1:'التركيب الذري للمادة',2:'الزمرتان الأولى والثانية',3:'الزمرة الثالثة',4:'المحاليل',5:'الزمرة الرابعة'};
+ var items=chapterMemoryData[ch]||[];
+ app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${ch===1?'1Lessons':ch}()">←</button><h2>🧠 احفظها</h2><span></span></div><div class="chapter2-banner"><strong>🧠 احفظها — الفصل ${ch}</strong><br>${names[ch]||''}<br>معلومات الحفظ المرتبطة بهذا الفصل فقط.</div>${items.map(function(it,i){return `<div class="content-card"><h3>${i+1}️⃣ ${it.t}</h3><div class="memory-box">${it.x}</div></div>`}).join('')}<div class="lesson-navigation"><button class="next-button" onclick="showChapterQuiz(${ch})">❓ اختبرني في هذا الفصل →</button><button class="chapter-button" onclick="showChapter${ch===1?'1Lessons':ch}()">📖 العودة إلى الفصل</button></div></div>`;
+}
+function showMemoryChooser(){setActive(2);var app=document.getElementById('app');app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">🧠 احفظها</h1><p class="lessons-subheading">اختر الفصل الذي تريد مراجعة معلوماته</p>${[1,2,3,4,5].map(function(ch){return `<div class="lesson-card" onclick="showChapterMemory(${ch})"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>الفصل ${ch}</h3><p>معلومات الحفظ الخاصة بالفصل ${ch} فقط.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 اختيار الفصل</button></div></div>`;}
+
+function getChapterQuizBank(ch){return ch===1?quizQuestions:(ch===2?chapter2QuizQuestions:(ch===3?chapter3QuizQuestions:(ch===4?chapter4QuizQuestions:chapter5QuizQuestions)));}
+var chapterQuizState={ch:1,index:0,score:0,questions:[],wrong:[]};
+function showChapterQuiz(ch){setActive(3);var bank=getChapterQuizBank(ch)||[];chapterQuizState={ch:ch,index:0,score:0,questions:shuffleArray(bank).slice(0,Math.min(10,bank.length)),wrong:[]};renderChapterQuiz();}
+function renderChapterQuiz(){var st=chapterQuizState, q=st.questions[st.index], app=document.getElementById('app'); if(!q){return finishChapterQuiz();} var progress=Math.round(st.index/st.questions.length*100); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapterMemory(${st.ch})">←</button><h2>❓ اختبرني — الفصل ${st.ch}</h2><span></span></div><div class="content-card"><div class="quiz-meta"><span class="small-muted">السؤال ${st.index+1} من ${st.questions.length}</span><span class="difficulty-badge">الفصل ${st.ch}</span></div><div class="progress-track"><div class="progress-bar" style="width:${progress}%;"></div></div><p style="font-size:21px;font-weight:700;margin-top:18px;">${q.q}</p><div style="display:flex;flex-direction:column;gap:12px;margin-top:20px;">${q.options.map(function(o,i){return `<button class="chapter-button" onclick="answerChapterQuiz(${i})">${String.fromCharCode(65+i)}. ${o}</button>`}).join('')}</div></div><div class="content-card"><p>النتيجة الحالية: <strong>${st.score}</strong></p><p>كل سؤال هنا من بنك الفصل ${st.ch} فقط.</p></div></div>`;}
+function answerChapterQuiz(i){var st=chapterQuizState,q=st.questions[st.index];if(!q)return;if(i===q.answer){st.score++;}else{st.wrong.push({q:q.q,correct:q.options[q.answer],explain:q.explain});}var app=document.getElementById('app');app.innerHTML=`<div class="page"><div class="content-card"><h2>${i===q.answer?'✅ إجابة صحيحة':'❌ إجابة غير صحيحة'}</h2><p><strong>الإجابة الصحيحة:</strong> ${q.options[q.answer]}</p><div class="answer-box">📚 ${q.explain||''}</div><button class="next-button" onclick="chapterQuizState.index++;renderChapterQuiz()">${st.index+1===st.questions.length?'🏁 عرض النتيجة':'السؤال التالي →'}</button></div></div>`;}
+function finishChapterQuiz(){var st=chapterQuizState,total=st.questions.length,pct=total?Math.round(st.score/total*100):0;localStorage.setItem('chapter'+st.ch+'LastScore',String(pct)); if((+localStorage.getItem('chapter'+st.ch+'BestScore')||0)<pct)localStorage.setItem('chapter'+st.ch+'BestScore',String(pct)); localStorage.setItem('chapter'+st.ch+'Wrong',JSON.stringify(st.wrong)); var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${st.ch===1?'1Lessons':st.ch}()">←</button><h2>🏁 نتيجة الفصل ${st.ch}</h2><span></span></div><div class="content-card"><h3>درجتك: ${st.score} / ${total}</h3><div class="score-big">${pct}%</div><p>تم حفظ آخر نتيجة وأفضل نتيجة لهذا الفصل.</p><p>عدد الأخطاء المحفوظة للمراجعة: <strong>${st.wrong.length}</strong></p><button class="next-button" onclick="showChapterWrong(${st.ch})">🔄 مراجعة أخطائي</button><button class="chapter-button" onclick="showChapterQuiz(${st.ch})">❓ إعادة الاختبار</button></div></div>`;}
+function showChapterWrong(ch){setActive(1);var data=[];try{data=JSON.parse(localStorage.getItem('chapter'+ch+'Wrong')||'[]')}catch(e){data=[]}var app=document.getElementById('app');app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${ch===1?'1Lessons':ch}()">←</button><h2>🔄 مراجعة أخطائي — الفصل ${ch}</h2><span></span></div>${data.length?data.map(function(it,i){return `<div class="content-card"><h3>${i+1}. ${it.q}</h3><p><strong>الإجابة الصحيحة:</strong> ${it.correct}</p><div class="answer-box">📚 ${it.explain||''}</div></div>`}).join(''):`<div class="content-card"><h3>🎉 ممتاز</h3><p>لا توجد أخطاء محفوظة لهذا الفصل حتى الآن.</p></div>`}<div class="lesson-navigation"><button class="next-button" onclick="showChapterQuiz(${ch})">❓ اختبرني مرة أخرى</button><button class="chapter-button" onclick="showChapter${ch===1?'1Lessons':ch}()">📖 العودة إلى الفصل</button></div></div>`;}
+function showQuizChooser(){setActive(3);var app=document.getElementById('app');app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">❓ اختبرني</h1><p class="lessons-subheading">اختر الفصل الذي تريد الاختبار فيه</p>${[1,2,3,4,5].map(function(ch){return `<div class="lesson-card" onclick="showChapterQuiz(${ch})"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبار الفصل ${ch}</h3><p>أسئلة الفصل ${ch} فقط.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}</div>`;}
+
 function showMemory() {
+    showMemoryChooser(); return;
 
     setActive(2);
 
@@ -4793,6 +5083,7 @@ function shuffleArray(array) {
 }
 
 function showQuiz() {
+    showQuizChooser(); return;
     setActive(3);
     quizIndex = 0;
     quizScore = 0;

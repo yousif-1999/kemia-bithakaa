@@ -1683,6 +1683,27 @@ function showHome() {
                 </button>
 
             </div>
+
+
+            <div class="start-card" style="margin-top:15px;">
+
+                <h3>
+                    🧲 الفصل الثالث
+                </h3>
+
+                <p>
+                    الزمرة الثالثة: الألمنيوم، استخلاصه، خواصه، سبائكه ومركباته.
+                </p>
+
+                <button
+                    class="chapter-button"
+                    onclick="showChapter3()">
+
+                    📖 افتح الفصل الثالث
+
+                </button>
+
+            </div>
             </div>
 
         </div>
@@ -3614,6 +3635,15 @@ function showChapters() {
                     <div class="chapter-select-arrow">←</div>
                 </div>
 
+                <div class="chapter-select-card" onclick="showChapter3()">
+                    <div class="chapter-select-icon">🧲</div>
+                    <div class="chapter-select-info">
+                        <h3>الفصل الثالث: الزمرة الثالثة</h3>
+                        <p>عناصر الزمرة الثالثة، الألمنيوم، استخلاصه، خواصه، سبائكه ومركباته.</p>
+                    </div>
+                    <div class="chapter-select-arrow">←</div>
+                </div>
+
             </div>
 
         </div>
@@ -4228,6 +4258,118 @@ function showChapter2Questions() {
         </div>
     `;
 }
+
+
+/* =========================================================
+   الفصل الثالث
+   ========================================================= */
+
+function showChapter3() {
+    setActive(1);
+    var app = document.getElementById("app");
+    app.innerHTML = `
+        <div class="lessons-page">
+            <h1 class="lessons-heading">📖 دروسي</h1>
+            <p class="lessons-subheading">الفصل الثالث: الزمرة الثالثة</p>
+            <div class="chapter2-banner">
+                <strong>📌 الفصل الثالث</strong><br>
+                يركز الفصل على عناصر الزمرة الثالثة، ولا سيما الألمنيوم، وخواصه واستخلاصه ومركباته وسبائكه.
+            </div>
+            <div class="lesson-card" onclick="showLesson3_1()"><div class="lesson-card-icon">🧭</div><div class="lesson-card-info"><h3>3-1 الزمرة الثالثة</h3><p>موقع عناصر الزمرة الثالثة، الصفات العامة، وحالات التأكسد.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showLesson3_2()"><div class="lesson-card-icon">⚙️</div><div class="lesson-card-info"><h3>3-2 استخلاص الألمنيوم</h3><p>خاماته، الألومينا، الكريولايت، وطريقة هول للتحليل الكهربائي.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showLesson3_3()"><div class="lesson-card-icon">🔥</div><div class="lesson-card-info"><h3>3-3 خواص الألمنيوم وتفاعلاته</h3><p>خواصه الفيزيائية والكيميائية، الثرميت، والسلوك الأمفوتيري.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showLesson3_4()"><div class="lesson-card-icon">✈️</div><div class="lesson-card-info"><h3>3-4 سبائك الألمنيوم</h3><p>السبائك، الديورالومين، وبرونز الألمنيوم ومقارنة استعمالاتهما.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showLesson3_5()"><div class="lesson-card-icon">🧪</div><div class="lesson-card-info"><h3>3-5 مركبات الألمنيوم</h3><p>هيدروكسيد الألمنيوم، أوكسيد الألمنيوم، الشب، والكشف عن أيون الألمنيوم.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapter3MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار تدريبية مركزة مستخرجة من التعليلات والأسئلة والسنوات الوزارية في الملزمة.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapter3Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الثالث وحلولها</h3><p>أسئلة الفصل الثالث الواردة في الملزمة مع حلولها المنظمة.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
+        </div>
+    `;
+}
+
+function lessonButtons3(previousFunction, nextFunction, nextText) {
+    return `<div class="lesson-navigation"><button class="previous-button" onclick="${previousFunction}()">← السابق</button><button class="next-button" onclick="${nextFunction}()">${nextText}</button><button class="chapter-button" onclick="showChapter3()">📖 العودة إلى دروس الفصل الثالث</button></div>`;
+}
+
+function showLesson3_1() {
+    setActive(1); var app=document.getElementById("app"); app.innerHTML=`
+    <div class="page"><div class="page-header"><button class="back-button" onclick="showChapter3()">←</button><h2>3-1 الزمرة الثالثة</h2><span></span></div><h1 class="lesson-title">عناصر الزمرة الثالثة IIIA</h1><div class="lesson-content">
+    <div class="content-card"><h3>📍 عناصر الزمرة الثالثة</h3><p>تضم الزمرة الثالثة عناصر البورون B، والألمنيوم Al، والكاليوم Ga، والإنديوم In، والثاليوم Tl. ويقع أغلبها في يمين الجدول الدوري.</p><table class="simple-table"><tr><th>العنصر</th><th>العدد الذري</th><th>الصفة</th></tr><tr><td>B</td><td>5</td><td>شبه فلز</td></tr><tr><td>Al</td><td>13</td><td>فلز</td></tr><tr><td>Ga</td><td>31</td><td>فلز</td></tr><tr><td>In</td><td>49</td><td>فلز</td></tr><tr><td>Tl</td><td>81</td><td>فلز</td></tr></table></div>
+    <div class="content-card"><h3>⚛️ لماذا وضعت في مجموعة واحدة؟</h3><p>وضعت عناصر الزمرة الثالثة في مجموعة واحدة رغم اختلاف أعدادها الذرية لاحتواء غلافها الخارجي على ثلاثة إلكترونات.</p><div class="memory-box"><strong>🧠 احفظها</strong>الغلاف الخارجي لعناصر الزمرة الثالثة يحتوي ثلاثة إلكترونات.</div></div>
+    <div class="content-card"><h3>📌 الصفات العامة</h3><p>طاقة تأين عناصر الزمرة الثالثة أقل من طاقة تأين عناصر الزمرة الثانية، وبازدياد العدد الذري من الأعلى إلى الأسفل يحدث نقصان عام في طاقة التأين بسبب كبر أحجام الذرات.</p><p>الحالة التأكسدية المتوقعة لذرات الزمرة الثالثة هي +3 بالإضافة إلى حالات تأكسدية أخرى.</p><p>تزداد الصفة القاعدية لأكاسيد وهيدروكسيدات العناصر كلما زاد العدد الذري وتقل الصفة الحامضية. أكاسيد البورون حامضية، وأكاسيد الألمنيوم أمفوتيرية، وأكاسيد بقية العناصر قاعدية.</p></div>
+    <div class="content-card"><h3>❓ مقارنة طاقة التأين</h3><p>طاقة تأين الزمرة الثالثة أقل من طاقة تأين الزمرة الثانية لأن عناصر الزمرة الثالثة تحتوي إلكترونًا في المستوى الثانوي p غير المشبع، بينما يكون الغلاف الخارجي لعناصر الزمرة الثانية مشبعًا بالمستوى ns².</p></div>
+    </div>${lessonButtons3("showChapter2","showLesson3_2","الدرس التالي →")}</div>`;
+}
+
+function showLesson3_2() {
+    setActive(1); var app=document.getElementById("app"); app.innerHTML=`
+    <div class="page"><div class="page-header"><button class="back-button" onclick="showChapter3()">←</button><h2>3-2 استخلاص الألمنيوم</h2><span></span></div><h1 class="lesson-title">الألمنيوم وخاماته وطريقة هول</h1><div class="lesson-content">
+    <div class="content-card"><h3>🔬 معلومات أساسية</h3><table class="simple-table"><tr><th>الرمز</th><th>العدد الذري</th><th>عدد الكتلة</th><th>توزيع الغلافات</th></tr><tr><td>Al</td><td>13</td><td>27</td><td>K=2 ، L=8 ، M=3</td></tr></table></div>
+    <div class="content-card"><h3>🌍 وجود الألمنيوم</h3><p>لا يوجد الألمنيوم حرًا في الطبيعة لأنه من الفلزات الفعالة، بل يوجد متحدًا مع غيره من العناصر ضمن مركبات متنوعة. ووفق الملزمة يؤلف نحو 8% من صخور القشرة الأرضية والطين.</p><p>يعد البوكسايت الخام الرئيس لاستخلاص الألمنيوم، كما يعد الكريولايت من المصادر المهمة المستخدمة في عملية الاستخلاص.</p></div>
+    <div class="content-card"><h3>⛏️ خامات الألمنيوم المهمة</h3><table class="simple-table"><tr><th>الخامة</th><th>الصيغة/الوصف</th></tr><tr><td>البوكسايت</td><td>Al₂O₃·3H₂O — أوكسيد ألمنيوم مائي، والخام الرئيس</td></tr><tr><td>الألومينا</td><td>Al₂O₃ — أوكسيد الألمنيوم الناتج من تنقية البوكسايت</td></tr><tr><td>الكريولايت</td><td>Na₃AlF₆ — فلوريد مزدوج للصوديوم والألمنيوم</td></tr></table></div>
+    <div class="content-card"><h3>⚡ طريقة هول لاستخلاص الألمنيوم</h3><p>تعتمد طريقة هول على التحليل الكهربائي للألومينا النقية في حمام من منصهر الكريولايت وبمساعدة أقطاب كربونية.</p><div class="energy-list"><div class="energy-item"><strong>1</strong><span>تنقية خام البوكسايت للحصول على الألومينا النقية.</span></div><div class="energy-item"><strong>2</strong><span>إذابة الألومينا في منصهر الكريولايت لتخفيض درجة انصهارها.</span></div><div class="energy-item"><strong>3</strong><span>وضع المنصهر في خلية هول للتحليل الكهربائي.</span></div><div class="energy-item"><strong>4</strong><span>يتجمع الألمنيوم المنصهر في أسفل الخلية ويسحب بين مدة وأخرى.</span></div></div><div class="memory-box"><strong>🧠 احفظها</strong>البوكسايت → الألومينا → الكريولايت → خلية هول → ألمنيوم منصهر.</div></div>
+    <div class="content-card"><h3>❓ لماذا يُضاف الكريولايت؟</h3><p>لأن درجة انصهار الألومينا عالية جدًا، فيعمل الكريولايت على تخفيض درجة انصهارها عند الاستخلاص بالتحليل الكهربائي.</p></div>
+    </div>${lessonButtons3("showLesson3_1","showLesson3_3","الدرس التالي →")}</div>`;
+}
+
+function showLesson3_3() {
+    setActive(1); var app=document.getElementById("app"); app.innerHTML=`
+    <div class="page"><div class="page-header"><button class="back-button" onclick="showChapter3()">←</button><h2>3-3 خواص الألمنيوم</h2><span></span></div><h1 class="lesson-title">خواص الألمنيوم وتفاعلاته</h1><div class="lesson-content">
+    <div class="content-card"><h3>✨ الخواص الفيزيائية</h3><p>فلز ذو مظهر فضي، جيد التوصيل للحرارة والكهرباء، وقليل الكثافة.</p></div>
+    <div class="content-card"><h3>🛡️ تأثير الأوكسجين</h3><p>عند تعرض الألمنيوم للهواء يتأكسد سطحه الخارجي فتتكون طبقة رقيقة جدًا من أوكسيده شديدة الالتصاق بالسطح، وتحمي الفلز من استمرار التآكل.</p></div>
+    <div class="content-card"><h3>🔥 احتراق مسحوق الألمنيوم</h3><p>يحترق مسحوق الألمنيوم بشدة وبلهب ساطع محررًا طاقة عالية ومكونًا أوكسيد الألمنيوم.</p><div class="electron-config">4Al + 3O₂ → 2Al₂O₃ + طاقة</div></div>
+    <div class="content-card"><h3>⚗️ تفاعل الثرميت</h3><p>هو تفاعل مسحوق الألمنيوم مع أوكسيد الحديد الثالثي تفاعلًا شديدًا يصاحبه انبعاث كمية كبيرة من الحرارة ولهب ساطع، وينتج عنه تكون منصهر الحديد نتيجة اختزال أوكسيد الحديد الثالثي بواسطة الألمنيوم.</p><div class="electron-config">2Al + Fe₂O₃ → Al₂O₃ + 2Fe + طاقة حرارية</div><p>ومن فوائده لحيم الأجهزة الحديدية الكبيرة وقضبان سكك الحديد.</p></div>
+    <div class="content-card"><h3>🧪 السلوك الأمفوتيري</h3><p>يتفاعل الألمنيوم مع الحوامض والقواعد، ويحرر غاز الهيدروجين ويكوّن أملاح الألمنيوم في الحالتين. ومن أمثلته تفاعله مع حامض الهيدروكلوريك المخفف:</p><div class="electron-config">2Al + 6HCl → 2AlCl₃ + 3H₂</div><p>ولا يستمر تفاعل الألمنيوم مع حامض النتريك المخفف والمركز بسبب تكوّن طبقة من أوكسيد الألمنيوم تعزل الحامض عن الفلز.</p></div>
+    <div class="content-card"><h3>📌 مقارنة الألمنيوم والحديد عند التعرض للهواء</h3><table class="simple-table"><tr><th>الألمنيوم</th><th>الحديد</th></tr><tr><td>طبقة أوكسيد رقيقة صلدة تلتصق بالسطح وتحمي الفلز</td><td>يتكون الصدأ ويكون هشًا ويسمح باستمرار التآكل</td></tr></table></div>
+    </div>${lessonButtons3("showLesson3_2","showLesson3_4","الدرس التالي →")}</div>`;
+}
+
+function showLesson3_4() {
+    setActive(1); var app=document.getElementById("app"); app.innerHTML=`
+    <div class="page"><div class="page-header"><button class="back-button" onclick="showChapter3()">←</button><h2>3-4 سبائك الألمنيوم</h2><span></span></div><h1 class="lesson-title">سبائك الألمنيوم واستعمالاتها</h1><div class="lesson-content">
+    <div class="content-card"><h3>🔩 ما السبيكة؟</h3><p>السبيكة هي مخاليط صلبة أو مركبات لعنصرين أو أكثر، على أن يكون أحد العناصر المكونة للسبيكة فلزًا.</p></div>
+    <div class="content-card"><h3>✈️ سبيكة الديورالومين</h3><p>تتكون من نسبة عالية من الألمنيوم ونسبة قليلة من النحاس والمغنسيوم، وقد تحتوي على المنغنيز.</p><p><strong>مميزاتها:</strong> خفيفة وصلبة.</p><p><strong>استعمالها:</strong> بناء بعض أجزاء الطائرات.</p></div>
+    <div class="content-card"><h3>💍 سبيكة برونز الألمنيوم</h3><p>تتكون من نسبة قليلة من الألمنيوم ونسبة عالية من النحاس وأحيانًا فلزات أخرى.</p><p><strong>مميزاتها:</strong> تقاوم التآكل، ويتغير لونها بتغير نسب مكوناتها من لون النحاس إلى الذهب ثم الفضة.</p><p><strong>استعمالها:</strong> صناعة أدوات الزينة.</p></div>
+    <div class="content-card"><h3>📊 قارن بين السبيكتين</h3><table class="simple-table"><tr><th>الديورالومين</th><th>برونز الألمنيوم</th></tr><tr><td>ألمنيوم بنسبة عالية مع نسب قليلة من النحاس والمغنسيوم</td><td>ألمنيوم بنسبة قليلة مع نحاس بنسبة عالية</td></tr><tr><td>خفيفة وصلبة</td><td>تقاوم التآكل</td></tr><tr><td>لبعض أجزاء الطائرات</td><td>لأدوات الزينة</td></tr></table></div>
+    <div class="content-card"><h3>📌 استعمالات الألمنيوم</h3><p>يستعمل في صناعة الأسلاك الكهربائية، والصفائح الرقيقة لتغليف الأطعمة والأدوية، والقناني المعدنية، ومرايا التلسكوبات، وبعض الأواني والقدور، وهياكل الطائرات والقطارات والسيارات.</p></div>
+    </div>${lessonButtons3("showLesson3_3","showLesson3_5","الدرس التالي →")}</div>`;
+}
+
+function showLesson3_5() {
+    setActive(1); var app=document.getElementById("app"); app.innerHTML=`
+    <div class="page"><div class="page-header"><button class="back-button" onclick="showChapter3()">←</button><h2>3-5 مركبات الألمنيوم</h2><span></span></div><h1 class="lesson-title">مركبات الألمنيوم والكشف عن أيونه</h1><div class="lesson-content">
+    <div class="content-card"><h3>🧪 هيدروكسيد الألمنيوم Al(OH)₃</h3><p>يحضر من تفاعل محلول مائي لأحد أملاح الألمنيوم مع هيدروكسيد الصوديوم أو هيدروكسيد البوتاسيوم.</p><div class="electron-config">Al₂(SO₄)₃ + 6NaOH → 2Al(OH)₃↓ + 3Na₂SO₄</div><p>وهو مادة جيلاتينية بيضاء، لا تذوب في الماء لكنها تذوب في زيادة من هيدروكسيد الصوديوم أو بإضافة حامض.</p></div>
+    <div class="content-card"><h3>🔥 أوكسيد الألمنيوم Al₂O₃</h3><p>يحضر من التسخين الشديد لهيدروكسيد الألمنيوم:</p><div class="electron-config">2Al(OH)₃ → Al₂O₃ + 3H₂O</div><p>يدخل أوكسيد الألمنيوم غير النقي في صقل المعادن، ويدخل عند خلطه مع بعض المعادن في تركيب الأحجار الكريمة.</p></div>
+    <div class="content-card"><h3>🧂 الشب (شب البوتاس)</h3><p>هو ملح مزدوج يحتوي كبريتات الألمنيوم وكبريتات البوتاسيوم وجزيئات ماء التبلور بنسبة كتلية ثابتة، ويستعمل في تعقيم الجروح الخفيفة، وتثبيت الأصباغ على الأقمشة، وتصفية مياه الشرب.</p><div class="memory-box"><strong>🧠 لماذا يسمى الشب ملحًا مزدوجًا؟</strong>لأنه يتكون من ملحين وأيونين موجبين مختلفين هما الألمنيوم والبوتاسيوم.</div></div>
+    <div class="content-card"><h3>🔎 الكشف عن أيون الألمنيوم</h3><p>يتم الكشف عن وجود أيون الألمنيوم في المحاليل باستعمال محلول قاعدي مثل هيدروكسيد الصوديوم، فتتكون راسبة بيضاء جيلاتينية من هيدروكسيد الألمنيوم.</p><div class="electron-config">Al³⁺ + 3NaOH → Al(OH)₃↓ + 3Na⁺</div><p>ويذوب راسب Al(OH)₃ عند إضافة زيادة من هيدروكسيد الصوديوم أو عند إضافة حامض بسبب السلوك الأمفوتيري.</p></div>
+    </div>${lessonButtons3("showLesson3_4","showChapter3MinistryIdeas","أفكار وزارية →")}</div>`;
+}
+
+var chapter3MinistryIdeas=[
+ {title:"علل: وضعت عناصر الزمرة الثالثة في مجموعة واحدة رغم اختلاف أعدادها الذرية؟",answer:"بسبب احتواء الغلاف الخارجي لذراتها على ثلاثة إلكترونات."},
+ {title:"قارن بين طاقة تأين عنصر من الزمرة الثالثة والعنصر المجاور له من الزمرة الثانية.",answer:"طاقة تأين الزمرة الثالثة أقل لأن لديها إلكترونًا في المستوى الثانوي p غير المشبع، بينما يكون الغلاف الخارجي لعناصر الزمرة الثانية مشبعًا ns²."},
+ {title:"علل: لا يوجد الألمنيوم حرًا في الطبيعة.",answer:"لأنه من الفلزات الفعالة، فيوجد متحدًا مع غيره ضمن مركبات متنوعة."},
+ {title:"علل: لا تصلح سليكات الألمنيوم المعقدة لاستخلاص الألمنيوم رغم انتشارها.",answer:"بسبب الكلفة العالية اقتصاديًا."},
+ {title:"اذكر خامات الألمنيوم المهمة.",answer:"سليكات الألمنيوم المعقدة، البوكسايت، الألومينا، والكريولايت كما وردت في الملزمة."},
+ {title:"على ماذا تعتمد طريقة هول لاستخلاص الألمنيوم؟",answer:"على التحليل الكهربائي للألومينا النقية في حمام من منصهر الكريولايت وبمساعدة أقطاب كربونية."},
+ {title:"لماذا يُنقى خام البوكسايت؟",answer:"للحصول على الألومينا النقية."},
+ {title:"لماذا تضاف الألومينا إلى منصهر الكريولايت؟",answer:"لأن درجة انصهار الألومينا عالية جدًا، فيعمل الكريولايت على تخفيض درجة انصهارها."},
+ {title:"كيف يقي الألمنيوم نفسه من استمرار التآكل؟",answer:"بتكوّن طبقة رقيقة شديدة الالتصاق من أوكسيد الألمنيوم على سطحه."},
+ {title:"ماذا ينتج من احتراق مسحوق الألمنيوم؟",answer:"يتكون أوكسيد الألمنيوم وتنطلق طاقة عالية مع لهب ساطع."},
+ {title:"ما المقصود بتفاعل الثرميت؟",answer:"تفاعل مسحوق الألمنيوم مع أوكسيد الحديد الثالثي تفاعلًا شديدًا، ينتج عنه منصهر الحديد نتيجة اختزال أوكسيد الحديد الثالثي."},
+ {title:"ما فوائد تفاعل الثرميت؟",answer:"يستفاد منه في لحيم الأجهزة الحديدية الكبيرة وقضبان سكك الحديد."},
+ {title:"ما المقصود بالسلوك الأمفوتيري للألمنيوم؟",answer:"تفاعله مع الحوامض والقواعد مع تحرير غاز الهيدروجين وتكوين أملاح الألمنيوم في الحالتين."},
+ {title:"لماذا لا يستمر تفاعل الألمنيوم مع حامض النتريك؟",answer:"بسبب تكون طبقة من أوكسيد الألمنيوم تعزل الحامض عن الفلز فيتوقف التفاعل."},
+ {title:"ما مكونات ومميزات واستعمالات سبيكة الديورالومين؟",answer:"نسبة عالية من الألمنيوم مع نسب قليلة من النحاس والمغنسيوم وقد يوجد المنغنيز؛ تمتاز بالخفة والصلابة وتستعمل في بعض أجزاء الطائرات."},
+ {title:"ما مكونات ومميزات واستعمالات برونز الألمنيوم؟",answer:"نسبة قليلة من الألمنيوم ونسبة عالية من النحاس؛ تقاوم التآكل ويتغير لونها، وتستعمل في أدوات الزينة."},
+ {title:"كيف يحضر هيدروكسيد الألمنيوم؟",answer:"بتفاعل محلول مائي لأحد أملاح الألمنيوم مع NaOH أو KOH لتكوين راسب Al(OH)₃."},
+ {title:"كيف يحضر أوكسيد الألمنيوم؟",answer:"بالتسخين الشديد لهيدروكسيد الألمنيوم."},
+ {title:"لماذا يسمى الشب بالملح المزدوج؟",answer:"لأنه يتكون من ملحين وأيونين موجبين مختلفين هما الألمنيوم والبوتاسيوم."},
+ {title:"كيف يتم الكشف عن أيون الألمنيوم؟",answer:"بإضافة محلول قاعدي مثل هيدروكسيد الصوديوم، فتتكون راسبة بيضاء جيلاتينية من Al(OH)₃."}
+];
+function showChapter3MinistryIdeas(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter3()">←</button><h2>🎯 أفكار وزارية</h2><span></span></div><div class="ministry-ideas-intro"><strong>📌 أفكار وزارية للفصل الثالث</strong><br>أفكار مركزة مستخرجة من التعليلات والأسئلة والسنوات الوزارية الموجودة في ملزمة «فخامة الكيمياء».</div>${chapter3MinistryIdeas.map(function(item,index){return `<div class="ministry-idea-card"><h3>${index+1}- ${item.title}</h3><button class="ministry-toggle" onclick="toggleChapter3MinistryIdea(${index})">👁️ إظهار الحل</button><div id="ch3-ministry-answer-${index}" class="ministry-idea-answer"><strong>✅ الحل:</strong><br>${item.answer}</div></div>`}).join("")}<div class="lesson-navigation"><button class="previous-button" onclick="showLesson3_5()">← العودة للدرس الأخير</button><button class="next-button" onclick="showChapter3Questions()">📝 أسئلة الفصل الثالث →</button><button class="chapter-button" onclick="showChapter3()">📖 العودة إلى دروس الفصل الثالث</button></div></div>`}
+function toggleChapter3MinistryIdea(index){var box=document.getElementById("ch3-ministry-answer-"+index);if(box)box.classList.toggle("show");}
+function showChapter3Questions(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter3()">←</button><h2>📝 أسئلة الفصل الثالث</h2><span></span></div><div class="chapter2-banner"><strong>أسئلة الفصل الثالث وحلولها</strong><br>أسئلة الفصل الثالث الواردة في الملزمة مع حلولها.</div><div class="content-card"><h3>1-3 حدد العنصر الذي لا ينتمي للزمرة الثالثة</h3><div class="exercise-box"><p><strong>B₅ ، Mg₁₂ ، Al₁₃ ، Ga₃₁</strong></p><div class="answer-box">✅ الإجابة: Mg₁₂؛ لأنه من الزمرة الثانية وينتهي غلافه الخارجي الرئيسي 3s² بإلكترونين.</div></div></div><div class="content-card"><h3>2-3 اختر ما يناسب</h3><div class="exercise-box"><p><strong>1. الكاليوم Ga عنصر ينتمي إلى الزمرة:</strong><br>A. الأولى<br>B. الثانية<br>C. الثالثة</p><div class="answer-box">✅ الإجابة: C — الزمرة الثالثة.</div></div><div class="exercise-box"><p><strong>2. يكون عنصر الألمنيوم في تفاعل الثرميت عاملًا:</strong><br>A. مساعدًا<br>B. مؤكسدًا<br>C. مختزلًا</p><div class="answer-box">✅ الإجابة: C — مختزلًا.</div></div><div class="exercise-box"><p><strong>3. سبيكة برونز الألمنيوم تتكون بنسبة ______ من عنصر الألمنيوم:</strong><br>A. عالية<br>B. قليلة<br>C. 100%</p><div class="answer-box">✅ الإجابة: B — قليلة.</div></div></div><div class="content-card"><h3>3-3 أكمل العبارات</h3><div class="exercise-box"><p>1. يتفاعل الألمنيوم مع الحوامض والقواعد محررًا غاز ______.</p><div class="answer-box">✅ الهيدروجين H₂، ويرتبط ذلك بسلوكه الأمفوتيري.</div></div><div class="exercise-box"><p>2. لا يؤدي الأوكسجين الجوي إلى استمرار تأكل الألمنيوم بسبب تكون طبقة من ______.</p><div class="answer-box">✅ أوكسيد الألمنيوم الملتصق بقوة بالسطح.</div></div><div class="exercise-box"><p>3. التسخين الشديد لهيدروكسيد الألمنيوم يعطي ______ و ______.</p><div class="answer-box">✅ أوكسيد الألمنيوم والماء.</div></div><div class="exercise-box"><p>4. ملح مكون من عنصري البوتاسيوم والألمنيوم يدعى ______.</p><div class="answer-box">✅ الشب (شب البوتاس).</div></div><div class="exercise-box"><p>5. تفاعل الألمنيوم مع الحوامض والقواعد يسمى ______.</p><div class="answer-box">✅ السلوك الأمفوتيري.</div></div></div><div class="content-card"><h3>4-3 استخلاص الألمنيوم بطريقة هول</h3><div class="answer-box">✅ تنقية البوكسايت للحصول على الألومينا النقية، ثم إذابتها في منصهر الكريولايت، ثم إجراء التحليل الكهربائي في خلية هول، ويتجمع الألمنيوم المنصهر في أسفل الخلية.</div></div><div class="content-card"><h3>5-3 صِل القائمة</h3><table class="simple-table"><tr><th>العبارة</th><th>الإجابة</th></tr><tr><td>عنصر ذو سلوك أمفوتيري</td><td>الألمنيوم</td></tr><tr><td>تفاعل عامل مختزل يحرر طاقة حرارية عالية</td><td>الثرميت</td></tr><tr><td>أوكسيد الألمنيوم</td><td>الألومينا</td></tr><tr><td>ملح مزدوج من كبريتات البوتاسيوم والألمنيوم</td><td>الشب</td></tr><tr><td>أحد عناصر الزمرة الثالثة وهو شبه فلز</td><td>البورون</td></tr></table></div><div class="source-note">المصدر: «فخامة الكيمياء»، صفحات الفصل الثالث والحلول الواردة فيها.</div><div class="lesson-navigation"><button class="previous-button" onclick="showChapter3MinistryIdeas()">← أفكار وزارية</button><button class="chapter-button" onclick="showChapter3()">📖 العودة إلى دروس الفصل الثالث</button></div></div>`}
 
 
 function showMemory() {

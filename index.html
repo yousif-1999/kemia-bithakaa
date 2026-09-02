@@ -997,1005 +997,7 @@ button {
     .content-card h3 {
         font-size: 22px;
     }
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
 
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>كيمياء بذكاء</title>
-
-<style>
-
-/* =========================================================
-   كيمياء بذكاء
-   التصميم الأساسي
-   ========================================================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    direction: rtl;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family:
-        Tahoma,
-        Arial,
-        sans-serif;
-
-    background: #f5f7fb;
-
-    color: #173b78;
-
-    min-height: 100vh;
-
-    padding-bottom: 95px;
-
-    line-height: 1.9;
-}
-
-button {
-    font-family: inherit;
-    cursor: pointer;
-}
-
-#app {
-    width: 100%;
-    min-height: calc(100vh - 95px);
-}
-
-.app {
-    width: 100%;
-}
-
-/* =========================================================
-   الصفحة
-   ========================================================= */
-
-.page {
-    width: 100%;
-    max-width: 850px;
-
-    margin: 0 auto;
-
-    padding: 25px 18px 120px;
-}
-
-/* =========================================================
-   رأس الصفحة
-   ========================================================= */
-
-.page-header {
-    width: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    margin-bottom: 25px;
-}
-
-.page-header h2 {
-    flex: 1;
-
-    text-align: center;
-
-    color: #173b78;
-
-    font-size: 30px;
-
-    font-weight: 800;
-
-    line-height: 1.5;
-}
-
-.back-button {
-    width: 48px;
-    height: 48px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: #eaf0ff;
-
-    color: #173b78;
-
-    font-size: 25px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    transition: 0.2s;
-}
-
-.back-button:hover {
-    transform: translateY(-2px);
-
-    background: #dce7ff;
-}
-
-.back-button:active {
-    transform: scale(0.96);
-}
-
-/* =========================================================
-   عنوان الدرس
-   ========================================================= */
-
-.lesson-title {
-    text-align: center;
-
-    color: #173b78;
-
-    font-size: 32px;
-
-    font-weight: 900;
-
-    margin: 5px 0 25px;
-
-    line-height: 1.5;
-}
-
-/* =========================================================
-   محتوى الدرس
-   ========================================================= */
-
-.lesson-content {
-    width: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 18px;
-}
-
-/* =========================================================
-   بطاقة المحتوى
-   ========================================================= */
-
-.content-card {
-    width: 100%;
-
-    background: #ffffff;
-
-    border: 1px solid #dfe6f2;
-
-    border-radius: 24px;
-
-    padding: 28px 26px;
-
-    box-shadow:
-        0 8px 25px rgba(23, 59, 120, 0.06);
-
-    text-align: right;
-
-    overflow: hidden;
-}
-
-.content-card h3 {
-    color: #173b78;
-
-    font-size: 25px;
-
-    font-weight: 800;
-
-    margin-bottom: 18px;
-
-    line-height: 1.6;
-}
-
-.content-card h4 {
-    color: #173b78;
-
-    font-size: 21px;
-
-    margin-bottom: 10px;
-}
-
-.content-card p {
-    color: #173b78;
-
-    font-size: 19px;
-
-    line-height: 2.05;
-
-    margin-bottom: 16px;
-
-    text-align: right;
-}
-
-.content-card p:last-child {
-    margin-bottom: 0;
-}
-
-/* =========================================================
-   عنوان فرعي
-   ========================================================= */
-
-.section-heading {
-    color: #173b78;
-
-    font-size: 24px;
-
-    font-weight: 800;
-
-    margin-bottom: 12px;
-}
-
-/* =========================================================
-   صندوق احفظها
-   ========================================================= */
-
-.memory-box {
-    width: 100%;
-
-    margin-top: 20px;
-
-    padding: 20px;
-
-    border-radius: 20px;
-
-    background: #fff3d6;
-
-    border: 1px solid #f4dfaa;
-
-    color: #173b78;
-
-    font-size: 18px;
-
-    line-height: 1.9;
-}
-
-.memory-box strong {
-    display: block;
-
-    color: #173b78;
-
-    font-size: 22px;
-
-    margin-bottom: 8px;
-}
-
-/* =========================================================
-   صندوق مثال
-   ========================================================= */
-
-.example-box {
-    width: 100%;
-
-    margin-top: 18px;
-
-    padding: 22px;
-
-    border-radius: 20px;
-
-    background: #f1f5ff;
-
-    border: 1px solid #dce5fa;
-
-    color: #173b78;
-
-    font-size: 19px;
-
-    line-height: 2;
-
-    text-align: center;
-}
-
-/* =========================================================
-   صندوق معلومات
-   ========================================================= */
-
-.info-box {
-    width: 100%;
-
-    background: #edf3ff;
-
-    border-right: 5px solid #173b78;
-
-    border-radius: 15px;
-
-    padding: 18px;
-
-    margin-top: 15px;
-
-    color: #173b78;
-
-    font-size: 18px;
-}
-
-/* =========================================================
-   صندوق التحذير / ملاحظة
-   ========================================================= */
-
-.note-box {
-    width: 100%;
-
-    background: #fff8e8;
-
-    border-right: 5px solid #d9822b;
-
-    border-radius: 15px;
-
-    padding: 18px;
-
-    margin-top: 15px;
-
-    color: #173b78;
-
-    font-size: 18px;
-}
-
-/* =========================================================
-   الجداول
-   ========================================================= */
-
-.simple-table {
-    width: 100%;
-
-    border-collapse: collapse;
-
-    margin-top: 15px;
-
-    overflow: hidden;
-
-    border-radius: 15px;
-
-    background: #ffffff;
-}
-
-.simple-table th {
-    background: #173b78;
-
-    color: #ffffff;
-
-    padding: 13px;
-
-    font-size: 17px;
-
-    text-align: center;
-}
-
-.simple-table td {
-    border: 1px solid #dce3ef;
-
-    padding: 13px;
-
-    color: #173b78;
-
-    font-size: 17px;
-
-    text-align: center;
-}
-
-.simple-table tr:nth-child(even) {
-    background: #f7f9fd;
-}
-
-/* =========================================================
-   الترتيب الإلكتروني
-   ========================================================= */
-
-.electron-config {
-    direction: ltr;
-
-    text-align: center;
-
-    font-family:
-        "Times New Roman",
-        serif;
-
-    font-size: 25px;
-
-    font-weight: 700;
-
-    color: #173b78;
-
-    background: #f3f6ff;
-
-    border: 1px solid #dce5f7;
-
-    border-radius: 18px;
-
-    padding: 18px;
-
-    margin: 15px 0;
-
-    letter-spacing: 1px;
-}
-
-/* =========================================================
-   مستويات الطاقة
-   ========================================================= */
-
-.energy-list {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-
-    margin-top: 15px;
-}
-
-.energy-item {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    background: #f5f7fc;
-
-    border: 1px solid #e0e6f1;
-
-    border-radius: 14px;
-
-    padding: 12px 16px;
-
-    font-size: 18px;
-}
-
-.energy-item strong {
-    color: #173b78;
-}
-
-/* =========================================================
-   مخطط النموذج الذري
-   ========================================================= */
-
-.atom-model {
-    width: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: #f6f8fd;
-
-    border: 1px solid #e0e6f2;
-
-    border-radius: 20px;
-
-    padding: 25px;
-
-    margin-top: 15px;
-}
-
-.atom-circle {
-    width: 150px;
-
-    height: 150px;
-
-    border-radius: 50%;
-
-    border: 4px solid #173b78;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    position: relative;
-
-    color: #ffffff;
-
-    background: #173b78;
-
-    font-size: 20px;
-
-    font-weight: bold;
-}
-
-.atom-circle::before {
-    content: "";
-
-    position: absolute;
-
-    width: 205px;
-
-    height: 205px;
-
-    border: 3px solid #d9822b;
-
-    border-radius: 50%;
-}
-
-.atom-circle::after {
-    content: "";
-
-    position: absolute;
-
-    width: 260px;
-
-    height: 260px;
-
-    border: 2px solid #a9b8d6;
-
-    border-radius: 50%;
-}
-
-.atom-caption {
-    margin-top: 45px;
-
-    font-size: 17px;
-
-    color: #173b78;
-}
-
-/* =========================================================
-   أسئلة ومراجعة
-   ========================================================= */
-
-.exercise-box {
-    background: #f7f9fd;
-
-    border: 1px solid #dfe6f2;
-
-    border-radius: 18px;
-
-    padding: 20px;
-
-    margin-top: 15px;
-}
-
-.exercise-box p {
-    margin-bottom: 12px;
-}
-
-.answer-box {
-    background: #eaf5ed;
-
-    border-right: 5px solid #4b8b5a;
-
-    border-radius: 12px;
-
-    padding: 12px 15px;
-
-    color: #245f35;
-
-    font-size: 17px;
-}
-
-/* =========================================================
-   زر التالي
-   ========================================================= */
-
-.lesson-navigation {
-    width: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-
-    margin-top: 28px;
-}
-
-.next-button,
-.previous-button,
-.chapter-button {
-    width: 100%;
-
-    border: none;
-
-    border-radius: 16px;
-
-    min-height: 55px;
-
-    padding: 13px 18px;
-
-    font-size: 19px;
-
-    font-weight: 800;
-
-    transition: 0.2s;
-}
-
-.next-button {
-    background: #d9822b;
-
-    color: #ffffff;
-}
-
-.next-button:hover {
-    background: #c77423;
-
-    transform: translateY(-2px);
-}
-
-.previous-button {
-    background: #173b78;
-
-    color: #ffffff;
-}
-
-.previous-button:hover {
-    background: #123263;
-
-    transform: translateY(-2px);
-}
-
-.chapter-button {
-    background: #edf2fc;
-
-    color: #173b78;
-
-    border: 1px solid #dbe3f2;
-}
-
-.chapter-button:hover {
-    background: #e1e9f8;
-}
-
-/* =========================================================
-   صفحة الرئيسية
-   ========================================================= */
-
-.home-page {
-    max-width: 900px;
-
-    margin: 0 auto;
-
-    padding: 35px 20px 130px;
-}
-
-.home-logo {
-    text-align: center;
-
-    margin-bottom: 25px;
-}
-
-.home-logo .logo-icon {
-    font-size: 50px;
-}
-
-.home-logo h1 {
-    font-size: 38px;
-
-    color: #173b78;
-
-    font-weight: 900;
-
-    margin-top: 5px;
-}
-
-.home-logo p {
-    color: #7183a4;
-
-    font-size: 19px;
-}
-
-.chapter-banner {
-    background: #173b78;
-
-    color: #ffffff;
-
-    border-radius: 28px;
-
-    padding: 30px 25px;
-
-    text-align: center;
-
-    margin-bottom: 25px;
-
-    box-shadow:
-        0 10px 30px rgba(23, 59, 120, 0.18);
-}
-
-.chapter-banner h2 {
-    font-size: 30px;
-
-    margin-bottom: 8px;
-}
-
-.chapter-banner p {
-    font-size: 18px;
-
-    opacity: 0.95;
-}
-
-.start-card {
-    background: #ffffff;
-
-    border: 1px solid #dfe6f2;
-
-    border-radius: 25px;
-
-    padding: 28px;
-
-    box-shadow:
-        0 8px 25px rgba(23, 59, 120, 0.06);
-}
-
-.start-card h3 {
-    color: #173b78;
-
-    font-size: 27px;
-
-    margin-bottom: 8px;
-}
-
-.start-card p {
-    color: #617392;
-
-    font-size: 18px;
-
-    margin-bottom: 20px;
-}
-
-.start-button {
-    width: 100%;
-
-    min-height: 60px;
-
-    border: none;
-
-    border-radius: 16px;
-
-    background: #d9822b;
-
-    color: #ffffff;
-
-    font-size: 21px;
-
-    font-weight: 800;
-}
-
-.start-button:hover {
-    background: #c77423;
-}
-
-/* =========================================================
-   صفحة الدروس
-   ========================================================= */
-
-.lessons-page {
-    max-width: 900px;
-
-    margin: 0 auto;
-
-    padding: 25px 18px 130px;
-}
-
-.lessons-heading {
-    text-align: center;
-
-    color: #173b78;
-
-    font-size: 31px;
-
-    font-weight: 900;
-
-    margin-bottom: 22px;
-}
-
-.lessons-subheading {
-    text-align: center;
-
-    color: #7584a0;
-
-    font-size: 17px;
-
-    margin-bottom: 25px;
-}
-
-.lesson-card {
-    width: 100%;
-
-    background: #ffffff;
-
-    border: 1px solid #dfe6f2;
-
-    border-radius: 22px;
-
-    padding: 20px;
-
-    margin-bottom: 15px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 16px;
-
-    box-shadow:
-        0 7px 22px rgba(23, 59, 120, 0.05);
-
-    transition: 0.2s;
-
-    text-align: right;
-}
-
-.lesson-card:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 10px 28px rgba(23, 59, 120, 0.09);
-}
-
-.lesson-card-icon {
-    width: 65px;
-
-    height: 65px;
-
-    min-width: 65px;
-
-    border-radius: 18px;
-
-    background: #edf2ff;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 34px;
-}
-
-.lesson-card-info {
-    flex: 1;
-}
-
-.lesson-card-info h3 {
-    color: #173b78;
-
-    font-size: 21px;
-
-    margin-bottom: 3px;
-}
-
-.lesson-card-info p {
-    color: #7b89a4;
-
-    font-size: 15px;
-
-    line-height: 1.7;
-}
-
-.lesson-arrow {
-    font-size: 27px;
-
-    color: #9aa8c0;
-}
-
-/* =========================================================
-   شريط التنقل السفلي
-   ========================================================= */
-
-.bottom-nav {
-    position: fixed;
-
-    bottom: 0;
-
-    right: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 88px;
-
-    background: rgba(255,255,255,0.97);
-
-    border-top: 1px solid #dfe5ee;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-around;
-
-    z-index: 9999;
-
-    box-shadow:
-        0 -5px 20px rgba(23,59,120,0.05);
-
-    backdrop-filter: blur(8px);
-}
-
-.nav-item {
-    border: none;
-
-    background: transparent;
-
-    color: #9aa5b8;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 1px;
-
-    min-width: 65px;
-
-    height: 78px;
-
-    font-size: 13px;
-
-    font-weight: 500;
-}
-
-.nav-icon {
-    font-size: 29px;
-
-    line-height: 1.1;
-}
-
-.nav-item.active {
-    color: #173b78;
-
-    font-weight: 800;
-}
-
-.nav-item.active .nav-icon {
-    transform: translateY(-1px);
-}
-
-/* =========================================================
-   استجابة الهاتف
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-    body {
-        padding-bottom: 88px;
-    }
-
-    .page {
-        padding:
-            18px
-            12px
-            110px;
-    }
-
-    .page-header h2 {
-        font-size: 24px;
-    }
-
-    .lesson-title {
-        font-size: 27px;
-    }
-
-    .content-card {
-        border-radius: 20px;
-
-        padding: 22px 18px;
-    }
-
-    .content-card h3 {
-        font-size: 22px;
-    }
     .content-card p {
         font-size: 17px;
 
@@ -2995,6 +1997,7 @@ function showLesson3() {
         document.getElementById("app");
 
     app.innerHTML = `
+
         <div class="page">
 
             <div class="page-header">
@@ -3994,6 +2997,1007 @@ function showLesson6() {
 
     var app =
         document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+
+                    ←
+
+                </button>
+
+                <h2>
+                    1-6 ترتيب لويس
+                </h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+
+                <div class="content-card">
+
+                    <h3>
+                        ما المقصود بترتيب لويس؟
+                    </h3>
+
+                    <p>
+                        يعتمد رمز لويس على عدد الإلكترونات الموجودة
+                        في الغلاف الأخير، أي مستوى الطاقة الخارجي،
+                        والذي يسمى غلاف التكافؤ.
+                    </p>
+
+                    <p>
+                        ترتب الإلكترونات الموجودة في الغلاف الخارجي
+                        لذرة العنصر بطريقة صورية تسمى ترتيب أو رمز لويس.
+                    </p>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        إلكترونات التكافؤ هي الإلكترونات الموجودة
+                        في الغلاف الإلكتروني الخارجي.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        طريقة كتابة رمز لويس
+                    </h3>
+
+                    <p>
+                        يكتب رمز العنصر الكيميائي وتحيط به نقاط
+                        تمثل إلكترونات التكافؤ.
+                    </p>
+
+                    <p>
+                        تمثل كل نقطة إلكتروناً واحداً،
+                        وتمثل كل نقطتين متجاورتين زوجاً من الإلكترونات.
+                    </p>
+
+
+                    <div class="example-box">
+
+                        رمز العنصر
+                        <br><br>
+                        +
+                        <br><br>
+                        نقاط إلكترونات التكافؤ
+                        <br><br>
+                        =
+                        <br><br>
+                        رمز لويس
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مثال: الصوديوم Na
+                    </h3>
+
+                    <p>
+                        العدد الذري للصوديوم 11، وترتيبه الإلكتروني:
+                    </p>
+
+
+                    <div class="electron-config">
+
+                        1s² 2s² 2p⁶ 3s¹
+
+                    </div>
+
+
+                    <p>
+                        يوجد إلكترون واحد في الغلاف الخارجي،
+                        لذلك يمثل رمز لويس للصوديوم بنقطة واحدة
+                        حول الرمز Na.
+                    </p>
+
+
+                    <div class="example-box">
+
+                        Na •
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مثال: الكلور Cl
+                    </h3>
+
+                    <p>
+                        الترتيب الإلكتروني للكلور هو:
+                    </p>
+
+
+                    <div class="electron-config">
+
+                        1s² 2s² 2p⁶ 3s² 3p⁵
+
+                    </div>
+
+
+                    <p>
+                        لذلك يمتلك الكلور سبعة إلكترونات في غلاف
+                        التكافؤ، وتمثل هذه الإلكترونات بنقاط حول
+                        الرمز Cl في ترتيب لويس.
+                    </p>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 تذكر
+                        </strong>
+
+                        عدد نقاط رمز لويس يعتمد على عدد
+                        إلكترونات التكافؤ.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        العلاقة بين الترتيب الإلكتروني ولويس
+                    </h3>
+
+                    <p>
+                        لمعرفة رمز لويس نحتاج إلى معرفة إلكترونات
+                        الغلاف الخارجي، ويمكن تحديدها من الترتيب
+                        الإلكتروني للعنصر.
+                    </p>
+
+
+                    <table class="simple-table">
+
+                        <tr>
+
+                            <th>
+                                العنصر
+                            </th>
+
+                            <th>
+                                العدد الذري
+                            </th>
+
+                            <th>
+                                إلكترونات التكافؤ
+                            </th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Na
+                            </td>
+
+                            <td>
+                                11
+                            </td>
+
+                            <td>
+                                1
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Mg
+                            </td>
+
+                            <td>
+                                12
+                            </td>
+
+                            <td>
+                                2
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Cl
+                            </td>
+
+                            <td>
+                                17
+                            </td>
+
+                            <td>
+                                7
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Ar
+                            </td>
+
+                            <td>
+                                18
+                            </td>
+
+                            <td>
+                                8
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        📝 مراجعة الدرس
+                    </h3>
+
+
+                    <div class="exercise-box">
+
+                        <h4>
+                            سؤال 1
+                        </h4>
+
+                        <p>
+                            ماذا تمثل نقاط رمز لويس؟
+                        </p>
+
+                        <div class="answer-box">
+
+                            تمثل إلكترونات التكافؤ.
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="exercise-box">
+
+                        <h4>
+                            سؤال 2
+                        </h4>
+
+                        <p>
+                            أين توجد إلكترونات التكافؤ؟
+                        </p>
+
+                        <div class="answer-box">
+
+                            توجد في الغلاف الإلكتروني الخارجي للذرة.
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="exercise-box">
+
+                        <h4>
+                            سؤال 3
+                        </h4>
+
+                        <p>
+                            كم إلكترون تكافؤ يمتلك الصوديوم؟
+                        </p>
+
+                        <div class="answer-box">
+
+                            إلكترون واحد.
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="exercise-box">
+
+                        <h4>
+                            سؤال 4
+                        </h4>
+
+                        <p>
+                            كم إلكترون تكافؤ يمتلك الكلور؟
+                        </p>
+
+                        <div class="answer-box">
+
+                            سبعة إلكترونات.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="lesson-navigation">
+
+                <button
+                    class="previous-button"
+                    onclick="showLesson5()">
+
+                    ← الدرس السابق
+
+                </button>
+
+
+                <button
+                    class="next-button"
+                    onclick="showLesson7()">
+
+                    الدرس التالي → 
+
+                </button>
+
+
+                <button
+                    class="chapter-button"
+                    onclick="showHome()">
+
+                    🏠 العودة إلى الرئيسية
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+
+/* =========================================================
+   الدرس 1-7
+   ========================================================= */
+
+function showLesson7() {
+
+    setActive(1);
+    currentLesson = 7;
+
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+                    ←
+                </button>
+
+                <h2>
+                    1-7 الجدول الدوري
+                </h2>
+
+                <span></span>
+
+            </div>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+
+                    <h3>
+                        ما أهمية الجدول الدوري؟
+                    </h3>
+
+                    <p>
+                        يعد الجدول الدوري من أهم الأدوات التي يستخدمها دارس الكيمياء؛
+                        فهو يساعد على تنظيم العناصر وفهم خواصها الفيزيائية والكيميائية.
+                    </p>
+
+                    <p>
+                        إذا عرفت موقع عنصر في زمرة أو دورة معينة، يمكنك التنبؤ
+                        بدرجة كبيرة بخواص العناصر التي تقع في الزمرة أو الدورة نفسها.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>🧠 احفظها</strong>
+
+                        موقع العنصر في الجدول الدوري يساعدنا على فهم خواصه
+                        والتنبؤ بخواص العناصر المشابهة له.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        الدورات والزمر
+                    </h3>
+
+                    <p>
+                        الصفوف الأفقية في الجدول الدوري تسمى الدورات،
+                        أما الأعمدة الرأسية فتسمى الزمر.
+                    </p>
+
+                    <p>
+                        عناصر الزمرة الواحدة تمتلك تشابهاً في ترتيب إلكترونات
+                        التكافؤ، ولذلك تظهر بينها أوجه تشابه في الخواص.
+                    </p>
+
+                    <div class="example-box">
+
+                        الدورات ← صفوف أفقية<br><br>
+                        الزمر ← أعمدة رأسية
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مثال سريع
+                    </h3>
+
+                    <p>
+                        الصوديوم Na عدده الذري 11، ويقع في الدورة الثالثة
+                        والزمرة الأولى IA.
+                    </p>
+
+                    <p>
+                        المغنيسيوم Mg عدده الذري 12، ويقع في الدورة الثالثة
+                        والزمرة الثانية IIA.
+                    </p>
+
+                    <div class="info-box">
+
+                        يشترك Na و Mg في الدورة الثالثة،
+                        بينما يختلفان في الزمرة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>📝 مراجعة الدرس</h3>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال 1</h4>
+
+                        <p>
+                            ماذا تسمى الصفوف الأفقية في الجدول الدوري؟
+                        </p>
+
+                        <div class="answer-box">
+                            الدورات.
+                        </div>
+
+                    </div>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال 2</h4>
+
+                        <p>
+                            ماذا تسمى الأعمدة الرأسية في الجدول الدوري؟
+                        </p>
+
+                        <div class="answer-box">
+                            الزمر.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            ${lessonButtons(
+                "showLesson6",
+                "showLesson8",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-8
+   ========================================================= */
+
+function showLesson8() {
+
+    setActive(1);
+    currentLesson = 8;
+
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+                    ←
+                </button>
+
+                <h2>
+                    1-8 تصنيف العناصر تبعاً لترتيبها الإلكتروني
+                </h2>
+
+                <span></span>
+
+            </div>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+
+                    <h3>
+                        لماذا تصنف العناصر إلى بلوكات؟
+                    </h3>
+
+                    <p>
+                        يعتمد تصنيف العناصر في الجدول الدوري على ترتيبها الإلكتروني،
+                        وخصوصاً نوع المستوى الثانوي الذي ينتهي به الترتيب الإلكتروني.
+                    </p>
+
+                    <p>
+                        تقسم العناصر إلى أربعة تجمعات أو بلوكات:
+                        s و p و d و f.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>🧠 احفظها</strong>
+
+                        نوع المستوى الثانوي الأخير في الترتيب الإلكتروني
+                        يحدد البلوك الذي ينتمي إليه العنصر.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>بلوك s</h3>
+
+                    <p>
+                        يقع في أقصى يسار الجدول الدوري ويضم الزمرتين IA و IIA.
+                        ينتهي الترتيب الإلكتروني لعناصره بالمستوى الثانوي s،
+                        مع ملاحظة أن الهيليوم يوضع مع العناصر النبيلة في أقصى اليمين.
+                    </p>
+
+                    <div class="example-box">
+
+                        IA → ينتهي بـ s¹<br><br>
+                        IIA → ينتهي بـ s²
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>بلوك p</h3>
+
+                    <p>
+                        يقع في يمين الجدول الدوري وينتهي الترتيب الإلكتروني
+                        لعناصره بالمستوى الثانوي p.
+                    </p>
+
+                    <p>
+                        يشمل الزمر IIIA و IVA و VA و VIA و VIIA و VIIIA.
+                        وتسمى الزمرة VIIIA أو الزمرة صفر زمرة العناصر النبيلة.
+                    </p>
+
+                    <div class="info-box">
+
+                        من التسميات المهمة:
+                        IA الفلزات القلوية،
+                        IIA فلزات الأتربة القلوية،
+                        VIIA الهالوجينات،
+                        VIIIA الغازات النبيلة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>بلوكات d و f</h3>
+
+                    <p>
+                        تمثل عناصر بلوك d المنطقة الوسطى من الجدول الدوري،
+                        بينما تظهر عناصر بلوك f في الصفين المنفصلين أسفل الجدول الدوري.
+                    </p>
+
+                    <div class="example-box">
+
+                        s → يسار الجدول<br><br>
+                        p → يمين الجدول<br><br>
+                        d → وسط الجدول<br><br>
+                        f → أسفل الجدول
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>📝 مراجعة الدرس</h3>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال</h4>
+
+                        <p>
+                            في أي منطقة تقع عناصر بلوك d؟
+                        </p>
+
+                        <div class="answer-box">
+                            في وسط الجدول الدوري.
+                        </div>
+
+                    </div>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال</h4>
+
+                        <p>
+                            ما البلوك الذي تقع عناصره في يمين الجدول الدوري؟
+                        </p>
+
+                        <div class="answer-box">
+                            بلوك p.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            ${lessonButtons(
+                "showLesson7",
+                "showLesson9",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-9
+   ========================================================= */
+
+function showLesson9() {
+
+    setActive(1);
+    currentLesson = 9;
+
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+                    ←
+                </button>
+
+                <h2>
+                    1-9 معرفة الدورة والزمرة
+                </h2>
+
+                <span></span>
+
+            </div>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+
+                    <h3>
+                        كيف نحدد الدورة؟
+                    </h3>
+
+                    <p>
+                        نحدد الدورة من أكبر رقم موجود في مستويات الطاقة الرئيسية
+                        في الترتيب الإلكتروني، أي من آخر مستوى رئيسي مشغول بالإلكترونات.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>🧠 قاعدة مهمة</strong>
+
+                        أكبر رقم رئيسي n في الترتيب الإلكتروني = رقم الدورة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        كيف نحدد الزمرة لعناصر المجموعة A؟
+                    </h3>
+
+                    <p>
+                        إذا انتهى الترتيب الإلكتروني بالمستوى p،
+                        تجمع إلكترونات المستوى p مع إلكتروني المستوى s الذي سبقه
+                        لتحديد رقم الزمرة وفق طريقة الكتاب.
+                    </p>
+
+                    <p>
+                        أما إذا انتهى الترتيب الإلكتروني بالمستوى s،
+                        فإن عدد إلكترونات s في المستوى الخارجي يساعد على تحديد الزمرة.
+                    </p>
+
+                    <div class="example-box">
+
+                        مثال الأوكسجين O₈<br><br>
+                        1s² 2s² 2p⁴<br><br>
+                        الدورة = 2<br>
+                        الزمرة = 6
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مثال: الكلور Cl
+                    </h3>
+
+                    <p>
+                        العدد الذري للكلور 17، وترتيبه الإلكتروني:
+                    </p>
+
+                    <div class="electron-config">
+                        1s² 2s² 2p⁶ 3s² 3p⁵
+                    </div>
+
+                    <p>
+                        أكبر مستوى رئيسي هو 3، لذلك يقع في الدورة الثالثة.
+                    </p>
+
+                    <p>
+                        في المستوى الخارجي يوجد 2 إلكترون في s و5 إلكترونات في p،
+                        فيكون المجموع 7، لذلك يقع في الزمرة السابعة VIIA.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>🧠 احفظها</strong>
+
+                        Cl₁₇ → الدورة الثالثة، الزمرة السابعة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        أمثلة مهمة
+                    </h3>
+
+                    <table class="simple-table">
+
+                        <tr>
+                            <th>العنصر</th>
+                            <th>الدورة</th>
+                            <th>الزمرة</th>
+                        </tr>
+
+                        <tr>
+                            <td>O₈</td>
+                            <td>2</td>
+                            <td>6</td>
+                        </tr>
+
+                        <tr>
+                            <td>Cl₁₇</td>
+                            <td>3</td>
+                            <td>7</td>
+                        </tr>
+
+                        <tr>
+                            <td>Ne₁₀</td>
+                            <td>2</td>
+                            <td>8 / صفر</td>
+                        </tr>
+
+                        <tr>
+                            <td>K₁₉</td>
+                            <td>4</td>
+                            <td>1</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>📝 مراجعة الدرس</h3>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال</h4>
+
+                        <p>
+                            ما رقم الدورة لعنصر ينتهي ترتيبه الإلكتروني بالمستوى 3p⁵؟
+                        </p>
+
+                        <div class="answer-box">
+                            الدورة الثالثة؛ لأن أكبر رقم رئيسي هو 3.
+                        </div>
+
+                    </div>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال</h4>
+
+                        <p>
+                            ما دورة وزمرة البوتاسيوم K₁₉؟
+                        </p>
+
+                        <div class="answer-box">
+                            الدورة الرابعة والزمرة الأولى.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            ${lessonButtons(
+                "showLesson8",
+                "showLesson10",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-10
+   ========================================================= */
+
+function showLesson10() {
+
+    setActive(1);
+    currentLesson = 10;
+
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+                    ←
+                </button>
+
+                <h2>
+                    1-10 الخواص الدورية
+                </h2>
+
+                <span></span>
+
+            </div>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+
+                    <h3>
+                        ما المقصود بالخواص الدورية؟
+                    </h3>
+
+                    <p>
+                        تتدرج خواص العناصر في زمر ودورات الجدول الدوري بصورة منتظمة،
+                        ومن أهم الخواص التي يتناولها الفصل:
+                        نصف القطر الذري، وطاقة التأين، والألفة الإلكترونية،
+                        والكهرسلبية، والخواص الفلزية واللافلزية.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>🧠 احفظها</strong>
+
+                        الخواص الدورية تتغير بصورة منتظمة تبعاً لموقع العنصر
+                        في الجدول الدوري.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>1-10-1 نصف القطر الذري</h3>
+
+                    <p>
                         نصف القطر الذري هو نصف المسافة بين نواتي ذرتين متماثلتين
                         متحدتين كيميائياً.
                     </p>
@@ -4495,505 +4499,5 @@ showHome();
 </script>
 
 </body>
-                        نصف القطر الذري هو نصف المسافة بين نواتي ذرتين متماثلتين
-                        متحدتين كيميائياً.
-                    </p>
 
-                    <p>
-                        في الدورة الواحدة يقل نصف القطر الذري من اليسار إلى اليمين،
-                        بينما يزداد عند النزول إلى أسفل الزمرة.
-                    </p>
-
-                    <div class="example-box">
-
-                        عبر الدورة → نصف القطر يقل ←<br><br>
-                        إلى أسفل الزمرة ↓ نصف القطر يزداد
-
-                    </div>
-
-                </div>
-
-
-                <div class="content-card">
-
-                    <h3>1-10-2 طاقة التأين</h3>
-
-                    <p>
-                        طاقة التأين هي مقدار الطاقة اللازمة لنزع إلكترون واحد
-                        من مستوى الطاقة الخارجي لذرة عنصر متعادلة في حالتها الغازية.
-                    </p>
-
-                    <p>
-                        تقل طاقة التأين عند النزول إلى أسفل الزمرة،
-                        وتزداد في الدورة مع زيادة العدد الذري بصورة عامة،
-                        مع وجود بعض الاستثناءات التي يذكرها الكتاب.
-                    </p>
-
-                    <div class="memory-box">
-
-                        <strong>🧠 احفظها</strong>
-
-                        طاقة التأين = طاقة نحتاجها لنزع إلكترون من الذرة الغازية.
-
-                    </div>
-
-                </div>
-
-
-                <div class="content-card">
-
-                    <h3>1-10-3 الألفة الإلكترونية</h3>
-
-                    <p>
-                        الألفة الإلكترونية هي قابلية الذرة المتعادلة كهربائياً
-                        في الحالة الغازية على اكتساب إلكترون واحد مع تحرير مقدار من الطاقة.
-                    </p>
-
-                    <p>
-                        تزداد الألفة الإلكترونية في الدورات بزيادة العدد الذري،
-                        بينما تصبح إضافة الإلكترون أصعب عند النزول في الزمرة.
-                    </p>
-
-                    <div class="info-box">
-
-                        العناصر النبيلة من أقل العناصر ألفة إلكترونية؛
-                        لأن إضافة إلكترونات إليها تكون صعبة.
-
-                    </div>
-
-                </div>
-
-
-                <div class="content-card">
-
-                    <h3>1-10-4 الكهرسلبية</h3>
-
-                    <p>
-                        الكهرسلبية هي قدرة الذرة على جذب إلكترونات التآصر
-                        نحوها في المركب الكيميائي.
-                    </p>
-
-                    <p>
-                        الفلور هو أعلى العناصر كهرسلبية في مقياس الكتاب،
-                        وتزداد الكهرسلبية في الدورة مع زيادة العدد الذري بصورة عامة،
-                        بينما تقل في الزمرة عند زيادة العدد الذري.
-                    </p>
-
-                    <div class="memory-box">
-
-                        <strong>🧠 احفظها</strong>
-
-                        الفلور أعلى العناصر كهرسلبية.
-
-                    </div>
-
-                </div>
-
-
-                <div class="content-card">
-
-                    <h3>1-10-5 الخواص الفلزية واللافلزية</h3>
-
-                    <p>
-                        في الدورة الواحدة تقل الخواص الفلزية تدريجياً من اليسار
-                        إلى اليمين وتظهر وتزداد الخواص اللافلزية.
-                    </p>
-
-                    <p>
-                        وفي الزمرة الواحدة تزداد الخواص الفلزية عند النزول إلى الأسفل،
-                        بينما تقل الخواص اللافلزية.
-                    </p>
-
-                    <div class="example-box">
-
-                        الفلزية في الدورة → تقل من اليسار إلى اليمين<br><br>
-                        الفلزية في الزمرة ↓ تزداد عند النزول
-
-                    </div>
-
-                </div>
-
-
-                <div class="content-card">
-
-                    <h3>📌 خلاصة الاتجاهات</h3>
-
-                    <table class="simple-table">
-
-                        <tr>
-                            <th>الخاصية</th>
-                            <th>في الدورة</th>
-                            <th>في الزمرة</th>
-                        </tr>
-
-                        <tr>
-                            <td>نصف القطر الذري</td>
-                            <td>يقل →</td>
-                            <td>يزداد ↓</td>
-                        </tr>
-
-                        <tr>
-                            <td>طاقة التأين</td>
-                            <td>تزداد →</td>
-                            <td>تقل ↓</td>
-                        </tr>
-
-                        <tr>
-                            <td>الكهرسلبية</td>
-                            <td>تزداد →</td>
-                            <td>تقل ↓</td>
-                        </tr>
-
-                        <tr>
-                            <td>الخواص الفلزية</td>
-                            <td>تقل →</td>
-                            <td>تزداد ↓</td>
-                        </tr>
-
-                    </table>
-
-                </div>
-
-
-                <div class="content-card">
-
-                    <h3>📝 مراجعة الدرس</h3>
-
-                    <div class="exercise-box">
-
-                        <h4>سؤال 1</h4>
-
-                        <p>
-                            كيف يتغير نصف القطر الذري عبر الدورة؟
-                        </p>
-
-                        <div class="answer-box">
-                            يقل من اليسار إلى اليمين.
-                        </div>
-
-                    </div>
-
-                    <div class="exercise-box">
-
-                        <h4>سؤال 2</h4>
-
-                        <p>
-                            ما أعلى العناصر كهرسلبية؟
-                        </p>
-
-                        <div class="answer-box">
-                            الفلور.
-                        </div>
-
-                    </div>
-
-                    <div class="exercise-box">
-
-                        <h4>سؤال 3</h4>
-
-                        <p>
-                            ماذا تسمى الطاقة اللازمة لنزع إلكترون من الذرة الغازية؟
-                        </p>
-
-                        <div class="answer-box">
-                            طاقة التأين.
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            ${lessonButtons(
-                "showLesson9",
-                "showQuiz",
-                "انتقل إلى الاختبار →"
-            )}
-
-        </div>
-
-    `;
-}
-
-
-/* =========================================================
-   احفظها
-   ========================================================= */
-
-function showMemory() {
-
-    setActive(2);
-
-    var app =
-        document.getElementById("app");
-
-    app.innerHTML = `
-
-        <div class="page">
-
-            <div class="page-header">
-
-                <button
-                    class="back-button"
-                    onclick="showHome()">
-
-                    ←
-
-                </button>
-
-                <h2>
-                    🧠 احفظها
-                </h2>
-
-                <span></span>
-
-            </div>
-
-
-            <div class="lesson-content">
-
-
-                <div class="content-card">
-
-                    <h3>
-                        أهم نقاط الفصل الأول
-                    </h3>
-
-                    <div class="memory-box">
-
-                        <strong>
-                            1️⃣ الذرة
-                        </strong>
-
-                        الذرة هي الوحدة الأساسية لبناء المواد.
-
-                    </div>
-
-
-                    <div class="memory-box">
-
-                        <strong>
-                            2️⃣ دالتون
-                        </strong>
-
-                        تصور الذرة كرة صلبة دقيقة غير قابلة للانقسام.
-
-                    </div>
-
-
-                    <div class="memory-box">
-
-                        <strong>
-                            3️⃣ ثومسون
-                        </strong>
-
-                        تصور الذرة كرة موجبة تتوزع فيها الإلكترونات
-                        سالبة الشحنة.
-
-                    </div>
-
-
-                    <div class="memory-box">
-
-                        <strong>
-                            4️⃣ رذرفورد
-                        </strong>
-
-                        وضع النواة في مركز الذرة واعتبر معظم
-                        حجم الذرة فراغاً.
-
-                    </div>
-
-
-                    <div class="memory-box">
-
-                        <strong>
-                            5️⃣ بور
-                        </strong>
-
-                        اقترح مستويات طاقة محددة للإلكترونات.
-
-                    </div>
-
-
-                    <div class="memory-box">
-
-                        <strong>
-                            6️⃣ النظرية الحديثة
-                        </strong>
-
-                        تصف احتمال وجود الإلكترون في أوربيتال
-                        أو سحابة إلكترونية.
-
-                    </div>
-
-
-                    <div class="memory-box">
-
-                        <strong>
-                            7️⃣ أوفباو
-                        </strong>
-
-                        تمتلئ مستويات الطاقة الثانوية من الأقل
-                        طاقة إلى الأعلى.
-
-                    </div>
-
-
-                    <div class="memory-box">
-
-                        <strong>
-                            8️⃣ هوند
-                        </strong>
-
-                        تشغل الأوربيتالات فرادى أولاً ثم يحدث الازدواج.
-
-                    </div>
-
-
-                    <div class="memory-box">
-
-                        <strong>
-                            9️⃣ لويس
-                        </strong>
-
-                        نقاط لويس تمثل إلكترونات التكافؤ.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    `;
-}
-
-
-/* =========================================================
-   الاختبار
-   ========================================================= */
-
-function showQuiz() {
-
-    setActive(3);
-
-    var app =
-        document.getElementById("app");
-
-    app.innerHTML = `
-
-        <div class="page">
-
-            <div class="page-header">
-
-                <button
-                    class="back-button"
-                    onclick="showHome()">
-
-                    ←
-
-                </button>
-
-                <h2>
-                    ❓ اختبرني
-                </h2>
-
-                <span></span>
-
-            </div>
-
-
-            <div class="content-card">
-
-                <h3>
-                    اختبار الفصل الأول
-                </h3>
-
-                <p>
-                    هذه الصفحة ستحتوي على أسئلة الفصل
-                    بعد الانتهاء من بناء الدروس.
-                </p>
-
-                <div class="info-box">
-
-                    قريباً:
-                    أسئلة اختيار من متعدد مع حساب النتيجة
-                    وإظهار الإجابات الصحيحة.
-
-                </div>
-
-            </div>
-
-        </div>
-
-    `;
-}
-
-
-/* =========================================================
-   الحساب
-   ========================================================= */
-
-function showAccount() {
-
-    setActive(4);
-
-    var app =
-        document.getElementById("app");
-
-    app.innerHTML = `
-
-        <div class="page">
-
-            <div class="page-header">
-
-                <button
-                    class="back-button"
-                    onclick="showHome()">
-
-                    ←
-
-                </button>
-
-                <h2>
-                    👤 حسابي
-                </h2>
-
-                <span></span>
-
-            </div>
-
-
-            <div class="content-card">
-
-                <h3>
-                    حساب الطالب
-                </h3>
-
-                <p>
-                    سيتم لاحقاً إضافة بيانات الطالب
-                    ونسبة الإنجاز والدرجات.
-                </p>
-
-            </div>
-
-        </div>
-
-    `;
-}
-
-
-/* =========================================================
-   تشغيل الصفحة الرئيسية
-   ========================================================= */
-
-showHome();
-
-
-</script>
-
-</body>
 </html>

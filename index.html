@@ -1744,6 +1744,12 @@ function showHome() {
                 </button>
 
             </div>
+
+            <div class="start-card" style="margin-top:15px;">
+                <h3>🧬 الفصل السادس</h3>
+                <p>مدخل في الكيمياء العضوية: الكاربون، الهيدروكاربونات، الكحولات، حامض الخليك، البنزين والفينول.</p>
+                <button class="chapter-button" onclick="showChapter6()">📖 افتح الفصل السادس</button>
+            </div>
             </div>
 
         </div>
@@ -3735,6 +3741,15 @@ function showChapters() {
                     <div class="chapter-select-arrow">←</div>
                 </div>
 
+                <div class="chapter-select-card" onclick="showChapter6()">
+                    <div class="chapter-select-icon">🧬</div>
+                    <div class="chapter-select-info">
+                        <h3>الفصل السادس: الكيمياء العضوية</h3>
+                        <p>أهمية المركبات العضوية، الكاربون، السلاسل الكاربونية، الميثان، الإثيلين، الأسيتيلين، الإيثانول، حامض الخليك، البنزين والفينول.</p>
+                    </div>
+                    <div class="chapter-select-arrow">←</div>
+                </div>
+
             </div>
 
         </div>
@@ -4688,6 +4703,63 @@ function showChapter5Questions(){setActive(1);var app=document.getElementById("a
 
 
 /* =========================================================
+   الفصل السادس: مدخل في الكيمياء العضوية
+   المحتوى مبني على ملزمة «فخامة الكيمياء» 2025-2026.
+   ========================================================= */
+function showChapter6(){
+ setActive(1); var app=document.getElementById("app");
+ app.innerHTML=`<div class="lessons-page">
+  <h1 class="lessons-heading">📖 دروسي</h1><p class="lessons-subheading">الفصل السادس: مدخل في الكيمياء العضوية</p>
+  <div class="chapter2-banner"><strong>📌 الفصل السادس</strong><br>يتناول أهمية المركبات العضوية، صفاتها، الكاربون وسلاسله، ثم أمثلة مهمة من الهيدروكاربونات والكحولات والحوامض والمركبات الحلقية.</div>
+  <div class="lesson-card" onclick="showLesson6_1()"><div class="lesson-card-icon">🧬</div><div class="lesson-card-info"><h3>6-1 مقدمة في الكيمياء العضوية</h3><p>مفهوم الكيمياء العضوية وأهمية المركبات العضوية ووجود الكاربون.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showLesson6_2()"><div class="lesson-card-icon">⚛️</div><div class="lesson-card-info"><h3>6-2 الكاربون والأواصر والسلاسل الكاربونية</h3><p>تكافؤ الكاربون، الأواصر التساهمية، السلاسل المفتوحة والمتفرعة والحلقية.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showLesson6_3()"><div class="lesson-card-icon">🔥</div><div class="lesson-card-info"><h3>6-3 الهيدروكاربونات وغاز الميثان</h3><p>المشبعة وغير المشبعة، وجود الميثان وتحضيره وخواصه.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showLesson6_4()"><div class="lesson-card-icon">🧪</div><div class="lesson-card-info"><h3>6-4 الإثيلين والأسيتيلين</h3><p>تحضير الغازين، خواصهما واستعمالاتهما والتمييز بماء البروم.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showLesson6_5()"><div class="lesson-card-icon">🍶</div><div class="lesson-card-info"><h3>6-5 كحول الإثيل وحامض الخليك</h3><p>تحضير الإيثانول وخواصه واستعمالاته وحامض الخليك.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showLesson6_6()"><div class="lesson-card-icon">⬡</div><div class="lesson-card-info"><h3>6-6 البنزين أو البنزول والفينول</h3><p>صفات واستعمالات البنزين والفينول.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapterMemory(6)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل السادس</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapterQuiz(6)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل السادس</h3><p>اختبار الفصل السادس فقط.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapterWrong(6)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل السادس</h3><p>مراجعة أخطاء اختبار الفصل السادس.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapter6MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>تعليلات ونقاط مهمة مركزة من الفصل السادس.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapter6Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل السادس وحلولها</h3><p>أسئلة الفصل السادس مع حلولها المنظمة.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
+ </div>`;
+}
+function lessonButtons6(prev,next,text){return `<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${text}</button><button class="chapter-button" onclick="showChapter6()">📖 العودة إلى دروس الفصل السادس</button></div>`;}
+function showLesson6_1(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-1 مقدمة</h2><span></span></div><h1 class="lesson-title">مدخل في الكيمياء العضوية</h1><div class="lesson-content"><div class="content-card"><h3>🧬 تعريف الكيمياء العضوية</h3><p>فرع من فروع علم الكيمياء تختص بدراسة مركبات الكاربون والهيدروجين إضافة إلى الأوكسجين والنيتروجين والكبريت.</p></div><div class="content-card"><h3>🌍 أهمية المركبات العضوية</h3><p>تشمل البروتينات والدهون والكاربوهيدرات، ومنتوجات مثل القطن والحرير والورق، والوقود مثل النفط والغاز الطبيعي والخشب، وكذلك العقاقير الطبية والفيتامينات والإنزيمات.</p></div><div class="content-card"><h3>🔬 إثبات وجود الكاربون</h3><p>عند احتراق مادة عضوية يتحرر CO₂، وعند تمريره في ماء الجير يتعكر المحلول نتيجة تكون كاربونات الكالسيوم.</p><div class="formula-box">Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O</div><p>كما أن حرق السكر يترك مادة سوداء تدل على وجود الكاربون في تركيبه.</p></div>${lessonButtons6("showChapter6","showLesson6_2","الدرس التالي →")}</div></div>`;}
+function showLesson6_2(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-2 الكاربون والسلاسل</h2><span></span></div><h1 class="lesson-title">الكاربون والأواصر التساهمية</h1><div class="lesson-content"><div class="content-card"><h3>⚛️ تكافؤ الكاربون</h3><p>للكاربون أربعة إلكترونات في غلاف التكافؤ، ويميل إلى مشاركتها لتكوين أربع أواصر تساهمية والوصول إلى ترتيب مستقر.</p></div><div class="content-card"><h3>🔗 سلسلة مفتوحة مستمرة</h3><p>ترتبط ذرات الكاربون بصورة مفتوحة مستمرة غير متفرعة، وتكون مشبعة أو غير مشبعة.</p><div class="example-box">CH₄ الميثان — C₂H₆ الإيثان — C₃H₈ البروبان</div></div><div class="content-card"><h3>🌿 سلسلة متفرعة</h3><p>ترتبط ذرات الكاربون بصورة متفرعة، ومن أمثلتها الأيزوبيوتان والنيو بنتان.</p></div><div class="content-card"><h3>⭕ سلسلة حلقية مغلقة</h3><p>ترتبط ذرات الكاربون على شكل حلقة مغلقة، وقد تكون مشبعة أو غير مشبعة، ومن أمثلتها بروبان حلقي وبيوتان حلقي وبنتان حلقي وهكسان حلقي.</p></div>${lessonButtons6("showLesson6_1","showLesson6_3","الدرس التالي →")}</div></div>`;}
+function showLesson6_3(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-3 الهيدروكاربونات والميثان</h2><span></span></div><h1 class="lesson-title">الهيدروكاربونات وغاز الميثان</h1><div class="lesson-content"><div class="content-card"><h3>🧪 الهيدروكاربونات</h3><p>مركبات عضوية مكونة من الكاربون والهيدروجين، وتكون مشبعة أو غير مشبعة.</p></div><div class="content-card"><h3>✅ المشبع وغير المشبع</h3><p>المشبع ترتبط فيه ذرات الكاربون بأواصر تساهمية مفردة، أما غير المشبع فتوجد فيه أواصر متعددة. الميثان مثال للمشبع، والإثيلين والأسيتيلين أمثلة لغير المشبع.</p></div><div class="content-card"><h3>🔥 الميثان CH₄</h3><p>أبسط مركب هيدروكاربوني، يوجد بنسبة كبيرة في الغاز الطبيعي المصاحب للنفط الخام، وفي شقوق مناجم الفحم، ويتكون من تحلل المواد العضوية.</p></div><div class="content-card"><h3>⚗️ التحضير</h3><p>يُحضّر بتسخين خلات الصوديوم مع هيدروكسيد الصوديوم ويجمع بإزاحة الماء إلى الأسفل.</p><div class="formula-box">CH₃COONa + NaOH → CH₄↑ + Na₂CO₃</div></div><div class="content-card"><h3>📌 الخواص</h3><p>عديم اللون والرائحة، قليل الذوبان في الماء، وقابل للاشتعال.</p><div class="formula-box">CH₄ + 2O₂ → CO₂ + 2H₂O + طاقة</div></div>${lessonButtons6("showLesson6_2","showLesson6_4","الدرس التالي →")}</div></div>`;}
+function showLesson6_4(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-4 الإثيلين والأسيتيلين</h2><span></span></div><h1 class="lesson-title">الهيدروكاربونات غير المشبعة</h1><div class="lesson-content"><div class="content-card"><h3>🔵 الإثيلين C₂H₄</h3><p>هيدروكاربون غير مشبع ترتبط ذرتا الكاربون فيه بأصرة تساهمية مزدوجة. يحضر بتسخين كحول الإثيل مع حامض الكبريتيك المركز عند 170°C.</p><div class="formula-box">C₂H₅OH → C₂H₄ + H₂O</div><p>غاز عديم اللون، لا يذوب في الماء، يشتعل بلهب داخن، ويتفاعل مع ماء البروم الأحمر فيزيل لونه. ويستعمل في صناعة كحول الإثيل، وإنضاج بعض الخضراوات والفواكه وتحضير اللدائن.</p></div><div class="content-card"><h3>🟠 الأسيتيلين C₂H₂</h3><p>هيدروكاربون غير مشبع ترتبط ذرتا الكاربون فيه بأصرة تساهمية ثلاثية، ويحضر من تفاعل كاربيد الكالسيوم مع الماء.</p><div class="formula-box">CaC₂ + 2H₂O → C₂H₂↑ + Ca(OH)₂</div><p>عديم اللون ذو رائحة تشبه الثوم، لا يذوب في الماء، يشتعل في الهواء بلهب داخن، وفي الأوكسجين بلهب أزرق باهت مع حرارة عالية، ويزيل لون ماء البروم الأحمر. ويستعمل مع الأوكسجين في الشعلة الأوكسي-أسيتيلينية لقطع المعادن ولحمها.</p></div><div class="content-card"><h3>🔎 التمييز</h3><p>الإثيلين والأسيتيلين يزيلان اللون الأحمر لماء البروم، بينما لا يؤثر فيه الميثان.</p></div>${lessonButtons6("showLesson6_3","showLesson6_5","الدرس التالي →")}</div></div>`;}
+function showLesson6_5(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-5 كحول الإثيل وحامض الخليك</h2><span></span></div><h1 class="lesson-title">الإيثانول وحامض الخليك</h1><div class="lesson-content"><div class="content-card"><h3>🍶 كحول الإثيل C₂H₅OH</h3><p>يحضر قديمًا من تخمير الدبس أو التمر أو عصير العنب بمعزل عن الهواء، ثم يفصل بالتقطير. ويحضر صناعيًا من الإثيلين مع الماء بوجود حامض الكبريتيك المركز.</p><div class="formula-box">C₂H₄ + H₂O → C₂H₅OH</div><p>من خواصه رائحة مميزة، ودرجة غليان أقل من الماء، ومذيب جيد لكثير من المواد العضوية، ويشتعل بلهب أزرق باهت.</p></div><div class="content-card"><h3>🧴 الاستعمالات</h3><p>يدخل في مواد التجميل والعطور والوارنيش والحبر والمطاط الصناعي وبعض المركبات الدوائية، ويستعمل وقودًا، وفي تعقيم الجروح عند خلطه بقليل من اليود.</p></div><div class="content-card"><h3>🧪 حامض الخليك CH₃COOH</h3><p>ذو رائحة نفاذة، يمتزج بالماء بأي نسبة، سائل في درجات الحرارة الاعتيادية ويتجمد عند نحو 18°C، ويتفاعل مع القواعد مثل هيدروكسيد الصوديوم مكونًا خلات الصوديوم.</p></div>${lessonButtons6("showLesson6_4","showLesson6_6","الدرس التالي →")}</div></div>`;}
+function showLesson6_6(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-6 البنزين والفينول</h2><span></span></div><h1 class="lesson-title">المركبات الحلقية</h1><div class="lesson-content"><div class="content-card"><h3>⬡ البنزين أو البنزول C₆H₆</h3><p>مركب هيدروكاربوني حلقي من الهيدروكاربونات العطرية. سائل سريع التبخر، يغلي عند 80°C، لا يذوب في الماء، وبخاره سام، ويشتعل بلهب داخن جدًا لاحتوائه على نسبة عالية من الكاربون.</p><p>من استعمالاته: مذيب للأصباغ والوارنيش، وإنتاج مبيدات الحشرات، وصناعة النايلون ومساحيق التنظيف وغيرها.</p></div><div class="content-card"><h3>🌸 الفينول C₆H₅OH</h3><p>مركب عضوي حلقي مغلق، مادة صلبة عديمة اللون ذات رائحة خاصة ومتلفة للجلد، ويذوب في الماء. يستعمل معقمًا ومطهرًا، ويستعمل محلوله 9% لتعقيم المرافق الصحية، وتدخل مشتقاته في مساحيق التنظيف ومبيدات الحشرات والبلاستيكات.</p><p>وفق الملزمة: تُغسل الحروق الناتجة من الفينول بمحلول مخفف من كاربونات الصوديوم لمعادلة تأثيره.</p></div>${lessonButtons6("showLesson6_5","showChapter6MinistryIdeas","🎯 أفكار وزارية →")}</div></div>`;}
+
+var chapter6MinistryIdeas=[
+ {title:"علل: للكاربون تكافؤ رباعي وأغلب مركباته تساهمية؟",answer:"لأن غلاف التكافؤ لذرة الكاربون يحتوي أربعة إلكترونات تميل إلى المشاركة لتكوين أربع أواصر تساهمية والوصول إلى ترتيب مستقر."},
+ {title:"كيف يتم الكشف عن وجود CO₂؟",answer:"بإمرار الغاز على محلول هيدروكسيد الكالسيوم (ماء الجير)، فيتعكر المحلول لتكون كاربونات الكالسيوم."},
+ {title:"علل: يجمع الميثان بإزاحة الماء إلى الأسفل؟",answer:"لأن غاز الميثان قليل الذوبان في الماء."},
+ {title:"كيف تميز بين الميثان والإثيلين أو الأسيتيلين؟",answer:"بماء البروم الأحمر؛ الإثيلين والأسيتيلين يزيلان اللون، بينما لا يؤثر فيه الميثان."},
+ {title:"علل: يستخدم حامض الكبريتيك المركز عند تحضير الإثيلين؟",answer:"لأنه ينتزع عنصري الهيدروجين والأوكسجين من تركيب الكحول على شكل جزيء ماء."},
+ {title:"لماذا يشتعل البنزين والأسيتيلين بلهب داخن جدًا؟",answer:"لاحتوائهما على نسبة عالية من الكاربون."},
+ {title:"ما استعمال الشعلة الأوكسي-أسيتيلينية؟",answer:"تستخدم في قطع المعادن ولحمها."},
+ {title:"كيف يعالج تأثير الفينول على الجلد وفق الملزمة؟",answer:"بغسل المنطقة بمحلول مخفف من كاربونات الصوديوم لمعادلة تأثير الفينول."}
+];
+function showChapter6MinistryIdeas(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>🎯 أفكار وزارية</h2><span></span></div><div class="ministry-ideas-intro"><strong>📌 أفكار وزارية للفصل السادس</strong><br>نقاط تدريبية مركزة مبنية على التعليلات والأسئلة والسنوات الوزارية الظاهرة في الملزمة.</div>${chapter6MinistryIdeas.map(function(item,index){return `<div class="ministry-idea-card"><h3>${index+1}- ${item.title}</h3><button class="ministry-toggle" onclick="toggleChapter6MinistryIdea(${index})">👁️ إظهار الحل</button><div id="ch6-ministry-answer-${index}" class="ministry-idea-answer"><strong>✅ الحل:</strong><br>${item.answer}</div></div>`}).join("")}<div class="lesson-navigation"><button class="previous-button" onclick="showLesson6_6()">← العودة للدرس الأخير</button><button class="next-button" onclick="showChapter6Questions()">📝 أسئلة الفصل السادس →</button><button class="chapter-button" onclick="showChapter6()">📖 العودة إلى دروس الفصل السادس</button></div></div>`;}
+function toggleChapter6MinistryIdea(i){var el=document.getElementById("ch6-ministry-answer-"+i);if(el)el.classList.toggle("show-answer");}
+var chapter6Questions=[
+ {q:"وضح طريقة تحضير غاز الميثان مختبريًا مع المعادلة الكيميائية.",a:"يحضّر بتسخين خلات الصوديوم مع هيدروكسيد الصوديوم ويجمع بإزاحة الماء إلى الأسفل: CH₃COONa + NaOH → CH₄↑ + Na₂CO₃."},
+ {q:"أعط مثالًا على ميثان وهيدروكاربون حلقي وآخر متفرع.",a:"الميثان CH₄، والبنتان المتفرع (نيو بنتان)، والبروبان الحلقي."},
+ {q:"أكمل: الغاز الذي نسبته الحجمية أكبر من الغازات الأخرى في الغاز الطبيعي هو...",a:"الميثان."},
+ {q:"أكمل: في الأسيتيلين ترتبط ذرتا الكاربون بـ...",a:"أصرة تساهمية ثلاثية."},
+ {q:"وازن معادلة احتراق الميثان التام.",a:"CH₄ + 2O₂ → CO₂ + 2H₂O + طاقة."},
+ {q:"وازن معادلة احتراق الإثيلين التام.",a:"C₂H₄ + 3O₂ → 2CO₂ + 2H₂O."},
+ {q:"وازن معادلة تفاعل الماء مع كاربيد الكالسيوم.",a:"CaC₂ + 2H₂O → C₂H₂↑ + Ca(OH)₂."},
+ {q:"قارن الميثان والإثيلين والأسيتيلين من حيث التفاعل مع ماء البروم.",a:"الإثيلين والأسيتيلين يزيلان اللون الأحمر لماء البروم، بينما لا يتفاعل الميثان معه."},
+ {q:"ما أهم استعمالات الإثيلين؟",a:"صناعة كحول الإثيل، إنضاج بعض الخضراوات والفواكه، وتحضير اللدائن (البلاستك)."},
+ {q:"ما أهم استعمالات البنزين؟",a:"يستعمل كمذيب للأصباغ والوارنيش، وفي إنتاج مبيدات الحشرات، وصناعة النايلون ومساحيق التنظيف وغيرها."}
+];
+function showChapter6Questions(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>📝 أسئلة الفصل السادس</h2><span></span></div><div class="chapter2-banner"><strong>أسئلة الفصل السادس وحلولها</strong><br>أسئلة تدريبية منظمة من أسئلة الفصل السادس الواردة في الملزمة.</div>${chapter6Questions.map(function(item,index){return `<div class="content-card"><h3>${index+1}- ${item.q}</h3><div class="answer-box"><strong>✅ الحل:</strong><br>${item.a}</div></div>`}).join("")}<div class="lesson-navigation"><button class="previous-button" onclick="showChapter6MinistryIdeas()">← أفكار وزارية</button><button class="chapter-button" onclick="showChapter6()">📖 العودة إلى دروس الفصل السادس</button></div></div>`;}
+
+/* =========================================================
    الحفظ والاختبارات المرتبطة بكل فصل
    ========================================================= */
 
@@ -4740,6 +4812,16 @@ var chapterMemoryData = {
         {t:"السليكا",x:"SiO₂، وتوجد نقية مثل الكوارتز وحجر الصوان وغير نقية مثل الرمل."},
         {t:"السليكا جل",x:"مسحوق غير بلوري يستعمل عاملًا مجففًا بسبب مساحته السطحية الكبيرة وقابليته العالية لامتصاص الماء."},
         {t:"كاربيد السليكون",x:"SiC ذو بنية شبكية عالية الصلادة لذلك يستعمل كمادة جالية."}
+    ],
+    6: [
+        {t:"الكيمياء العضوية",x:"فرع من الكيمياء يختص بدراسة مركبات الكاربون والهيدروجين إضافة إلى الأوكسجين والنيتروجين والكبريت."},
+        {t:"أهمية المركبات العضوية",x:"تشمل المواد الغذائية، القطن والحرير والورق، الوقود، والعقاقير الطبية والفيتامينات والإنزيمات."},
+        {t:"تكافؤ الكاربون",x:"للكاربون أربعة إلكترونات في غلاف التكافؤ ويكوّن أربع أواصر تساهمية."},
+        {t:"الميثان",x:"CH₄ أبسط هيدروكاربون، عديم اللون والرائحة وقليل الذوبان في الماء."},
+        {t:"الإثيلين والأسيتيلين",x:"C₂H₄ يحتوي أصرة مزدوجة، وC₂H₂ يحتوي أصرة ثلاثية، وكلاهما يزيل لون ماء البروم الأحمر."},
+        {t:"الإيثانول",x:"C₂H₅OH يحضر بالتخمير قديمًا وبطريقة صناعية من الإثيلين والماء، وله استعمالات متعددة."},
+        {t:"حامض الخليك",x:"CH₃COOH ذو رائحة نفاذة ويمتزج بالماء بأي نسبة ويتفاعل مع القواعد."},
+        {t:"البنزين والفينول",x:"البنزين C₆H₆ هيدروكاربون عطري، والفينول C₆H₅OH مركب عضوي حلقي مغلق."}
     ]
 };
 
@@ -4783,22 +4865,37 @@ var chapter5QuizQuestions = [
  {q:"لماذا تستخدم السليكا جل عاملًا مجففًا؟",options:["لقلة سطحها","لمساحتها السطحية الكبيرة وقابليتها لامتصاص الماء","لأنها موصلة للكهرباء","لأنها فلز"],answer:1,explain:"هذه الصفة ناتجة عن المساحة السطحية الكبيرة وقابلية امتصاص الماء."},
  {q:"كاربيد السليكون SiC يستخدم كمادة جالية بسبب...",options:["بنيته الرخوة","بنيته الشبكية عالية الصلادة","ذوبانه العالي","لونه"],answer:1,explain:"بنيته الشبكية تمنحه صلادة عالية."}
 ];
+var chapter6QuizQuestions = [
+ {q:"ما الذي تختص بدراسته الكيمياء العضوية وفق الملزمة؟",options:["مركبات الفلزات فقط","مركبات الكاربون والهيدروجين إضافة إلى O وN وS","الغازات فقط","المحاليل فقط"],answer:1,explain:"هذا هو التعريف الوارد في الملزمة."},
+ {q:"كم إلكترونًا يوجد في غلاف التكافؤ لذرة الكاربون؟",options:["2","3","4","6"],answer:2,explain:"للكاربون أربعة إلكترونات في غلاف التكافؤ."},
+ {q:"ما الصيغة الجزيئية للميثان؟",options:["CH₂","CH₄","C₂H₄","C₂H₂"],answer:1,explain:"الميثان صيغته CH₄."},
+ {q:"أي غاز يزيل لون ماء البروم الأحمر؟",options:["الميثان","الإثيلين","لا واحد منهما","الميثان فقط"],answer:1,explain:"الإثيلين يتفاعل مع ماء البروم ويزيل لونه."},
+ {q:"ما نوع الأصرة بين ذرتي الكاربون في الأسيتيلين؟",options:["مفردة","مزدوجة","ثلاثية","أيونية"],answer:2,explain:"في الأسيتيلين أصرة تساهمية ثلاثية."},
+ {q:"بماذا يحضر الأسيتيلين؟",options:["بتفاعل كاربيد الكالسيوم مع الماء","بتسخين خلات الصوديوم فقط","بتبخير الماء","بتسخين البنزين"],answer:0,explain:"CaC₂ + 2H₂O → C₂H₂↑ + Ca(OH)₂."},
+ {q:"ما إحدى استعمالات الإثيلين؟",options:["إنضاج بعض الخضراوات والفواكه","صناعة الحديد","إطفاء الحرائق","صناعة الزجاج"],answer:0,explain:"يستخدم الإثيلين في إنضاج بعض الخضراوات والفواكه."},
+ {q:"ما صيغة كحول الإثيل؟",options:["C₂H₅OH","CH₃COOH","C₆H₆","C₆H₅OH"],answer:0,explain:"كحول الإثيل صيغته C₂H₅OH."},
+ {q:"ما صيغة حامض الخليك؟",options:["CH₄","C₂H₄","CH₃COOH","C₆H₆"],answer:2,explain:"حامض الخليك صيغته CH₃COOH."},
+ {q:"ما درجة غليان البنزين المذكورة في الملزمة؟",options:["18°C","80°C","100°C","170°C"],answer:1,explain:"البنزين يغلي عند 80°C."},
+ {q:"كيف يعالج تأثير الفينول على الجلد حسب الملزمة؟",options:["بماء البروم","بمحلول مخفف من كاربونات الصوديوم","بالملح","بحامض الكبريتيك"],answer:1,explain:"يُغسل بمحلول مخفف من كاربونات الصوديوم لمعادلة التأثير."},
+ {q:"ما سبب اللهب الدخان جدًا للبنزين والأسيتيلين؟",options:["قلة الكاربون","نسبة كاربون عالية","وجود الماء","انخفاض الكثافة"],answer:1,explain:"لوجود نسبة عالية من الكاربون."}
+];
+
 
 function showChapterMemory(ch){
- setActive(1); var app=document.getElementById('app'); var names={1:'التركيب الذري للمادة',2:'الزمرتان الأولى والثانية',3:'الزمرة الثالثة',4:'المحاليل',5:'الزمرة الرابعة'};
+ setActive(1); var app=document.getElementById('app'); var names={1:'التركيب الذري للمادة',2:'الزمرتان الأولى والثانية',3:'الزمرة الثالثة',4:'المحاليل',5:'الزمرة الرابعة',6:'الكيمياء العضوية'};
  var items=chapterMemoryData[ch]||[];
  app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${ch===1?'1Lessons':ch}()">←</button><h2>🧠 احفظها</h2><span></span></div><div class="chapter2-banner"><strong>🧠 احفظها — الفصل ${ch}</strong><br>${names[ch]||''}<br>معلومات الحفظ المرتبطة بهذا الفصل فقط.</div>${items.map(function(it,i){return `<div class="content-card"><h3>${i+1}️⃣ ${it.t}</h3><div class="memory-box">${it.x}</div></div>`}).join('')}<div class="lesson-navigation"><button class="next-button" onclick="showChapterQuiz(${ch})">❓ اختبرني في هذا الفصل →</button><button class="chapter-button" onclick="showChapter${ch===1?'1Lessons':ch}()">📖 العودة إلى الفصل</button></div></div>`;
 }
-function showMemoryChooser(){setActive(2);var app=document.getElementById('app');app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">🧠 احفظها</h1><p class="lessons-subheading">اختر الفصل الذي تريد مراجعة معلوماته</p>${[1,2,3,4,5].map(function(ch){return `<div class="lesson-card" onclick="showChapterMemory(${ch})"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>الفصل ${ch}</h3><p>معلومات الحفظ الخاصة بالفصل ${ch} فقط.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 اختيار الفصل</button></div></div>`;}
+function showMemoryChooser(){setActive(2);var app=document.getElementById('app');app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">🧠 احفظها</h1><p class="lessons-subheading">اختر الفصل الذي تريد مراجعة معلوماته</p>${[1,2,3,4,5,6].map(function(ch){return `<div class="lesson-card" onclick="showChapterMemory(${ch})"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>الفصل ${ch}</h3><p>معلومات الحفظ الخاصة بالفصل ${ch} فقط.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 اختيار الفصل</button></div></div>`;}
 
-function getChapterQuizBank(ch){return ch===1?quizQuestions:(ch===2?chapter2QuizQuestions:(ch===3?chapter3QuizQuestions:(ch===4?chapter4QuizQuestions:chapter5QuizQuestions)));}
+function getChapterQuizBank(ch){return ch===1?quizQuestions:(ch===2?chapter2QuizQuestions:(ch===3?chapter3QuizQuestions:(ch===4?chapter4QuizQuestions:(ch===5?chapter5QuizQuestions:chapter6QuizQuestions))));}
 var chapterQuizState={ch:1,index:0,score:0,questions:[],wrong:[]};
 function showChapterQuiz(ch){setActive(3);var bank=getChapterQuizBank(ch)||[];chapterQuizState={ch:ch,index:0,score:0,questions:shuffleArray(bank).slice(0,Math.min(10,bank.length)),wrong:[]};renderChapterQuiz();}
 function renderChapterQuiz(){var st=chapterQuizState, q=st.questions[st.index], app=document.getElementById('app'); if(!q){return finishChapterQuiz();} var progress=Math.round(st.index/st.questions.length*100); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapterMemory(${st.ch})">←</button><h2>❓ اختبرني — الفصل ${st.ch}</h2><span></span></div><div class="content-card"><div class="quiz-meta"><span class="small-muted">السؤال ${st.index+1} من ${st.questions.length}</span><span class="difficulty-badge">الفصل ${st.ch}</span></div><div class="progress-track"><div class="progress-bar" style="width:${progress}%;"></div></div><p style="font-size:21px;font-weight:700;margin-top:18px;">${q.q}</p><div style="display:flex;flex-direction:column;gap:12px;margin-top:20px;">${q.options.map(function(o,i){return `<button class="chapter-button" onclick="answerChapterQuiz(${i})">${String.fromCharCode(65+i)}. ${o}</button>`}).join('')}</div></div><div class="content-card"><p>النتيجة الحالية: <strong>${st.score}</strong></p><p>كل سؤال هنا من بنك الفصل ${st.ch} فقط.</p></div></div>`;}
 function answerChapterQuiz(i){var st=chapterQuizState,q=st.questions[st.index];if(!q)return;if(i===q.answer){st.score++;}else{st.wrong.push({q:q.q,correct:q.options[q.answer],explain:q.explain});}var app=document.getElementById('app');app.innerHTML=`<div class="page"><div class="content-card"><h2>${i===q.answer?'✅ إجابة صحيحة':'❌ إجابة غير صحيحة'}</h2><p><strong>الإجابة الصحيحة:</strong> ${q.options[q.answer]}</p><div class="answer-box">📚 ${q.explain||''}</div><button class="next-button" onclick="chapterQuizState.index++;renderChapterQuiz()">${st.index+1===st.questions.length?'🏁 عرض النتيجة':'السؤال التالي →'}</button></div></div>`;}
 function finishChapterQuiz(){var st=chapterQuizState,total=st.questions.length,pct=total?Math.round(st.score/total*100):0;localStorage.setItem('chapter'+st.ch+'LastScore',String(pct)); if((+localStorage.getItem('chapter'+st.ch+'BestScore')||0)<pct)localStorage.setItem('chapter'+st.ch+'BestScore',String(pct)); localStorage.setItem('chapter'+st.ch+'Wrong',JSON.stringify(st.wrong)); var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${st.ch===1?'1Lessons':st.ch}()">←</button><h2>🏁 نتيجة الفصل ${st.ch}</h2><span></span></div><div class="content-card"><h3>درجتك: ${st.score} / ${total}</h3><div class="score-big">${pct}%</div><p>تم حفظ آخر نتيجة وأفضل نتيجة لهذا الفصل.</p><p>عدد الأخطاء المحفوظة للمراجعة: <strong>${st.wrong.length}</strong></p><button class="next-button" onclick="showChapterWrong(${st.ch})">🔄 مراجعة أخطائي</button><button class="chapter-button" onclick="showChapterQuiz(${st.ch})">❓ إعادة الاختبار</button></div></div>`;}
 function showChapterWrong(ch){setActive(1);var data=[];try{data=JSON.parse(localStorage.getItem('chapter'+ch+'Wrong')||'[]')}catch(e){data=[]}var app=document.getElementById('app');app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${ch===1?'1Lessons':ch}()">←</button><h2>🔄 مراجعة أخطائي — الفصل ${ch}</h2><span></span></div>${data.length?data.map(function(it,i){return `<div class="content-card"><h3>${i+1}. ${it.q}</h3><p><strong>الإجابة الصحيحة:</strong> ${it.correct}</p><div class="answer-box">📚 ${it.explain||''}</div></div>`}).join(''):`<div class="content-card"><h3>🎉 ممتاز</h3><p>لا توجد أخطاء محفوظة لهذا الفصل حتى الآن.</p></div>`}<div class="lesson-navigation"><button class="next-button" onclick="showChapterQuiz(${ch})">❓ اختبرني مرة أخرى</button><button class="chapter-button" onclick="showChapter${ch===1?'1Lessons':ch}()">📖 العودة إلى الفصل</button></div></div>`;}
-function showQuizChooser(){setActive(3);var app=document.getElementById('app');app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">❓ اختبرني</h1><p class="lessons-subheading">اختر الفصل الذي تريد الاختبار فيه</p>${[1,2,3,4,5].map(function(ch){return `<div class="lesson-card" onclick="showChapterQuiz(${ch})"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبار الفصل ${ch}</h3><p>أسئلة الفصل ${ch} فقط.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}</div>`;}
+function showQuizChooser(){setActive(3);var app=document.getElementById('app');app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">❓ اختبرني</h1><p class="lessons-subheading">اختر الفصل الذي تريد الاختبار فيه</p>${[1,2,3,4,5,6].map(function(ch){return `<div class="lesson-card" onclick="showChapterQuiz(${ch})"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبار الفصل ${ch}</h3><p>أسئلة الفصل ${ch} فقط.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}</div>`;}
 
 function showMemory() {
     showMemoryChooser(); return;

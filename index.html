@@ -1,27 +1,48 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>كيمياء بذكاء</title>
 
 <style>
 
+/* =========================================================
+   كيمياء بذكاء
+   التصميم الأساسي
+   ========================================================= */
+
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
     direction: rtl;
+    scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background: #f6f8fc;
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    background: #f5f7fb;
+
     color: #173b78;
-    font-family: Tahoma, Arial, sans-serif;
+
+    min-height: 100vh;
+
+    padding-bottom: 95px;
+
+    line-height: 1.9;
 }
 
 button {
@@ -29,466 +50,5447 @@ button {
     cursor: pointer;
 }
 
-.app {
-    min-height: 100vh;
-    padding-bottom: 100px;
+#app {
+    width: 100%;
+    min-height: calc(100vh - 95px);
 }
+
+.app {
+    width: 100%;
+}
+
+/* =========================================================
+   الصفحة
+   ========================================================= */
 
 .page {
     width: 100%;
     max-width: 850px;
-    margin: auto;
-    padding: 25px 18px 30px;
+
+    margin: 0 auto;
+
+    padding: 25px 18px 120px;
 }
 
-.title {
-    text-align: center;
-    font-size: 34px;
-    font-weight: 900;
-    margin: 20px 0 8px;
-    color: #173b78;
-}
+/* =========================================================
+   رأس الصفحة
+   ========================================================= */
 
-.subtitle {
-    text-align: center;
-    color: #7185a5;
-    font-size: 17px;
+.page-header {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
     margin-bottom: 25px;
 }
 
-.chapter {
-    background: #173b78;
-    color: white;
-    border-radius: 25px;
-    padding: 28px 22px;
-    margin-bottom: 22px;
+.page-header h2 {
+    flex: 1;
+
+    text-align: center;
+
+    color: #173b78;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    line-height: 1.5;
+}
+
+.back-button {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #eaf0ff;
+
+    color: #173b78;
+
+    font-size: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: 0.2s;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+
+    background: #dce7ff;
+}
+
+.back-button:active {
+    transform: scale(0.96);
+}
+
+/* =========================================================
+   عنوان الدرس
+   ========================================================= */
+
+.lesson-title {
+    text-align: center;
+
+    color: #173b78;
+
+    font-size: 32px;
+
+    font-weight: 900;
+
+    margin: 5px 0 25px;
+
+    line-height: 1.5;
+}
+
+/* =========================================================
+   محتوى الدرس
+   ========================================================= */
+
+.lesson-content {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+/* =========================================================
+   بطاقة المحتوى
+   ========================================================= */
+
+.content-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe6f2;
+
+    border-radius: 24px;
+
+    padding: 28px 26px;
+
+    box-shadow:
+        0 8px 25px rgba(23, 59, 120, 0.06);
+
+    text-align: right;
+
+    overflow: hidden;
+}
+
+.content-card h3 {
+    color: #173b78;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+
+    line-height: 1.6;
+}
+
+.content-card h4 {
+    color: #173b78;
+
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+.content-card p {
+    color: #173b78;
+
+    font-size: 19px;
+
+    line-height: 2.05;
+
+    margin-bottom: 16px;
+
+    text-align: right;
+}
+
+.content-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================================
+   عنوان فرعي
+   ========================================================= */
+
+.section-heading {
+    color: #173b78;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    margin-bottom: 12px;
+}
+
+/* =========================================================
+   صندوق احفظها
+   ========================================================= */
+
+.memory-box {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background: #fff3d6;
+
+    border: 1px solid #f4dfaa;
+
+    color: #173b78;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+}
+
+.memory-box strong {
+    display: block;
+
+    color: #173b78;
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+}
+
+/* =========================================================
+   صندوق مثال
+   ========================================================= */
+
+.example-box {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background: #f1f5ff;
+
+    border: 1px solid #dce5fa;
+
+    color: #173b78;
+
+    font-size: 19px;
+
+    line-height: 2;
+
     text-align: center;
 }
 
-.chapter h1 {
-    margin: 0 0 10px;
-    font-size: 27px;
-}
+/* =========================================================
+   صندوق معلومات
+   ========================================================= */
 
-.chapter p {
-    margin: 0;
-    line-height: 2;
-    font-size: 16px;
-}
-
-.card {
+.info-box {
     width: 100%;
-    background: white;
-    border: 1px solid #e0e6ef;
-    border-radius: 22px;
-    padding: 22px;
-    margin-bottom: 16px;
-    box-shadow: 0 5px 18px rgba(23,59,120,0.06);
+
+    background: #edf3ff;
+
+    border-right: 5px solid #173b78;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    margin-top: 15px;
+
+    color: #173b78;
+
+    font-size: 18px;
 }
 
-.card h2 {
-    margin: 0 0 10px;
-    font-size: 22px;
+/* =========================================================
+   صندوق التحذير / ملاحظة
+   ========================================================= */
+
+.note-box {
+    width: 100%;
+
+    background: #fff8e8;
+
+    border-right: 5px solid #d9822b;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    margin-top: 15px;
+
+    color: #173b78;
+
+    font-size: 18px;
+}
+
+/* =========================================================
+   الجداول
+   ========================================================= */
+
+.simple-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 15px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: #ffffff;
+}
+
+.simple-table th {
+    background: #173b78;
+
+    color: #ffffff;
+
+    padding: 13px;
+
+    font-size: 17px;
+
+    text-align: center;
+}
+
+.simple-table td {
+    border: 1px solid #dce3ef;
+
+    padding: 13px;
+
+    color: #173b78;
+
+    font-size: 17px;
+
+    text-align: center;
+}
+
+.simple-table tr:nth-child(even) {
+    background: #f7f9fd;
+}
+
+/* =========================================================
+   الترتيب الإلكتروني
+   ========================================================= */
+
+.electron-config {
+    direction: ltr;
+
+    text-align: center;
+
+    font-family:
+        "Times New Roman",
+        serif;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    color: #173b78;
+
+    background: #f3f6ff;
+
+    border: 1px solid #dce5f7;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    margin: 15px 0;
+
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   مستويات الطاقة
+   ========================================================= */
+
+.energy-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+.energy-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #f5f7fc;
+
+    border: 1px solid #e0e6f1;
+
+    border-radius: 14px;
+
+    padding: 12px 16px;
+
+    font-size: 18px;
+}
+
+.energy-item strong {
     color: #173b78;
 }
 
-.card p {
-    margin: 0;
-    color: #38547d;
-    line-height: 2;
-    font-size: 17px;
+/* =========================================================
+   مخطط النموذج الذري
+   ========================================================= */
+
+.atom-model {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f6f8fd;
+
+    border: 1px solid #e0e6f2;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    margin-top: 15px;
 }
 
-.start-btn {
-    width: 100%;
-    border: none;
-    border-radius: 14px;
-    background: #c97932;
-    color: white;
-    padding: 15px;
-    font-size: 18px;
+.atom-circle {
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    border: 4px solid #173b78;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    color: #ffffff;
+
+    background: #173b78;
+
+    font-size: 20px;
+
     font-weight: bold;
 }
 
+.atom-circle::before {
+    content: "";
+
+    position: absolute;
+
+    width: 205px;
+
+    height: 205px;
+
+    border: 3px solid #d9822b;
+
+    border-radius: 50%;
+}
+
+.atom-circle::after {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+
+    height: 260px;
+
+    border: 2px solid #a9b8d6;
+
+    border-radius: 50%;
+}
+
+.atom-caption {
+    margin-top: 45px;
+
+    font-size: 17px;
+
+    color: #173b78;
+}
+
+/* =========================================================
+   أسئلة ومراجعة
+   ========================================================= */
+
+.exercise-box {
+    background: #f7f9fd;
+
+    border: 1px solid #dfe6f2;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    margin-top: 15px;
+}
+
+.exercise-box p {
+    margin-bottom: 12px;
+}
+
+.answer-box {
+    background: #eaf5ed;
+
+    border-right: 5px solid #4b8b5a;
+
+    border-radius: 12px;
+
+    padding: 12px 15px;
+
+    color: #245f35;
+
+    font-size: 17px;
+}
+
+/* =========================================================
+   زر التالي
+   ========================================================= */
+
+.lesson-navigation {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+.next-button,
+.previous-button,
+.chapter-button {
+    width: 100%;
+
+    border: none;
+
+    border-radius: 16px;
+
+    min-height: 55px;
+
+    padding: 13px 18px;
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    transition: 0.2s;
+}
+
+.next-button {
+    background: #d9822b;
+
+    color: #ffffff;
+}
+
+.next-button:hover {
+    background: #c77423;
+
+    transform: translateY(-2px);
+}
+
+.previous-button {
+    background: #173b78;
+
+    color: #ffffff;
+}
+
+.previous-button:hover {
+    background: #123263;
+
+    transform: translateY(-2px);
+}
+
+.chapter-button {
+    background: #edf2fc;
+
+    color: #173b78;
+
+    border: 1px solid #dbe3f2;
+}
+
+.chapter-button:hover {
+    background: #e1e9f8;
+}
+
+/* =========================================================
+   صفحة الرئيسية
+   ========================================================= */
+
+.home-page {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 35px 20px 130px;
+}
+
+.home-logo {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.home-logo .logo-icon {
+    font-size: 50px;
+}
+
+.home-logo h1 {
+    font-size: 38px;
+
+    color: #173b78;
+
+    font-weight: 900;
+
+    margin-top: 5px;
+}
+
+.home-logo p {
+    color: #7183a4;
+
+    font-size: 19px;
+}
+
+.chapter-banner {
+    background: #173b78;
+
+    color: #ffffff;
+
+    border-radius: 28px;
+
+    padding: 30px 25px;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(23, 59, 120, 0.18);
+}
+
+.chapter-banner h2 {
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.chapter-banner p {
+    font-size: 18px;
+
+    opacity: 0.95;
+}
+
+.start-card {
+    background: #ffffff;
+
+    border: 1px solid #dfe6f2;
+
+    border-radius: 25px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 8px 25px rgba(23, 59, 120, 0.06);
+}
+
+.start-card h3 {
+    color: #173b78;
+
+    font-size: 27px;
+
+    margin-bottom: 8px;
+}
+
+.start-card p {
+    color: #617392;
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+.start-button {
+    width: 100%;
+
+    min-height: 60px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: #d9822b;
+
+    color: #ffffff;
+
+    font-size: 21px;
+
+    font-weight: 800;
+}
+
+.start-button:hover {
+    background: #c77423;
+}
+
+/* =========================================================
+   صفحة الدروس
+   ========================================================= */
+
+.lessons-page {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 25px 18px 130px;
+}
+
+.lessons-heading {
+    text-align: center;
+
+    color: #173b78;
+
+    font-size: 31px;
+
+    font-weight: 900;
+
+    margin-bottom: 22px;
+}
+
+.lessons-subheading {
+    text-align: center;
+
+    color: #7584a0;
+
+    font-size: 17px;
+
+    margin-bottom: 25px;
+}
+
+.lesson-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe6f2;
+
+    border-radius: 22px;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    box-shadow:
+        0 7px 22px rgba(23, 59, 120, 0.05);
+
+    transition: 0.2s;
+
+    text-align: right;
+}
+
+.lesson-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 28px rgba(23, 59, 120, 0.09);
+}
+
+.lesson-card-icon {
+    width: 65px;
+
+    height: 65px;
+
+    min-width: 65px;
+
+    border-radius: 18px;
+
+    background: #edf2ff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 34px;
+}
+
+.lesson-card-info {
+    flex: 1;
+}
+
+.lesson-card-info h3 {
+    color: #173b78;
+
+    font-size: 21px;
+
+    margin-bottom: 3px;
+}
+
+.lesson-card-info p {
+    color: #7b89a4;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+.lesson-arrow {
+    font-size: 27px;
+
+    color: #9aa8c0;
+}
+
+/* =========================================================
+   شريط التنقل السفلي
+   ========================================================= */
+
 .bottom-nav {
     position: fixed;
+
     bottom: 0;
+
     right: 0;
+
     left: 0;
+
+    width: 100%;
+
     height: 88px;
-    background: white;
-    border-top: 1px solid #dde4ed;
+
+    background: rgba(255,255,255,0.97);
+
+    border-top: 1px solid #dfe5ee;
+
     display: flex;
-    z-index: 1000;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+    z-index: 9999;
+
+    box-shadow:
+        0 -5px 20px rgba(23,59,120,0.05);
+
+    backdrop-filter: blur(8px);
 }
 
 .nav-item {
-    flex: 1;
     border: none;
-    background: white;
-    color: #9aa4b3;
-    font-size: 12px;
-    text-align: center;
+
+    background: transparent;
+
+    color: #9aa5b8;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 1px;
+
+    min-width: 65px;
+
+    height: 78px;
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+.nav-icon {
+    font-size: 29px;
+
+    line-height: 1.1;
 }
 
 .nav-item.active {
     color: #173b78;
-    font-weight: bold;
+
+    font-weight: 800;
 }
 
-.nav-icon {
-    font-size: 27px;
-    margin-bottom: 4px;
+.nav-item.active .nav-icon {
+    transform: translateY(-1px);
 }
 
-.page-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.page-header h2 {
-    margin: 0;
-    font-size: 25px;
-}
-
-.back-btn {
-    width: 45px;
-    height: 45px;
-    border: 1px solid #dce3ed;
-    border-radius: 12px;
-    background: white;
-    color: #173b78;
-    font-size: 22px;
-}
-
-.lesson {
-    background: white;
-    border-radius: 22px;
-    border: 1px solid #e0e6ef;
-    padding: 22px;
-    margin-bottom: 18px;
-}
-
-.lesson h2 {
-    margin-top: 0;
-    color: #173b78;
-}
-
-.lesson p {
-    color: #38547d;
-    font-size: 18px;
-    line-height: 2;
-}
-
-.memory {
-    background: #fff3c9;
-    border-radius: 18px;
-    padding: 18px;
-    margin-top: 20px;
-    color: #173b78;
-    line-height: 2;
-}
-
-.next {
-    width: 100%;
-    border: none;
-    border-radius: 13px;
-    background: #c97932;
-    color: white;
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 8px;
-}
+/* =========================================================
+   استجابة الهاتف
+   ========================================================= */
 
 @media (max-width: 600px) {
 
-    .page {
-        padding: 15px 10px 25px;
+    body {
+        padding-bottom: 88px;
     }
 
-    .title {
+    .page {
+        padding:
+            18px
+            12px
+            110px;
+    }
+
+    .page-header h2 {
+        font-size: 24px;
+    }
+
+    .lesson-title {
+        font-size: 27px;
+    }
+
+    .content-card {
+        border-radius: 20px;
+
+        padding: 22px 18px;
+    }
+
+    .content-card h3 {
+        font-size: 22px;
+    }
+    .content-card p {
+        font-size: 17px;
+
+        line-height: 2;
+    }
+
+    .memory-box,
+    .example-box,
+    .info-box,
+    .note-box {
+        font-size: 16px;
+    }
+
+    .home-logo h1 {
+        font-size: 32px;
+    }
+
+    .chapter-banner h2 {
+        font-size: 25px;
+    }
+
+    .lesson-card {
+        padding: 16px;
+    }
+
+    .lesson-card-icon {
+        width: 56px;
+
+        height: 56px;
+
+        min-width: 56px;
+
         font-size: 28px;
     }
 
-    .chapter h1 {
-        font-size: 23px;
+    .lesson-card-info h3 {
+        font-size: 18px;
     }
 
-    .card h2 {
-        font-size: 20px;
+    .lesson-card-info p {
+        font-size: 13px;
     }
 
-    .card p,
-    .lesson p {
-        font-size: 16px;
+    .nav-item {
+        min-width: 55px;
+
+        font-size: 11px;
+    }
+
+    .nav-icon {
+        font-size: 26px;
+    }
+
+    .simple-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 }
 
+/* =========================================================
+   تحسين النص العربي
+   ========================================================= */
+
+p,
+h1,
+h2,
+h3,
+h4,
+button,
+td,
+th {
+    word-wrap: break-word;
+}
+
+ul {
+    padding-right: 25px;
+}
+
+li {
+    margin-bottom: 9px;
+
+    font-size: 18px;
+}
+
+/* =========================================================
+   نهاية CSS
+   ========================================================= */
+
 </style>
+
 </head>
+
 
 <body>
 
-<div id="app" class="app"></div>
+
+<div id="app"></div>
+
+
+<!-- =======================================================
+     شريط التنقل
+     ======================================================= -->
 
 <nav class="bottom-nav">
 
-    <button class="nav-item active" onclick="showHome()">
+    <button
+        class="nav-item active"
+        id="nav-home"
+        onclick="showHome()">
+
         <div class="nav-icon">🏠</div>
+
         الرئيسية
+
     </button>
 
-    <button class="nav-item" onclick="showChapter1()">
+
+    <button
+        class="nav-item"
+        id="nav-lessons"
+        onclick="showChapter1()">
+
         <div class="nav-icon">📖</div>
+
         دروسي
+
     </button>
 
-    <button class="nav-item" onclick="showMemory()">
+
+    <button
+        class="nav-item"
+        id="nav-memory"
+        onclick="showMemory()">
+
         <div class="nav-icon">🧠</div>
+
         احفظها
+
     </button>
 
-    <button class="nav-item" onclick="showQuiz()">
+
+    <button
+        class="nav-item"
+        id="nav-quiz"
+        onclick="showQuiz()">
+
         <div class="nav-icon">❓</div>
+
         اختبرني
+
     </button>
 
-    <button class="nav-item" onclick="showAccount()">
+
+    <button
+        class="nav-item"
+        id="nav-account"
+        onclick="showAccount()">
+
         <div class="nav-icon">👤</div>
+
         حسابي
+
     </button>
 
 </nav>
 
+
 <script>
 
-function setActive(number) {
+/* =========================================================
+   المتغيرات
+   ========================================================= */
 
-    var items = document.querySelectorAll(".nav-item");
+var currentLesson = 1;
 
-    for (var i = 0; i < items.length; i++) {
-        items[i].classList.remove("active");
-    }
 
-    if (items[number]) {
-        items[number].classList.add("active");
+/* =========================================================
+   التحكم بالشريط السفلي
+   ========================================================= */
+
+function setActive(index) {
+
+    var items =
+        document.querySelectorAll(".nav-item");
+
+    items.forEach(function(item) {
+
+        item.classList.remove("active");
+
+    });
+
+    if (items[index]) {
+
+        items[index].classList.add("active");
+
     }
 }
 
+
+/* =========================================================
+   الرئيسية
+   ========================================================= */
 
 function showHome() {
 
     setActive(0);
 
-    var app = document.getElementById("app");
+    var app =
+        document.getElementById("app");
 
-    app.innerHTML =
-        '<div class="page">' +
+    app.innerHTML = `
 
-        '<div class="title">كيمياء بذكاء 🧪</div>' +
+        <div class="home-page">
 
-        '<div class="subtitle">' +
-        'منصة تعليمية لمادة الكيمياء للصف الثالث المتوسط' +
-        '</div>' +
+            <div class="home-logo">
 
-        '<div class="chapter">' +
-        '<h1>الفصل الأول: التركيب الذري للمادة</h1>' +
-        '<p>دروس مرتبة ومبسطة حسب كتاب الكيمياء للصف الثالث المتوسط</p>' +
-        '</div>' +
+                <div class="logo-icon">🧪</div>
 
-        '<div class="card">' +
-        '<h2>ابدأ دراسة الفصل الأول 📚</h2>' +
-        '<p>تعلّم الدروس بالتسلسل مع المراجعة والأسئلة</p>' +
-        '<br>' +
-        '<button class="start-btn" onclick="showChapter1()">' +
-        '🚀 ابدأ الدراسة' +
-        '</button>' +
-        '</div>' +
+                <h1>
+                    كيمياء بذكاء
+                </h1>
 
-        '</div>';
+                <p>
+                    منصة تعليمية لمادة الكيمياء للصف الثالث المتوسط
+                </p>
+
+            </div>
+
+
+            <div class="chapter-banner">
+
+                <h2>
+                    الفصل الأول: التركيب الذري للمادة
+                </h2>
+
+                <p>
+                    دراسة تطور المفهوم الذري
+                    والنظرية الذرية الحديثة
+                    والترتيب الإلكتروني
+                    وترتيب لويس
+                </p>
+
+            </div>
+
+
+            <div class="start-card">
+
+                <h3>
+                    📚 ابدأ دراسة الفصل الأول
+                </h3>
+
+                <p>
+                    تعلّم الدروس بالتسلسل
+                    مع الشرح والمراجعة والأمثلة.
+                </p>
+
+                <button
+                    class="start-button"
+                    onclick="showLesson1()">
+
+                    🚀 ابدأ الدراسة
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
 }
 
+
+/* =========================================================
+   قائمة دروس الفصل الأول
+   ========================================================= */
 
 function showChapter1() {
 
     setActive(1);
 
-    var app = document.getElementById("app");
+    var app =
+        document.getElementById("app");
 
-    app.innerHTML =
-        '<div class="page">' +
+    app.innerHTML = `
 
-        '<div class="page-header">' +
-        '<button class="back-btn" onclick="showHome()">→</button>' +
-        '<h2>الفصل الأول</h2>' +
-        '<span></span>' +
-        '</div>' +
+        <div class="lessons-page">
 
-        '<div class="chapter">' +
-        '<h1>التركيب الذري للمادة</h1>' +
-        '<p>اختر الدرس الذي تريد دراسته</p>' +
-        '</div>' +
+            <h1 class="lessons-heading">
+                📖 دروسي
+            </h1>
 
-        '<div class="card">' +
-        '<h2>1-1 مقدمة</h2>' +
-        '<p>مقدمة عن الذرة وبناء المادة</p>' +
-        '<br>' +
-        '<button class="start-btn" onclick="showLesson1()">ابدأ الدرس ←</button>' +
-        '</div>' +
+            <p class="lessons-subheading">
+                الفصل الأول: التركيب الذري للمادة
+            </p>
 
-        '<div class="card">' +
-        '<h2>1-2 تطور مفهوم البناء الذري</h2>' +
-        '<p>تطور النماذج الذرية</p>' +
-        '<br>' +
-        '<button class="start-btn" onclick="showLesson2()">ابدأ الدرس ←</button>' +
-        '</div>' +
 
-        '</div>';
+            <div
+                class="lesson-card"
+                onclick="showLesson1()">
+
+                <div class="lesson-card-icon">
+                    🧪
+                </div>
+
+                <div class="lesson-card-info">
+
+                    <h3>
+                        1-1 مقدمة
+                    </h3>
+
+                    <p>
+                        الوحدات الأساسية لبناء المواد والذرات
+                    </p>
+
+                </div>
+
+                <div class="lesson-arrow">
+                    ←
+                </div>
+
+            </div>
+
+
+            <div
+                class="lesson-card"
+                onclick="showLesson2()">
+
+                <div class="lesson-card-icon">
+                    ⚛️
+                </div>
+
+                <div class="lesson-card-info">
+
+                    <h3>
+                        1-2 تطور مفهوم البناء الذري
+                    </h3>
+
+                    <p>
+                        نماذج دالتون وثومسون وتطور مفهوم الذرة
+                    </p>
+
+                </div>
+
+                <div class="lesson-arrow">
+                    ←
+                </div>
+
+            </div>
+
+
+            <div
+                class="lesson-card"
+                onclick="showLesson3()">
+
+                <div class="lesson-card-icon">
+                    🔬
+                </div>
+
+                <div class="lesson-card-info">
+
+                    <h3>
+                        1-3 مدخل إلى البناء الإلكتروني الحديث
+                    </h3>
+
+                    <p>
+                        رذرفورد وبور والنظرية الذرية الحديثة
+                    </p>
+
+                </div>
+
+                <div class="lesson-arrow">
+                    ←
+                </div>
+
+            </div>
+
+
+            <div
+                class="lesson-card"
+                onclick="showLesson4()">
+
+                <div class="lesson-card-icon">
+                    ⚡
+                </div>
+
+                <div class="lesson-card-info">
+
+                    <h3>
+                        1-4 مستويات الطاقة
+                    </h3>
+
+                    <p>
+                        مستويات الطاقة الرئيسية والثانوية
+                    </p>
+
+                </div>
+
+                <div class="lesson-arrow">
+                    ←
+                </div>
+
+            </div>
+
+
+            <div
+                class="lesson-card"
+                onclick="showLesson5()">
+
+                <div class="lesson-card-icon">
+                    🧬
+                </div>
+
+                <div class="lesson-card-info">
+
+                    <h3>
+                        1-5 الترتيب الإلكتروني
+                    </h3>
+
+                    <p>
+                        مبدأ أوفباو وقاعدة هوند وتوزيع الإلكترونات
+                    </p>
+
+                </div>
+
+                <div class="lesson-arrow">
+                    ←
+                </div>
+
+            </div>
+
+
+            <div
+                class="lesson-card"
+                onclick="showLesson6()">
+
+                <div class="lesson-card-icon">
+                    ✏️
+                </div>
+
+                <div class="lesson-card-info">
+
+                    <h3>
+                        1-6 ترتيب لويس
+                    </h3>
+
+                    <p>
+                        تمثيل إلكترونات التكافؤ برمز لويس
+                    </p>
+
+                </div>
+
+                <div class="lesson-arrow">
+                    ←
+                </div>
+
+            </div>
+
+            <div
+                class="lesson-card"
+                onclick="showLesson7()">
+
+                <div class="lesson-card-icon">
+                    🧩
+                </div>
+
+                <div class="lesson-card-info">
+
+                    <h3>
+                        1-7 الجدول الدوري
+                    </h3>
+
+                    <p>
+                        أهمية الجدول الدوري وترتيب العناصر
+                    </p>
+
+                </div>
+
+                <div class="lesson-arrow">
+                    ←
+                </div>
+
+            </div>
+
+
+            <div
+                class="lesson-card"
+                onclick="showLesson8()">
+
+                <div class="lesson-card-icon">
+                    🗂️
+                </div>
+
+                <div class="lesson-card-info">
+
+                    <h3>
+                        1-8 تصنيف العناصر تبعاً لترتيبها الإلكتروني
+                    </h3>
+
+                    <p>
+                        بلوكات s و p و d و f والعناصر الممثلة
+                    </p>
+
+                </div>
+
+                <div class="lesson-arrow">
+                    ←
+                </div>
+
+            </div>
+
+
+            <div
+                class="lesson-card"
+                onclick="showLesson9()">
+
+                <div class="lesson-card-icon">
+                    📍
+                </div>
+
+                <div class="lesson-card-info">
+
+                    <h3>
+                        1-9 تحديد الدورة والزمرة
+                    </h3>
+
+                    <p>
+                        معرفة موقع العنصر من ترتيبه الإلكتروني
+                    </p>
+
+                </div>
+
+                <div class="lesson-arrow">
+                    ←
+                </div>
+
+            </div>
+
+
+            <div
+                class="lesson-card"
+                onclick="showLesson10()">
+
+                <div class="lesson-card-icon">
+                    📈
+                </div>
+
+                <div class="lesson-card-info">
+
+                    <h3>
+                        1-10 الخواص الدورية
+                    </h3>
+
+                    <p>
+                        نصف القطر الذري وطاقة التأين والألفة والكهرسلبية
+                    </p>
+
+                </div>
+
+                <div class="lesson-arrow">
+                    ←
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
 }
 
+
+/* =========================================================
+   زر التنقل بين الدروس
+   ========================================================= */
+
+function lessonButtons(previousFunction, nextFunction, nextText) {
+
+    return `
+
+        <div class="lesson-navigation">
+
+            <button
+                class="previous-button"
+                onclick="${previousFunction}()">
+
+                ← الدرس السابق
+
+            </button>
+
+
+            <button
+                class="next-button"
+                onclick="${nextFunction}()">
+
+                ${nextText}
+
+            </button>
+
+
+            <button
+                class="chapter-button"
+                onclick="showChapter1()">
+
+                📖 العودة إلى دروس الفصل
+
+            </button>
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-1
+   ========================================================= */
 
 function showLesson1() {
 
     setActive(1);
 
-    var app = document.getElementById("app");
+    currentLesson = 1;
 
-    app.innerHTML =
-        '<div class="page">' +
+    var app =
+        document.getElementById("app");
 
-        '<div class="page-header">' +
-        '<button class="back-btn" onclick="showChapter1()">→</button>' +
-        '<h2>1-1 مقدمة</h2>' +
-        '<span></span>' +
-        '</div>' +
+    app.innerHTML = `
 
-        '<div class="lesson">' +
+        <div class="page">
 
-        '<h2>ما المقصود بالذرة؟</h2>' +
+            <div class="page-header">
 
-        '<p>' +
-        'تتكون جميع المواد الموجودة في الكون من جسيمات صغيرة ' +
-        'تشكل الوحدات الأساسية لبناء هذه المواد، وسميت بالذرات.' +
-        '</p>' +
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
 
-        '<p>' +
-        'مر تفسير البناء الذري خلال القرنين الماضيين بعدة نظريات، ' +
-        'وسنتعرف في هذا الفصل إلى تطور هذه النماذج.' +
-        '</p>' +
+                    ←
 
-        '<div class="memory">' +
-        '<strong>🧠 احفظها</strong><br>' +
-        'الذرات هي الوحدات الأساسية لبناء المواد.' +
-        '</div>' +
+                </button>
 
-        '</div>' +
+                <h2>
+                    1-1 مقدمة
+                </h2>
 
-        '<button class="next" onclick="showLesson2()">' +
-        'الدرس التالي ←' +
-        '</button>' +
+                <span></span>
 
-        '</div>';
+            </div>
+
+
+            <div class="lesson-content">
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مقدمة
+                    </h3>
+
+                    <p>
+                        تتكون المواد الموجودة في الكون من جسيمات
+                        صغيرة تشكل الوحدات الأساسية لبناء هذه المواد،
+                        وقد سميت هذه الجسيمات بالذرات.
+                    </p>
+
+                    <p>
+                        كلمة الذرات مشتقة من كلمة تعني في اللغة
+                        اللاتينية غير القابلة للانقسام.
+                    </p>
+
+                    <p>
+                        وقد مر تفسير البناء الذري خلال القرنين الماضيين
+                        بعدة نظريات ونماذج، وسنتعرف في هذا الفصل إلى
+                        تطور هذه الأفكار والوصول إلى النظريات الحديثة
+                        التي تفسر البناء الذري.
+                    </p>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        الذرات هي الوحدات الأساسية لبناء المواد.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        ماذا سنتعلم في هذا الفصل؟
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            تطور المفهوم الذري.
+                        </li>
+
+                        <li>
+                            النظرية الذرية الحديثة.
+                        </li>
+
+                        <li>
+                            كتابة الترتيب الإلكتروني.
+                        </li>
+
+                        <li>
+                            ترتيب لويس للعناصر.
+                        </li>
+
+                        <li>
+                            فكرة متطورة عن الجدول الدوري.
+                        </li>
+
+                        <li>
+                            الخواص الدورية للعناصر.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        فكرة الدرس
+                    </h3>
+
+                    <p>
+                        لم يظهر النموذج العلمي للذرة بصورة واحدة،
+                        بل تطور نتيجة الملاحظات والتجارب التي قام بها
+                        العلماء عبر الزمن.
+                    </p>
+
+                    <div class="info-box">
+
+                        كل نموذج ذري يمثل مرحلة من مراحل تطور
+                        فهم العلماء لتركيب الذرة.
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            ${lessonButtons(
+                "showHome",
+                "showLesson2",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
 }
 
+
+/* =========================================================
+   الدرس 1-2
+   ========================================================= */
 
 function showLesson2() {
 
     setActive(1);
 
-    var app = document.getElementById("app");
+    currentLesson = 2;
 
-    app.innerHTML =
-        '<div class="page">' +
+    var app =
+        document.getElementById("app");
 
-        '<div class="page-header">' +
-        '<button class="back-btn" onclick="showLesson1()">→</button>' +
-        '<h2>1-2 تطور مفهوم البناء الذري</h2>' +
-        '<span></span>' +
-        '</div>' +
+    app.innerHTML = `
 
-        '<div class="lesson">' +
+        <div class="page">
 
-        '<h2>تطور مفهوم البناء الذري</h2>' +
+            <div class="page-header">
 
-        '<p>' +
-        'اقترح العلماء نماذج مختلفة لتركيب الذرة، وكان كل نموذج ' +
-        'أفضل تفسير متاح في وقته، ثم تطورت النماذج نتيجة الملاحظات والتجارب.' +
-        '</p>' +
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
 
-        '<div class="memory">' +
-        '<strong>🧠 احفظها</strong><br>' +
-        'النموذج الذري تطور تدريجياً نتيجة الملاحظات والتجارب العلمية.' +
-        '</div>' +
+                    ←
 
-        '</div>' +
+                </button>
 
-        '<div class="lesson">' +
+                <h2>
+                    1-2 تطور مفهوم البناء الذري
+                </h2>
 
-        '<h2>نموذج دالتون</h2>' +
+                <span></span>
 
-        '<p>' +
-        'تصور دالتون الذرة على هيئة كرة دقيقة صلبة غير قابلة للانقسام.' +
-        '</p>' +
+            </div>
 
-        '</div>' +
 
-        '<button class="next" onclick="showChapter1()">' +
-        '✓ العودة إلى دروس الفصل' +
-        '</button>' +
+            <div class="lesson-content">
 
-        '</div>';
+
+                <div class="content-card">
+
+                    <h3>
+                        تطور مفهوم البناء الذري
+                    </h3>
+
+                    <p>
+                        اقترح العلماء نماذج مختلفة لتركيب الذرة،
+                        وكان كل نموذج يمثل أفضل تفسير متاح في وقته.
+                    </p>
+
+                    <p>
+                        ثم أخذ النموذج الذري يتطور نتيجة الملاحظات
+                        والتجارب حتى وصل العلماء إلى النماذج الأكثر
+                        قبولاً من الناحية العلمية.
+                    </p>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        1-2-1 نموذج دالتون
+                    </h3>
+
+                    <p>
+                        في بداية القرن التاسع عشر تصور العالم دالتون
+                        الذرة على هيئة كرة دقيقة صلبة غير قابلة للانقسام.
+                    </p>
+
+                    <p>
+                        واعتبر أن لكل عنصر نوعاً معيناً من الذرات
+                        الخاصة به، وأن هذه الذرات يمكن أن ترتبط
+                        بطرائق بسيطة لتكوين المركبات.
+                    </p>
+
+
+                    <div class="atom-model">
+
+                        <div class="atom-circle">
+                            ذرة
+                        </div>
+
+                        <div class="atom-caption">
+                            نموذج دالتون: كرة صلبة
+                        </div>
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        دالتون تصور الذرة كرة دقيقة صلبة
+                        غير قابلة للانقسام.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        1-2-2 نموذج ثومسون
+                    </h3>
+
+                    <p>
+                        في نهاية القرن التاسع عشر قدم العالم ثومسون
+                        تصوراً آخر للذرة بعد اكتشافه جسيمات أصغر
+                        تحمل شحنات سالبة سميت الإلكترونات.
+                    </p>
+
+                    <p>
+                        تصور ثومسون الذرة على أنها كرة موجبة الشحنة
+                        تلتصق عليها الإلكترونات سالبة الشحنة.
+                    </p>
+
+                    <p>
+                        وكانت الشحنة السالبة للإلكترونات تعادل
+                        الشحنة الموجبة للكرة، لذلك تكون الذرة
+                        متعادلة كهربائياً.
+                    </p>
+
+
+                    <div class="example-box">
+
+                        ⚛️ كرة موجبة الشحنة
+                        <br>
+                        +
+                        <br>
+                        إلكترونات سالبة الشحنة
+                        <br>
+                        =
+                        <br>
+                        ذرة متعادلة
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        ثومسون: الذرة كرة موجبة تتوزع فيها
+                        الإلكترونات سالبة الشحنة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مقارنة النماذج
+                    </h3>
+
+                    <table class="simple-table">
+
+                        <tr>
+
+                            <th>
+                                العالم
+                            </th>
+
+                            <th>
+                                تصور الذرة
+                            </th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                دالتون
+                            </td>
+
+                            <td>
+                                كرة صلبة غير قابلة للانقسام
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                ثومسون
+                            </td>
+
+                            <td>
+                                كرة موجبة تتوزع فيها الإلكترونات
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+            </div>
+
+
+            ${lessonButtons(
+                "showLesson1",
+                "showLesson3",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
 }
 
+
+/* =========================================================
+   الدرس 1-3
+   ========================================================= */
+
+function showLesson3() {
+
+    setActive(1);
+
+    currentLesson = 3;
+
+    var app =
+        document.getElementById("app");
+
+    app.innerHTML = `
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+
+                    ←
+
+                </button>
+
+                <h2>
+                    1-3 مدخل إلى البناء الإلكتروني الحديث
+                </h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+
+                <div class="content-card">
+
+                    <h3>
+                        نموذج رذرفورد
+                    </h3>
+
+                    <p>
+                        قدم العالم رذرفورد تصوراً للذرة أصبحت فيه
+                        البروتونات متمركزة في حجم صغير في وسط الذرة
+                        أطلق عليه اسم النواة.
+                    </p>
+
+                    <p>
+                        تحتوي النواة على معظم كتلة الذرة، بينما
+                        تتحرك الإلكترونات حولها، ولذلك فإن معظم
+                        حجم الذرة فراغ.
+                    </p>
+
+                    <p>
+                        كما أن عدد الإلكترونات السالبة حول النواة
+                        يعادل الشحنات الموجبة للبروتونات في الذرة
+                        المتعادلة.
+                    </p>
+
+
+                    <div class="atom-model">
+
+                        <div class="atom-circle">
+                            النواة
+                        </div>
+
+                        <div class="atom-caption">
+                            النموذج الكوكبي لرذرفورد
+                        </div>
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        رذرفورد: النواة صغيرة ومركزة في وسط الذرة
+                        وتحتوي معظم كتلتها، والإلكترونات حولها.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مشكلة نموذج رذرفورد
+                    </h3>
+
+                    <p>
+                        ظهرت مشكلة في نموذج رذرفورد عند محاولة تفسير
+                        استقرار الذرة.
+                    </p>
+
+                    <p>
+                        فلو كانت الإلكترونات ساكنة فإنها ستنجذب
+                        إلى النواة بسبب اختلاف الشحنة.
+                    </p>
+
+                    <p>
+                        وإذا كانت في حالة حركة، فإن الشحنات الكهربائية
+                        المتحركة تحت تأثير قوة الجذب تفقد طاقة، مما
+                        يؤدي وفق هذا التصور إلى تغير حركة الإلكترون
+                        وانجذابه نحو النواة.
+                    </p>
+
+                    <div class="note-box">
+
+                        لذلك ظهر أن نموذج رذرفورد لا يقدم تفسيراً
+                        كاملاً لاستقرار الذرة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        1-3-1 نموذج بور
+                    </h3>
+
+                    <p>
+                        اقترح العالم الدنماركي بور عام 1913 أن
+                        الإلكترونات تتحرك حول النواة في مستويات
+                        ذات طاقة وأنصاف أقطار محددة.
+                    </p>
+
+                    <p>
+                        ولكل مستوى طاقة رقم يميزه ويصف طاقته،
+                        ويسمى هذا الرقم عدد الكم الرئيسي.
+                    </p>
+
+
+                    <div class="example-box">
+
+                        مستوى الطاقة الأول
+                        <br>
+                        n = 1
+                        <br><br>
+
+                        مستوى الطاقة الثاني
+                        <br>
+                        n = 2
+                        <br><br>
+
+                        مستوى الطاقة الثالث
+                        <br>
+                        n = 3
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        نموذج بور يعتمد على مستويات طاقة محددة
+                        للإلكترونات حول النواة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        1-3-2 النظرية الذرية الحديثة
+                    </h3>
+
+                    <p>
+                        فسر نموذج بور تركيب ذرة الهيدروجين، وهي
+                        أبسط نظام ذري لأنها تحتوي على بروتون واحد
+                        وإلكترون واحد.
+                    </p>
+
+                    <p>
+                        لكنه لم يفسر بصورة كاملة بعض الظواهر
+                        الطبيعية للعناصر التي تحتوي على عدد أكبر
+                        من الإلكترونات.
+                    </p>
+
+                    <p>
+                        لذلك طور العلماء نظرية تعرف بنظرية الكم،
+                        وتنص على احتمال وجود الإلكترون في حيز محدد
+                        من الفضاء المحيط بالنواة بدلاً من اعتباره
+                        موجوداً في مدارات محددة الأبعاد فقط.
+                    </p>
+
+                    <p>
+                        ويطلق على هذا الحيز اسم الأوربيتال
+                        Orbital، ويمكن وصفه أيضاً بالسحابة
+                        الإلكترونية المحيطة بالنواة.
+                    </p>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        أهم أفكار النظرية الحديثة
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            تتكون الذرة من نواة تحيط بها إلكترونات.
+                        </li>
+
+                        <li>
+                            توجد الإلكترونات في مستويات مختلفة من الطاقة.
+                        </li>
+
+                        <li>
+                            يمكن وصف احتمال وجود الإلكترون
+                            في حيز حول النواة بالأوربيتال.
+                        </li>
+
+                        <li>
+                            للأوربيتالات أحجام وأشكال مختلفة.
+                        </li>
+
+                        <li>
+                            النواة تقع في مركز الذرة وتضم البروتونات
+                            والنيوترونات.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            ${lessonButtons(
+                "showLesson2",
+                "showLesson4",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-4
+   ========================================================= */
+
+function showLesson4() {
+
+    setActive(1);
+
+    currentLesson = 4;
+
+    var app =
+        document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+
+                    ←
+
+                </button>
+
+                <h2>
+                    1-4 مستويات الطاقة
+                </h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مستويات الطاقة
+                    </h3>
+
+                    <p>
+                        تمتلك الإلكترونات التي توجد حول النواة
+                        طاقات مختلفة، وترتبط طاقة الإلكترون
+                        ببعده عن النواة.
+                    </p>
+
+                    <p>
+                        كلما ازدادت طاقة المستوى أصبح أبعد
+                        عن النواة بصورة عامة.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        كلما زادت قيمة مستوى الطاقة الرئيسي
+                        زادت طاقة الإلكترون وازداد بعده عن النواة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        1-4-1 مستويات الطاقة الرئيسية
+                    </h3>
+
+                    <p>
+                        يعبر عن مستويات الطاقة الرئيسية بعدد الكم
+                        الرئيسي ويرمز له بالحرف n، ويأخذ قيماً
+                        صحيحة موجبة مثل 1 و2 و3 و4 و5 و6 و7.
+                    </p>
+
+                    <p>
+                        لا يأخذ عدد الكم الرئيسي n قيمة الصفر.
+                    </p>
+
+
+                    <table class="simple-table">
+
+                        <tr>
+
+                            <th>
+                                رمز المستوى
+                            </th>
+
+                            <th>
+                                K
+                            </th>
+
+                            <th>
+                                L
+                            </th>
+
+                            <th>
+                                M
+                            </th>
+
+                            <th>
+                                N
+                            </th>
+
+                            <th>
+                                O
+                            </th>
+
+                            <th>
+                                P
+                            </th>
+
+                            <th>
+                                Q
+                            </th>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>
+                                قيمة n
+                            </th>
+
+                            <td>1</td>
+
+                            <td>2</td>
+
+                            <td>3</td>
+
+                            <td>4</td>
+
+                            <td>5</td>
+
+                            <td>6</td>
+
+                            <td>7</td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        العلاقة بين n والطاقة
+                    </h3>
+
+                    <div class="energy-list">
+
+                        <div class="energy-item">
+
+                            <strong>
+                                n = 1
+                            </strong>
+
+                            <span>
+                                أقل طاقة وأقرب إلى النواة
+                            </span>
+
+                        </div>
+
+
+                        <div class="energy-item">
+
+                            <strong>
+                                n = 2
+                            </strong>
+
+                            <span>
+                                طاقة أعلى من المستوى الأول
+                            </span>
+
+                        </div>
+
+
+                        <div class="energy-item">
+
+                            <strong>
+                                n = 3
+                            </strong>
+
+                            <span>
+                                طاقة أعلى من المستوى الثاني
+                            </span>
+
+                        </div>
+
+
+                        <div class="energy-item">
+
+                            <strong>
+                                n = 7
+                            </strong>
+
+                            <span>
+                                أبعد المستويات وأكثرها طاقة
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        1-4-2 مستويات الطاقة الثانوية
+                    </h3>
+
+                    <p>
+                        تحتوي مستويات الطاقة الرئيسية على مستويات
+                        طاقة ثانوية يرمز لها بالحروف:
+                    </p>
+
+
+                    <div class="example-box">
+
+                        s &nbsp;&nbsp; p &nbsp;&nbsp; d &nbsp;&nbsp; f
+
+                    </div>
+
+
+                    <p>
+                        تختلف هذه المستويات في الشكل وعدد الأوربيتالات
+                        وعدد الإلكترونات التي يمكن أن تحتويها.
+                    </p>
+
+
+                    <table class="simple-table">
+
+                        <tr>
+
+                            <th>
+                                المستوى الثانوي
+                            </th>
+
+                            <th>
+                                عدد الأوربيتالات
+                            </th>
+
+                            <th>
+                                أقصى عدد للإلكترونات
+                            </th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                s
+                            </td>
+
+                            <td>
+                                1
+                            </td>
+
+                            <td>
+                                2
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                p
+                            </td>
+
+                            <td>
+                                3
+                            </td>
+
+                            <td>
+                                6
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                d
+                            </td>
+
+                            <td>
+                                5
+                            </td>
+
+                            <td>
+                                10
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                f
+                            </td>
+
+                            <td>
+                                7
+                            </td>
+
+                            <td>
+                                14
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        تذكر العلاقة المهمة
+                    </h3>
+
+                    <div class="example-box">
+
+                        s → 2 إلكترون
+                        <br><br>
+
+                        p → 6 إلكترونات
+                        <br><br>
+
+                        d → 10 إلكترونات
+                        <br><br>
+
+                        f → 14 إلكتروناً
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        كل أوربيتال يستوعب إلكترونين كحد أقصى.
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            ${lessonButtons(
+                "showLesson3",
+                "showLesson5",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-5
+   ========================================================= */
+
+function showLesson5() {
+
+    setActive(1);
+
+    currentLesson = 5;
+
+    var app =
+        document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+
+                    ←
+
+                </button>
+
+                <h2>
+                    1-5 الترتيب الإلكتروني
+                </h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+
+                <div class="content-card">
+
+                    <h3>
+                        ما المقصود بالترتيب الإلكتروني؟
+                    </h3>
+
+                    <p>
+                        تحتوي العناصر المختلفة على أعداد مختلفة
+                        من الإلكترونات، وتترتب هذه الإلكترونات حول
+                        النواة في الذرة.
+                    </p>
+
+                    <p>
+                        ويعرف توزيع الإلكترونات حول النواة
+                        بالترتيب الإلكتروني.
+                    </p>
+
+                    <p>
+                        لكل عنصر ترتيب إلكتروني خاص تنتظم فيه
+                        الإلكترونات بحيث تكون الطاقة الكلية
+                        أقل ما يمكن.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        الترتيب الإلكتروني هو طريقة توزيع
+                        إلكترونات الذرة حول النواة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        1-5-1 مبدأ أوفباو
+                    </h3>
+
+                    <p>
+                        ينص مبدأ أوفباو على أن مستويات الطاقة
+                        الثانوية تمتلئ بالإلكترونات حسب تسلسل
+                        طاقاتها من الأقل إلى الأعلى.
+                    </p>
+
+                    <p>
+                        وعند كتابة الترتيب الإلكتروني لذرة متعادلة
+                        كهربائياً يجب معرفة العدد الذري للعنصر،
+                        لأن عدد إلكترونات الذرة المتعادلة يساوي
+                        عددها الذري.
+                    </p>
+
+
+                    <div class="example-box">
+
+                        تسلسل الامتلاء المستخدم للعناصر
+                        التي يحتاجها الطالب في هذا الفصل:
+
+                        <br><br>
+
+                        1s → 2s → 2p → 3s → 3p → 4s → 3d
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        ملاحظة:
+                        في أسئلة هذا الفصل يركز الكتاب على
+                        العناصر التي لا يتجاوز عددها الذري 20.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مثال: الصوديوم Na
+                    </h3>
+
+                    <p>
+                        العدد الذري للصوديوم هو 11، لذلك تمتلك
+                        الذرة المتعادلة 11 إلكتروناً.
+                    </p>
+
+
+                    <div class="electron-config">
+
+                        1s² 2s² 2p⁶ 3s¹
+
+                    </div>
+
+
+                    <p>
+                        وبذلك يكون عدد الإلكترونات:
+                    </p>
+
+
+                    <div class="example-box">
+
+                        2 + 2 + 6 + 1 = 11
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مثال: الكلور Cl
+                    </h3>
+
+                    <p>
+                        العدد الذري للكلور هو 17، لذلك تحتوي الذرة
+                        المتعادلة على 17 إلكتروناً.
+                    </p>
+
+
+                    <div class="electron-config">
+
+                        1s² 2s² 2p⁶ 3s² 3p⁵
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        مجموع أسس الترتيب الإلكتروني للذرة
+                        المتعادلة يساوي العدد الذري.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        قاعدة هوند
+                    </h3>
+
+                    <p>
+                        تنص قاعدة هوند على أنه لا يحدث ازدواج بين
+                        إلكترونين في مستوى طاقة ثانوي إلا بعد أن
+                        تشغل أوربيتالاته فرادى أولاً.
+                    </p>
+
+
+                    <div class="example-box">
+
+                        p³
+                        <br><br>
+
+                        ↑ &nbsp;&nbsp; ↑ &nbsp;&nbsp; ↑
+
+                        <br><br>
+
+                        تشغل الإلكترونات الأوربيتالات فرادى أولاً.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        في الأوربيتالات المتساوية الطاقة:
+                        فرادى أولاً، ثم يبدأ الازدواج.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        سعة المستويات الثانوية
+                    </h3>
+
+
+                    <table class="simple-table">
+
+                        <tr>
+
+                            <th>
+                                المستوى
+                            </th>
+
+                            <th>
+                                أقصى عدد إلكترونات
+                            </th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                s
+                            </td>
+
+                            <td>
+                                2
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                p
+                            </td>
+
+                            <td>
+                                6
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                d
+                            </td>
+
+                            <td>
+                                10
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                f
+                            </td>
+
+                            <td>
+                                14
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        تمرين للمراجعة
+                    </h3>
+
+                    <div class="exercise-box">
+
+                        <h4>
+                            سؤال
+                        </h4>
+
+                        <p>
+                            اكتب الترتيب الإلكتروني لذرة الأوكسجين
+                            O وعددها الذري 8.
+                        </p>
+
+                        <div class="answer-box">
+
+                            الإجابة:
+                            1s² 2s² 2p⁴
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="exercise-box">
+
+                        <h4>
+                            سؤال
+                        </h4>
+
+                        <p>
+                            اكتب الترتيب الإلكتروني لذرة الألمنيوم
+                            Al وعددها الذري 13.
+                        </p>
+
+                        <div class="answer-box">
+
+                            الإجابة:
+                            1s² 2s² 2p⁶ 3s² 3p¹
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            ${lessonButtons(
+                "showLesson4",
+                "showLesson6",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-6
+   ========================================================= */
+
+function showLesson6() {
+
+    setActive(1);
+
+    currentLesson = 6;
+
+    var app =
+        document.getElementById("app");
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+
+                    ←
+
+                </button>
+
+                <h2>
+                    1-3 مدخل إلى البناء الإلكتروني الحديث
+                </h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+
+                <div class="content-card">
+
+                    <h3>
+                        نموذج رذرفورد
+                    </h3>
+
+                    <p>
+                        قدم العالم رذرفورد تصوراً للذرة أصبحت فيه
+                        البروتونات متمركزة في حجم صغير في وسط الذرة
+                        أطلق عليه اسم النواة.
+                    </p>
+
+                    <p>
+                        تحتوي النواة على معظم كتلة الذرة، بينما
+                        تتحرك الإلكترونات حولها، ولذلك فإن معظم
+                        حجم الذرة فراغ.
+                    </p>
+
+                    <p>
+                        كما أن عدد الإلكترونات السالبة حول النواة
+                        يعادل الشحنات الموجبة للبروتونات في الذرة
+                        المتعادلة.
+                    </p>
+
+
+                    <div class="atom-model">
+
+                        <div class="atom-circle">
+                            النواة
+                        </div>
+
+                        <div class="atom-caption">
+                            النموذج الكوكبي لرذرفورد
+                        </div>
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        رذرفورد: النواة صغيرة ومركزة في وسط الذرة
+                        وتحتوي معظم كتلتها، والإلكترونات حولها.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مشكلة نموذج رذرفورد
+                    </h3>
+
+                    <p>
+                        ظهرت مشكلة في نموذج رذرفورد عند محاولة تفسير
+                        استقرار الذرة.
+                    </p>
+
+                    <p>
+                        فلو كانت الإلكترونات ساكنة فإنها ستنجذب
+                        إلى النواة بسبب اختلاف الشحنة.
+                    </p>
+
+                    <p>
+                        وإذا كانت في حالة حركة، فإن الشحنات الكهربائية
+                        المتحركة تحت تأثير قوة الجذب تفقد طاقة، مما
+                        يؤدي وفق هذا التصور إلى تغير حركة الإلكترون
+                        وانجذابه نحو النواة.
+                    </p>
+
+                    <div class="note-box">
+
+                        لذلك ظهر أن نموذج رذرفورد لا يقدم تفسيراً
+                        كاملاً لاستقرار الذرة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        1-3-1 نموذج بور
+                    </h3>
+
+                    <p>
+                        اقترح العالم الدنماركي بور عام 1913 أن
+                        الإلكترونات تتحرك حول النواة في مستويات
+                        ذات طاقة وأنصاف أقطار محددة.
+                    </p>
+
+                    <p>
+                        ولكل مستوى طاقة رقم يميزه ويصف طاقته،
+                        ويسمى هذا الرقم عدد الكم الرئيسي.
+                    </p>
+
+
+                    <div class="example-box">
+
+                        مستوى الطاقة الأول
+                        <br>
+                        n = 1
+                        <br><br>
+
+                        مستوى الطاقة الثاني
+                        <br>
+                        n = 2
+                        <br><br>
+
+                        مستوى الطاقة الثالث
+                        <br>
+                        n = 3
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        نموذج بور يعتمد على مستويات طاقة محددة
+                        للإلكترونات حول النواة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        1-3-2 النظرية الذرية الحديثة
+                    </h3>
+
+                    <p>
+                        فسر نموذج بور تركيب ذرة الهيدروجين، وهي
+                        أبسط نظام ذري لأنها تحتوي على بروتون واحد
+                        وإلكترون واحد.
+                    </p>
+
+                    <p>
+                        لكنه لم يفسر بصورة كاملة بعض الظواهر
+                        الطبيعية للعناصر التي تحتوي على عدد أكبر
+                        من الإلكترونات.
+                    </p>
+
+                    <p>
+                        لذلك طور العلماء نظرية تعرف بنظرية الكم،
+                        وتنص على احتمال وجود الإلكترون في حيز محدد
+                        من الفضاء المحيط بالنواة بدلاً من اعتباره
+                        موجوداً في مدارات محددة الأبعاد فقط.
+                    </p>
+
+                    <p>
+                        ويطلق على هذا الحيز اسم الأوربيتال
+                        Orbital، ويمكن وصفه أيضاً بالسحابة
+                        الإلكترونية المحيطة بالنواة.
+                    </p>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        أهم أفكار النظرية الحديثة
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            تتكون الذرة من نواة تحيط بها إلكترونات.
+                        </li>
+
+                        <li>
+                            توجد الإلكترونات في مستويات مختلفة من الطاقة.
+                        </li>
+
+                        <li>
+                            يمكن وصف احتمال وجود الإلكترون
+                            في حيز حول النواة بالأوربيتال.
+                        </li>
+
+                        <li>
+                            للأوربيتالات أحجام وأشكال مختلفة.
+                        </li>
+
+                        <li>
+                            النواة تقع في مركز الذرة وتضم البروتونات
+                            والنيوترونات.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            ${lessonButtons(
+                "showLesson2",
+                "showLesson4",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-4
+   ========================================================= */
+
+function showLesson4() {
+
+    setActive(1);
+
+    currentLesson = 4;
+
+    var app =
+        document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+
+                    ←
+
+                </button>
+
+                <h2>
+                    1-4 مستويات الطاقة
+                </h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مستويات الطاقة
+                    </h3>
+
+                    <p>
+                        تمتلك الإلكترونات التي توجد حول النواة
+                        طاقات مختلفة، وترتبط طاقة الإلكترون
+                        ببعده عن النواة.
+                    </p>
+
+                    <p>
+                        كلما ازدادت طاقة المستوى أصبح أبعد
+                        عن النواة بصورة عامة.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        كلما زادت قيمة مستوى الطاقة الرئيسي
+                        زادت طاقة الإلكترون وازداد بعده عن النواة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        1-4-1 مستويات الطاقة الرئيسية
+                    </h3>
+
+                    <p>
+                        يعبر عن مستويات الطاقة الرئيسية بعدد الكم
+                        الرئيسي ويرمز له بالحرف n، ويأخذ قيماً
+                        صحيحة موجبة مثل 1 و2 و3 و4 و5 و6 و7.
+                    </p>
+
+                    <p>
+                        لا يأخذ عدد الكم الرئيسي n قيمة الصفر.
+                    </p>
+
+
+                    <table class="simple-table">
+
+                        <tr>
+
+                            <th>
+                                رمز المستوى
+                            </th>
+
+                            <th>
+                                K
+                            </th>
+
+                            <th>
+                                L
+                            </th>
+
+                            <th>
+                                M
+                            </th>
+
+                            <th>
+                                N
+                            </th>
+
+                            <th>
+                                O
+                            </th>
+
+                            <th>
+                                P
+                            </th>
+
+                            <th>
+                                Q
+                            </th>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>
+                                قيمة n
+                            </th>
+
+                            <td>1</td>
+
+                            <td>2</td>
+
+                            <td>3</td>
+
+                            <td>4</td>
+
+                            <td>5</td>
+
+                            <td>6</td>
+
+                            <td>7</td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        العلاقة بين n والطاقة
+                    </h3>
+
+                    <div class="energy-list">
+
+                        <div class="energy-item">
+
+                            <strong>
+                                n = 1
+                            </strong>
+
+                            <span>
+                                أقل طاقة وأقرب إلى النواة
+                            </span>
+
+                        </div>
+
+
+                        <div class="energy-item">
+
+                            <strong>
+                                n = 2
+                            </strong>
+
+                            <span>
+                                طاقة أعلى من المستوى الأول
+                            </span>
+
+                        </div>
+
+
+                        <div class="energy-item">
+
+                            <strong>
+                                n = 3
+                            </strong>
+
+                            <span>
+                                طاقة أعلى من المستوى الثاني
+                            </span>
+
+                        </div>
+
+
+                        <div class="energy-item">
+
+                            <strong>
+                                n = 7
+                            </strong>
+
+                            <span>
+                                أبعد المستويات وأكثرها طاقة
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        1-4-2 مستويات الطاقة الثانوية
+                    </h3>
+
+                    <p>
+                        تحتوي مستويات الطاقة الرئيسية على مستويات
+                        طاقة ثانوية يرمز لها بالحروف:
+                    </p>
+
+
+                    <div class="example-box">
+
+                        s &nbsp;&nbsp; p &nbsp;&nbsp; d &nbsp;&nbsp; f
+
+                    </div>
+
+
+                    <p>
+                        تختلف هذه المستويات في الشكل وعدد الأوربيتالات
+                        وعدد الإلكترونات التي يمكن أن تحتويها.
+                    </p>
+
+
+                    <table class="simple-table">
+
+                        <tr>
+
+                            <th>
+                                المستوى الثانوي
+                            </th>
+
+                            <th>
+                                عدد الأوربيتالات
+                            </th>
+
+                            <th>
+                                أقصى عدد للإلكترونات
+                            </th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                s
+                            </td>
+
+                            <td>
+                                1
+                            </td>
+
+                            <td>
+                                2
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                p
+                            </td>
+
+                            <td>
+                                3
+                            </td>
+
+                            <td>
+                                6
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                d
+                            </td>
+
+                            <td>
+                                5
+                            </td>
+
+                            <td>
+                                10
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                f
+                            </td>
+
+                            <td>
+                                7
+                            </td>
+
+                            <td>
+                                14
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        تذكر العلاقة المهمة
+                    </h3>
+
+                    <div class="example-box">
+
+                        s → 2 إلكترون
+                        <br><br>
+
+                        p → 6 إلكترونات
+                        <br><br>
+
+                        d → 10 إلكترونات
+                        <br><br>
+
+                        f → 14 إلكتروناً
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        كل أوربيتال يستوعب إلكترونين كحد أقصى.
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            ${lessonButtons(
+                "showLesson3",
+                "showLesson5",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-5
+   ========================================================= */
+
+function showLesson5() {
+
+    setActive(1);
+
+    currentLesson = 5;
+
+    var app =
+        document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+
+                    ←
+
+                </button>
+
+                <h2>
+                    1-5 الترتيب الإلكتروني
+                </h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+
+                <div class="content-card">
+
+                    <h3>
+                        ما المقصود بالترتيب الإلكتروني؟
+                    </h3>
+
+                    <p>
+                        تحتوي العناصر المختلفة على أعداد مختلفة
+                        من الإلكترونات، وتترتب هذه الإلكترونات حول
+                        النواة في الذرة.
+                    </p>
+
+                    <p>
+                        ويعرف توزيع الإلكترونات حول النواة
+                        بالترتيب الإلكتروني.
+                    </p>
+
+                    <p>
+                        لكل عنصر ترتيب إلكتروني خاص تنتظم فيه
+                        الإلكترونات بحيث تكون الطاقة الكلية
+                        أقل ما يمكن.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        الترتيب الإلكتروني هو طريقة توزيع
+                        إلكترونات الذرة حول النواة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        1-5-1 مبدأ أوفباو
+                    </h3>
+
+                    <p>
+                        ينص مبدأ أوفباو على أن مستويات الطاقة
+                        الثانوية تمتلئ بالإلكترونات حسب تسلسل
+                        طاقاتها من الأقل إلى الأعلى.
+                    </p>
+
+                    <p>
+                        وعند كتابة الترتيب الإلكتروني لذرة متعادلة
+                        كهربائياً يجب معرفة العدد الذري للعنصر،
+                        لأن عدد إلكترونات الذرة المتعادلة يساوي
+                        عددها الذري.
+                    </p>
+
+
+                    <div class="example-box">
+
+                        تسلسل الامتلاء المستخدم للعناصر
+                        التي يحتاجها الطالب في هذا الفصل:
+
+                        <br><br>
+
+                        1s → 2s → 2p → 3s → 3p → 4s → 3d
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        ملاحظة:
+                        في أسئلة هذا الفصل يركز الكتاب على
+                        العناصر التي لا يتجاوز عددها الذري 20.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مثال: الصوديوم Na
+                    </h3>
+
+                    <p>
+                        العدد الذري للصوديوم هو 11، لذلك تمتلك
+                        الذرة المتعادلة 11 إلكتروناً.
+                    </p>
+
+
+                    <div class="electron-config">
+
+                        1s² 2s² 2p⁶ 3s¹
+
+                    </div>
+
+
+                    <p>
+                        وبذلك يكون عدد الإلكترونات:
+                    </p>
+
+
+                    <div class="example-box">
+
+                        2 + 2 + 6 + 1 = 11
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مثال: الكلور Cl
+                    </h3>
+
+                    <p>
+                        العدد الذري للكلور هو 17، لذلك تحتوي الذرة
+                        المتعادلة على 17 إلكتروناً.
+                    </p>
+
+
+                    <div class="electron-config">
+
+                        1s² 2s² 2p⁶ 3s² 3p⁵
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        مجموع أسس الترتيب الإلكتروني للذرة
+                        المتعادلة يساوي العدد الذري.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        قاعدة هوند
+                    </h3>
+
+                    <p>
+                        تنص قاعدة هوند على أنه لا يحدث ازدواج بين
+                        إلكترونين في مستوى طاقة ثانوي إلا بعد أن
+                        تشغل أوربيتالاته فرادى أولاً.
+                    </p>
+
+
+                    <div class="example-box">
+
+                        p³
+                        <br><br>
+
+                        ↑ &nbsp;&nbsp; ↑ &nbsp;&nbsp; ↑
+
+                        <br><br>
+
+                        تشغل الإلكترونات الأوربيتالات فرادى أولاً.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        في الأوربيتالات المتساوية الطاقة:
+                        فرادى أولاً، ثم يبدأ الازدواج.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        سعة المستويات الثانوية
+                    </h3>
+
+
+                    <table class="simple-table">
+
+                        <tr>
+
+                            <th>
+                                المستوى
+                            </th>
+
+                            <th>
+                                أقصى عدد إلكترونات
+                            </th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                s
+                            </td>
+
+                            <td>
+                                2
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                p
+                            </td>
+
+                            <td>
+                                6
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                d
+                            </td>
+
+                            <td>
+                                10
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                f
+                            </td>
+
+                            <td>
+                                14
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        تمرين للمراجعة
+                    </h3>
+
+                    <div class="exercise-box">
+
+                        <h4>
+                            سؤال
+                        </h4>
+
+                        <p>
+                            اكتب الترتيب الإلكتروني لذرة الأوكسجين
+                            O وعددها الذري 8.
+                        </p>
+
+                        <div class="answer-box">
+
+                            الإجابة:
+                            1s² 2s² 2p⁴
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="exercise-box">
+
+                        <h4>
+                            سؤال
+                        </h4>
+
+                        <p>
+                            اكتب الترتيب الإلكتروني لذرة الألمنيوم
+                            Al وعددها الذري 13.
+                        </p>
+
+                        <div class="answer-box">
+
+                            الإجابة:
+                            1s² 2s² 2p⁶ 3s² 3p¹
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            ${lessonButtons(
+                "showLesson4",
+                "showLesson6",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-6
+   ========================================================= */
+
+function showLesson6() {
+
+    setActive(1);
+
+    currentLesson = 6;
+
+    var app =
+        document.getElementById("app");
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+
+                    ←
+
+                </button>
+
+                <h2>
+                    1-6 ترتيب لويس
+                </h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+
+                <div class="content-card">
+
+                    <h3>
+                        ما المقصود بترتيب لويس؟
+                    </h3>
+
+                    <p>
+                        يعتمد رمز لويس على عدد الإلكترونات الموجودة
+                        في الغلاف الأخير، أي مستوى الطاقة الخارجي،
+                        والذي يسمى غلاف التكافؤ.
+                    </p>
+
+                    <p>
+                        ترتب الإلكترونات الموجودة في الغلاف الخارجي
+                        لذرة العنصر بطريقة صورية تسمى ترتيب أو رمز لويس.
+                    </p>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 احفظها
+                        </strong>
+
+                        إلكترونات التكافؤ هي الإلكترونات الموجودة
+                        في الغلاف الإلكتروني الخارجي.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        طريقة كتابة رمز لويس
+                    </h3>
+
+                    <p>
+                        يكتب رمز العنصر الكيميائي وتحيط به نقاط
+                        تمثل إلكترونات التكافؤ.
+                    </p>
+
+                    <p>
+                        تمثل كل نقطة إلكتروناً واحداً،
+                        وتمثل كل نقطتين متجاورتين زوجاً من الإلكترونات.
+                    </p>
+
+
+                    <div class="example-box">
+
+                        رمز العنصر
+                        <br><br>
+                        +
+                        <br><br>
+                        نقاط إلكترونات التكافؤ
+                        <br><br>
+                        =
+                        <br><br>
+                        رمز لويس
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مثال: الصوديوم Na
+                    </h3>
+
+                    <p>
+                        العدد الذري للصوديوم 11، وترتيبه الإلكتروني:
+                    </p>
+
+
+                    <div class="electron-config">
+
+                        1s² 2s² 2p⁶ 3s¹
+
+                    </div>
+
+
+                    <p>
+                        يوجد إلكترون واحد في الغلاف الخارجي،
+                        لذلك يمثل رمز لويس للصوديوم بنقطة واحدة
+                        حول الرمز Na.
+                    </p>
+
+
+                    <div class="example-box">
+
+                        Na •
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مثال: الكلور Cl
+                    </h3>
+
+                    <p>
+                        الترتيب الإلكتروني للكلور هو:
+                    </p>
+
+
+                    <div class="electron-config">
+
+                        1s² 2s² 2p⁶ 3s² 3p⁵
+
+                    </div>
+
+
+                    <p>
+                        لذلك يمتلك الكلور سبعة إلكترونات في غلاف
+                        التكافؤ، وتمثل هذه الإلكترونات بنقاط حول
+                        الرمز Cl في ترتيب لويس.
+                    </p>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            🧠 تذكر
+                        </strong>
+
+                        عدد نقاط رمز لويس يعتمد على عدد
+                        إلكترونات التكافؤ.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        العلاقة بين الترتيب الإلكتروني ولويس
+                    </h3>
+
+                    <p>
+                        لمعرفة رمز لويس نحتاج إلى معرفة إلكترونات
+                        الغلاف الخارجي، ويمكن تحديدها من الترتيب
+                        الإلكتروني للعنصر.
+                    </p>
+
+
+                    <table class="simple-table">
+
+                        <tr>
+
+                            <th>
+                                العنصر
+                            </th>
+
+                            <th>
+                                العدد الذري
+                            </th>
+
+                            <th>
+                                إلكترونات التكافؤ
+                            </th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Na
+                            </td>
+
+                            <td>
+                                11
+                            </td>
+
+                            <td>
+                                1
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Mg
+                            </td>
+
+                            <td>
+                                12
+                            </td>
+
+                            <td>
+                                2
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Cl
+                            </td>
+
+                            <td>
+                                17
+                            </td>
+
+                            <td>
+                                7
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Ar
+                            </td>
+
+                            <td>
+                                18
+                            </td>
+
+                            <td>
+                                8
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        📝 مراجعة الدرس
+                    </h3>
+
+
+                    <div class="exercise-box">
+
+                        <h4>
+                            سؤال 1
+                        </h4>
+
+                        <p>
+                            ماذا تمثل نقاط رمز لويس؟
+                        </p>
+
+                        <div class="answer-box">
+
+                            تمثل إلكترونات التكافؤ.
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="exercise-box">
+
+                        <h4>
+                            سؤال 2
+                        </h4>
+
+                        <p>
+                            أين توجد إلكترونات التكافؤ؟
+                        </p>
+
+                        <div class="answer-box">
+
+                            توجد في الغلاف الإلكتروني الخارجي للذرة.
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="exercise-box">
+
+                        <h4>
+                            سؤال 3
+                        </h4>
+
+                        <p>
+                            كم إلكترون تكافؤ يمتلك الصوديوم؟
+                        </p>
+
+                        <div class="answer-box">
+
+                            إلكترون واحد.
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="exercise-box">
+
+                        <h4>
+                            سؤال 4
+                        </h4>
+
+                        <p>
+                            كم إلكترون تكافؤ يمتلك الكلور؟
+                        </p>
+
+                        <div class="answer-box">
+
+                            سبعة إلكترونات.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="lesson-navigation">
+
+                <button
+                    class="previous-button"
+                    onclick="showLesson5()">
+
+                    ← الدرس السابق
+
+                </button>
+
+
+                <button
+                    class="next-button"
+                    onclick="showLesson7()">
+
+                    الدرس التالي → 
+
+                </button>
+
+
+                <button
+                    class="chapter-button"
+                    onclick="showHome()">
+
+                    🏠 العودة إلى الرئيسية
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+
+/* =========================================================
+   الدرس 1-7
+   ========================================================= */
+
+function showLesson7() {
+
+    setActive(1);
+    currentLesson = 7;
+
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+                    ←
+                </button>
+
+                <h2>
+                    1-7 الجدول الدوري
+                </h2>
+
+                <span></span>
+
+            </div>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+
+                    <h3>
+                        ما أهمية الجدول الدوري؟
+                    </h3>
+
+                    <p>
+                        يعد الجدول الدوري من أهم الأدوات التي يستخدمها دارس الكيمياء؛
+                        فهو يساعد على تنظيم العناصر وفهم خواصها الفيزيائية والكيميائية.
+                    </p>
+
+                    <p>
+                        إذا عرفت موقع عنصر في زمرة أو دورة معينة، يمكنك التنبؤ
+                        بدرجة كبيرة بخواص العناصر التي تقع في الزمرة أو الدورة نفسها.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>🧠 احفظها</strong>
+
+                        موقع العنصر في الجدول الدوري يساعدنا على فهم خواصه
+                        والتنبؤ بخواص العناصر المشابهة له.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        الدورات والزمر
+                    </h3>
+
+                    <p>
+                        الصفوف الأفقية في الجدول الدوري تسمى الدورات،
+                        أما الأعمدة الرأسية فتسمى الزمر.
+                    </p>
+
+                    <p>
+                        عناصر الزمرة الواحدة تمتلك تشابهاً في ترتيب إلكترونات
+                        التكافؤ، ولذلك تظهر بينها أوجه تشابه في الخواص.
+                    </p>
+
+                    <div class="example-box">
+
+                        الدورات ← صفوف أفقية<br><br>
+                        الزمر ← أعمدة رأسية
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مثال سريع
+                    </h3>
+
+                    <p>
+                        الصوديوم Na عدده الذري 11، ويقع في الدورة الثالثة
+                        والزمرة الأولى IA.
+                    </p>
+
+                    <p>
+                        المغنيسيوم Mg عدده الذري 12، ويقع في الدورة الثالثة
+                        والزمرة الثانية IIA.
+                    </p>
+
+                    <div class="info-box">
+
+                        يشترك Na و Mg في الدورة الثالثة،
+                        بينما يختلفان في الزمرة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>📝 مراجعة الدرس</h3>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال 1</h4>
+
+                        <p>
+                            ماذا تسمى الصفوف الأفقية في الجدول الدوري؟
+                        </p>
+
+                        <div class="answer-box">
+                            الدورات.
+                        </div>
+
+                    </div>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال 2</h4>
+
+                        <p>
+                            ماذا تسمى الأعمدة الرأسية في الجدول الدوري؟
+                        </p>
+
+                        <div class="answer-box">
+                            الزمر.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            ${lessonButtons(
+                "showLesson6",
+                "showLesson8",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-8
+   ========================================================= */
+
+function showLesson8() {
+
+    setActive(1);
+    currentLesson = 8;
+
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+                    ←
+                </button>
+
+                <h2>
+                    1-8 تصنيف العناصر تبعاً لترتيبها الإلكتروني
+                </h2>
+
+                <span></span>
+
+            </div>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+
+                    <h3>
+                        لماذا تصنف العناصر إلى بلوكات؟
+                    </h3>
+
+                    <p>
+                        يعتمد تصنيف العناصر في الجدول الدوري على ترتيبها الإلكتروني،
+                        وخصوصاً نوع المستوى الثانوي الذي ينتهي به الترتيب الإلكتروني.
+                    </p>
+
+                    <p>
+                        تقسم العناصر إلى أربعة تجمعات أو بلوكات:
+                        s و p و d و f.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>🧠 احفظها</strong>
+
+                        نوع المستوى الثانوي الأخير في الترتيب الإلكتروني
+                        يحدد البلوك الذي ينتمي إليه العنصر.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>بلوك s</h3>
+
+                    <p>
+                        يقع في أقصى يسار الجدول الدوري ويضم الزمرتين IA و IIA.
+                        ينتهي الترتيب الإلكتروني لعناصره بالمستوى الثانوي s،
+                        مع ملاحظة أن الهيليوم يوضع مع العناصر النبيلة في أقصى اليمين.
+                    </p>
+
+                    <div class="example-box">
+
+                        IA → ينتهي بـ s¹<br><br>
+                        IIA → ينتهي بـ s²
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>بلوك p</h3>
+
+                    <p>
+                        يقع في يمين الجدول الدوري وينتهي الترتيب الإلكتروني
+                        لعناصره بالمستوى الثانوي p.
+                    </p>
+
+                    <p>
+                        يشمل الزمر IIIA و IVA و VA و VIA و VIIA و VIIIA.
+                        وتسمى الزمرة VIIIA أو الزمرة صفر زمرة العناصر النبيلة.
+                    </p>
+
+                    <div class="info-box">
+
+                        من التسميات المهمة:
+                        IA الفلزات القلوية،
+                        IIA فلزات الأتربة القلوية،
+                        VIIA الهالوجينات،
+                        VIIIA الغازات النبيلة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>بلوكات d و f</h3>
+
+                    <p>
+                        تمثل عناصر بلوك d المنطقة الوسطى من الجدول الدوري،
+                        بينما تظهر عناصر بلوك f في الصفين المنفصلين أسفل الجدول الدوري.
+                    </p>
+
+                    <div class="example-box">
+
+                        s → يسار الجدول<br><br>
+                        p → يمين الجدول<br><br>
+                        d → وسط الجدول<br><br>
+                        f → أسفل الجدول
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>📝 مراجعة الدرس</h3>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال</h4>
+
+                        <p>
+                            في أي منطقة تقع عناصر بلوك d؟
+                        </p>
+
+                        <div class="answer-box">
+                            في وسط الجدول الدوري.
+                        </div>
+
+                    </div>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال</h4>
+
+                        <p>
+                            ما البلوك الذي تقع عناصره في يمين الجدول الدوري؟
+                        </p>
+
+                        <div class="answer-box">
+                            بلوك p.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            ${lessonButtons(
+                "showLesson7",
+                "showLesson9",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-9
+   ========================================================= */
+
+function showLesson9() {
+
+    setActive(1);
+    currentLesson = 9;
+
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+                    ←
+                </button>
+
+                <h2>
+                    1-9 معرفة الدورة والزمرة
+                </h2>
+
+                <span></span>
+
+            </div>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+
+                    <h3>
+                        كيف نحدد الدورة؟
+                    </h3>
+
+                    <p>
+                        نحدد الدورة من أكبر رقم موجود في مستويات الطاقة الرئيسية
+                        في الترتيب الإلكتروني، أي من آخر مستوى رئيسي مشغول بالإلكترونات.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>🧠 قاعدة مهمة</strong>
+
+                        أكبر رقم رئيسي n في الترتيب الإلكتروني = رقم الدورة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        كيف نحدد الزمرة لعناصر المجموعة A؟
+                    </h3>
+
+                    <p>
+                        إذا انتهى الترتيب الإلكتروني بالمستوى p،
+                        تجمع إلكترونات المستوى p مع إلكتروني المستوى s الذي سبقه
+                        لتحديد رقم الزمرة وفق طريقة الكتاب.
+                    </p>
+
+                    <p>
+                        أما إذا انتهى الترتيب الإلكتروني بالمستوى s،
+                        فإن عدد إلكترونات s في المستوى الخارجي يساعد على تحديد الزمرة.
+                    </p>
+
+                    <div class="example-box">
+
+                        مثال الأوكسجين O₈<br><br>
+                        1s² 2s² 2p⁴<br><br>
+                        الدورة = 2<br>
+                        الزمرة = 6
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        مثال: الكلور Cl
+                    </h3>
+
+                    <p>
+                        العدد الذري للكلور 17، وترتيبه الإلكتروني:
+                    </p>
+
+                    <div class="electron-config">
+                        1s² 2s² 2p⁶ 3s² 3p⁵
+                    </div>
+
+                    <p>
+                        أكبر مستوى رئيسي هو 3، لذلك يقع في الدورة الثالثة.
+                    </p>
+
+                    <p>
+                        في المستوى الخارجي يوجد 2 إلكترون في s و5 إلكترونات في p،
+                        فيكون المجموع 7، لذلك يقع في الزمرة السابعة VIIA.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>🧠 احفظها</strong>
+
+                        Cl₁₇ → الدورة الثالثة، الزمرة السابعة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>
+                        أمثلة مهمة
+                    </h3>
+
+                    <table class="simple-table">
+
+                        <tr>
+                            <th>العنصر</th>
+                            <th>الدورة</th>
+                            <th>الزمرة</th>
+                        </tr>
+
+                        <tr>
+                            <td>O₈</td>
+                            <td>2</td>
+                            <td>6</td>
+                        </tr>
+
+                        <tr>
+                            <td>Cl₁₇</td>
+                            <td>3</td>
+                            <td>7</td>
+                        </tr>
+
+                        <tr>
+                            <td>Ne₁₀</td>
+                            <td>2</td>
+                            <td>8 / صفر</td>
+                        </tr>
+
+                        <tr>
+                            <td>K₁₉</td>
+                            <td>4</td>
+                            <td>1</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>📝 مراجعة الدرس</h3>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال</h4>
+
+                        <p>
+                            ما رقم الدورة لعنصر ينتهي ترتيبه الإلكتروني بالمستوى 3p⁵؟
+                        </p>
+
+                        <div class="answer-box">
+                            الدورة الثالثة؛ لأن أكبر رقم رئيسي هو 3.
+                        </div>
+
+                    </div>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال</h4>
+
+                        <p>
+                            ما دورة وزمرة البوتاسيوم K₁₉؟
+                        </p>
+
+                        <div class="answer-box">
+                            الدورة الرابعة والزمرة الأولى.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            ${lessonButtons(
+                "showLesson8",
+                "showLesson10",
+                "الدرس التالي →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   الدرس 1-10
+   ========================================================= */
+
+function showLesson10() {
+
+    setActive(1);
+    currentLesson = 10;
+
+    var app = document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showChapter1()">
+                    ←
+                </button>
+
+                <h2>
+                    1-10 الخواص الدورية
+                </h2>
+
+                <span></span>
+
+            </div>
+
+            <div class="lesson-content">
+
+                <div class="content-card">
+
+                    <h3>
+                        ما المقصود بالخواص الدورية؟
+                    </h3>
+
+                    <p>
+                        تتدرج خواص العناصر في زمر ودورات الجدول الدوري بصورة منتظمة،
+                        ومن أهم الخواص التي يتناولها الفصل:
+                        نصف القطر الذري، وطاقة التأين، والألفة الإلكترونية،
+                        والكهرسلبية، والخواص الفلزية واللافلزية.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>🧠 احفظها</strong>
+
+                        الخواص الدورية تتغير بصورة منتظمة تبعاً لموقع العنصر
+                        في الجدول الدوري.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>1-10-1 نصف القطر الذري</h3>
+
+                    <p>
+                                                    نصف القطر الذري هو نصف المسافة بين نواتي ذرتين متماثلتين
+                        متحدتين كيميائياً.
+                    </p>
+
+                    <p>
+                        في الدورة الواحدة يقل نصف القطر الذري من اليسار إلى اليمين،
+                        بينما يزداد عند النزول إلى أسفل الزمرة.
+                    </p>
+
+                    <div class="example-box">
+
+                        عبر الدورة → نصف القطر يقل ←<br><br>
+                        إلى أسفل الزمرة ↓ نصف القطر يزداد
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>1-10-2 طاقة التأين</h3>
+
+                    <p>
+                        طاقة التأين هي مقدار الطاقة اللازمة لنزع إلكترون واحد
+                        من مستوى الطاقة الخارجي لذرة عنصر متعادلة في حالتها الغازية.
+                    </p>
+
+                    <p>
+                        تقل طاقة التأين عند النزول إلى أسفل الزمرة،
+                        وتزداد في الدورة مع زيادة العدد الذري بصورة عامة،
+                        مع وجود بعض الاستثناءات التي يذكرها الكتاب.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>🧠 احفظها</strong>
+
+                        طاقة التأين = طاقة نحتاجها لنزع إلكترون من الذرة الغازية.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>1-10-3 الألفة الإلكترونية</h3>
+
+                    <p>
+                        الألفة الإلكترونية هي قابلية الذرة المتعادلة كهربائياً
+                        في الحالة الغازية على اكتساب إلكترون واحد مع تحرير مقدار من الطاقة.
+                    </p>
+
+                    <p>
+                        تزداد الألفة الإلكترونية في الدورات بزيادة العدد الذري،
+                        بينما تصبح إضافة الإلكترون أصعب عند النزول في الزمرة.
+                    </p>
+
+                    <div class="info-box">
+
+                        العناصر النبيلة من أقل العناصر ألفة إلكترونية؛
+                        لأن إضافة إلكترونات إليها تكون صعبة.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>1-10-4 الكهرسلبية</h3>
+
+                    <p>
+                        الكهرسلبية هي قدرة الذرة على جذب إلكترونات التآصر
+                        نحوها في المركب الكيميائي.
+                    </p>
+
+                    <p>
+                        الفلور هو أعلى العناصر كهرسلبية في مقياس الكتاب،
+                        وتزداد الكهرسلبية في الدورة مع زيادة العدد الذري بصورة عامة،
+                        بينما تقل في الزمرة عند زيادة العدد الذري.
+                    </p>
+
+                    <div class="memory-box">
+
+                        <strong>🧠 احفظها</strong>
+
+                        الفلور أعلى العناصر كهرسلبية.
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>1-10-5 الخواص الفلزية واللافلزية</h3>
+
+                    <p>
+                        في الدورة الواحدة تقل الخواص الفلزية تدريجياً من اليسار
+                        إلى اليمين وتظهر وتزداد الخواص اللافلزية.
+                    </p>
+
+                    <p>
+                        وفي الزمرة الواحدة تزداد الخواص الفلزية عند النزول إلى الأسفل،
+                        بينما تقل الخواص اللافلزية.
+                    </p>
+
+                    <div class="example-box">
+
+                        الفلزية في الدورة → تقل من اليسار إلى اليمين<br><br>
+                        الفلزية في الزمرة ↓ تزداد عند النزول
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>📌 خلاصة الاتجاهات</h3>
+
+                    <table class="simple-table">
+
+                        <tr>
+                            <th>الخاصية</th>
+                            <th>في الدورة</th>
+                            <th>في الزمرة</th>
+                        </tr>
+
+                        <tr>
+                            <td>نصف القطر الذري</td>
+                            <td>يقل →</td>
+                            <td>يزداد ↓</td>
+                        </tr>
+
+                        <tr>
+                            <td>طاقة التأين</td>
+                            <td>تزداد →</td>
+                            <td>تقل ↓</td>
+                        </tr>
+
+                        <tr>
+                            <td>الكهرسلبية</td>
+                            <td>تزداد →</td>
+                            <td>تقل ↓</td>
+                        </tr>
+
+                        <tr>
+                            <td>الخواص الفلزية</td>
+                            <td>تقل →</td>
+                            <td>تزداد ↓</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h3>📝 مراجعة الدرس</h3>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال 1</h4>
+
+                        <p>
+                            كيف يتغير نصف القطر الذري عبر الدورة؟
+                        </p>
+
+                        <div class="answer-box">
+                            يقل من اليسار إلى اليمين.
+                        </div>
+
+                    </div>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال 2</h4>
+
+                        <p>
+                            ما أعلى العناصر كهرسلبية؟
+                        </p>
+
+                        <div class="answer-box">
+                            الفلور.
+                        </div>
+
+                    </div>
+
+                    <div class="exercise-box">
+
+                        <h4>سؤال 3</h4>
+
+                        <p>
+                            ماذا تسمى الطاقة اللازمة لنزع إلكترون من الذرة الغازية؟
+                        </p>
+
+                        <div class="answer-box">
+                            طاقة التأين.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            ${lessonButtons(
+                "showLesson9",
+                "showQuiz",
+                "انتقل إلى الاختبار →"
+            )}
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   احفظها
+   ========================================================= */
 
 function showMemory() {
 
     setActive(2);
 
-    document.getElementById("app").innerHTML =
-        '<div class="page">' +
-        '<div class="title">🧠 احفظها</div>' +
-        '<div class="card">' +
-        '<h2>بطاقات الحفظ</h2>' +
-        '<p>ستظهر هنا أهم التعاريف والقوانين للحفظ والمراجعة.</p>' +
-        '</div>' +
-        '</div>';
+    var app =
+        document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showHome()">
+
+                    ←
+
+                </button>
+
+                <h2>
+                    🧠 احفظها
+                </h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+
+                <div class="content-card">
+
+                    <h3>
+                        أهم نقاط الفصل الأول
+                    </h3>
+
+                    <div class="memory-box">
+
+                        <strong>
+                            1️⃣ الذرة
+                        </strong>
+
+                        الذرة هي الوحدة الأساسية لبناء المواد.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            2️⃣ دالتون
+                        </strong>
+
+                        تصور الذرة كرة صلبة دقيقة غير قابلة للانقسام.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            3️⃣ ثومسون
+                        </strong>
+
+                        تصور الذرة كرة موجبة تتوزع فيها الإلكترونات
+                        سالبة الشحنة.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            4️⃣ رذرفورد
+                        </strong>
+
+                        وضع النواة في مركز الذرة واعتبر معظم
+                        حجم الذرة فراغاً.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            5️⃣ بور
+                        </strong>
+
+                        اقترح مستويات طاقة محددة للإلكترونات.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            6️⃣ النظرية الحديثة
+                        </strong>
+
+                        تصف احتمال وجود الإلكترون في أوربيتال
+                        أو سحابة إلكترونية.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            7️⃣ أوفباو
+                        </strong>
+
+                        تمتلئ مستويات الطاقة الثانوية من الأقل
+                        طاقة إلى الأعلى.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            8️⃣ هوند
+                        </strong>
+
+                        تشغل الأوربيتالات فرادى أولاً ثم يحدث الازدواج.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            9️⃣ لويس
+                        </strong>
+
+                        نقاط لويس تمثل إلكترونات التكافؤ.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
 }
 
+
+/* =========================================================
+   الاختبار
+   ========================================================= */
 
 function showQuiz() {
 
     setActive(3);
 
-    document.getElementById("app").innerHTML =
-        '<div class="page">' +
-        '<div class="title">❓ اختبرني</div>' +
-        '<div class="card">' +
-        '<h2>أسئلة الفصل الأول</h2>' +
-        '<p>سيتم إضافة الاختبارات والأسئلة المستخرجة من الكتاب هنا.</p>' +
-        '</div>' +
-        '</div>';
+    var app =
+        document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showHome()">
+
+                    ←
+
+                </button>
+
+                <h2>
+                    ❓ اختبرني
+                </h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    اختبار الفصل الأول
+                </h3>
+
+                <p>
+                    هذه الصفحة ستحتوي على أسئلة الفصل
+                    بعد الانتهاء من بناء الدروس.
+                </p>
+
+                <div class="info-box">
+
+                    قريباً:
+                    أسئلة اختيار من متعدد مع حساب النتيجة
+                    وإظهار الإجابات الصحيحة.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
 }
 
+
+/* =========================================================
+   الحساب
+   ========================================================= */
 
 function showAccount() {
 
     setActive(4);
 
-    document.getElementById("app").innerHTML =
-        '<div class="page">' +
-        '<div class="title">👤 حسابي</div>' +
-        '<div class="card">' +
-        '<h2>حساب الطالب</h2>' +
-        '<p>المستوى الدراسي والتقدم في الدروس.</p>' +
-        '</div>' +
-        '</div>';
+    var app =
+        document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showHome()">
+
+                    ←
+
+                </button>
+
+                <h2>
+                    👤 حسابي
+                </h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>
+                    حساب الطالب
+                </h3>
+
+                <p>
+                    سيتم لاحقاً إضافة بيانات الطالب
+                    ونسبة الإنجاز والدرجات.
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
 }
 
 
+/* =========================================================
+   تشغيل الصفحة الرئيسية
+   ========================================================= */
+
 showHome();
+
 
 </script>
 

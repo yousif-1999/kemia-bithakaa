@@ -1173,6 +1173,39 @@ li {
    ========================================================= */
 
 var currentLesson = 1;
+    markLessonComplete(1);
+var quizIndex = 0;
+var quizScore = 0;
+var quizAnswered = false;
+
+function getCompletedLessons() {
+    try {
+        return JSON.parse(localStorage.getItem("kemia_completed_lessons") || "[]");
+    } catch (e) {
+        return [];
+    }
+}
+
+function markLessonComplete(number) {
+    var completed = getCompletedLessons();
+    if (completed.indexOf(number) === -1) {
+        completed.push(number);
+        completed.sort(function(a,b){ return a-b; });
+        localStorage.setItem("kemia_completed_lessons", JSON.stringify(completed));
+    }
+}
+
+function getStudentName() {
+    return localStorage.getItem("kemia_student_name") || "طالب كيمياء بذكاء";
+}
+
+function saveStudentName() {
+    var input = document.getElementById("studentNameInput");
+    if (!input) return;
+    var name = input.value.trim();
+    localStorage.setItem("kemia_student_name", name || "طالب كيمياء بذكاء");
+    showAccount();
+}
 
 
 /* =========================================================
@@ -1771,6 +1804,7 @@ function showLesson2() {
     setActive(1);
 
     currentLesson = 2;
+    markLessonComplete(2);
 
     var app =
         document.getElementById("app");
@@ -1992,6 +2026,7 @@ function showLesson3() {
     setActive(1);
 
     currentLesson = 3;
+    markLessonComplete(3);
 
     var app =
         document.getElementById("app");
@@ -2251,6 +2286,7 @@ function showLesson4() {
     setActive(1);
 
     currentLesson = 4;
+    markLessonComplete(4);
 
     var app =
         document.getElementById("app");
@@ -2629,6 +2665,7 @@ function showLesson5() {
     setActive(1);
 
     currentLesson = 5;
+    markLessonComplete(5);
 
     var app =
         document.getElementById("app");
@@ -2994,6 +3031,7 @@ function showLesson6() {
     setActive(1);
 
     currentLesson = 6;
+    markLessonComplete(6);
 
     var app =
         document.getElementById("app");
@@ -3396,6 +3434,7 @@ function showLesson7() {
 
     setActive(1);
     currentLesson = 7;
+    markLessonComplete(7);
 
     var app = document.getElementById("app");
 
@@ -3557,6 +3596,7 @@ function showLesson8() {
 
     setActive(1);
     currentLesson = 8;
+    markLessonComplete(8);
 
     var app = document.getElementById("app");
 
@@ -3734,6 +3774,7 @@ function showLesson9() {
 
     setActive(1);
     currentLesson = 9;
+    markLessonComplete(9);
 
     var app = document.getElementById("app");
 
@@ -3943,6 +3984,7 @@ function showLesson10() {
 
     setActive(1);
     currentLesson = 10;
+    markLessonComplete(10);
 
     var app = document.getElementById("app");
 
@@ -4379,60 +4421,97 @@ function showMemory() {
    الاختبار
    ========================================================= */
 
+var quizQuestions = [
+    { q: "ما أقصى عدد من الإلكترونات في المستوى الفرعي s؟", options: ["2", "6", "10", "14"], answer: 0 },
+    { q: "ما أقصى عدد من الإلكترونات في المستوى الفرعي p؟", options: ["2", "6", "10", "14"], answer: 1 },
+    { q: "ما أقصى عدد من الإلكترونات في المستوى الفرعي d؟", options: ["2", "6", "10", "14"], answer: 2 },
+    { q: "ما أقصى عدد من الإلكترونات في المستوى الفرعي f؟", options: ["2", "6", "10", "14"], answer: 3 },
+    { q: "في الذرة المتعادلة، عدد الإلكترونات يساوي؟", options: ["عدد النيوترونات", "العدد الذري", "عدد مستويات الطاقة", "العدد الكتلي"], answer: 1 },
+    { q: "أي ترتيب إلكتروني يمثل الصوديوم Na؟", options: ["1s² 2s² 2p⁶ 3s¹", "1s² 2s² 2p⁴", "1s² 2s² 3s²", "1s² 2p⁶ 3s²"], answer: 0 },
+    { q: "ما الذي يحدد الدورة من الترتيب الإلكتروني؟", options: ["عدد البروتونات فقط", "أكبر رقم رئيسي n", "عدد النيوترونات", "عدد الأوربيتالات"], answer: 1 },
+    { q: "أين تقع كتلة s في الجدول الدوري؟", options: ["الجهة اليسرى", "الجهة اليمنى", "أسفل الجدول فقط", "وسط الجدول فقط"], answer: 0 },
+    { q: "كيف يتغير نصف القطر الذري عبر الدورة من اليسار إلى اليمين؟", options: ["يزداد", "يقل", "لا يتغير", "يتضاعف"], answer: 1 },
+    { q: "أي عنصر له أعلى سالبية كهربائية؟", options: ["الصوديوم", "المغنيسيوم", "الفلور", "البوتاسيوم"], answer: 2 }
+];
+
 function showQuiz() {
-
     setActive(3);
+    quizIndex = 0;
+    quizScore = 0;
+    quizAnswered = false;
+    renderQuizQuestion();
+}
 
-    var app =
-        document.getElementById("app");
-
+function renderQuizQuestion() {
+    var app = document.getElementById("app");
+    var q = quizQuestions[quizIndex];
+    if (!q) { showQuizResult(); return; }
     app.innerHTML = `
-
         <div class="page">
-
             <div class="page-header">
-
-                <button
-                    class="back-button"
-                    onclick="showHome()">
-
-                    ←
-
-                </button>
-
-                <h2>
-                    ❓ اختبرني
-                </h2>
-
+                <button class="back-button" onclick="showHome()">←</button>
+                <h2>❓ اختبرني</h2>
                 <span></span>
-
             </div>
-
 
             <div class="content-card">
-
-                <h3>
-                    اختبار الفصل الأول
-                </h3>
-
-                <p>
-                    هذه الصفحة ستحتوي على أسئلة الفصل
-                    بعد الانتهاء من بناء الدروس.
-                </p>
-
-                <div class="info-box">
-
-                    قريباً:
-                    أسئلة اختيار من متعدد مع حساب النتيجة
-                    وإظهار الإجابات الصحيحة.
-
+                <h3>السؤال ${quizIndex + 1} من ${quizQuestions.length}</h3>
+                <div class="info-box">النتيجة الحالية: ${quizScore}</div>
+                <p style="font-size:22px;font-weight:700;margin-top:18px;">${q.q}</p>
+                <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px;">
+                    ${q.options.map(function(option, i) {
+                        return `<button class="chapter-button" onclick="answerQuiz(${i})">${String.fromCharCode(65+i)}. ${option}</button>`;
+                    }).join("")}
                 </div>
-
             </div>
+        </div>`;
+}
 
-        </div>
+function answerQuiz(selected) {
+    if (quizAnswered) return;
+    quizAnswered = true;
+    var q = quizQuestions[quizIndex];
+    var buttons = document.querySelectorAll('.chapter-button');
+    if (selected === q.answer) quizScore++;
+    buttons.forEach(function(btn, i) {
+        btn.disabled = true;
+        if (i === q.answer) {
+            btn.style.background = '#e7f6ea';
+            btn.style.borderColor = '#5aa66a';
+        } else if (i === selected) {
+            btn.style.background = '#fdeaea';
+            btn.style.borderColor = '#d9534f';
+        }
+    });
+    var app = document.getElementById("app");
+    var feedback = document.createElement("div");
+    feedback.className = "answer-box";
+    feedback.style.marginTop = "15px";
+    feedback.textContent = selected === q.answer ? "✅ إجابة صحيحة" : "❌ إجابة غير صحيحة";
+    app.querySelector('.content-card').appendChild(feedback);
+    setTimeout(function(){ quizAnswered = false; quizIndex++; renderQuizQuestion(); }, 700);
+}
 
-    `;
+function showQuizResult() {
+    var total = quizQuestions.length;
+    var percentage = Math.round((quizScore / total) * 100);
+    var message = percentage >= 90 ? "ممتاز جدًا! 🔥" : percentage >= 70 ? "أحسنت! 👏" : percentage >= 50 ? "جيد، راجع بعض الدروس." : "تحتاج إلى مراجعة الفصل ثم إعادة الاختبار.";
+    var app = document.getElementById("app");
+    app.innerHTML = `
+        <div class="page">
+            <div class="page-header">
+                <button class="back-button" onclick="showHome()">←</button>
+                <h2>🏆 نتيجة الاختبار</h2>
+                <span></span>
+            </div>
+            <div class="content-card" style="text-align:center;">
+                <h3>${message}</h3>
+                <div class="electron-config">${quizScore} / ${total}</div>
+                <p>النسبة: <strong>${percentage}%</strong></p>
+                <button class="next-button" onclick="showQuiz()" style="margin-top:15px;">🔄 إعادة الاختبار</button>
+                <button class="previous-button" onclick="showChapter1()" style="margin-top:10px;">📚 العودة للدروس</button>
+            </div>
+        </div>`;
 }
 
 
@@ -4441,51 +4520,43 @@ function showQuiz() {
    ========================================================= */
 
 function showAccount() {
-
     setActive(4);
-
-    var app =
-        document.getElementById("app");
-
+    var app = document.getElementById("app");
+    var completed = getCompletedLessons().length;
+    var name = getStudentName();
+    var percent = Math.round((completed / 10) * 100);
     app.innerHTML = `
-
         <div class="page">
-
             <div class="page-header">
-
-                <button
-                    class="back-button"
-                    onclick="showHome()">
-
-                    ←
-
-                </button>
-
-                <h2>
-                    👤 حسابي
-                </h2>
-
+                <button class="back-button" onclick="showHome()">←</button>
+                <h2>👤 حسابي</h2>
                 <span></span>
-
             </div>
-
 
             <div class="content-card">
-
-                <h3>
-                    حساب الطالب
-                </h3>
-
-                <p>
-                    سيتم لاحقاً إضافة بيانات الطالب
-                    ونسبة الإنجاز والدرجات.
-                </p>
-
+                <h3>👋 أهلاً بك</h3>
+                <p>${name}</p>
+                <label for="studentNameInput" style="display:block;font-weight:700;margin:15px 0 8px;">اسم الطالب</label>
+                <input id="studentNameInput" value="${name === 'طالب كيمياء بذكاء' ? '' : name.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}" placeholder="اكتب اسمك" style="width:100%;padding:14px;border:1px solid #dfe6f2;border-radius:14px;font-family:inherit;font-size:17px;">
+                <button class="next-button" onclick="saveStudentName()" style="margin-top:12px;">💾 حفظ الاسم</button>
             </div>
 
-        </div>
+            <div class="content-card">
+                <h3>📊 تقدمك في الفصل الأول</h3>
+                <div class="electron-config">${completed} / 10</div>
+                <p style="text-align:center;">لقد أنجزت ${percent}% من دروس الفصل الأول.</p>
+            </div>
 
-    `;
+            <div class="content-card">
+                <h3>📚 الدروس المكتملة</h3>
+                <p>${completed ? getCompletedLessons().map(function(n){ return '✅ الدرس ' + n; }).join(' &nbsp; ') : 'لم تُكمل أي درس بعد.'}</p>
+            </div>
+
+            <div class="content-card">
+                <h3>🧪 كيمياء بذكاء</h3>
+                <p>استمر بالدراسة ثم اختبر نفسك لمعرفة مدى تقدمك.</p>
+            </div>
+        </div>`;
 }
 
 

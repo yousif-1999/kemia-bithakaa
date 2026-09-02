@@ -1704,6 +1704,7 @@ li {
 .formula-label{font-size:14px;color:#5d6b7c;font-weight:800;margin-bottom:9px}
 .formula-equation{direction:ltr;text-align:center;font-family:"Times New Roman",serif;font-size:22px;font-weight:700;color:#122f58;background:#f6f9fd;border-radius:12px;padding:12px;overflow:auto}
 .formula-note{margin-top:9px;color:#5c6877;font-size:13px;line-height:1.7}
+.example-box{margin-top:14px;padding:14px 16px;border-radius:16px;background:#fff8e8;border:1px solid #f1d49a;color:#6a4c12;line-height:1.9}.lesson-section-title{font-weight:900;color:#173e72;margin:18px 0 10px;font-size:17px}
 .formula-empty{padding:20px;border:1px dashed #c9d6e8;background:#f8fbff;border-radius:16px;color:#617086;line-height:1.8;text-align:center}
 .formula-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:999px;background:#edf4ff;color:#204d88;font-size:12px;font-weight:900;margin-bottom:12px}
 </style>
@@ -2076,75 +2077,6 @@ function showThirdChapterQuestions(ch){
     else alert('أسئلة هذا الفصل ستظهر بعد تجهيزها.');
 }
 
-function showSixthScientific(){
-    setCurrentGrade("sixth");
-    setActive(1);
-    var app=document.getElementById("app");
-    app.innerHTML=`
-      <div class="grade-dashboard sixth-dashboard">
-        <div class="page-header dashboard-header">
-          <button class="back-button" onclick="showHome()">←</button>
-          <div class="dashboard-title-wrap"><span class="dashboard-kicker">المسار الدراسي</span><h2>🎓 الكيمياء — الصف السادس علمي</h2></div>
-          <span></span>
-        </div>
-        <div class="grade-switch">
-          <button onclick="showThirdMiddleHome()">📘 الثالث متوسط</button>
-          <button class="active" onclick="showSixthScientific()">🎓 السادس علمي</button>
-        </div>
-        <section class="dashboard-hero sixth-hero">
-          <div><span class="dashboard-badge">منهج السادس العلمي</span><h1>مرحباً بك في مسارك العلمي 👋</h1><p>مسار مستقل للسادس العلمي. ستضاف فيه المادة والفصول والأسئلة الخاصة بهذا الصف فقط.</p></div>
-          <div class="dashboard-hero-icon">🧪</div>
-        </section>
-        <div class="dashboard-grid">
-          <button class="dashboard-card featured" onclick="showSixthLessonsHub()"><span class="dashboard-card-icon">📚</span><span><b>دروسي</b><small>فصول ودروس السادس العلمي</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showSixthMinistry()"><span class="dashboard-card-icon">🎯</span><span><b>أفكار وزارية</b><small>أفكار السادس العلمي فقط</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showSixthQuestions()"><span class="dashboard-card-icon">📝</span><span><b>أسئلة الفصول وحلولها</b><small>أسئلة السادس العلمي وحلولها</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showQuizChooser()"><span class="dashboard-card-icon">❓</span><span><b>اختبرني</b><small>اختبارات مستقلة للسادس العلمي</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showMemoryChooser()"><span class="dashboard-card-icon">🧠</span><span><b>احفظها</b><small>مراجعة وحفظ محتوى السادس</small></span><i>←</i></button>
-        </div>
-        <div class="dashboard-note sixth-note">🔒 هذا المسار مستقل عن الثالث متوسط بالكامل. لن تُعرض فيه أي مادة من منهج الثالث متوسط.</div>
-      </div>`;
-}
-
-function showSixthScientific(){
-    setCurrentGrade("sixth"); setActive(1);
-    var app=document.getElementById("app");
-    app.innerHTML=`
-      <div class="grade-dashboard sixth-dashboard">
-        <div class="page-header dashboard-header">
-          <button class="back-button" onclick="showHome()">←</button>
-          <div class="dashboard-title-wrap"><span class="dashboard-kicker">المسار الدراسي</span><h2>🎓 الكيمياء — الصف السادس العلمي</h2></div><span></span>
-        </div>
-        <div class="grade-switch"><button onclick="showThirdMiddleHome()">📘 الثالث متوسط</button><button class="active" onclick="showSixthScientific()">🎓 السادس العلمي</button></div>
-        <section class="dashboard-hero sixth-hero"><div><span class="dashboard-badge">المنهج الرسمي 2025</span><h1>مرحباً بك في مسارك العلمي 👋</h1><p>المحتوى مبني أولاً على كتاب الكيمياء الرسمي للصف السادس العلمي، وتدعمه الملزمتان المرفوعتان للمراجعة والتبسيط.</p></div><div class="dashboard-hero-icon">🧪</div></section>
-        <div class="dashboard-grid">
-          <button class="dashboard-card featured" onclick="showSixthLessonsHub()"><span class="dashboard-card-icon">📚</span><span><b>دروسي</b><small>ثمانية فصول: من الثرموداينمك إلى الكيمياء الحياتية</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showSixthMinistry()"><span class="dashboard-card-icon">🎯</span><span><b>أفكار وزارية</b><small>مراجعة مركزة من موضوعات المنهج</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showSixthQuestions()"><span class="dashboard-card-icon">📝</span><span><b>أسئلة الفصول وحلولها</b><small>تدريب مرتب حسب الفصول</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showQuizChooser()"><span class="dashboard-card-icon">❓</span><span><b>اختبرني</b><small>اختبار حسب الصف والفصل</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showMemoryChooser()"><span class="dashboard-card-icon">🧠</span><span><b>احفظها</b><small>بطاقات مراجعة للسادس العلمي</small></span><i>←</i></button>
-        </div>
-        <div class="dashboard-note sixth-note">📚 المصدر الأساسي: كتاب الكيمياء للسادس العلمي، الطبعة الحادية عشرة 2025. وتستخدم الملزمتان المرفوعتان للتبسيط والتركيز والمراجعة.</div>
-      </div>`;
-}
-function showSixthLessonsHub(){
-    setCurrentGrade("sixth"); setActive(1); var app=document.getElementById('app');
-    var icons=['🔥','⚖️','🧪','⚡','🔷','🔬','🧬','🥑'];
-    var cards=SIXTH_SOURCES.map(function(d,i){return `<div class="chapter-select-card sixth-chapter-card" onclick="showSixthChapter(${i+1})"><div class="chapter-select-icon">${icons[i]}</div><div class="chapter-select-info"><h3>الفصل ${i+1}: ${d.title}</h3><p>${d.desc}</p></div><div class="chapter-select-arrow">←</div></div>`}).join('');
-    app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthScientific()">←</button><h2>📚 دروسي — السادس العلمي</h2><span></span></div><div class="lessons-page"><h1 class="lessons-heading">فصول المنهج</h1><p class="lessons-subheading">ثمانية فصول مستقلة، وكل فصل مرتبط بمادته وقوانينه فقط.</p><div class="chapter-select-grid">${cards}</div></div></div>`;
-}
-function sixthComing(title){ showSixthLessonsHub(); }
-function showSixthMinistry(){ setCurrentGrade('sixth'); setActive(1); var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthScientific()">←</button><h2>🎯 أفكار مركزة — السادس العلمي</h2><span></span></div><div class="content-card"><h3>مراجعة حسب الفصل</h3><p class="lessons-subheading">اختر الفصل للحصول على نقاط المراجعة المركزة المرتبطة بموضوعاته.</p>${SIXTH_SOURCES.map(function(d,i){return `<div class="lesson-card" onclick="showSixthChapterIdeas(${i+1})"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>الفصل ${i+1}: ${d.title}</h3><p>نقاط مراجعة مركزة من موضوعات الفصل.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}</div></div>`; }
-function showSixthQuestions(){ setCurrentGrade('sixth'); setActive(1); var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthScientific()">←</button><h2>📝 أسئلة الفصول — السادس العلمي</h2><span></span></div><div class="content-card"><h3>اختر الفصل</h3>${SIXTH_SOURCES.map(function(d,i){return `<div class="lesson-card" onclick="showSixthChapterQuestions(${i+1})"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل ${i+1}: ${d.title}</h3><p>تدريب من أسئلة الفصل ومراجعاته.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}</div></div>`; }
-function showSixthQuiz(){ showQuizChooser(); }
-function showSixthMemory(){ showMemoryChooser(); }
-function showSixthChapterIdeas(ch){ var d=SIXTH_SOURCES[ch-1]; setCurrentGrade('sixth'); var app=document.getElementById('app'); var bullets=d.lessons.slice(0,Math.min(6,d.lessons.length)); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthMinistry()">←</button><h2>🎯 مراجعة الفصل ${ch}</h2><span></span></div><div class="content-card"><h3>الفصل ${ch}: ${d.title}</h3><div class="ministry-ideas-intro">أهم المحاور التي ينبغي التركيز عليها في الفصل.</div>${bullets.map(function(x,i){return `<div class="memory-box">${i+1}️⃣ ${x}</div>`}).join('')}<div class="source-note">المحتوى مبني على الكتاب الرسمي، مع الاستفادة من الملزمتين في ترتيب المراجعة.</div></div></div>`; }
-function showSixthChapterQuestions(ch){ var d=SIXTH_SOURCES[ch-1]; setCurrentGrade('sixth'); var q=d.formulas.slice(0,Math.min(5,d.formulas.length)); var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthQuestions()">←</button><h2>📝 أسئلة مراجعة — الفصل ${ch}</h2><span></span></div>${q.map(function(it,i){return `<div class="content-card"><h3>${i+1}. ما العلاقة أو المعادلة المرتبطة بـ «${it[0]}»؟</h3><div class="answer-box">✅ ${it[1]}</div><div class="memory-box">💡 ${it[2]}</div></div>`}).join('')}<div class="source-note">هذه بطاقات تدريب مبنية على قوانين الفصل من الكتاب الرسمي، وليست نقلاً حرفيًا لكل أسئلة نهاية الفصل.</div></div>`; }
-
-/* =========================================================
-   قائمة دروس الفصل الأول
-   ========================================================= */
-
 function showChapter1Lessons() {
 
     setActive(1);
@@ -2435,7 +2367,6 @@ function showChapter1Lessons() {
 
 
 
-            <div class="lesson-card" onclick="showChapterFormulas(1)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>كل قوانين ومعادلات الفصل 1 مرتبة في مكان واحد.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterMemory(1)">
 
                 <div class="lesson-card-icon">🧠</div>
@@ -3092,7 +3023,6 @@ function showChapterQuestionsEssay() {
    ========================================================= */
 
 function lessonButtons(previousFunction, nextFunction, nextText) {
-    nextText = nextText || "الدرس التالي →";
 
     return `
 
@@ -3135,7 +3065,6 @@ function lessonButtons(previousFunction, nextFunction, nextText) {
    ========================================================= */
 
 function showLesson1() {
-    markChapterLesson("third",1,1,10);
 
     setActive(1);
     currentLesson = 1;
@@ -3245,7 +3174,6 @@ function showLesson1() {
 }
 
 function showLesson2() {
-    markChapterLesson("third",1,2,10);
 
     setActive(1);
     currentLesson = 2;
@@ -3330,7 +3258,6 @@ function showLesson2() {
 }
 
 function showLesson3() {
-    markChapterLesson("third",1,3,10);
 
     setActive(1);
     currentLesson = 3;
@@ -3417,7 +3344,6 @@ function showLesson3() {
 }
 
 function showLesson4() {
-    markChapterLesson("third",1,4,10);
 
     setActive(1);
     currentLesson = 4;
@@ -3506,7 +3432,6 @@ function showLesson4() {
 }
 
 function showLesson5() {
-    markChapterLesson("third",1,5,10);
 
     setActive(1);
     currentLesson = 5;
@@ -3613,7 +3538,6 @@ function showLesson5() {
 }
 
 function showLesson6() {
-    markChapterLesson("third",1,6,10);
 
     setActive(1);
     currentLesson = 6;
@@ -3697,7 +3621,6 @@ function showLesson6() {
 }
 
 function showLesson7() {
-    markChapterLesson("third",1,7,10);
 
     setActive(1);
     currentLesson = 7;
@@ -3774,7 +3697,6 @@ function showLesson7() {
 }
 
 function showLesson8() {
-    markChapterLesson("third",1,8,10);
 
     setActive(1);
     currentLesson = 8;
@@ -3862,7 +3784,6 @@ function showLesson8() {
 }
 
 function showLesson9() {
-    markChapterLesson("third",1,9,10);
 
     setActive(1);
     currentLesson = 9;
@@ -3940,7 +3861,6 @@ function showLesson9() {
 }
 
 function showLesson10() {
-    markChapterLesson("third",1,10,10);
 
     setActive(1);
     currentLesson = 10;
@@ -4080,9 +4000,7 @@ function showLesson10() {
    اختيار الفصول
    ========================================================= */
 
-function showChapters() { showThirdMiddleHome(); }
-
-function showThirdMiddleChaptersLegacy() {
+function showChapters() {
 
     setActive(1);
 
@@ -4264,7 +4182,6 @@ function showChapter2() {
                 <div class="lesson-arrow">←</div>
             </div>
 
-            <div class="lesson-card" onclick="showChapterFormulas(2)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>كل قوانين ومعادلات الفصل 2 مرتبة في مكان واحد.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterMemory(2)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الثاني</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
 
             <div class="lesson-card" onclick="showChapterQuiz(2)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الثاني</h3><p>اختبار من أسئلة الفصل الثاني فقط.</p></div><div class="lesson-arrow">←</div></div>
@@ -4312,7 +4229,6 @@ function lessonButtons2(previousFunction, nextFunction, nextText) {
 
 
 function showLesson2_1() {
-    markChapterLesson("third",2,1,5);
     setActive(1);
     var app = document.getElementById("app");
 
@@ -4390,7 +4306,6 @@ function showLesson2_1() {
 
 
 function showLesson2_2() {
-    markChapterLesson("third",2,2,5);
     setActive(1);
     var app = document.getElementById("app");
 
@@ -4451,7 +4366,6 @@ function showLesson2_2() {
 
 
 function showLesson2_3() {
-    markChapterLesson("third",2,3,5);
     setActive(1);
     var app = document.getElementById("app");
 
@@ -4472,14 +4386,14 @@ function showLesson2_3() {
                     <p>يُستخدم الكشف الجاف باللهب للكشف عن وجود الصوديوم في مركباته، حيث يلون لهب مصباح بنزن باللون الأصفر البراق (الذهبي).</p>
                 </div>
 
-                <div class="content-card prep-card">
+                <div class="content-card">
                     <h3>🧂 كلوريد الصوديوم NaCl</h3>
                     <p>هو أكثر مركبات الصوديوم انتشارًا، ويوجد في الصخور الملحية والترسبات تحت سطح الأرض، وبكميات كبيرة في مياه البحار والبحيرات والينابيع.</p>
                     <p>يستخرج من الترسبات تحت الأرض بإذابة الملح بالماء ثم سحب المحلول وتبخير الماء، ومن مياه البحر بضخها إلى أحواض ضحلة وترك الماء يتبخر بحرارة الشمس، وهي الطريقة المستخدمة في ملاحات الفاو جنوب العراق وفق الملزمة.</p>
                     <div class="memory-box">
                         <strong>🏭 أهميته الصناعية</strong>
                         يدخل في تحضير كربونات الصوديوم، وهيدروكسيد الصوديوم، وغاز الكلور، ويستخدم في حفظ الأغذية، ودباغة الجلود، وصناعة الثلج وتثبيت الأصباغ.
-                    </div>${prepGeneratedFigure('sodiumChloride','استخراج كلوريد الصوديوم')}
+                    </div>
                 </div>
 
                 <div class="content-card">
@@ -4509,7 +4423,6 @@ function showLesson2_3() {
 
 
 function showLesson2_4() {
-    markChapterLesson("third",2,4,5);
     setActive(1);
     var app = document.getElementById("app");
 
@@ -4539,10 +4452,10 @@ function showLesson2_4() {
                     <p>لا يوجد الكالسيوم حرًا في الطبيعة لشدة فعاليته، وإنما يوجد متحدًا مع عناصر أخرى في صورة كربونات مثل المرمر وحجر الكلس، وكبريتات مثل الجبس، وفوسفات، وسليكات.</p>
                 </div>
 
-                <div class="content-card prep-card">
+                <div class="content-card">
                     <h3>⚡ استخلاص الكالسيوم</h3>
                     <p>يُستخلص الكالسيوم بالتحليل الكهربائي لمنصهر كلوريد وفلوريد الكالسيوم.</p>
-                    <div class="info-box">✅ سبب عدم وجوده حرًا: شدة فعاليته واتحاده مع غيره من العناصر.</div>${prepGeneratedFigure('calciumElectrolysis','استخلاص الكالسيوم بالتحليل الكهربائي')}
+                    <div class="info-box">✅ سبب عدم وجوده حرًا: شدة فعاليته واتحاده مع غيره من العناصر.</div>
                 </div>
 
                 <div class="content-card">
@@ -4559,7 +4472,6 @@ function showLesson2_4() {
 
 
 function showLesson2_5() {
-    markChapterLesson("third",2,5,5);
     setActive(1);
     var app = document.getElementById("app");
 
@@ -4575,10 +4487,10 @@ function showLesson2_5() {
 
             <div class="lesson-content">
 
-                <div class="content-card prep-card">
+                <div class="content-card">
                     <h3>🧪 هيدروكسيد الكالسيوم Ca(OH)₂</h3>
                     <p>يُحضّر بإضافة الماء إلى أوكسيد الكالسيوم CaO، في عملية تعرف بإطفاء الجير.</p>
-                    <div class="electron-config">CaO + H₂O → Ca(OH)₂</div>${prepGeneratedFigure('calciumHydroxide','تحضير هيدروكسيد الكالسيوم')}
+                    <div class="electron-config">CaO + H₂O → Ca(OH)₂</div>
                 </div>
 
                 <div class="content-card">
@@ -4588,12 +4500,12 @@ function showLesson2_5() {
                     <p>ويؤكد التعكر تكوّن كربونات الكالسيوم الراسبة.</p>
                 </div>
 
-                <div class="content-card prep-card">
+                <div class="content-card">
                     <h3>🏗️ كبريتات الكالسيوم والجبس</h3>
                     <p>الجبس الاعتيادي هو CaSO₄·2H₂O، ويرتبط فيه جزيئان من ماء التبلور.</p>
                     <p>عند فقد ماء التبلور جزئيًا بالتسخين يتحول إلى جبس باريس.</p>
                     <div class="electron-config">2(CaSO₄·2H₂O) → (CaSO₄)₂·H₂O + 3H₂O</div>
-                    <div class="electron-config">(CaSO₄)₂·H₂O + 3H₂O → 2(CaSO₄·2H₂O)</div>${prepGeneratedFigure('gypsum','تحضير جبس باريس وإعادته إلى الجبس الاعتيادي')}
+                    <div class="electron-config">(CaSO₄)₂·H₂O + 3H₂O → 2(CaSO₄·2H₂O)</div>
                 </div>
 
                 <div class="content-card">
@@ -4832,7 +4744,6 @@ function showChapter3() {
             <div class="lesson-card" onclick="showLesson3_3()"><div class="lesson-card-icon">🔥</div><div class="lesson-card-info"><h3>3-3 خواص الألمنيوم وتفاعلاته</h3><p>خواصه الفيزيائية والكيميائية، الثرميت، والسلوك الأمفوتيري.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showLesson3_4()"><div class="lesson-card-icon">✈️</div><div class="lesson-card-info"><h3>3-4 سبائك الألمنيوم</h3><p>السبائك، الديورالومين، وبرونز الألمنيوم ومقارنة استعمالاتهما.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showLesson3_5()"><div class="lesson-card-icon">🧪</div><div class="lesson-card-info"><h3>3-5 مركبات الألمنيوم</h3><p>هيدروكسيد الألمنيوم، أوكسيد الألمنيوم، الشب، والكشف عن أيون الألمنيوم.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapterFormulas(3)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>كل قوانين ومعادلات الفصل 3 مرتبة في مكان واحد.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterMemory(3)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الثالث</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterQuiz(3)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الثالث</h3><p>اختبار من أسئلة الفصل الثالث فقط.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterWrong(3)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الثالث</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الثالث.</p></div><div class="lesson-arrow">←</div></div>
@@ -4849,7 +4760,6 @@ function lessonButtons3(previousFunction, nextFunction, nextText) {
 }
 
 function showLesson3_1() {
-    markChapterLesson("third",3,1,5);
     setActive(1); var app=document.getElementById("app"); app.innerHTML=`
     <div class="page"><div class="page-header"><button class="back-button" onclick="showChapter3()">←</button><h2>3-1 الزمرة الثالثة</h2><span></span></div><h1 class="lesson-title">عناصر الزمرة الثالثة IIIA</h1><div class="lesson-content">
     <div class="content-card"><h3>📍 عناصر الزمرة الثالثة</h3><p>تضم الزمرة الثالثة عناصر البورون B، والألمنيوم Al، والكاليوم Ga، والإنديوم In، والثاليوم Tl. ويقع أغلبها في يمين الجدول الدوري.</p><table class="simple-table"><tr><th>العنصر</th><th>العدد الذري</th><th>الصفة</th></tr><tr><td>B</td><td>5</td><td>شبه فلز</td></tr><tr><td>Al</td><td>13</td><td>فلز</td></tr><tr><td>Ga</td><td>31</td><td>فلز</td></tr><tr><td>In</td><td>49</td><td>فلز</td></tr><tr><td>Tl</td><td>81</td><td>فلز</td></tr></table></div>
@@ -4860,7 +4770,6 @@ function showLesson3_1() {
 }
 
 function showLesson3_2() {
-    markChapterLesson("third",3,2,5);
     setActive(1); var app=document.getElementById("app"); app.innerHTML=`
     <div class="page"><div class="page-header"><button class="back-button" onclick="showChapter3()">←</button><h2>3-2 استخلاص الألمنيوم</h2><span></span></div><h1 class="lesson-title">الألمنيوم وخاماته وطريقة هول</h1><div class="lesson-content">
     <div class="content-card"><h3>🔬 معلومات أساسية</h3><table class="simple-table"><tr><th>الرمز</th><th>العدد الذري</th><th>عدد الكتلة</th><th>توزيع الغلافات</th></tr><tr><td>Al</td><td>13</td><td>27</td><td>K=2 ، L=8 ، M=3</td></tr></table></div>
@@ -4872,7 +4781,6 @@ function showLesson3_2() {
 }
 
 function showLesson3_3() {
-    markChapterLesson("third",3,3,5);
     setActive(1); var app=document.getElementById("app"); app.innerHTML=`
     <div class="page"><div class="page-header"><button class="back-button" onclick="showChapter3()">←</button><h2>3-3 خواص الألمنيوم</h2><span></span></div><h1 class="lesson-title">خواص الألمنيوم وتفاعلاته</h1><div class="lesson-content">
     <div class="content-card"><h3>✨ الخواص الفيزيائية</h3><p>فلز ذو مظهر فضي، جيد التوصيل للحرارة والكهرباء، وقليل الكثافة.</p></div>
@@ -4885,7 +4793,6 @@ function showLesson3_3() {
 }
 
 function showLesson3_4() {
-    markChapterLesson("third",3,4,5);
     setActive(1); var app=document.getElementById("app"); app.innerHTML=`
     <div class="page"><div class="page-header"><button class="back-button" onclick="showChapter3()">←</button><h2>3-4 سبائك الألمنيوم</h2><span></span></div><h1 class="lesson-title">سبائك الألمنيوم واستعمالاتها</h1><div class="lesson-content">
     <div class="content-card"><h3>🔩 ما السبيكة؟</h3><p>السبيكة هي مخاليط صلبة أو مركبات لعنصرين أو أكثر، على أن يكون أحد العناصر المكونة للسبيكة فلزًا.</p></div>
@@ -4897,11 +4804,10 @@ function showLesson3_4() {
 }
 
 function showLesson3_5() {
-    markChapterLesson("third",3,5,5);
     setActive(1); var app=document.getElementById("app"); app.innerHTML=`
     <div class="page"><div class="page-header"><button class="back-button" onclick="showChapter3()">←</button><h2>3-5 مركبات الألمنيوم</h2><span></span></div><h1 class="lesson-title">مركبات الألمنيوم والكشف عن أيونه</h1><div class="lesson-content">
-    <div class="content-card prep-card"><h3>🧪 هيدروكسيد الألمنيوم Al(OH)₃</h3><p>يحضر من تفاعل محلول مائي لأحد أملاح الألمنيوم مع هيدروكسيد الصوديوم أو هيدروكسيد البوتاسيوم.</p><div class="electron-config">Al₂(SO₄)₃ + 6NaOH → 2Al(OH)₃↓ + 3Na₂SO₄</div><p>وهو مادة جيلاتينية بيضاء، لا تذوب في الماء لكنها تذوب في زيادة من هيدروكسيد الصوديوم أو بإضافة حامض.</p>${prepGeneratedFigure('aluminumHydroxide','تحضير هيدروكسيد الألمنيوم')} </div>
-    <div class="content-card prep-card"><h3>🔥 أوكسيد الألمنيوم Al₂O₃</h3><p>يحضر من التسخين الشديد لهيدروكسيد الألمنيوم:</p><div class="electron-config">2Al(OH)₃ → Al₂O₃ + 3H₂O</div>${prepGeneratedFigure('aluminumOxide','تحضير أوكسيد الألمنيوم')}<p>يدخل أوكسيد الألمنيوم غير النقي في صقل المعادن، ويدخل عند خلطه مع بعض المعادن في تركيب الأحجار الكريمة.</p></div>
+    <div class="content-card"><h3>🧪 هيدروكسيد الألمنيوم Al(OH)₃</h3><p>يحضر من تفاعل محلول مائي لأحد أملاح الألمنيوم مع هيدروكسيد الصوديوم أو هيدروكسيد البوتاسيوم.</p><div class="electron-config">Al₂(SO₄)₃ + 6NaOH → 2Al(OH)₃↓ + 3Na₂SO₄</div><p>وهو مادة جيلاتينية بيضاء، لا تذوب في الماء لكنها تذوب في زيادة من هيدروكسيد الصوديوم أو بإضافة حامض.</p></div>
+    <div class="content-card"><h3>🔥 أوكسيد الألمنيوم Al₂O₃</h3><p>يحضر من التسخين الشديد لهيدروكسيد الألمنيوم:</p><div class="electron-config">2Al(OH)₃ → Al₂O₃ + 3H₂O</div><p>يدخل أوكسيد الألمنيوم غير النقي في صقل المعادن، ويدخل عند خلطه مع بعض المعادن في تركيب الأحجار الكريمة.</p></div>
     <div class="content-card"><h3>🧂 الشب (شب البوتاس)</h3><p>هو ملح مزدوج يحتوي كبريتات الألمنيوم وكبريتات البوتاسيوم وجزيئات ماء التبلور بنسبة كتلية ثابتة، ويستعمل في تعقيم الجروح الخفيفة، وتثبيت الأصباغ على الأقمشة، وتصفية مياه الشرب.</p><div class="memory-box"><strong>🧠 لماذا يسمى الشب ملحًا مزدوجًا؟</strong>لأنه يتكون من ملحين وأيونين موجبين مختلفين هما الألمنيوم والبوتاسيوم.</div></div>
     <div class="content-card"><h3>🔎 الكشف عن أيون الألمنيوم</h3><p>يتم الكشف عن وجود أيون الألمنيوم في المحاليل باستعمال محلول قاعدي مثل هيدروكسيد الصوديوم، فتتكون راسبة بيضاء جيلاتينية من هيدروكسيد الألمنيوم.</p><div class="electron-config">Al³⁺ + 3NaOH → Al(OH)₃↓ + 3Na⁺</div><p>ويذوب راسب Al(OH)₃ عند إضافة زيادة من هيدروكسيد الصوديوم أو عند إضافة حامض بسبب السلوك الأمفوتيري.</p></div>
     </div>${lessonButtons3("showLesson3_4","showChapter3MinistryIdeas","أفكار وزارية →")}</div>`;
@@ -4970,8 +4876,7 @@ function showChapter4(){
       <div class="lesson-card" onclick="showLesson4_3()"><div class="lesson-card-icon">⚖️</div><div class="lesson-card-info"><h3>4-3 التركيز بالنسبة المئوية الكتلية</h3><p>القوانين والخطوات والأمثلة الحسابية على النسبة الكتلية.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showLesson4_4()"><div class="lesson-card-icon">🧴</div><div class="lesson-card-info"><h3>4-4 التركيز بالنسبة المئوية الحجمية</h3><p>قوانين النسبة الحجمية وتطبيقاتها مع أمثلة محلولة.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showLesson4_5()"><div class="lesson-card-icon">📐</div><div class="lesson-card-info"><h3>4-5 التركيز بالكتلة/الحجم والكثافة</h3><p>التركيز غ/ل، الكثافة، وتحويل الوحدات وحل المسائل المركبة.</p></div><div class="lesson-arrow">←</div></div>
-      <div class="lesson-card" onclick="showChapterFormulas(4)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>كل قوانين ومعادلات الفصل 4 مرتبة في مكان واحد.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapterMemory(4)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الرابع</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
+      <div class="lesson-card" onclick="showChapterMemory(4)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الرابع</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapterQuiz(4)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الرابع</h3><p>اختبار الفصل الرابع فقط مع مسائل التركيز.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapterWrong(4)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الرابع</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الرابع.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapterDrawings(4)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات القياس والتحضير والتعبير عن تركيز المحاليل.</p></div><div class="lesson-arrow">←</div></div>
@@ -4986,7 +4891,6 @@ function lessonButtons4(previousFunction,nextFunction,nextText){
 }
 
 function showLesson4_1(){
-    markChapterLesson("third",4,1,5);
  setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter4()">←</button><h2>4-1 المحاليل</h2><span></span></div><h1 class="lesson-title">المحاليل وأنواعها</h1><div class="lesson-content">
  <div class="content-card"><h3>🧪 ما هو المحلول؟</h3><p>المحلول خليط متجانس مكوّن من مادتين أو أكثر لا يحدث بينهما تفاعل كيميائي؛ المادة الموجودة بوفرة تسمى <strong>المذيب</strong> والمادة الموجودة بقلة تسمى <strong>المذاب</strong>.</p><div class="electron-config">محلول → مذيب + مذاب</div></div>
  <div class="content-card"><h3>📦 أنواع المحاليل حسب الحالة الفيزيائية</h3><p><strong>1- المحاليل السائلة:</strong> صلب في سائل مثل NaCl في الماء، سائل في سائل مثل الكحول في الماء، وغاز في سائل مثل HCl في الماء.</p><p><strong>2- المحاليل الغازية:</strong> غاز في غاز مثل الهواء الجوي.</p><p><strong>3- المحاليل الصلبة:</strong> صلب في صلب مثل السبائك وقطع النقود.</p></div>
@@ -4996,7 +4900,6 @@ function showLesson4_1(){
 }
 
 function showLesson4_2(){
-    markChapterLesson("third",4,2,5);
  setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter4()">←</button><h2>4-2 قابلية الذوبان</h2><span></span></div><h1 class="lesson-title">قابلية الذوبان والعوامل المؤثرة فيها</h1><div class="lesson-content">
  <div class="content-card"><h3>💧 تعريف قابلية الذوبان</h3><p>هي أكبر كمية من المادة المذابة يمكن أن تذوب في كمية ثابتة من مذيب معين للحصول على محلول ثابت عند درجة حرارة معلومة.</p></div>
  <div class="content-card"><h3>1️⃣ طبيعة المذاب والمذيب</h3><p>طبيعة المادة المذابة تؤثر في سرعة الذوبان، وطبيعة المذيب القطبية أو غير القطبية تحدد قابلية الذوبان. القاعدة: <strong>المذيب يذيب شبيهه</strong>.</p><p>كلما ازداد سطح المادة المذابة المعرض للمذيب ازدادت سرعة الذوبان؛ لذلك يذوب مسحوق السكر أسرع من حبيبات السكر، كما يزيد الرج أو التحريك ملامسة السطح بالماء.</p></div>
@@ -5007,7 +4910,6 @@ function showLesson4_2(){
 }
 
 function showLesson4_3(){
-    markChapterLesson("third",4,3,5);
  setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter4()">←</button><h2>4-3 النسبة الكتلية</h2><span></span></div><h1 class="lesson-title">التركيز بالنسبة المئوية الكتلية</h1><div class="lesson-content">
  <div class="content-card"><h3>⚖️ القانون</h3><p>النسبة المئوية الكتلية للمذاب = <strong>(كتلة المذاب ÷ كتلة المحلول) × 100%</strong>.</p><p>النسبة المئوية الكتلية للمذيب = <strong>(كتلة المذيب ÷ كتلة المحلول) × 100%</strong>.</p><p>كتلة المحلول = كتلة المذاب + كتلة المذيب.</p></div>
  <div class="content-card"><h3>🧠 خطوات الحل</h3><div class="energy-list"><div class="energy-item"><strong>1</strong><span>حدّد المذاب والمذيب، وانتبه إلى تشابه الوحدات.</span></div><div class="energy-item"><strong>2</strong><span>اكتب المعطيات.</span></div><div class="energy-item"><strong>3</strong><span>استخرج كتلة المحلول عند الحاجة.</span></div><div class="energy-item"><strong>4</strong><span>طبّق قانون النسبة الكتلية.</span></div></div><p class="small-muted">الرقم الأصغر يمثل المذاب والأكبر يمثل المذيب بشرط تشابه الوحدات، بحسب خطوات الملزمة.</p></div>
@@ -5017,7 +4919,6 @@ function showLesson4_3(){
 }
 
 function showLesson4_4(){
-    markChapterLesson("third",4,4,5);
  setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter4()">←</button><h2>4-4 النسبة الحجمية</h2><span></span></div><h1 class="lesson-title">التركيز بالنسبة المئوية الحجمية</h1><div class="lesson-content">
  <div class="content-card"><h3>🧴 القانون</h3><p>النسبة المئوية الحجمية للمذاب = <strong>(حجم المذاب ÷ حجم المحلول) × 100%</strong>.</p><p>النسبة المئوية الحجمية للمذيب = <strong>(حجم المذيب ÷ حجم المحلول) × 100%</strong>.</p><p>حجم المحلول = حجم المذاب + حجم المذيب.</p></div>
  <div class="content-card"><h3>🧠 خطوات الحل</h3><p>حدّد حجم المذاب والمذيب، وحّد الوحدات، أوجد حجم المحلول، ثم طبّق القانون المطلوب.</p><p>التحويل: من L إلى mL نضرب في 1000، ومن mL إلى L نقسم على 1000.</p></div>
@@ -5027,7 +4928,6 @@ function showLesson4_4(){
 }
 
 function showLesson4_5(){
-    markChapterLesson("third",4,5,5);
  setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter4()">←</button><h2>4-5 الكتلة/الحجم والكثافة</h2><span></span></div><h1 class="lesson-title">التركيز بالكتلة / الحجم والكثافة</h1><div class="lesson-content">
  <div class="content-card"><h3>📐 التركيز بالكتلة/الحجم</h3><p>هو كتلة المذاب بالغرامات في حجم معين من المحلول باللتر، ووحدته <strong>g/L</strong>.</p><div class="electron-config">التركيز = كتلة المذاب ÷ حجم المحلول</div></div>
  <div class="content-card"><h3>⚖️ الكثافة</h3><div class="electron-config">ρ = m ÷ V</div><p>حيث m الكتلة وV الحجم.</p><p>انتبه إلى الوحدات؛ عند استخدام g/mL يجب أن يكون الحجم بالمليلتر.</p></div>
@@ -5074,7 +4974,6 @@ function showChapter5() {
             <div class="lesson-card" onclick="showLesson5_2()"><div class="lesson-card-icon">🔥</div><div class="lesson-card-info"><h3>5-2 السليكون وطرق تحضيره</h3><p>وجود السليكون، صوره، التحضير المختبري والصناعي، وتنقية السليكون عالي النقاوة.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showLesson5_3()"><div class="lesson-card-icon">⚡</div><div class="lesson-card-info"><h3>5-3 خواص السليكون واستعمالاته</h3><p>الخواص الفيزيائية والكيميائية للسليكون واستخداماته المهمة.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showLesson5_4()"><div class="lesson-card-icon">🧪</div><div class="lesson-card-info"><h3>5-4 مركبات السليكون</h3><p>السيلانات، السليكا، السليكات، كاربيد السليكون والسليكونات العضوية.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapterFormulas(5)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>كل قوانين ومعادلات الفصل 5 مرتبة في مكان واحد.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterMemory(5)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الخامس</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterQuiz(5)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الخامس</h3><p>اختبار الفصل الخامس فقط.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterWrong(5)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الخامس</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الخامس.</p></div><div class="lesson-arrow">←</div></div>
@@ -5091,7 +4990,6 @@ function lessonButtons5(previousFunction,nextFunction,nextText){
 }
 
 function showLesson5_1(){
-    markChapterLesson("third",5,1,4);
  setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter5()">←</button><h2>5-1 الزمرة الرابعة</h2><span></span></div><h1 class="lesson-title">عناصر الزمرة الرابعة</h1><div class="lesson-content">
  <div class="content-card"><h3>🧱 عناصر الزمرة الرابعة</h3><p>عناصر الزمرة الرابعة الواردة في الملزمة هي: <strong>الكاربون C، السليكون Si، الجرمانيوم Ge، القصدير Sn، الرصاص Pb</strong>.</p><p>تنتقل الصفات من اللافلزية عند الكاربون إلى أشباه الفلزات عند السليكون والجرمانيوم، ثم إلى الصفات الفلزية عند القصدير والرصاص كلما انتقلنا إلى أسفل الزمرة.</p></div>
  <div class="content-card"><h3>📈 التدرج في الخواص</h3><p>تزداد الصفة الفلزية بزيادة العدد الذري، بينما تقل درجات الانصهار والغليان بالانتقال من أعلى الزمرة إلى أسفلها.</p></div>
@@ -5102,19 +5000,17 @@ function showLesson5_1(){
 }
 
 function showLesson5_2(){
-    markChapterLesson("third",5,2,4);
  setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter5()">←</button><h2>5-2 السليكون وطرق تحضيره</h2><span></span></div><h1 class="lesson-title">السليكون: وجوده وتحضيره وتنقيته</h1><div class="lesson-content">
  <div class="content-card"><h3>⚛️ وجود السليكون</h3><p>السليكون من أكثر العناصر انتشارًا في قشرة الأرض، ويشكل نحو <strong>28%</strong> منها. لا يوجد حرًا في الطبيعة، بل يوجد متحدًا مع الأوكسجين وفي الصخور والترسبات الطينية والرملية وعلى هيئة السليكا والسليكات.</p></div>
  <div class="content-card"><h3>🔬 صور السليكون</h3><p><strong>السليكون المتبلور:</strong> مسحوقه بني غامق وهو أقل فعالية.</p><p><strong>السليكون غير المتبلور:</strong> مسحوقه رصاصي غامق وهو أكثر فعالية.</p></div>
- <div class="content-card prep-card"><h3>🧪 التحضير المختبري</h3><p>السليكون غير المتبلور يحضر بتسخين البوتاسيوم مع رباعي فلوريد السليكون:</p><div class="electron-config">SiF₄ + 4K → Si + 4KF</div><p>أما السليكون المتبلور فيحضر بإذابة السليكون في منصهر الألمنيوم ثم تبريد المحلول فتتكون البلورات.</p>${prepGeneratedFigure('siliconLab','تحضير السليكون مختبريًا')}</div>
- <div class="content-card prep-card"><h3>🏭 التحضير الصناعي</h3><p>يحضر السليكون الصناعي باختزال السليكا SiO₂ بالكاربون أو المغنسيوم عند درجات حرارة عالية، ومن المعادلات الواردة:</p><div class="electron-config">SiO₂ + 2C → 2CO↑ + Si</div>${prepGeneratedFigure('siliconIndustrial','تحضير السليكون الصناعي')}</div>
- <div class="content-card prep-card"><h3>🧹 تنقية السليكون</h3><p>ينقى السليكون الصناعي بتحويله إلى رباعي كلوريد السليكون باستخدام الكلور ثم اختزاله بالمغنسيوم:</p><div class="electron-config">Si + 2Cl₂ → SiCl₄<br>SiCl₄ + 2Mg → Si + 2MgCl₂</div><p>ثم تزال MgCl₂ بالغسل بالماء الحار.</p>${prepGeneratedFigure('siliconIndustrial','تنقية السليكون الصناعي')}</div>
- <div class="content-card prep-card"><h3>💎 السليكون عالي النقاوة</h3><p>هو السليكون الخالي من الشوائب الناتج بطريقة منطقة التكرير، حيث يسخن قالب أسطواني من السليكون بواسطة مصدر حراري حلقي متحرك لتتركز الشوائب في النهاية البعيدة ثم تزال.</p>${prepGeneratedFigure('zoneRefining','تنقية السليكون بطريقة منطقة التكرير')}</div>
+ <div class="content-card"><h3>🧪 التحضير المختبري</h3><p>السليكون غير المتبلور يحضر بتسخين البوتاسيوم مع رباعي فلوريد السليكون:</p><div class="electron-config">SiF₄ + 4K → Si + 4KF</div><p>أما السليكون المتبلور فيحضر بإذابة السليكون في منصهر الألمنيوم ثم تبريد المحلول فتتكون البلورات.</p></div>
+ <div class="content-card"><h3>🏭 التحضير الصناعي</h3><p>يحضر السليكون الصناعي باختزال السليكا SiO₂ بالكاربون أو المغنسيوم عند درجات حرارة عالية، ومن المعادلات الواردة:</p><div class="electron-config">SiO₂ + 2C → 2CO↑ + Si</div></div>
+ <div class="content-card"><h3>🧹 تنقية السليكون</h3><p>ينقى السليكون الصناعي بتحويله إلى رباعي كلوريد السليكون باستخدام الكلور ثم اختزاله بالمغنسيوم:</p><div class="electron-config">Si + 2Cl₂ → SiCl₄<br>SiCl₄ + 2Mg → Si + 2MgCl₂</div><p>ثم تزال MgCl₂ بالغسل بالماء الحار.</p></div>
+ <div class="content-card"><h3>💎 السليكون عالي النقاوة</h3><p>هو السليكون الخالي من الشوائب الناتج بطريقة منطقة التكرير، حيث يسخن قالب أسطواني من السليكون بواسطة مصدر حراري حلقي متحرك لتتركز الشوائب في النهاية البعيدة ثم تزال.</p></div>
  </div>${lessonButtons5("showLesson5_1","showLesson5_3","الدرس التالي →")}</div>`;
 }
 
 function showLesson5_3(){
-    markChapterLesson("third",5,3,4);
  setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter5()">←</button><h2>5-3 خواص السليكون واستعمالاته</h2><span></span></div><h1 class="lesson-title">خواص السليكون واستخداماته</h1><div class="lesson-content">
  <div class="content-card"><h3>⚙️ الخواص الفيزيائية</h3><p>السليكون شبه فلز، صلب جدًا، ذو درجة انصهار عالية تقارب <strong>1410°C</strong>، له مظهر بريق فلزي، وهو شبه موصل للتيار الكهربائي.</p></div>
  <div class="content-card"><h3>🧪 الخواص الكيميائية</h3><p>خامل تجاه معظم الحوامض، ويذوب في المحاليل المائية للقواعد محررًا الهيدروجين:</p><div class="electron-config">Si + 2NaOH + H₂O → Na₂SiO₃ + 2H₂↑</div><p>فعال جدًا تجاه الكلور:</p><div class="electron-config">Si + 2Cl₂ → SiCl₄</div><p>لا يتأثر بالهواء في درجات الحرارة الاعتيادية، ويتفاعل عند نحو <strong>950°C</strong>.</p></div>
@@ -5124,9 +5020,8 @@ function showLesson5_3(){
 }
 
 function showLesson5_4(){
-    markChapterLesson("third",5,4,4);
  setActive(1); var app=document.getElementById("app"); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter5()">←</button><h2>5-4 مركبات السليكون</h2><span></span></div><h1 class="lesson-title">السيلانات والسليكا والسليكات والسليكونات</h1><div class="lesson-content">
- <div class="content-card prep-card"><h3>1️⃣ مركبات السليكون مع الهيدروجين</h3><p>منها SiH₄، ويحضر من تفاعل سليسيد المغنسيوم مع حامض الهيدروكلوريك:</p><div class="electron-config">Mg₂Si + 4HCl → SiH₄ + 2MgCl₂</div>${prepGeneratedFigure('silane','تحضير السيلان')}</div><div class="content-card"><p>ويشتعل السيلان في الهواء مكوّنًا السليكا والماء:</p><div class="electron-config">SiH₄ + 2O₂ → SiO₂ + 2H₂O</div></div>
+ <div class="content-card"><h3>1️⃣ مركبات السليكون مع الهيدروجين</h3><p>منها SiH₄، ويحضر من تفاعل سليسيد المغنسيوم مع حامض الهيدروكلوريك:</p><div class="electron-config">Mg₂Si + 4HCl → SiH₄ + 2MgCl₂</div><p>ويشتعل السيلان في الهواء مكوّنًا السليكا والماء:</p><div class="electron-config">SiH₄ + 2O₂ → SiO₂ + 2H₂O</div></div>
  <div class="content-card"><h3>2️⃣ السليكا SiO₂</h3><p>توجد في الطبيعة كسليكا نقية مثل حجر الصوان والكوارتز، وغير نقية مثل الرمل.</p><p>من خواصها: لا تتفاعل مع معظم الحوامض، لكنها تتفاعل مع HF والقواعد، كما تتفاعل مع الأكاسيد أو الكاربونات الفلزية بالتسخين الشديد لتكوين السليكات.</p><div class="electron-config">SiO₂ + 6HF → H₂SiF₆ + 2H₂O</div></div>
  <div class="content-card"><h3>💧 جل السليكا</h3><p>مسحوق غير بلوري يتكون بعد تجفيف السليكا المائية، ويستعمل عاملًا مجففًا بسبب مساحته السطحية الكبيرة وقابليته العالية لامتصاص الماء.</p></div>
  <div class="content-card"><h3>3️⃣ السليكات وماء الزجاج</h3><p>السليكات أملاح يدخل السليكون في تركيبها. وتحضر من تفاعل أوكسيد أو كاربونات الفلز مع السليكا بالتسخين الشديد.</p><div class="electron-config">CaO + SiO₂ → CaSiO₃<br>Na₂CO₃ + SiO₂ → Na₂SiO₃ + CO₂</div><p>ماء الزجاج هو المحلول المائي لسليكات الصوديوم ويستخدم في حماية الأقمشة والورق من الحرائق، كمادة لاصقة، وفي البناء مع السمنت.</p></div>
@@ -5177,8 +5072,7 @@ function showChapter6(){
   <div class="lesson-card" onclick="showLesson6_4()"><div class="lesson-card-icon">🧪</div><div class="lesson-card-info"><h3>6-4 الإثيلين والأسيتيلين</h3><p>تحضير الغازين، خواصهما واستعمالاتهما والتمييز بماء البروم.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showLesson6_5()"><div class="lesson-card-icon">🍶</div><div class="lesson-card-info"><h3>6-5 كحول الإثيل وحامض الخليك</h3><p>تحضير الإيثانول وخواصه واستعمالاته وحامض الخليك.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showLesson6_6()"><div class="lesson-card-icon">⬡</div><div class="lesson-card-info"><h3>6-6 البنزين أو البنزول والفينول</h3><p>صفات واستعمالات البنزين والفينول.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapterFormulas(6)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>كل قوانين ومعادلات الفصل 6 مرتبة في مكان واحد.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapterMemory(6)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل السادس</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapterMemory(6)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل السادس</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterQuiz(6)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل السادس</h3><p>اختبار الفصل السادس فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterWrong(6)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل السادس</h3><p>مراجعة أخطاء اختبار الفصل السادس.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterDrawings(6)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات المركبات العضوية وأجهزة تحضير الميثان والإثيلين والأسيتيلين.</p></div><div class="lesson-arrow">←</div></div>
@@ -5188,18 +5082,12 @@ function showChapter6(){
  </div>`;
 }
 function lessonButtons6(prev,next,text){return `<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${text}</button><button class="chapter-button" onclick="showChapter6()">📖 العودة إلى دروس الفصل السادس</button></div>`;}
-function showLesson6_1(){
-    markChapterLesson("third",6,1,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-1 مقدمة</h2><span></span></div><h1 class="lesson-title">مدخل في الكيمياء العضوية</h1><div class="lesson-content"><div class="content-card"><h3>🧬 تعريف الكيمياء العضوية</h3><p>فرع من فروع علم الكيمياء تختص بدراسة مركبات الكاربون والهيدروجين إضافة إلى الأوكسجين والنيتروجين والكبريت.</p></div><div class="content-card"><h3>🌍 أهمية المركبات العضوية</h3><p>تشمل البروتينات والدهون والكاربوهيدرات، ومنتوجات مثل القطن والحرير والورق، والوقود مثل النفط والغاز الطبيعي والخشب، وكذلك العقاقير الطبية والفيتامينات والإنزيمات.</p></div><div class="content-card"><h3>🔬 إثبات وجود الكاربون</h3><p>عند احتراق مادة عضوية يتحرر CO₂، وعند تمريره في ماء الجير يتعكر المحلول نتيجة تكون كاربونات الكالسيوم.</p><div class="formula-box">Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O</div><p>كما أن حرق السكر يترك مادة سوداء تدل على وجود الكاربون في تركيبه.</p></div>${lessonButtons6("showChapter6","showLesson6_2","الدرس التالي →")}</div></div>`;}
-function showLesson6_2(){
-    markChapterLesson("third",6,2,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-2 الكاربون والسلاسل</h2><span></span></div><h1 class="lesson-title">الكاربون والأواصر التساهمية</h1><div class="lesson-content"><div class="content-card"><h3>⚛️ تكافؤ الكاربون</h3><p>للكاربون أربعة إلكترونات في غلاف التكافؤ، ويميل إلى مشاركتها لتكوين أربع أواصر تساهمية والوصول إلى ترتيب مستقر.</p></div><div class="content-card"><h3>🔗 سلسلة مفتوحة مستمرة</h3><p>ترتبط ذرات الكاربون بصورة مفتوحة مستمرة غير متفرعة، وتكون مشبعة أو غير مشبعة.</p><div class="example-box">CH₄ الميثان — C₂H₆ الإيثان — C₃H₈ البروبان</div></div><div class="content-card"><h3>🌿 سلسلة متفرعة</h3><p>ترتبط ذرات الكاربون بصورة متفرعة، ومن أمثلتها الأيزوبيوتان والنيو بنتان.</p></div><div class="content-card"><h3>⭕ سلسلة حلقية مغلقة</h3><p>ترتبط ذرات الكاربون على شكل حلقة مغلقة، وقد تكون مشبعة أو غير مشبعة، ومن أمثلتها بروبان حلقي وبيوتان حلقي وبنتان حلقي وهكسان حلقي.</p></div>${lessonButtons6("showLesson6_1","showLesson6_3","الدرس التالي →")}</div></div>`;}
-function showLesson6_3(){
-    markChapterLesson("third",6,3,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-3 الهيدروكاربونات والميثان</h2><span></span></div><h1 class="lesson-title">الهيدروكاربونات وغاز الميثان</h1><div class="lesson-content"><div class="content-card"><h3>🧪 الهيدروكاربونات</h3><p>مركبات عضوية مكونة من الكاربون والهيدروجين، وتكون مشبعة أو غير مشبعة.</p></div><div class="content-card"><h3>✅ المشبع وغير المشبع</h3><p>المشبع ترتبط فيه ذرات الكاربون بأواصر تساهمية مفردة، أما غير المشبع فتوجد فيه أواصر متعددة. الميثان مثال للمشبع، والإثيلين والأسيتيلين أمثلة لغير المشبع.</p></div><div class="content-card"><h3>🔥 الميثان CH₄</h3><p>أبسط مركب هيدروكاربوني، يوجد بنسبة كبيرة في الغاز الطبيعي المصاحب للنفط الخام، وفي شقوق مناجم الفحم، ويتكون من تحلل المواد العضوية.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير</h3><p>يُحضّر بتسخين خلات الصوديوم مع هيدروكسيد الصوديوم ويجمع بإزاحة الماء إلى الأسفل.</p><div class="formula-box">CH₃COONa + NaOH → CH₄↑ + Na₂CO₃</div>${prepSourceFigure('methane',66,'جهاز تحضير غاز الميثان') }</div><div class="content-card"><h3>📌 الخواص</h3><p>عديم اللون والرائحة، قليل الذوبان في الماء، وقابل للاشتعال.</p><div class="formula-box">CH₄ + 2O₂ → CO₂ + 2H₂O + طاقة</div></div>${lessonButtons6("showLesson6_2","showLesson6_4","الدرس التالي →")}</div></div>`;}
-function showLesson6_4(){
-    markChapterLesson("third",6,4,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-4 الإثيلين والأسيتيلين</h2><span></span></div><h1 class="lesson-title">الهيدروكاربونات غير المشبعة</h1><div class="lesson-content"><div class="content-card prep-card"><h3>🔵 الإثيلين C₂H₄</h3><p>هيدروكاربون غير مشبع ترتبط ذرتا الكاربون فيه بأصرة تساهمية مزدوجة. يحضر بتسخين كحول الإثيل مع حامض الكبريتيك المركز عند 170°C.</p><div class="formula-box">C₂H₅OH → C₂H₄ + H₂O</div><p>غاز عديم اللون، لا يذوب في الماء، يشتعل بلهب داخن، ويتفاعل مع ماء البروم الأحمر فيزيل لونه. ويستعمل في صناعة كحول الإثيل، وإنضاج بعض الخضراوات والفواكه وتحضير اللدائن.</p>${prepSourceFigure('ethylene',67,'جهاز تحضير غاز الإثيلين') }</div><div class="content-card prep-card"><h3>🟠 الأسيتيلين C₂H₂</h3><p>هيدروكاربون غير مشبع ترتبط ذرتا الكاربون فيه بأصرة تساهمية ثلاثية، ويحضر من تفاعل كاربيد الكالسيوم مع الماء.</p><div class="formula-box">CaC₂ + 2H₂O → C₂H₂↑ + Ca(OH)₂</div><p>عديم اللون ذو رائحة تشبه الثوم، لا يذوب في الماء، يشتعل في الهواء بلهب داخن، وفي الأوكسجين بلهب أزرق باهت مع حرارة عالية، ويزيل لون ماء البروم الأحمر. ويستعمل مع الأوكسجين في الشعلة الأوكسي-أسيتيلينية لقطع المعادن ولحمها.</p>${prepSourceFigure('acetylene',68,'جهاز تحضير غاز الأسيتيلين') }</div><div class="content-card"><h3>🔎 التمييز</h3><p>الإثيلين والأسيتيلين يزيلان اللون الأحمر لماء البروم، بينما لا يؤثر فيه الميثان.</p></div>${lessonButtons6("showLesson6_3","showLesson6_5","الدرس التالي →")}</div></div>`;}
-function showLesson6_5(){
-    markChapterLesson("third",6,5,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-5 كحول الإثيل وحامض الخليك</h2><span></span></div><h1 class="lesson-title">الإيثانول وحامض الخليك</h1><div class="lesson-content"><div class="content-card prep-card"><h3>🍶 كحول الإثيل C₂H₅OH</h3><p>يحضر قديمًا من تخمير الدبس أو التمر أو عصير العنب بمعزل عن الهواء، ثم يفصل بالتقطير. ويحضر صناعيًا من الإثيلين مع الماء بوجود حامض الكبريتيك المركز.</p><div class="formula-box">C₂H₄ + H₂O → C₂H₅OH</div>${prepGeneratedFigure('ethanolFermentation','تخمير الفواكه وتحضير كحول الإثيل')}</div><div class="content-card prep-card"><h3>🏭 التحضير الصناعي للكحول</h3><p>يتفاعل غاز الإثيلين مع الماء بوجود حامض الكبريتيك المركز.</p>${prepGeneratedFigure('ethanolIndustrial','تحضير كحول الإثيل صناعيًا')}</div><div class="content-card"><h3>📌 خواص كحول الإثيل</h3><p>من خواصه رائحة مميزة، ودرجة غليان أقل من الماء، ومذيب جيد لكثير من المواد العضوية، ويشتعل بلهب أزرق باهت.</p></div><div class="content-card"><h3>🧴 الاستعمالات</h3><p>يدخل في مواد التجميل والعطور والوارنيش والحبر والمطاط الصناعي وبعض المركبات الدوائية، ويستعمل وقودًا، وفي تعقيم الجروح عند خلطه بقليل من اليود.</p></div><div class="content-card"><h3>🧪 حامض الخليك CH₃COOH</h3><p>ذو رائحة نفاذة، يمتزج بالماء بأي نسبة، سائل في درجات الحرارة الاعتيادية ويتجمد عند نحو 18°C، ويتفاعل مع القواعد مثل هيدروكسيد الصوديوم مكونًا خلات الصوديوم.</p></div>${lessonButtons6("showLesson6_4","showLesson6_6","الدرس التالي →")}</div></div>`;}
-function showLesson6_6(){
-    markChapterLesson("third",6,6,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-6 البنزين والفينول</h2><span></span></div><h1 class="lesson-title">المركبات الحلقية</h1><div class="lesson-content"><div class="content-card"><h3>⬡ البنزين أو البنزول C₆H₆</h3><p>مركب هيدروكاربوني حلقي من الهيدروكاربونات العطرية. سائل سريع التبخر، يغلي عند 80°C، لا يذوب في الماء، وبخاره سام، ويشتعل بلهب داخن جدًا لاحتوائه على نسبة عالية من الكاربون.</p><p>من استعمالاته: مذيب للأصباغ والوارنيش، وإنتاج مبيدات الحشرات، وصناعة النايلون ومساحيق التنظيف وغيرها.</p></div><div class="content-card"><h3>🌸 الفينول C₆H₅OH</h3><p>مركب عضوي حلقي مغلق، مادة صلبة عديمة اللون ذات رائحة خاصة ومتلفة للجلد، ويذوب في الماء. يستعمل معقمًا ومطهرًا، ويستعمل محلوله 9% لتعقيم المرافق الصحية، وتدخل مشتقاته في مساحيق التنظيف ومبيدات الحشرات والبلاستيكات.</p><p>وفق الملزمة: تُغسل الحروق الناتجة من الفينول بمحلول مخفف من كاربونات الصوديوم لمعادلة تأثيره.</p></div>${lessonButtons6("showLesson6_5","showChapter6MinistryIdeas","🎯 أفكار وزارية →")}</div></div>`;}
+function showLesson6_1(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-1 مقدمة</h2><span></span></div><h1 class="lesson-title">مدخل في الكيمياء العضوية</h1><div class="lesson-content"><div class="content-card"><h3>🧬 تعريف الكيمياء العضوية</h3><p>فرع من فروع علم الكيمياء تختص بدراسة مركبات الكاربون والهيدروجين إضافة إلى الأوكسجين والنيتروجين والكبريت.</p></div><div class="content-card"><h3>🌍 أهمية المركبات العضوية</h3><p>تشمل البروتينات والدهون والكاربوهيدرات، ومنتوجات مثل القطن والحرير والورق، والوقود مثل النفط والغاز الطبيعي والخشب، وكذلك العقاقير الطبية والفيتامينات والإنزيمات.</p></div><div class="content-card"><h3>🔬 إثبات وجود الكاربون</h3><p>عند احتراق مادة عضوية يتحرر CO₂، وعند تمريره في ماء الجير يتعكر المحلول نتيجة تكون كاربونات الكالسيوم.</p><div class="formula-box">Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O</div><p>كما أن حرق السكر يترك مادة سوداء تدل على وجود الكاربون في تركيبه.</p></div>${lessonButtons6("showChapter6","showLesson6_2","الدرس التالي →")}</div></div>`;}
+function showLesson6_2(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-2 الكاربون والسلاسل</h2><span></span></div><h1 class="lesson-title">الكاربون والأواصر التساهمية</h1><div class="lesson-content"><div class="content-card"><h3>⚛️ تكافؤ الكاربون</h3><p>للكاربون أربعة إلكترونات في غلاف التكافؤ، ويميل إلى مشاركتها لتكوين أربع أواصر تساهمية والوصول إلى ترتيب مستقر.</p></div><div class="content-card"><h3>🔗 سلسلة مفتوحة مستمرة</h3><p>ترتبط ذرات الكاربون بصورة مفتوحة مستمرة غير متفرعة، وتكون مشبعة أو غير مشبعة.</p><div class="example-box">CH₄ الميثان — C₂H₆ الإيثان — C₃H₈ البروبان</div></div><div class="content-card"><h3>🌿 سلسلة متفرعة</h3><p>ترتبط ذرات الكاربون بصورة متفرعة، ومن أمثلتها الأيزوبيوتان والنيو بنتان.</p></div><div class="content-card"><h3>⭕ سلسلة حلقية مغلقة</h3><p>ترتبط ذرات الكاربون على شكل حلقة مغلقة، وقد تكون مشبعة أو غير مشبعة، ومن أمثلتها بروبان حلقي وبيوتان حلقي وبنتان حلقي وهكسان حلقي.</p></div>${lessonButtons6("showLesson6_1","showLesson6_3","الدرس التالي →")}</div></div>`;}
+function showLesson6_3(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-3 الهيدروكاربونات والميثان</h2><span></span></div><h1 class="lesson-title">الهيدروكاربونات وغاز الميثان</h1><div class="lesson-content"><div class="content-card"><h3>🧪 الهيدروكاربونات</h3><p>مركبات عضوية مكونة من الكاربون والهيدروجين، وتكون مشبعة أو غير مشبعة.</p></div><div class="content-card"><h3>✅ المشبع وغير المشبع</h3><p>المشبع ترتبط فيه ذرات الكاربون بأواصر تساهمية مفردة، أما غير المشبع فتوجد فيه أواصر متعددة. الميثان مثال للمشبع، والإثيلين والأسيتيلين أمثلة لغير المشبع.</p></div><div class="content-card"><h3>🔥 الميثان CH₄</h3><p>أبسط مركب هيدروكاربوني، يوجد بنسبة كبيرة في الغاز الطبيعي المصاحب للنفط الخام، وفي شقوق مناجم الفحم، ويتكون من تحلل المواد العضوية.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير</h3><p>يُحضّر بتسخين خلات الصوديوم مع هيدروكسيد الصوديوم ويجمع بإزاحة الماء إلى الأسفل.</p><div class="formula-box">CH₃COONa + NaOH → CH₄↑ + Na₂CO₃</div>${prepSourceFigure('methane',66,'جهاز تحضير غاز الميثان') }</div><div class="content-card"><h3>📌 الخواص</h3><p>عديم اللون والرائحة، قليل الذوبان في الماء، وقابل للاشتعال.</p><div class="formula-box">CH₄ + 2O₂ → CO₂ + 2H₂O + طاقة</div></div>${lessonButtons6("showLesson6_2","showLesson6_4","الدرس التالي →")}</div></div>`;}
+function showLesson6_4(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-4 الإثيلين والأسيتيلين</h2><span></span></div><h1 class="lesson-title">الهيدروكاربونات غير المشبعة</h1><div class="lesson-content"><div class="content-card prep-card"><h3>🔵 الإثيلين C₂H₄</h3><p>هيدروكاربون غير مشبع ترتبط ذرتا الكاربون فيه بأصرة تساهمية مزدوجة. يحضر بتسخين كحول الإثيل مع حامض الكبريتيك المركز عند 170°C.</p><div class="formula-box">C₂H₅OH → C₂H₄ + H₂O</div><p>غاز عديم اللون، لا يذوب في الماء، يشتعل بلهب داخن، ويتفاعل مع ماء البروم الأحمر فيزيل لونه. ويستعمل في صناعة كحول الإثيل، وإنضاج بعض الخضراوات والفواكه وتحضير اللدائن.</p>${prepSourceFigure('ethylene',67,'جهاز تحضير غاز الإثيلين') }</div><div class="content-card prep-card"><h3>🟠 الأسيتيلين C₂H₂</h3><p>هيدروكاربون غير مشبع ترتبط ذرتا الكاربون فيه بأصرة تساهمية ثلاثية، ويحضر من تفاعل كاربيد الكالسيوم مع الماء.</p><div class="formula-box">CaC₂ + 2H₂O → C₂H₂↑ + Ca(OH)₂</div><p>عديم اللون ذو رائحة تشبه الثوم، لا يذوب في الماء، يشتعل في الهواء بلهب داخن، وفي الأوكسجين بلهب أزرق باهت مع حرارة عالية، ويزيل لون ماء البروم الأحمر. ويستعمل مع الأوكسجين في الشعلة الأوكسي-أسيتيلينية لقطع المعادن ولحمها.</p>${prepSourceFigure('acetylene',68,'جهاز تحضير غاز الأسيتيلين') }</div><div class="content-card"><h3>🔎 التمييز</h3><p>الإثيلين والأسيتيلين يزيلان اللون الأحمر لماء البروم، بينما لا يؤثر فيه الميثان.</p></div>${lessonButtons6("showLesson6_3","showLesson6_5","الدرس التالي →")}</div></div>`;}
+function showLesson6_5(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-5 كحول الإثيل وحامض الخليك</h2><span></span></div><h1 class="lesson-title">الإيثانول وحامض الخليك</h1><div class="lesson-content"><div class="content-card"><h3>🍶 كحول الإثيل C₂H₅OH</h3><p>يحضر قديمًا من تخمير الدبس أو التمر أو عصير العنب بمعزل عن الهواء، ثم يفصل بالتقطير. ويحضر صناعيًا من الإثيلين مع الماء بوجود حامض الكبريتيك المركز.</p><div class="formula-box">C₂H₄ + H₂O → C₂H₅OH</div><p>من خواصه رائحة مميزة، ودرجة غليان أقل من الماء، ومذيب جيد لكثير من المواد العضوية، ويشتعل بلهب أزرق باهت.</p></div><div class="content-card"><h3>🧴 الاستعمالات</h3><p>يدخل في مواد التجميل والعطور والوارنيش والحبر والمطاط الصناعي وبعض المركبات الدوائية، ويستعمل وقودًا، وفي تعقيم الجروح عند خلطه بقليل من اليود.</p></div><div class="content-card"><h3>🧪 حامض الخليك CH₃COOH</h3><p>ذو رائحة نفاذة، يمتزج بالماء بأي نسبة، سائل في درجات الحرارة الاعتيادية ويتجمد عند نحو 18°C، ويتفاعل مع القواعد مثل هيدروكسيد الصوديوم مكونًا خلات الصوديوم.</p></div>${lessonButtons6("showLesson6_4","showLesson6_6","الدرس التالي →")}</div></div>`;}
+function showLesson6_6(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter6()">←</button><h2>6-6 البنزين والفينول</h2><span></span></div><h1 class="lesson-title">المركبات الحلقية</h1><div class="lesson-content"><div class="content-card"><h3>⬡ البنزين أو البنزول C₆H₆</h3><p>مركب هيدروكاربوني حلقي من الهيدروكاربونات العطرية. سائل سريع التبخر، يغلي عند 80°C، لا يذوب في الماء، وبخاره سام، ويشتعل بلهب داخن جدًا لاحتوائه على نسبة عالية من الكاربون.</p><p>من استعمالاته: مذيب للأصباغ والوارنيش، وإنتاج مبيدات الحشرات، وصناعة النايلون ومساحيق التنظيف وغيرها.</p></div><div class="content-card"><h3>🌸 الفينول C₆H₅OH</h3><p>مركب عضوي حلقي مغلق، مادة صلبة عديمة اللون ذات رائحة خاصة ومتلفة للجلد، ويذوب في الماء. يستعمل معقمًا ومطهرًا، ويستعمل محلوله 9% لتعقيم المرافق الصحية، وتدخل مشتقاته في مساحيق التنظيف ومبيدات الحشرات والبلاستيكات.</p><p>وفق الملزمة: تُغسل الحروق الناتجة من الفينول بمحلول مخفف من كاربونات الصوديوم لمعادلة تأثيره.</p></div>${lessonButtons6("showLesson6_5","showChapter6MinistryIdeas","🎯 أفكار وزارية →")}</div></div>`;}
 
 var chapter6MinistryIdeas=[
  {title:"علل: للكاربون تكافؤ رباعي وأغلب مركباته تساهمية؟",answer:"لأن غلاف التكافؤ لذرة الكاربون يحتوي أربعة إلكترونات تميل إلى المشاركة لتكوين أربع أواصر تساهمية والوصول إلى ترتيب مستقر."},
@@ -5243,8 +5131,7 @@ function showChapter7(){
   <div class="lesson-card" onclick="showLesson7_5()"><div class="lesson-card-icon">🧴</div><div class="lesson-card-info"><h3>7-5 حامض النتريك</h3><p>تحضير حامض النتريك وخواصه.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showLesson7_6()"><div class="lesson-card-icon">🔥</div><div class="lesson-card-info"><h3>7-6 الفسفور وخواصه</h3><p>وجود الفسفور، تحضيره، والفسفور الأبيض والأحمر وخصائصهما.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showLesson7_7()"><div class="lesson-card-icon">🌱</div><div class="lesson-card-info"><h3>7-7 مركبات الفسفور والأسمدة الفوسفاتية</h3><p>حامض الفسفوريك، الفوسفات، استعمالات مركبات الفسفور والأسمدة الفوسفاتية.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapterFormulas(7)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>كل قوانين ومعادلات الفصل 7 مرتبة في مكان واحد.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapterMemory(7)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل السابع</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapterMemory(7)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل السابع</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterQuiz(7)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل السابع</h3><p>اختبار الفصل السابع فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterWrong(7)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل السابع</h3><p>مراجعة أخطاء اختبار الفصل السابع.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterDrawings(7)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>أجهزة التحضير والاختبارات والأشكال المهمة الخاصة بالفصل السابع.</p></div><div class="lesson-arrow">←</div></div>
@@ -5254,20 +5141,13 @@ function showChapter7(){
  </div>`;
 }
 function lessonButtons7(prev,next,text){return `<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${text}</button><button class="chapter-button" onclick="showChapter7()">📖 العودة إلى الفصل السابع</button></div>`;}
-function showLesson7_1(){
-    markChapterLesson("third",7,1,7);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-1 الزمرة الخامسة</h2><span></span></div><h1 class="lesson-title">الزمرة الخامسة VA</h1><div class="lesson-content"><div class="content-card"><h3>🧪 عناصر الزمرة الخامسة</h3><p>النتروجين N، الفسفور P، الزرنيخ As، الأنتيمون Sb، والبزموث Bi.</p></div><div class="content-card"><h3>📈 الصفات العامة</h3><p>تتدرج العناصر من اللافلزية في النتروجين والفسفور إلى أشباه الفلزات في الزرنيخ والأنتيمون ثم الصفة الفلزية في البزموث مع زيادة العدد الذري. النتروجين غاز، بينما بقية العناصر صلبة في الظروف الاعتيادية، ويميل النتروجين والفسفور إلى المركبات التساهمية مع ازدياد الميل للمركبات الأيونية في بعض العناصر الأثقل.</p></div>${lessonButtons7("showChapter7","showLesson7_2","الدرس التالي →")}</div></div>`;}
-function showLesson7_2(){
-    markChapterLesson("third",7,2,7);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-2 النتروجين وتحضيره</h2><span></span></div><h1 class="lesson-title">النتروجين N₂</h1><div class="lesson-content"><div class="content-card"><h3>🌬️ وجود النتروجين</h3><p>يشكل نحو 78% من الغلاف الجوي، وهو غير فعال تقريبًا في الظروف الاعتيادية، ولهذا أطلق عليه قديمًا اسم الأزوت.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضّر بتسخين مزيج من كلوريد الأمونيوم ونتريت الصوديوم بوجود كمية قليلة من الماء، ويتكون نتريت الأمونيوم آنيًا ثم يتحلل إلى النتروجين والماء، ويجمع بإزاحة الماء إلى الأسفل.</p><div class="formula-box">NH₄Cl + NaNO₂ → NaCl + NH₄NO₂<br>NH₄NO₂ → N₂↑ + 2H₂O</div>${prepSourceFigure('nitrogen',77,'جهاز تحضير غاز النتروجين') }</div><div class="content-card prep-card"><h3>🏭 التحضير الصناعي</h3><p>يحضّر بالتقطير التجزيئي للهواء المسال الخالي من ثنائي أوكسيد الكاربون؛ فيتقطر النتروجين أولًا لأن درجة غليانه أقل من الأوكسجين، ثم تزال كمية الأوكسجين الضئيلة بإمرار الغاز فوق برادة النحاس الساخنة.</p>${prepGeneratedFigure('nitrogenIndustrial','تحضير النتروجين صناعيًا')}</div>${lessonButtons7("showLesson7_1","showLesson7_3","الدرس التالي →")}</div></div>`;}
-function showLesson7_3(){
-    markChapterLesson("third",7,3,7);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-3 خواص النتروجين</h2><span></span></div><h1 class="lesson-title">خواص واستعمالات النتروجين</h1><div class="lesson-content"><div class="content-card"><h3>🔹 الخواص الفيزيائية</h3><p>غاز عديم اللون والرائحة، يوجد على هيئة جزيء ثنائي الذرة N₂، غير فعال في الظروف الاعتيادية وقليل الذوبان في الماء.</p></div><div class="content-card"><h3>⚡ الخواص الكيميائية</h3><p>يتفاعل مع المغنيسيوم أو الليثيوم أو الكالسيوم عند درجات الحرارة العالية، ويمكن أن يتفاعل مع الأوكسجين بوجود شرارة كهربائية، كما يتفاعل مع الهيدروجين لإنتاج الأمونيا بطريقة هابر.</p><div class="formula-box">N₂ + 3H₂ → 2NH₃</div></div><div class="content-card"><h3>🧊 الاستعمالات</h3><p>يستعمل لإنتاج الأمونيا، وفي تبريد المنتجات الغذائية بالنيتروجين المسال، وزيادة ضغط الآبار المنتجة للنفط، وكجو خامل في خزانات المواد القابلة للانفجار.</p></div>${lessonButtons7("showLesson7_2","showLesson7_4","الدرس التالي →")}</div></div>`;}
-function showLesson7_4(){
-    markChapterLesson("third",7,4,7);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-4 غاز الأمونيا</h2><span></span></div><h1 class="lesson-title">NH₃ الأمونيا</h1><div class="lesson-content"><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضر بتسخين كلوريد الأمونيوم مع هيدروكسيد الكالسيوم، ويمرر الغاز على أوكسيد الكالسيوم للتخلص من الرطوبة، ثم يجمع بالإزاحة السفلية للهواء لأنه أخف من الهواء.</p><div class="formula-box">2NH₄Cl + Ca(OH)₂ → CaCl₂ + 2NH₃↑ + 2H₂O</div>${prepSourceFigure('ammonia',79,'جهاز تحضير غاز الأمونيا') }</div><div class="content-card prep-card"><h3>🏭 التحضير الصناعي — هابر</h3><p>تنتج الأمونيا صناعيًا من الاتحاد المباشر للنتروجين والهيدروجين مع التسخين والضغط العالي وبوجود عامل مساعد.</p><div class="formula-box">N₂ + 3H₂ → 2NH₃</div>${prepGeneratedFigure('haber','طريقة هابر لتحضير الأمونيا')}</div><div class="content-card"><h3>💨 الخواص</h3><p>غاز عديم اللون ذو رائحة نفاذة، أخف من الهواء، كثير الذوبانية في الماء، ومحلوله قاعدي. ويستعمل سائل الأمونيا في مصانع إنتاج الثلج لغرض التبريد بسبب امتصاصه الحرارة عند تبخره.</p></div>${lessonButtons7("showLesson7_3","showLesson7_5","الدرس التالي →")}</div></div>`;}
-function showLesson7_5(){
-    markChapterLesson("third",7,5,7);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-5 حامض النتريك</h2><span></span></div><h1 class="lesson-title">HNO₃ حامض النتريك</h1><div class="lesson-content"><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضر بتسخين مزيج من نترات البوتاسيوم وحامض الكبريتيك المركز في معوجة زجاجية ثم تكثيف بخار الحامض في وعاء استقبال مبرد بالماء.</p><div class="formula-box">KNO₃ + H₂SO₄ → KHSO₄ + HNO₃</div>${prepSourceFigure('nitric',80,'جهاز تحضير حامض النتريك') }</div><div class="content-card prep-card"><h3>🏭 التحضير الصناعي</h3><p>يحضر بكميات تجارية بطريقة أوستولد، وفيها تتم أكسدة الأمونيا بالهواء بوجود البلاتين عاملًا مساعدًا.</p>${prepGeneratedFigure('ostwald','طريقة أوستولد لتحضير حامض النتريك')}</div><div class="content-card"><h3>🔬 الخواص الفيزيائية</h3><p>النقي عديم اللون وتنبعث منه أبخرة ذات رائحة نفاذة، وقد يتحول إلى اللون الأصفر عند تركه بسبب أكاسيد النتروجين الذائبة، وهو تام الذوبان في الماء ويغلي عند 120.5°C.</p></div>${lessonButtons7("showLesson7_4","showLesson7_6","الدرس التالي →")}</div></div>`;}
-function showLesson7_6(){
-    markChapterLesson("third",7,6,7);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-6 الفسفور وخواصه</h2><span></span></div><h1 class="lesson-title">الفسفور P</h1><div class="lesson-content"><div class="content-card"><h3>📍 وجود الفسفور</h3><p>عنصر أساسي في الكائنات الحية، ويوجد في الطبيعة متحدًا في خامات معدنية، ومن أهمها الأباتايت بوصفه مصدرًا لفوسفات الكالسيوم.</p></div><div class="content-card prep-card"><h3>🏭 تحضير الفسفور</h3><p>لا توجد حاجة لتحضيره مختبريًا وفق الملزمة؛ وتحضيره الصناعي يتم بتسخين خام فوسفات الكالسيوم مع الرمل والكربون في فرن كهربائي عند درجة حرارة عالية وبمعزل عن الهواء، وينتج الفسفور الأبيض الذي يحفظ تحت الماء.</p><div class="formula-box">2Ca₃(PO₄)₂ + 6SiO₂ + 10C → 6CaSiO₃ + P₄ + 10CO</div>${prepGeneratedFigure('phosphorus','تحضير الفسفور صناعيًا')}</div><div class="content-card"><h3>⚪ الفسفور الأبيض والأحمر</h3><p>الفسفور الأبيض أكثر فعالية، يتوهج في الظلام في هواء رطب ويشتعل بسهولة في الهواء وله درجة اتقاد واطئة وهو سام. أما الفسفور الأحمر فأقل فعالية، أحمر مائل إلى البنفسجي، أعلى كثافة ودرجة اتقاد، وغير سام وفق المقارنة الواردة في الملزمة.</p></div>${lessonButtons7("showLesson7_5","showLesson7_7","الدرس التالي →")}</div></div>`;}
-function showLesson7_7(){
-    markChapterLesson("third",7,7,7);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-7 مركبات الفسفور والأسمدة</h2><span></span></div><h1 class="lesson-title">مركبات الفسفور والأسمدة الفوسفاتية</h1><div class="lesson-content"><div class="content-card"><h3>🧪 حامض الفسفوريك H₃PO₄</h3><p>سائل كثيف القوام عديم اللون والرائحة، حامض ضعيف غير مؤكسد، ويتفاعل مع القواعد مكوّنًا أملاح الفوسفات التي تستعمل في صناعة الأسمدة.</p></div><div class="content-card"><h3>🧴 الفوسفات</h3><p>هي أملاح لحامض الفسفوريك، ومن أمثلتها فوسفات الصوديوم وفوسفات الكالسيوم. تدخل بعض الفوسفات في معالجة الماء وحفظ بعض المواد الغذائية.</p></div><div class="content-card"><h3>🔥 مركبات الفسفور وعود الثقاب</h3><p>يدخل في عجينة رأس عود الثقاب مواد قابلة للاشتعال ومؤكسدة ومادة تزيد الاحتكاك ومادة صمغية رابطة. كما يعامل خشب عود الثقاب بمحلول فوسفات الأمونيوم للمساعدة على احتراقه واستمرار اتقاده وتقليل إعادة اشتعاله.</p></div><div class="content-card"><h3>🌱 الأسمدة الفوسفاتية</h3><p>فوسفات الكالسيوم قليل الذوبان في الماء لذلك يصعب امتصاصه بصورة مباشرة، فيحوّل إلى أملاح أسهل ذوبانًا. من الأسمدة: السوبر فوسفات الاعتيادي والثلاثي.</p><div class="formula-box">Ca₃(PO₄)₂ + 2H₂SO₄ → Ca(H₂PO₄)₂ + 2CaSO₄<br>Ca₃(PO₄)₂ + 4H₃PO₄ → 3Ca(H₂PO₄)₂</div><p>من فوائد السماد الفوسفاتي على السنبليات: تقوية السيقان، وتعجيل نمو البذور، وزيادة مقاومتها للأمراض.</p></div>${lessonButtons7("showLesson7_6","showChapter7MinistryIdeas","🎯 أفكار وزارية →")}</div></div>`;}
+function showLesson7_1(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-1 الزمرة الخامسة</h2><span></span></div><h1 class="lesson-title">الزمرة الخامسة VA</h1><div class="lesson-content"><div class="content-card"><h3>🧪 عناصر الزمرة الخامسة</h3><p>النتروجين N، الفسفور P، الزرنيخ As، الأنتيمون Sb، والبزموث Bi.</p></div><div class="content-card"><h3>📈 الصفات العامة</h3><p>تتدرج العناصر من اللافلزية في النتروجين والفسفور إلى أشباه الفلزات في الزرنيخ والأنتيمون ثم الصفة الفلزية في البزموث مع زيادة العدد الذري. النتروجين غاز، بينما بقية العناصر صلبة في الظروف الاعتيادية، ويميل النتروجين والفسفور إلى المركبات التساهمية مع ازدياد الميل للمركبات الأيونية في بعض العناصر الأثقل.</p></div>${lessonButtons7("showChapter7","showLesson7_2","الدرس التالي →")}</div></div>`;}
+function showLesson7_2(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-2 النتروجين وتحضيره</h2><span></span></div><h1 class="lesson-title">النتروجين N₂</h1><div class="lesson-content"><div class="content-card"><h3>🌬️ وجود النتروجين</h3><p>يشكل نحو 78% من الغلاف الجوي، وهو غير فعال تقريبًا في الظروف الاعتيادية، ولهذا أطلق عليه قديمًا اسم الأزوت.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضّر بتسخين مزيج من كلوريد الأمونيوم ونتريت الصوديوم بوجود كمية قليلة من الماء، ويتكون نتريت الأمونيوم آنيًا ثم يتحلل إلى النتروجين والماء، ويجمع بإزاحة الماء إلى الأسفل.</p><div class="formula-box">NH₄Cl + NaNO₂ → NaCl + NH₄NO₂<br>NH₄NO₂ → N₂↑ + 2H₂O</div>${prepSourceFigure('nitrogen',77,'جهاز تحضير غاز النتروجين') }</div><div class="content-card"><h3>🏭 التحضير الصناعي</h3><p>يحضّر بالتقطير التجزيئي للهواء المسال الخالي من ثنائي أوكسيد الكاربون؛ فيتقطر النتروجين أولًا لأن درجة غليانه أقل من الأوكسجين، ثم تزال كمية الأوكسجين الضئيلة بإمرار الغاز فوق برادة النحاس الساخنة.</p></div>${lessonButtons7("showLesson7_1","showLesson7_3","الدرس التالي →")}</div></div>`;}
+function showLesson7_3(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-3 خواص النتروجين</h2><span></span></div><h1 class="lesson-title">خواص واستعمالات النتروجين</h1><div class="lesson-content"><div class="content-card"><h3>🔹 الخواص الفيزيائية</h3><p>غاز عديم اللون والرائحة، يوجد على هيئة جزيء ثنائي الذرة N₂، غير فعال في الظروف الاعتيادية وقليل الذوبان في الماء.</p></div><div class="content-card"><h3>⚡ الخواص الكيميائية</h3><p>يتفاعل مع المغنيسيوم أو الليثيوم أو الكالسيوم عند درجات الحرارة العالية، ويمكن أن يتفاعل مع الأوكسجين بوجود شرارة كهربائية، كما يتفاعل مع الهيدروجين لإنتاج الأمونيا بطريقة هابر.</p><div class="formula-box">N₂ + 3H₂ → 2NH₃</div></div><div class="content-card"><h3>🧊 الاستعمالات</h3><p>يستعمل لإنتاج الأمونيا، وفي تبريد المنتجات الغذائية بالنيتروجين المسال، وزيادة ضغط الآبار المنتجة للنفط، وكجو خامل في خزانات المواد القابلة للانفجار.</p></div>${lessonButtons7("showLesson7_2","showLesson7_4","الدرس التالي →")}</div></div>`;}
+function showLesson7_4(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-4 غاز الأمونيا</h2><span></span></div><h1 class="lesson-title">NH₃ الأمونيا</h1><div class="lesson-content"><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضر بتسخين كلوريد الأمونيوم مع هيدروكسيد الكالسيوم، ويمرر الغاز على أوكسيد الكالسيوم للتخلص من الرطوبة، ثم يجمع بالإزاحة السفلية للهواء لأنه أخف من الهواء.</p><div class="formula-box">2NH₄Cl + Ca(OH)₂ → CaCl₂ + 2NH₃↑ + 2H₂O</div>${prepSourceFigure('ammonia',79,'جهاز تحضير غاز الأمونيا') }</div><div class="content-card"><h3>🏭 التحضير الصناعي — هابر</h3><p>تنتج الأمونيا صناعيًا من الاتحاد المباشر للنتروجين والهيدروجين مع التسخين والضغط العالي وبوجود عامل مساعد.</p><div class="formula-box">N₂ + 3H₂ → 2NH₃</div></div><div class="content-card"><h3>💨 الخواص</h3><p>غاز عديم اللون ذو رائحة نفاذة، أخف من الهواء، كثير الذوبانية في الماء، ومحلوله قاعدي. ويستعمل سائل الأمونيا في مصانع إنتاج الثلج لغرض التبريد بسبب امتصاصه الحرارة عند تبخره.</p></div>${lessonButtons7("showLesson7_3","showLesson7_5","الدرس التالي →")}</div></div>`;}
+function showLesson7_5(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-5 حامض النتريك</h2><span></span></div><h1 class="lesson-title">HNO₃ حامض النتريك</h1><div class="lesson-content"><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضر بتسخين مزيج من نترات البوتاسيوم وحامض الكبريتيك المركز في معوجة زجاجية ثم تكثيف بخار الحامض في وعاء استقبال مبرد بالماء.</p><div class="formula-box">KNO₃ + H₂SO₄ → KHSO₄ + HNO₃</div>${prepSourceFigure('nitric',80,'جهاز تحضير حامض النتريك') }</div><div class="content-card"><h3>🏭 التحضير الصناعي</h3><p>يحضر بكميات تجارية بطريقة أوستولد، وفيها تتم أكسدة الأمونيا بالهواء بوجود البلاتين عاملًا مساعدًا.</p></div><div class="content-card"><h3>🔬 الخواص الفيزيائية</h3><p>النقي عديم اللون وتنبعث منه أبخرة ذات رائحة نفاذة، وقد يتحول إلى اللون الأصفر عند تركه بسبب أكاسيد النتروجين الذائبة، وهو تام الذوبان في الماء ويغلي عند 120.5°C.</p></div>${lessonButtons7("showLesson7_4","showLesson7_6","الدرس التالي →")}</div></div>`;}
+function showLesson7_6(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-6 الفسفور وخواصه</h2><span></span></div><h1 class="lesson-title">الفسفور P</h1><div class="lesson-content"><div class="content-card"><h3>📍 وجود الفسفور</h3><p>عنصر أساسي في الكائنات الحية، ويوجد في الطبيعة متحدًا في خامات معدنية، ومن أهمها الأباتايت بوصفه مصدرًا لفوسفات الكالسيوم.</p></div><div class="content-card"><h3>🏭 تحضير الفسفور</h3><p>لا توجد حاجة لتحضيره مختبريًا وفق الملزمة؛ وتحضيره الصناعي يتم بتسخين خام فوسفات الكالسيوم مع الرمل والكربون في فرن كهربائي عند درجة حرارة عالية وبمعزل عن الهواء، وينتج الفسفور الأبيض الذي يحفظ تحت الماء.</p><div class="formula-box">2Ca₃(PO₄)₂ + 6SiO₂ + 10C → 6CaSiO₃ + P₄ + 10CO</div></div><div class="content-card"><h3>⚪ الفسفور الأبيض والأحمر</h3><p>الفسفور الأبيض أكثر فعالية، يتوهج في الظلام في هواء رطب ويشتعل بسهولة في الهواء وله درجة اتقاد واطئة وهو سام. أما الفسفور الأحمر فأقل فعالية، أحمر مائل إلى البنفسجي، أعلى كثافة ودرجة اتقاد، وغير سام وفق المقارنة الواردة في الملزمة.</p></div>${lessonButtons7("showLesson7_5","showLesson7_7","الدرس التالي →")}</div></div>`;}
+function showLesson7_7(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter7()">←</button><h2>7-7 مركبات الفسفور والأسمدة</h2><span></span></div><h1 class="lesson-title">مركبات الفسفور والأسمدة الفوسفاتية</h1><div class="lesson-content"><div class="content-card"><h3>🧪 حامض الفسفوريك H₃PO₄</h3><p>سائل كثيف القوام عديم اللون والرائحة، حامض ضعيف غير مؤكسد، ويتفاعل مع القواعد مكوّنًا أملاح الفوسفات التي تستعمل في صناعة الأسمدة.</p></div><div class="content-card"><h3>🧴 الفوسفات</h3><p>هي أملاح لحامض الفسفوريك، ومن أمثلتها فوسفات الصوديوم وفوسفات الكالسيوم. تدخل بعض الفوسفات في معالجة الماء وحفظ بعض المواد الغذائية.</p></div><div class="content-card"><h3>🔥 مركبات الفسفور وعود الثقاب</h3><p>يدخل في عجينة رأس عود الثقاب مواد قابلة للاشتعال ومؤكسدة ومادة تزيد الاحتكاك ومادة صمغية رابطة. كما يعامل خشب عود الثقاب بمحلول فوسفات الأمونيوم للمساعدة على احتراقه واستمرار اتقاده وتقليل إعادة اشتعاله.</p></div><div class="content-card"><h3>🌱 الأسمدة الفوسفاتية</h3><p>فوسفات الكالسيوم قليل الذوبان في الماء لذلك يصعب امتصاصه بصورة مباشرة، فيحوّل إلى أملاح أسهل ذوبانًا. من الأسمدة: السوبر فوسفات الاعتيادي والثلاثي.</p><div class="formula-box">Ca₃(PO₄)₂ + 2H₂SO₄ → Ca(H₂PO₄)₂ + 2CaSO₄<br>Ca₃(PO₄)₂ + 4H₃PO₄ → 3Ca(H₂PO₄)₂</div><p>من فوائد السماد الفوسفاتي على السنبليات: تقوية السيقان، وتعجيل نمو البذور، وزيادة مقاومتها للأمراض.</p></div>${lessonButtons7("showLesson7_6","showChapter7MinistryIdeas","🎯 أفكار وزارية →")}</div></div>`;}
 
 var chapter7MinistryIdeas=[
  {title:"علل: أطلق على النتروجين قديمًا اسم الأزوت؟",answer:"لأنه عنصر غير فعال تقريبًا في الظروف الاعتيادية، ولفظة الأزوت تعني عديم الحياة وفق الملزمة."},
@@ -5312,8 +5192,7 @@ function showChapter9(){
   <div class="lesson-card" onclick="showLesson9_4()"><div class="lesson-card-icon">🧪</div><div class="lesson-card-info"><h3>9-4 هايبوكلوريت الكالسيوم</h3><p>المسحوق القاصر، تكوينه ودوره في قصر الألوان والتعقيم.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showLesson9_5()"><div class="lesson-card-icon">💨</div><div class="lesson-card-info"><h3>9-5 كلوريد الهيدروجين</h3><p>وجود HCl وتحضيره وخواصه وطرائق الكشف عنه.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showLesson9_6()"><div class="lesson-card-icon">🧂</div><div class="lesson-card-info"><h3>9-6 الكلوريدات</h3><p>تعريف الكلوريدات، طرق تحضيرها، ذوبانها، والكشف عنها بنترات الفضة.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapterFormulas(9)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>كل قوانين ومعادلات الفصل 9 مرتبة في مكان واحد.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapterMemory(9)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل التاسع</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapterMemory(9)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل التاسع</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterQuiz(9)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل التاسع</h3><p>اختبار الفصل التاسع فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterWrong(9)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل التاسع</h3><p>مراجعة أخطاء اختبار الفصل التاسع.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterDrawings(9)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>أجهزة التحضير والاختبارات والمركبات والأشكال المهمة الخاصة بالفصل التاسع.</p></div><div class="lesson-arrow">←</div></div>
@@ -5323,18 +5202,12 @@ function showChapter9(){
  </div>`;
 }
 function lessonButtons9(prev,next,text){return `<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${text}</button><button class="chapter-button" onclick="showChapter9()">📖 العودة إلى الفصل التاسع</button></div>`;}
-function showLesson9_1(){
-    markChapterLesson("third",9,1,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-1 الزمرة السابعة</h2><span></span></div><h1 class="lesson-title">الزمرة السابعة VIIA — الهالوجينات</h1><div class="lesson-content"><div class="content-card"><h3>🧪 عناصر الزمرة السابعة</h3><p>الفلور F، الكلور Cl، البروم Br، اليود I، والأستاتين At.</p></div><div class="content-card"><h3>📈 الصفات العامة</h3><p>تمتلك عناصر الزمرة السابعة سبعة إلكترونات في غلافها الخارجي وتميل إلى اكتساب إلكترون واحد للوصول إلى ترتيب مستقر.</p><p>الفلور والكلور غازان، البروم سائل، واليود صلب في الظروف الاعتيادية. كما تزداد درجتا الانصهار والغليان بزيادة العدد الذري.</p></div>${lessonButtons9("showChapter9","showLesson9_2","الدرس التالي →")}</div></div>`;}
-function showLesson9_2(){
-    markChapterLesson("third",9,2,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-2 الكلور</h2><span></span></div><h1 class="lesson-title">وجود الكلور وتحضيره</h1><div class="lesson-content"><div class="content-card"><h3>📍 وجود الكلور</h3><p>لا يوجد الكلور حرًا في الطبيعة بسبب فعاليته الكيميائية العالية، ويكون موجودًا على هيئة مركبات أهمها كلوريد الصوديوم في ماء البحر والترسبات الملحية.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضر بأكسدة حامض الهيدروكلوريك المركز بوجود ثاني أوكسيد المنغنيز، ثم تزال شوائب HCl والرطوبة.</p><div class="formula-box">4HCl + MnO₂ → MnCl₂ + 2H₂O + Cl₂↑</div>${prepSourceFigure('chlorineLab',98,'جهاز تحضير غاز الكلور مختبريًا') }<p>ثاني أوكسيد المنغنيز هنا عامل مؤكسد.</p></div><div class="content-card prep-card"><h3>🏭 التحضير الصناعي</h3><p>يحضر بالتحليل الكهربائي لمحلول كلوريد الصوديوم في الماء أو لمنصهره، ويتحرر الكلور عند الأنود.</p><div class="formula-box">2NaCl → 2Na + Cl₂↑</div>${prepSourceFigure('chlorineInd',98,'جهاز التحليل الكهربائي لتحضير الكلور صناعيًا') }</div>${lessonButtons9("showLesson9_1","showLesson9_3","الدرس التالي →")}</div></div>`;}
-function showLesson9_3(){
-    markChapterLesson("third",9,3,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-3 خواص الكلور واستعمالاته</h2><span></span></div><h1 class="lesson-title">خواص وتفاعلات Cl₂</h1><div class="lesson-content"><div class="content-card"><h3>🔬 الخواص الفيزيائية</h3><p>غاز أخضر مصفر، أثقل من الهواء، قليل الذوبان في الماء، وله رائحة خانقة، واستنشاقه بكميات كبيرة سام.</p></div><div class="content-card"><h3>⚗️ التفاعلات الكيميائية</h3><div class="formula-box">Cl₂ + 2Na → 2NaCl<br>3Cl₂ + 2P → 2PCl₃<br>5Cl₂ + 2P → 2PCl₅<br>H₂ + Cl₂ → 2HCl</div></div><div class="content-card"><h3>💧 قصر الألوان والتعقيم</h3><p>يتفاعل الكلور مع الماء محررًا الأوكسجين الذري الفعال الذي يقوم بقصر الألوان والتعقيم.</p><div class="formula-box">H₂O + Cl₂ → 2HCl + [O]</div></div><div class="content-card"><h3>🧰 الاستعمالات</h3><p>تعقيم مياه الشرب وأحواض السباحة، قصر ألوان بعض الأنسجة والملابس، ويدخل في بعض المركبات والمذيبات الصناعية.</p></div>${lessonButtons9("showLesson9_2","showLesson9_4","الدرس التالي →")}</div></div>`;}
-function showLesson9_4(){
-    markChapterLesson("third",9,4,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-4 هايبوكلوريت الكالسيوم</h2><span></span></div><h1 class="lesson-title">Ca(OCl)₂ والمسحوق القاصر</h1><div class="lesson-content"><div class="content-card prep-card"><h3>🧪 التكوين</h3><p>يتكون هايبوكلوريت الكالسيوم عند تمرير غاز الكلور في هيدروكسيد الكالسيوم الجاف، وهو المادة الفعالة في المسحوق القاصر.</p>${prepGeneratedFigure('hypochlorite','تحضير هايبوكلوريت الكالسيوم')}</div><div class="content-card"><h3>💧 آلية القصر والتعقيم</h3><p>عند تفاعل المسحوق القاصر مع الماء بوجود ثاني أوكسيد الكاربون يتكون حامض الهايبوكلوروز الذي يتفكك مولدًا الأوكسجين الذري الفعال.</p><div class="formula-box">Ca(OCl)₂ + CO₂ + H₂O → CaCO₃ + 2HClO<br>HClO → HCl + O</div></div>${lessonButtons9("showLesson9_3","showLesson9_5","الدرس التالي →")}</div></div>`;}
-function showLesson9_5(){
-    markChapterLesson("third",9,5,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-5 كلوريد الهيدروجين</h2><span></span></div><h1 class="lesson-title">HCl</h1><div class="lesson-content"><div class="content-card"><h3>📍 وجود HCl</h3><p>لا يوجد كلوريد الهيدروجين حرًا في الطبيعة، ويوجد في العصارات المعدية على هيئة محلول حامض الهيدروكلوريك.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضر من تفاعل حامض الكبريتيك المركز مع كلوريد الصوديوم. وللحصول على الغاز الجاف يمرر الغاز خلال حامض الكبريتيك المركز ثم يجمع بإزاحة الهواء إلى الأعلى.</p><div class="formula-box">NaCl + H₂SO₄ → NaHSO₄ + HCl↑</div>${prepGeneratedFigure('hcl','تحضير كلوريد الهيدروجين الجاف')}</div><div class="content-card"><h3>🔎 الكشف عن HCl</h3><p>بتقريب ساق زجاجي مبلل بالأمونيا من غاز HCl تتكون مادة ضبابية بيضاء من NH₄Cl.</p><div class="formula-box">NH₃ + HCl → NH₄Cl</div><p>كما يمكن الكشف عن حامض الهيدروكلوريك بإضافة نترات الفضة فتتكون راسب أبيض من AgCl.</p><div class="formula-box">HCl + AgNO₃ → AgCl↓ + HNO₃</div></div>${lessonButtons9("showLesson9_4","showLesson9_6","الدرس التالي →")}</div></div>`;}
-function showLesson9_6(){
-    markChapterLesson("third",9,6,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-6 الكلوريدات</h2><span></span></div><h1 class="lesson-title">الكلوريدات والكشف عنها</h1><div class="lesson-content"><div class="content-card"><h3>🧂 تعريف الكلوريدات</h3><p>الكلوريدات هي أملاح حامض الهيدروكلوريك، ويمكن أن تنتج من إحلال فلز أو جذر الأمونيوم محل هيدروجين الحامض.</p><div class="formula-box">Mg + 2HCl → MgCl₂ + H₂<br>NH₄OH + HCl → NH₄Cl + H₂O</div></div><div class="content-card prep-card"><h3>🧪 تحضير الكلوريدات</h3><p>يمكن تحضيرها أيضًا بالاتحاد المباشر بين غاز الكلور وبعض الفلزات مثل الصوديوم والبوتاسيوم.</p>${prepGeneratedFigure('chloride','تحضير الكلوريدات')}</div><div class="content-card"><h3>🔍 الكشف عن الكلوريدات</h3><p>تضاف نترات الفضة إلى محلول الكلوريد فتتكون راسب أبيض من كلوريد الفضة، يذوب بسهولة في محلول الأمونيا.</p><div class="formula-box">AgNO₃ + NaCl → AgCl↓ + NaNO₃</div></div><div class="content-card"><h3>📌 الذوبان</h3><p>جميع الكلوريدات قابلة للذوبان في الماء عدا كلوريد الفضة وكلوريد الزئبق، بينما كلوريد الرصاص يذوب في الماء الحار ولا يذوب في الماء البارد.</p></div>${lessonButtons9("showLesson9_5","showChapter9MinistryIdeas","🎯 أفكار وزارية →")}</div></div>`;}
+function showLesson9_1(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-1 الزمرة السابعة</h2><span></span></div><h1 class="lesson-title">الزمرة السابعة VIIA — الهالوجينات</h1><div class="lesson-content"><div class="content-card"><h3>🧪 عناصر الزمرة السابعة</h3><p>الفلور F، الكلور Cl، البروم Br، اليود I، والأستاتين At.</p></div><div class="content-card"><h3>📈 الصفات العامة</h3><p>تمتلك عناصر الزمرة السابعة سبعة إلكترونات في غلافها الخارجي وتميل إلى اكتساب إلكترون واحد للوصول إلى ترتيب مستقر.</p><p>الفلور والكلور غازان، البروم سائل، واليود صلب في الظروف الاعتيادية. كما تزداد درجتا الانصهار والغليان بزيادة العدد الذري.</p></div>${lessonButtons9("showChapter9","showLesson9_2","الدرس التالي →")}</div></div>`;}
+function showLesson9_2(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-2 الكلور</h2><span></span></div><h1 class="lesson-title">وجود الكلور وتحضيره</h1><div class="lesson-content"><div class="content-card"><h3>📍 وجود الكلور</h3><p>لا يوجد الكلور حرًا في الطبيعة بسبب فعاليته الكيميائية العالية، ويكون موجودًا على هيئة مركبات أهمها كلوريد الصوديوم في ماء البحر والترسبات الملحية.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضر بأكسدة حامض الهيدروكلوريك المركز بوجود ثاني أوكسيد المنغنيز، ثم تزال شوائب HCl والرطوبة.</p><div class="formula-box">4HCl + MnO₂ → MnCl₂ + 2H₂O + Cl₂↑</div>${prepSourceFigure('chlorineLab',98,'جهاز تحضير غاز الكلور مختبريًا') }<p>ثاني أوكسيد المنغنيز هنا عامل مؤكسد.</p></div><div class="content-card prep-card"><h3>🏭 التحضير الصناعي</h3><p>يحضر بالتحليل الكهربائي لمحلول كلوريد الصوديوم في الماء أو لمنصهره، ويتحرر الكلور عند الأنود.</p><div class="formula-box">2NaCl → 2Na + Cl₂↑</div>${prepSourceFigure('chlorineInd',98,'جهاز التحليل الكهربائي لتحضير الكلور صناعيًا') }</div>${lessonButtons9("showLesson9_1","showLesson9_3","الدرس التالي →")}</div></div>`;}
+function showLesson9_3(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-3 خواص الكلور واستعمالاته</h2><span></span></div><h1 class="lesson-title">خواص وتفاعلات Cl₂</h1><div class="lesson-content"><div class="content-card"><h3>🔬 الخواص الفيزيائية</h3><p>غاز أخضر مصفر، أثقل من الهواء، قليل الذوبان في الماء، وله رائحة خانقة، واستنشاقه بكميات كبيرة سام.</p></div><div class="content-card"><h3>⚗️ التفاعلات الكيميائية</h3><div class="formula-box">Cl₂ + 2Na → 2NaCl<br>3Cl₂ + 2P → 2PCl₃<br>5Cl₂ + 2P → 2PCl₅<br>H₂ + Cl₂ → 2HCl</div></div><div class="content-card"><h3>💧 قصر الألوان والتعقيم</h3><p>يتفاعل الكلور مع الماء محررًا الأوكسجين الذري الفعال الذي يقوم بقصر الألوان والتعقيم.</p><div class="formula-box">H₂O + Cl₂ → 2HCl + [O]</div></div><div class="content-card"><h3>🧰 الاستعمالات</h3><p>تعقيم مياه الشرب وأحواض السباحة، قصر ألوان بعض الأنسجة والملابس، ويدخل في بعض المركبات والمذيبات الصناعية.</p></div>${lessonButtons9("showLesson9_2","showLesson9_4","الدرس التالي →")}</div></div>`;}
+function showLesson9_4(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-4 هايبوكلوريت الكالسيوم</h2><span></span></div><h1 class="lesson-title">Ca(OCl)₂ والمسحوق القاصر</h1><div class="lesson-content"><div class="content-card"><h3>🧪 التكوين</h3><p>يتكون هايبوكلوريت الكالسيوم عند تمرير غاز الكلور في هيدروكسيد الكالسيوم الجاف، وهو المادة الفعالة في المسحوق القاصر.</p></div><div class="content-card"><h3>💧 آلية القصر والتعقيم</h3><p>عند تفاعل المسحوق القاصر مع الماء بوجود ثاني أوكسيد الكاربون يتكون حامض الهايبوكلوروز الذي يتفكك مولدًا الأوكسجين الذري الفعال.</p><div class="formula-box">Ca(OCl)₂ + CO₂ + H₂O → CaCO₃ + 2HClO<br>HClO → HCl + O</div></div>${lessonButtons9("showLesson9_3","showLesson9_5","الدرس التالي →")}</div></div>`;}
+function showLesson9_5(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-5 كلوريد الهيدروجين</h2><span></span></div><h1 class="lesson-title">HCl</h1><div class="lesson-content"><div class="content-card"><h3>📍 وجود HCl</h3><p>لا يوجد كلوريد الهيدروجين حرًا في الطبيعة، ويوجد في العصارات المعدية على هيئة محلول حامض الهيدروكلوريك.</p></div><div class="content-card"><h3>⚗️ التحضير المختبري</h3><p>يحضر من تفاعل حامض الكبريتيك المركز مع كلوريد الصوديوم. وللحصول على الغاز الجاف يمرر الغاز خلال حامض الكبريتيك المركز ثم يجمع بإزاحة الهواء إلى الأعلى.</p><div class="formula-box">NaCl + H₂SO₄ → NaHSO₄ + HCl↑</div></div><div class="content-card"><h3>🔎 الكشف عن HCl</h3><p>بتقريب ساق زجاجي مبلل بالأمونيا من غاز HCl تتكون مادة ضبابية بيضاء من NH₄Cl.</p><div class="formula-box">NH₃ + HCl → NH₄Cl</div><p>كما يمكن الكشف عن حامض الهيدروكلوريك بإضافة نترات الفضة فتتكون راسب أبيض من AgCl.</p><div class="formula-box">HCl + AgNO₃ → AgCl↓ + HNO₃</div></div>${lessonButtons9("showLesson9_4","showLesson9_6","الدرس التالي →")}</div></div>`;}
+function showLesson9_6(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-6 الكلوريدات</h2><span></span></div><h1 class="lesson-title">الكلوريدات والكشف عنها</h1><div class="lesson-content"><div class="content-card"><h3>🧂 تعريف الكلوريدات</h3><p>الكلوريدات هي أملاح حامض الهيدروكلوريك، ويمكن أن تنتج من إحلال فلز أو جذر الأمونيوم محل هيدروجين الحامض.</p><div class="formula-box">Mg + 2HCl → MgCl₂ + H₂<br>NH₄OH + HCl → NH₄Cl + H₂O</div></div><div class="content-card"><h3>🧪 تحضير الكلوريدات</h3><p>يمكن تحضيرها أيضًا بالاتحاد المباشر بين غاز الكلور وبعض الفلزات مثل الصوديوم والبوتاسيوم.</p></div><div class="content-card"><h3>🔍 الكشف عن الكلوريدات</h3><p>تضاف نترات الفضة إلى محلول الكلوريد فتتكون راسب أبيض من كلوريد الفضة، يذوب بسهولة في محلول الأمونيا.</p><div class="formula-box">AgNO₃ + NaCl → AgCl↓ + NaNO₃</div></div><div class="content-card"><h3>📌 الذوبان</h3><p>جميع الكلوريدات قابلة للذوبان في الماء عدا كلوريد الفضة وكلوريد الزئبق، بينما كلوريد الرصاص يذوب في الماء الحار ولا يذوب في الماء البارد.</p></div>${lessonButtons9("showLesson9_5","showChapter9MinistryIdeas","🎯 أفكار وزارية →")}</div></div>`;}
 
 var chapter9MinistryIdeas=[
  {title:"علل: تميل عناصر الزمرة السابعة إلى اكتساب إلكترون واحد؟",answer:"لأن غلافها الخارجي يحتوي سبعة إلكترونات، فتحتاج إلى إلكترون واحد للوصول إلى ترتيب إلكتروني مستقر."},
@@ -5379,8 +5252,7 @@ function showChapter8(){
   <div class="lesson-card" onclick="showLesson8_4()"><div class="lesson-card-icon">💨</div><div class="lesson-card-info"><h3>8-4 ثاني أوكسيد الكبريت SO₂</h3><p>وجوده وتحضيره وخواصه واستعمالاته وسلوكه كأوكسيد حامضي.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showLesson8_5()"><div class="lesson-card-icon">☠️</div><div class="lesson-card-info"><h3>8-5 كبريتيد الهيدروجين H₂S</h3><p>خواص الغاز وتحضيره والكشف عنه بتكوين كبريتيد النحاس الأسود.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showLesson8_6()"><div class="lesson-card-icon">🧪</div><div class="lesson-card-info"><h3>8-6 حامض الكبريتيك والكبريتات</h3><p>الخواص والاستعمالات وطريقة التماس وتصنيع الكبريتات وأهم فوائدها.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapterFormulas(8)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>كل قوانين ومعادلات الفصل 8 مرتبة في مكان واحد.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapterMemory(8)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الثامن</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapterMemory(8)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الثامن</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterQuiz(8)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الثامن</h3><p>اختبار الفصل الثامن فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterWrong(8)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الثامن</h3><p>مراجعة أخطاء اختبار الفصل الثامن.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterDrawings(8)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>أجهزة التحضير والمقارنات والمخططات المهمة الخاصة بالفصل الثامن.</p></div><div class="lesson-arrow">←</div></div>
@@ -5390,18 +5262,12 @@ function showChapter8(){
  </div>`;
 }
 function lessonButtons8(prev,next,text){return `<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${text}</button><button class="chapter-button" onclick="showChapter8()">📖 العودة إلى الفصل الثامن</button></div>`;}
-function showLesson8_1(){
-    markChapterLesson("third",8,1,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter8()">←</button><h2>8-1 الزمرة السادسة</h2><span></span></div><h1 class="lesson-title">الزمرة السادسة VIA</h1><div class="lesson-content"><div class="content-card"><h3>🧪 عناصر الزمرة السادسة</h3><p>الأوكسجين O، الكبريت S، السلينيوم Se، التيلوريوم Te، والبولونيوم Po.</p></div><div class="content-card"><h3>📈 الصفات العامة</h3><p>تزداد الصفة الفلزية بزيادة العدد الذري؛ فالأوكسجين والكبريت لافلزيان، والسلينيوم والتيلوريوم أشباه فلزات، والبولونيوم فلز.</p><p>تمتلك عناصر الزمرة السادسة ستة إلكترونات في الغلاف الخارجي، وتميل إلى اكتساب إلكترونين للوصول إلى ترتيب إلكتروني مستقر.</p></div>${lessonButtons8("showChapter8","showLesson8_2","الدرس التالي →")}</div></div>`;}
-function showLesson8_2(){
-    markChapterLesson("third",8,2,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter8()">←</button><h2>8-2 الكبريت</h2><span></span></div><h1 class="lesson-title">وجود الكبريت وتحضيره</h1><div class="lesson-content"><div class="content-card"><h3>📍 وجود الكبريت</h3><p>يوجد الكبريت حرًا في مناجم المشراق في الموصل، ويوجد أيضًا في المناطق البركانية وفي هيئة كبريتيدات فلزية وكبريتات مع بعض الفلزات.</p></div><div class="content-card prep-card"><h3>🏭 طريقة فراش</h3><p>يستخرج الكبريت الحر الموجود تحت الأرض بصهره بالماء المضغوط والمسخن إلى 170°C، ثم يرفع الهواء المضغوط الكبريت المنصهر إلى السطح عبر الأنابيب، حيث يبرد ويتصلب.</p>${prepGeneratedFigure('frasch','طريقة فراش لاستخراج الكبريت')}</div><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضر بإضافة حامض الهيدروكلوريك المركز إلى محلول ثايوكبريتات الصوديوم، فيترسب الكبريت ويجمع بالترشيح.</p><div class="formula-box">2HCl + Na₂S₂O₃ → S + SO₂ + 2NaCl + H₂O</div>${prepGeneratedFigure('sulfurLab','تحضير الكبريت مختبريًا')}</div><div class="content-card"><h3>🧪 فصل خليط الملح والطباشير والكبريت</h3><p>يذاب ملح الطعام بالماء ويفصل بالترشيح ثم بالتبخير والتجفيف، ثم يضاف ثاني كبريتيد الكاربون إلى الراسب فيذيب الكبريت، ويفصل الكبريت عن الطباشير بالترشيح والتجفيف.</p></div>${lessonButtons8("showLesson8_1","showLesson8_3","الدرس التالي →")}</div></div>`;}
-function showLesson8_3(){
-    markChapterLesson("third",8,3,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter8()">←</button><h2>8-3 خواص الكبريت</h2><span></span></div><h1 class="lesson-title">خواص وتفاعلات الكبريت</h1><div class="lesson-content"><div class="content-card"><h3>🔹 الخواص الفيزيائية</h3><p>الكبريت مادة صلبة صفراء في الظروف الاعتيادية، لا يذوب في الماء، يذوب في بعض المذيبات مثل ثنائي كبريتيد الكاربون، وغير موصل للتيار الكهربائي، وله صور متعددة منها البلوري وغير البلوري.</p></div><div class="content-card"><h3>🔥 النشاط الكيميائي</h3><p>يكون الكبريت غير فعال نسبيًا عند درجات الحرارة الاعتيادية، لكنه يصبح نشطًا عند التسخين ويتحد مع العناصر.</p><div class="formula-box">S + O₂ → SO₂<br>2S + C → CS₂<br>S + Fe → FeS</div></div><div class="content-card"><h3>🧪 مع الحوامض</h3><p>لا يتأثر الكبريت بالحوامض المخففة، لكنه يتفاعل ويتأكسد مع الحوامض المركزة المؤكسدة القوية الساخنة.</p><div class="formula-box">S + 2H₂SO₄ → 3SO₂ + 2H₂O<br>S + 2HNO₃ → H₂SO₄ + 2NO₂ + H₂O</div></div>${lessonButtons8("showLesson8_2","showLesson8_4","الدرس التالي →")}</div></div>`;}
-function showLesson8_4(){
-    markChapterLesson("third",8,4,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter8()">←</button><h2>8-4 ثاني أوكسيد الكبريت</h2><span></span></div><h1 class="lesson-title">SO₂</h1><div class="lesson-content"><div class="content-card"><h3>🌋 وجوده</h3><p>يتولد من احتراق الكبريت بوجود الأوكسجين، ومن النشاطات البركانية، ومن تعدين بعض العناصر، ومن حرق المشتقات النفطية أو الفحم الحجري.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضّر من إضافة كبريتيت الصوديوم إلى حامض الكبريتيك المخفف، ويجمع بإزاحة الهواء إلى الأعلى لأنه أثقل من الهواء.</p><div class="formula-box">Na₂SO₃ + H₂SO₄ → SO₂↑ + H₂O + Na₂SO₄</div>${prepSourceFigure('so2',90,'جهاز تحضير غاز SO₂') }</div><div class="content-card"><h3>🔬 الخواص والاستعمالات</h3><p>غاز عديم اللون ذو رائحة نفاذة قوية، أثقل من الهواء، وقليل الذوبان في الماء مكونًا حامض الكبريتوز الضعيف.</p><div class="formula-box">SO₂ + H₂O → H₂SO₃</div><p>يستعمل في قصر ألوان بعض المواد، والتعقيم، وحفظ الأغذية.</p></div>${lessonButtons8("showLesson8_3","showLesson8_5","الدرس التالي →")}</div></div>`;}
-function showLesson8_5(){
-    markChapterLesson("third",8,5,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter8()">←</button><h2>8-5 كبريتيد الهيدروجين</h2><span></span></div><h1 class="lesson-title">H₂S</h1><div class="lesson-content"><div class="content-card"><h3>☠️ الخواص</h3><p>غاز عديم اللون، أثقل من الهواء، يذوب في الماء، له رائحة تشبه رائحة البيض الفاسد، وهو غاز سام وقاتل.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضّر من تفاعل حامض الكبريتيك مع كبريتيد الحديد الثنائي ويجمع بإزاحة الهواء إلى الأعلى.</p><div class="formula-box">H₂SO₄ + FeS → H₂S↑ + FeSO₄</div>${prepSourceFigure('h2s',92,'جهاز تحضير غاز كبريتيد الهيدروجين') }</div><div class="content-card"><h3>🔎 الكشف عنه</h3><p>يكشف عنه بتمريره في محلول كبريتات النحاس، فيتكون راسب أسود من كبريتيد النحاس.</p><div class="formula-box">H₂S + CuSO₄ → H₂SO₄ + CuS↓</div></div>${lessonButtons8("showLesson8_4","showLesson8_6","الدرس التالي →")}</div></div>`;}
-function showLesson8_6(){
-    markChapterLesson("third",8,6,6);setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter8()">←</button><h2>8-6 حامض الكبريتيك والكبريتات</h2><span></span></div><h1 class="lesson-title">H₂SO₄ والكبريتات</h1><div class="lesson-content"><div class="content-card prep-card"><h3>🏭 طريقة التماس</h3><p>يصنع حامض الكبريتيك صناعيًا بطريقة التماس: يتكون SO₂ بحرق الكبريت، ثم يؤكسد إلى SO₃ بوجود V₂O₅ عاملًا مساعدًا، ثم يتفاعل SO₃ مع الماء لتكوين H₂SO₄.</p><div class="formula-box">S + O₂ → SO₂<br>2SO₂ + O₂ → 2SO₃<br>SO₃ + H₂O → H₂SO₄</div>${prepGeneratedFigure('contact','طريقة التماس لتصنيع حامض الكبريتيك')}</div><div class="content-card"><h3>🧴 الخواص والاستعمالات</h3><p>حامض الكبريتيك عديم اللون، زيتي القوام، يذوب في الماء مولدًا حرارة، والنقي عديم الرائحة، ويعد موصلًا جيدًا للتيار الكهربائي.</p><p>من استعمالاته: تحضير حوامض أخرى، تجفيف بعض المواد والغازات، تنقية البترول، صناعة المتفجرات والأسمدة، إزالة الصدأ، وبطاريات الخزن الرصاصية والطلي الكهربائي.</p></div><div class="content-card prep-card"><h3>🧪 الكبريتات</h3><p>هي أملاح حامض الكبريتيك، وتحضر بتفاعله مع الفلزات أو أكاسيدها أو هيدروكسيداتها أو كاربوناتها. ومن أمثلتها ZnSO₄ وCaSO₄·2H₂O وMgSO₄·7H₂O و(NH₄)₂SO₄.</p>${prepGeneratedFigure('sulfate','تحضير أملاح الكبريتات')}</div>${lessonButtons8("showLesson8_5","showChapter8MinistryIdeas","🎯 أفكار وزارية →")}</div></div>`;}
+function showLesson8_1(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter8()">←</button><h2>8-1 الزمرة السادسة</h2><span></span></div><h1 class="lesson-title">الزمرة السادسة VIA</h1><div class="lesson-content"><div class="content-card"><h3>🧪 عناصر الزمرة السادسة</h3><p>الأوكسجين O، الكبريت S، السلينيوم Se، التيلوريوم Te، والبولونيوم Po.</p></div><div class="content-card"><h3>📈 الصفات العامة</h3><p>تزداد الصفة الفلزية بزيادة العدد الذري؛ فالأوكسجين والكبريت لافلزيان، والسلينيوم والتيلوريوم أشباه فلزات، والبولونيوم فلز.</p><p>تمتلك عناصر الزمرة السادسة ستة إلكترونات في الغلاف الخارجي، وتميل إلى اكتساب إلكترونين للوصول إلى ترتيب إلكتروني مستقر.</p></div>${lessonButtons8("showChapter8","showLesson8_2","الدرس التالي →")}</div></div>`;}
+function showLesson8_2(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter8()">←</button><h2>8-2 الكبريت</h2><span></span></div><h1 class="lesson-title">وجود الكبريت وتحضيره</h1><div class="lesson-content"><div class="content-card"><h3>📍 وجود الكبريت</h3><p>يوجد الكبريت حرًا في مناجم المشراق في الموصل، ويوجد أيضًا في المناطق البركانية وفي هيئة كبريتيدات فلزية وكبريتات مع بعض الفلزات.</p></div><div class="content-card"><h3>🏭 طريقة فراش</h3><p>يستخرج الكبريت الحر الموجود تحت الأرض بصهره بالماء المضغوط والمسخن إلى 170°C، ثم يرفع الهواء المضغوط الكبريت المنصهر إلى السطح عبر الأنابيب، حيث يبرد ويتصلب.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضر بإضافة حامض الهيدروكلوريك المركز إلى محلول ثايوكبريتات الصوديوم، فيترسب الكبريت ويجمع بالترشيح.</p><div class="formula-box">2HCl + Na₂S₂O₃ → S + SO₂ + 2NaCl + H₂O</div></div><div class="content-card"><h3>🧪 فصل خليط الملح والطباشير والكبريت</h3><p>يذاب ملح الطعام بالماء ويفصل بالترشيح ثم بالتبخير والتجفيف، ثم يضاف ثاني كبريتيد الكاربون إلى الراسب فيذيب الكبريت، ويفصل الكبريت عن الطباشير بالترشيح والتجفيف.</p></div>${lessonButtons8("showLesson8_1","showLesson8_3","الدرس التالي →")}</div></div>`;}
+function showLesson8_3(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter8()">←</button><h2>8-3 خواص الكبريت</h2><span></span></div><h1 class="lesson-title">خواص وتفاعلات الكبريت</h1><div class="lesson-content"><div class="content-card"><h3>🔹 الخواص الفيزيائية</h3><p>الكبريت مادة صلبة صفراء في الظروف الاعتيادية، لا يذوب في الماء، يذوب في بعض المذيبات مثل ثنائي كبريتيد الكاربون، وغير موصل للتيار الكهربائي، وله صور متعددة منها البلوري وغير البلوري.</p></div><div class="content-card"><h3>🔥 النشاط الكيميائي</h3><p>يكون الكبريت غير فعال نسبيًا عند درجات الحرارة الاعتيادية، لكنه يصبح نشطًا عند التسخين ويتحد مع العناصر.</p><div class="formula-box">S + O₂ → SO₂<br>2S + C → CS₂<br>S + Fe → FeS</div></div><div class="content-card"><h3>🧪 مع الحوامض</h3><p>لا يتأثر الكبريت بالحوامض المخففة، لكنه يتفاعل ويتأكسد مع الحوامض المركزة المؤكسدة القوية الساخنة.</p><div class="formula-box">S + 2H₂SO₄ → 3SO₂ + 2H₂O<br>S + 2HNO₃ → H₂SO₄ + 2NO₂ + H₂O</div></div>${lessonButtons8("showLesson8_2","showLesson8_4","الدرس التالي →")}</div></div>`;}
+function showLesson8_4(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter8()">←</button><h2>8-4 ثاني أوكسيد الكبريت</h2><span></span></div><h1 class="lesson-title">SO₂</h1><div class="lesson-content"><div class="content-card"><h3>🌋 وجوده</h3><p>يتولد من احتراق الكبريت بوجود الأوكسجين، ومن النشاطات البركانية، ومن تعدين بعض العناصر، ومن حرق المشتقات النفطية أو الفحم الحجري.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضّر من إضافة كبريتيت الصوديوم إلى حامض الكبريتيك المخفف، ويجمع بإزاحة الهواء إلى الأعلى لأنه أثقل من الهواء.</p><div class="formula-box">Na₂SO₃ + H₂SO₄ → SO₂↑ + H₂O + Na₂SO₄</div>${prepSourceFigure('so2',90,'جهاز تحضير غاز SO₂') }</div><div class="content-card"><h3>🔬 الخواص والاستعمالات</h3><p>غاز عديم اللون ذو رائحة نفاذة قوية، أثقل من الهواء، وقليل الذوبان في الماء مكونًا حامض الكبريتوز الضعيف.</p><div class="formula-box">SO₂ + H₂O → H₂SO₃</div><p>يستعمل في قصر ألوان بعض المواد، والتعقيم، وحفظ الأغذية.</p></div>${lessonButtons8("showLesson8_3","showLesson8_5","الدرس التالي →")}</div></div>`;}
+function showLesson8_5(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter8()">←</button><h2>8-5 كبريتيد الهيدروجين</h2><span></span></div><h1 class="lesson-title">H₂S</h1><div class="lesson-content"><div class="content-card"><h3>☠️ الخواص</h3><p>غاز عديم اللون، أثقل من الهواء، يذوب في الماء، له رائحة تشبه رائحة البيض الفاسد، وهو غاز سام وقاتل.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضّر من تفاعل حامض الكبريتيك مع كبريتيد الحديد الثنائي ويجمع بإزاحة الهواء إلى الأعلى.</p><div class="formula-box">H₂SO₄ + FeS → H₂S↑ + FeSO₄</div>${prepSourceFigure('h2s',92,'جهاز تحضير غاز كبريتيد الهيدروجين') }</div><div class="content-card"><h3>🔎 الكشف عنه</h3><p>يكشف عنه بتمريره في محلول كبريتات النحاس، فيتكون راسب أسود من كبريتيد النحاس.</p><div class="formula-box">H₂S + CuSO₄ → H₂SO₄ + CuS↓</div></div>${lessonButtons8("showLesson8_4","showLesson8_6","الدرس التالي →")}</div></div>`;}
+function showLesson8_6(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter8()">←</button><h2>8-6 حامض الكبريتيك والكبريتات</h2><span></span></div><h1 class="lesson-title">H₂SO₄ والكبريتات</h1><div class="lesson-content"><div class="content-card"><h3>🏭 طريقة التماس</h3><p>يصنع حامض الكبريتيك صناعيًا بطريقة التماس: يتكون SO₂ بحرق الكبريت، ثم يؤكسد إلى SO₃ بوجود V₂O₅ عاملًا مساعدًا، ثم يتفاعل SO₃ مع الماء لتكوين H₂SO₄.</p><div class="formula-box">S + O₂ → SO₂<br>2SO₂ + O₂ → 2SO₃<br>SO₃ + H₂O → H₂SO₄</div></div><div class="content-card"><h3>🧴 الخواص والاستعمالات</h3><p>حامض الكبريتيك عديم اللون، زيتي القوام، يذوب في الماء مولدًا حرارة، والنقي عديم الرائحة، ويعد موصلًا جيدًا للتيار الكهربائي.</p><p>من استعمالاته: تحضير حوامض أخرى، تجفيف بعض المواد والغازات، تنقية البترول، صناعة المتفجرات والأسمدة، إزالة الصدأ، وبطاريات الخزن الرصاصية والطلي الكهربائي.</p></div><div class="content-card"><h3>🧪 الكبريتات</h3><p>هي أملاح حامض الكبريتيك، وتحضر بتفاعله مع الفلزات أو أكاسيدها أو هيدروكسيداتها أو كاربوناتها. ومن أمثلتها ZnSO₄ وCaSO₄·2H₂O وMgSO₄·7H₂O و(NH₄)₂SO₄.</p></div>${lessonButtons8("showLesson8_5","showChapter8MinistryIdeas","🎯 أفكار وزارية →")}</div></div>`;}
 
 var chapter8MinistryIdeas=[
  {title:"علل: يستعمل الكبريت في صناعة الألعاب النارية؟",answer:"لسهولة اشتعاله."},
@@ -5438,22 +5304,13 @@ function showChapter8Questions(){setActive(1);var app=document.getElementById("a
    ========================================================= */
 function prepSourceDrawingCards(ch){
   const sets={
-    2:[['sodiumChloride','استخراج كلوريد الصوديوم','gen'],['calciumElectrolysis','استخلاص الكالسيوم بالتحليل الكهربائي','gen'],['calciumHydroxide','تحضير هيدروكسيد الكالسيوم','gen'],['gypsum','تحضير الجبس','gen']],
-    3:[['aluminumHall',34,'خلية هول لاستخلاص الألمنيوم','src'],['aluminumHydroxide','تحضير هيدروكسيد الألمنيوم','gen'],['aluminumOxide','تحضير أوكسيد الألمنيوم','gen']],
-    5:[['siliconLab','طرق التحضير المختبري للسليكون','gen'],['siliconIndustrial','تحضير السليكون الصناعي','gen'],['silane','تحضير السيلان','gen'],['zoneRefining','تنقية السليكون عالي النقاوة','gen']],
-    6:[['methane',66,'تحضير الميثان','src'],['ethylene',67,'تحضير الإثيلين','src'],['acetylene',68,'تحضير الأسيتيلين','src'],['ethanolFermentation','تخمير وتحضير كحول الإثيل','gen'],['ethanolIndustrial','تحضير كحول الإثيل صناعيًا','gen']],
-    7:[['nitrogen',77,'تحضير النتروجين مختبريًا','src'],['nitrogenIndustrial','تحضير النتروجين صناعيًا','gen'],['ammonia',79,'تحضير الأمونيا مختبريًا','src'],['haber','تحضير الأمونيا بطريقة هابر','gen'],['nitric',80,'تحضير حامض النتريك مختبريًا','src'],['ostwald','تحضير حامض النتريك بطريقة أوستولد','gen'],['phosphorus','تحضير الفسفور صناعيًا','gen']],
-    8:[['sulfurLab','تحضير الكبريت مختبريًا','gen'],['so2',90,'تحضير ثاني أوكسيد الكبريت','src'],['h2s',92,'تحضير كبريتيد الهيدروجين','src'],['contact','طريقة التماس لحامض الكبريتيك','gen'],['sulfate','تحضير أملاح الكبريتات','gen']],
-    9:[['chlorineLab',98,'تحضير الكلور مختبريًا','src'],['chlorineInd',98,'تحضير الكلور صناعيًا','src'],['hypochlorite','تحضير هايبوكلوريت الكالسيوم','gen'],['hcl','تحضير كلوريد الهيدروجين الجاف','gen'],['chloride','تحضير الكلوريدات','gen']]
+    3:[['aluminumHall',34,'خلية هول لاستخلاص الألمنيوم']],
+    6:[['methane',66,'تحضير الميثان'],['ethylene',67,'تحضير الإثيلين'],['acetylene',68,'تحضير الأسيتيلين']],
+    7:[['nitrogen',77,'تحضير النتروجين'],['ammonia',79,'تحضير الأمونيا'],['nitric',80,'تحضير حامض النتريك']],
+    8:[['so2',90,'تحضير ثاني أوكسيد الكبريت'],['h2s',92,'تحضير كبريتيد الهيدروجين']],
+    9:[['chlorineLab',98,'تحضير الكلور مختبريًا'],['chlorineInd',98,'تحضير الكلور صناعيًا']]
   };
-  return (sets[ch]||[]).map(function(d){
-    const key=d[0];
-    const isSrc=d[d.length-1]==='src';
-    const title=isSrc?d[2]:d[1];
-    const img=isSrc?PREP_SOURCE_IMAGES[key]:null;
-    const visual=isSrc?`<img src="${img}" alt="${title}">`:`<div class="prep-svg-wrap">${prepGeneratedFigure(key,title).match(/<div class="prep-svg-wrap">([\s\S]*)<\/div><\/figure>/)?.[1]||''}</div>`;
-    return `<div class="drawing-card"><div class="drawing-visual">${visual}</div><div class="drawing-info"><h3>${title}</h3></div></div>`;
-  }).join('');
+  return (sets[ch]||[]).map(function(d){return `<div class="drawing-card"><div class="drawing-visual"><img src="${PREP_SOURCE_IMAGES[d[0]]}" alt="${d[2]}"></div><div class="drawing-info"><h3>${d[2]}</h3><p>الرسم الأصلي المقتص من ملزمة «فخامة الكيمياء».</p></div></div>`}).join('');
 }
 
 function showChapterDrawings(ch){
@@ -5717,27 +5574,332 @@ var chapter7QuizQuestions = [
 ];
 
 
-const CHAPTER_FORMULAS = {"1":{"title":"التركيب الذري للمادة","source":"ملزمة «فخامة الكيمياء» — الفصل الأول","items":[["قانون الحد الأقصى لإلكترونات مستوى الطاقة","2n²","n = رقم مستوى الطاقة الرئيسي؛ يحدد أقصى عدد للإلكترونات في المستوى."],["عدد الأوربيتالات في المستوى الرئيسي","n²","n = رقم مستوى الطاقة الرئيسي."],["سعة المستوى الثانوي s","2 إلكترون","المستوى الثانوي s يسع إلكترونين."],["سعة المستوى الثانوي p","6 إلكترونات","المستوى الثانوي p يتكون من ثلاثة أوربيتالات."],["سعة المستوى الثانوي d","10 إلكترونات","المستوى الثانوي d يتكون من خمسة أوربيتالات."],["سعة المستوى الثانوي f","14 إلكترونًا","المستوى الثانوي f يتكون من سبعة أوربيتالات."],["العلاقة بين العدد الذري والإلكترونات في الذرة المتعادلة","العدد الذري = عدد البروتونات = عدد الإلكترونات","العلاقة مذكورة ضمن مراجعة الفصل."],["تأين ذرة الصوديوم","Na → Na⁺ + e⁻","تمثيل فقد إلكترون وطاقة التأين."],["الألفة الإلكترونية للفلور","F(g) + e⁻ → F⁻(g) + طاقة","تمثيل اكتساب الذرة إلكترونًا مع تحرر طاقة."]]},"2":{"title":"الزمرتان الأولى والثانية","source":"ملزمة «فخامة الكيمياء» — الفصل الثاني","items":[["اتحاد الصوديوم مع الكلور","2Na + Cl₂ → 2NaCl","تكوين كلوريد الصوديوم."],["تفاعل الصوديوم مع الماء","2Na + 2H₂O → 2NaOH + H₂↑","تكوين هيدروكسيد الصوديوم وتحرير الهيدروجين."],["تفاعل الصوديوم مع حمض الهيدروكلوريك","2Na + 2HCl → 2NaCl + H₂↑","تكوين الملح وتحرير الهيدروجين."],["اختزال أكسيد المغنيسيوم بالصوديوم","2Na + MgO → Na₂O + Mg","تفاعل إزاحة واختزال."],["اختزال كلوريد الألمنيوم بالصوديوم","3Na + AlCl₃ → 3NaCl + Al","تفاعل الصوديوم مع كلوريد الألمنيوم."],["تحضير كربونات الصوديوم","CO₂ + 2NaOH → Na₂CO₃ + H₂O","تفاعل هيدروكسيد الصوديوم مع ثنائي أوكسيد الكربون."],["إطفاء الجير","CaO + H₂O → Ca(OH)₂","تحضير هيدروكسيد الكالسيوم."],["تعكير ماء الكلس","Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O","يتكون راسب أبيض من كربونات الكالسيوم."],["تحول الجبس إلى جبس باريس","CaSO₄·2H₂O → CaSO₄·H₂O + H₂O","بالتسخين يفقد الجبس جزءًا من ماء التبلور."],["تحول جبس باريس إلى الجبس الاعتيادي","CaSO₄·H₂O + H₂O → CaSO₄·2H₂O","عند التقاط ماء التبلور تتكون البنية الاعتيادية للجبس."]]},"3":{"title":"الزمرة الثالثة","source":"ملزمة «فخامة الكيمياء» — الفصل الثالث","items":[["استخلاص الألمنيوم بطريقة هول — المبدأ","Al₂O₃ → Al + O₂","يمثل التحليل الكهربائي للألومينا؛ منتجات المصهور تفصل عند الأقطاب."],["احتراق مسحوق الألمنيوم","4Al + 3O₂ → 2Al₂O₃ + طاقة","يتكون أوكسيد الألمنيوم وتتحرر طاقة."],["تفاعل الثرميت","2Al + Fe₂O₃ → Al₂O₃ + 2Fe + طاقة حرارية","الألمنيوم عامل مختزل ويؤدي إلى تكوّن الحديد المنصهر."],["تفاعل الألمنيوم مع حمض الهيدروكلوريك","2Al + 6HCl → 2AlCl₃ + 3H₂↑","تفاعل الألمنيوم مع الحوامض محررًا الهيدروجين."],["تحضير هيدروكسيد الألمنيوم","Al₂(SO₄)₃ + 6NaOH → 2Al(OH)₃↓ + 3Na₂SO₄","يتكون الراسب الأبيض الجيلاتيني."],["تحضير أوكسيد الألمنيوم","2Al(OH)₃ → Al₂O₃ + 3H₂O","بالتسخين الشديد لهيدروكسيد الألمنيوم."],["الكشف عن أيون الألمنيوم","Al³⁺ + 3NaOH → Al(OH)₃↓ + 3Na⁺","يتكون راسب أبيض جيلاتيني من هيدروكسيد الألمنيوم."]]},"4":{"title":"المحاليل","source":"ملزمة «فخامة الكيمياء» — الفصل الرابع","items":[["النسبة المئوية الكتلية للمذاب","% الكتلية = (كتلة المذاب ÷ كتلة المحلول) × 100","كتلة المحلول = كتلة المذاب + كتلة المذيب."],["النسبة المئوية الكتلية للمذيب","% الكتلية للمذيب = (كتلة المذيب ÷ كتلة المحلول) × 100","تعبر عن نسبة المذيب من كتلة المحلول."],["كتلة المحلول","mT = m₁ + m₂","mT كتلة المحلول الكلية."],["النسبة المئوية الحجمية للمذاب","% الحجمية = (حجم المذاب ÷ حجم المحلول) × 100","حجم المحلول = حجم المذاب + حجم المذيب."],["حجم المحلول","VT = V₁ + V₂","VT حجم المحلول الكلي."],["التركيز بالكتلة/الحجم","التركيز = كتلة المذاب ÷ حجم المحلول","تظهر في مسائل التركيز بوحدة g/L عند استخدام الغرام واللتر."],["الكثافة","ρ = m ÷ V","ρ الكثافة، m الكتلة، V الحجم."],["حساب كتلة محلول من كثافته","m = ρ × V","يستخدم مع مسائل تحويل الحجم إلى كتلة."],["حساب حجم محلول من كثافته","V = m ÷ ρ","يستخدم مع مسائل تحويل الكتلة إلى حجم."]]},"5":{"title":"الزمرة الرابعة","source":"ملزمة «فخامة الكيمياء» — الفصل الخامس","items":[["تحضير السليكون من رباعي فلوريد السليكون","SiF₄ + 4K → Si + 4KF","اختزال رباعي فلوريد السليكون بالبوتاسيوم."],["اختزال السليكا بالكاربون","SiO₂ + 2C → 2CO↑ + Si","تحضير السليكون بدرجات حرارة عالية."],["تحضير رباعي كلوريد السليكون","Si + 2Cl₂ → SiCl₄","اتحاد السليكون مع الكلور."],["اختزال رباعي كلوريد السليكون بالمغنسيوم","SiCl₄ + 2Mg → Si + 2MgCl₂","طريقة أخرى للحصول على السليكون."],["تفاعل السليكون مع هيدروكسيد الصوديوم","Si + 2NaOH + H₂O → Na₂SiO₃ + 2H₂↑","ينتج سيليكات الصوديوم والهيدروجين."],["تحضير السيلان من سيليسيد المغنسيوم","Mg₂Si + 4HCl → SiH₄ + 2MgCl₂","التفاعل المذكور في الملزمة."],["تكوين كربيد السليكون","Si + C → SiC","تفاعل السليكون مع الكاربون."]]},"6":{"title":"مدخل في الكيمياء العضوية","source":"ملزمة «فخامة الكيمياء» — الفصل السادس","items":[["صيغة الميثان","CH₄","أبسط مركب هيدروكاربوني في الفصل."],["تحضير الميثان","CH₃COONa + NaOH → CH₄ + Na₂CO₃","تسخين خلات الصوديوم مع هيدروكسيد الصوديوم."],["احتراق الميثان","CH₄ + 2O₂ → CO₂ + 2H₂O + طاقة","احتراق الميثان."],["صيغة الإيثيلين","C₂H₄","هيدروكاربون غير مشبع من الألكينات."],["تحضير الإيثيلين","C₂H₅OH + H₂SO₄ → C₂H₄ + H₂O","عند التسخين مع حامض الكبريتيك المركز وبدرجة 170°C."],["احتراق الإيثيلين","C₂H₄ + 3O₂ → 2CO₂ + 2H₂O","احتراق الإيثيلين."],["صيغة الأسيتيلين","C₂H₂","هيدروكاربون غير مشبع من الألكاينات."],["تحضير الأسيتيلين","CaC₂ + 2H₂O → C₂H₂↑ + Ca(OH)₂","تفاعل كاربيد الكالسيوم مع الماء."],["احتراق الأسيتيلين","2C₂H₂ + 5O₂ → 4CO₂ + 2H₂O + طاقة","الاحتراق مع تولد حرارة عالية."],["تحضير كحول الإيثيل صناعيًا","C₂H₄ + H₂O → C₂H₅OH","بوجود H₂SO₄ المركز كما ورد في الملزمة."]]},"7":{"title":"الزمرة الخامسة VA","source":"ملزمة «فخامة الكيمياء» — الفصل السابع","items":[["تحضير النتروجين مختبريًا — الخطوة الأولى","NH₄Cl + NaNO₂ → NaCl + NH₄NO₂","يتكون نتريت الأمونيوم."],["تفكك نتريت الأمونيوم","NH₄NO₂ → N₂↑ + 2H₂O","يتحرر غاز النتروجين."],["تحضير الأمونيا مختبريًا","2NH₄Cl + Ca(OH)₂ → CaCl₂ + 2NH₃↑ + 2H₂O","تحضير غاز الأمونيا."],["تحضير الأمونيا بطريقة هابر","N₂ + 3H₂ ⇌ 2NH₃","التفاعل الصناعي للأمونيا."],["أكسدة الأمونيا","4NH₃ + 3O₂ → 2N₂ + 6H₂O","المعادلة الواردة في خواص الأمونيا."],["تفاعل الأمونيا مع HCl","NH₃ + HCl → NH₄Cl","يتكون كلوريد الأمونيوم."],["تحضير حامض النتريك مختبريًا","KNO₃ + H₂SO₄ → KHSO₄ + HNO₃","تحضير حمض النتريك من نترات البوتاسيوم."],["إنتاج الفسفور صناعيًا","2Ca₃(PO₄)₂ + 6SiO₂ + 10C → 6CaSiO₃ + P₄ + 10CO↑","التفاعل الصناعي المذكور لإنتاج الفسفور."],["احتراق الفسفور — تكوين P₂O₅","P₄ + 5O₂ → 2P₂O₅","عند وفرة الأوكسجين."],["احتراق الفسفور — تكوين P₂O₃","P₄ + 3O₂ → 2P₂O₃","عند كمية أقل من الأوكسجين."],["تحضير السوبر فوسفات الاعتيادي","Ca₃(PO₄)₂ + 2H₂SO₄ → Ca(H₂PO₄)₂ + 2CaSO₄","تفاعل خام فوسفات الكالسيوم مع حمض الكبريتيك."],["تحضير السوبر فوسفات الثلاثي","Ca₃(PO₄)₂ + 4H₃PO₄ → 3Ca(H₂PO₄)₂","تحضير سماد السوبر فوسفات الثلاثي."]]},"8":{"title":"الزمرة السادسة","source":"ملزمة «فخامة الكيمياء» — الفصل الثامن","items":[["تحضير الكبريت مختبريًا","2HCl + Na₂S₂O₃ → S + SO₂ + 2NaCl + H₂O","تفاعل حمض الهيدروكلوريك المركز مع ثايوكبريتات الصوديوم."],["احتراق الكبريت","S + O₂ → SO₂↑","احتراق الكبريت في الأوكسجين/الهواء."],["تكوين كبريتيد الكاربون","2S + C → CS₂↑","اتحاد الكبريت مع الكاربون."],["تفاعل الكبريت مع الحديد","S + Fe → FeS","تكوين كبريتيد الحديد."],["تفاعل الكبريت مع حمض الكبريتيك","S + 2H₂SO₄ → 3SO₂ + 2H₂O","التفاعل المذكور في الملزمة."],["تفاعل الكبريت مع حمض النتريك","S + 2HNO₃ → H₂SO₄ + 2NO₂ + 2H₂O","التفاعل المذكور في الملزمة."],["تفاعل الكبريت مع الزنك","S + Zn → ZnS↓","تكوين كبريتيد الزنك."],["تفاعل الكبريت مع النحاس","S + Cu → CuS↓","تكوين كبريتيد النحاس."],["تحضير SO₂ مختبريًا","Na₂SO₃ + H₂SO₄ → SO₂↑ + H₂O + Na₂SO₄","تفاعل كبريتيت الصوديوم مع حمض الكبريتيك."],["تكوين حمض الكبريتوز","SO₂ + H₂O → H₂SO₃","ذوبان ثنائي أوكسيد الكبريت في الماء."],["تحضير H₂S","H₂SO₄ + FeS → H₂S↑ + FeSO₄","تفاعل كبريتيد الحديد مع حمض الكبريتيك."],["طريقة التلامس — أكسدة SO₂","2SO₂ + O₂ → 2SO₃","مرحلة أكسدة ثاني أوكسيد الكبريت في تصنيع حمض الكبريتيك."],["تكوين حمض الكبريتيك","SO₃ + H₂O → H₂SO₄","امتصاص ثالث أوكسيد الكبريت بالماء."],["تفاعل الزنك مع حمض الكبريتيك","Zn + H₂SO₄ → ZnSO₄ + H₂↑","تفاعل فلز الزنك مع الحمض المخفف."],["تفاعل أوكسيد الزنك مع حمض الكبريتيك","ZnO + H₂SO₄ → ZnSO₄ + H₂O","تكوين كبريتات الزنك والماء."],["تفاعل هيدروكسيد الزنك مع حمض الكبريتيك","Zn(OH)₂ + H₂SO₄ → ZnSO₄ + 2H₂O","تفاعل تعادل."],["تفاعل كربونات الزنك مع حمض الكبريتيك","ZnCO₃ + H₂SO₄ → ZnSO₄ + CO₂↑ + H₂O","ينطلق ثنائي أوكسيد الكربون."],["الكشف عن H₂S بالزنك","H₂S + ZnSO₄ → H₂SO₄ + ZnS↓","تكوين راسب كبريتيد الزنك."],["الكشف عن H₂S بنترات/خلات الرصاص","H₂S + (CH₃COO)₂Pb → PbS↓ + 2CH₃COOH","تكوين راسب كبريتيد الرصاص الأسود."],["الكشف عن H₂S بكبريتات النحاس","H₂S + CuSO₄ → CuS↓ + H₂SO₄","تكوين راسب كبريتيد النحاس."],["الكشف عن أيون الكبريتات","Ba²⁺ + SO₄²⁻ → BaSO₄↓","تكوين راسب كبريتات الباريوم."]]},"9":{"title":"الزمرة السابعة VIIA","source":"ملزمة «فخامة الكيمياء» — الفصل التاسع","items":[["تحضير الكلور مختبريًا","4HCl + MnO₂ → MnCl₂ + 2H₂O + Cl₂↑","أكسدة حمض الهيدروكلوريك المركز بثنائي أوكسيد المنغنيز."],["تحضير الكلور صناعيًا بالتحليل الكهربائي","2NaCl → 2Na + Cl₂↑","يتحرر الكلور عند الأنود."],["تفاعل الكلور مع الصوديوم","Cl₂ + 2Na → 2NaCl","تكوين كلوريد الصوديوم."],["تفاعل الكلور مع الفسفور — PCl₃","3Cl₂ + 2P → 2PCl₃","عند كمية محدودة من الكلور."],["تفاعل الكلور مع الفسفور — PCl₅","5Cl₂ + 2P → 2PCl₅","عند وفرة الكلور."],["تكوين كلوريد الهيدروجين","H₂ + Cl₂ → 2HCl","اتحاد الهيدروجين مع الكلور."],["قصر الألوان بالكلور","H₂O + Cl₂ → 2HCl + [O]","ينتج الأوكسجين الذري الفعال في الوسط المائي."],["تفاعل هايبوكلوريت الكالسيوم","Ca(OCl)₂ + CO₂ + H₂O → CaCO₃ + 2HClO","تكوين حمض الهايبوكلوروز."],["تفكك حمض الهايبوكلوروز","HClO → HCl + O","يتولد الأوكسجين الذري المستخدم في القصر والتعقيم."],["تفاعل HCl مع الحديد","Fe + 2HCl → FeCl₂ + H₂↑","تكوين كلوريد الحديد الثنائي."],["الكشف عن HCl بالأمونيا","NH₃ + HCl → NH₄Cl","يتكون كلوريد الأمونيوم الأبيض."],["الكشف عن HCl بنترات الفضة","HCl + AgNO₃ → AgCl↓ + HNO₃","يتكون راسب أبيض من كلوريد الفضة."],["تحضير كلوريد المغنسيوم","Mg + 2HCl → MgCl₂ + H₂↑","إحلال المغنسيوم محل الهيدروجين."],["تحضير كلوريد الأمونيوم","NH₄OH + HCl → NH₄Cl + H₂O","تفاعل التعادل."],["الكشف عن الكلوريدات في المحاليل","AgNO₃ + NaCl → AgCl↓ + NaNO₃","يتكون راسب أبيض من كلوريد الفضة."]]}};
+function showChapterMemory(ch){
+ setActive(1); var app=document.getElementById('app'); var names={1:'التركيب الذري للمادة',2:'الزمرتان الأولى والثانية',3:'الزمرة الثالثة',4:'المحاليل',5:'الزمرة الرابعة',6:'الكيمياء العضوية',7:'الزمرة الخامسة VA'};
+ var items=chapterMemoryData[ch]||[];
+ app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${ch===1?'1Lessons':ch}()">←</button><h2>🧠 احفظها</h2><span></span></div><div class="chapter2-banner"><strong>🧠 احفظها — الفصل ${ch}</strong><br>${names[ch]||''}<br>معلومات الحفظ المرتبطة بهذا الفصل فقط.</div>${items.map(function(it,i){return `<div class="content-card"><h3>${i+1}️⃣ ${it.t}</h3><div class="memory-box">${it.x}</div></div>`}).join('')}<div class="lesson-navigation"><button class="next-button" onclick="showChapterQuiz(${ch})">❓ اختبرني في هذا الفصل →</button><button class="chapter-button" onclick="showChapter${ch===1?'1Lessons':ch}()">📖 العودة إلى الفصل</button></div></div>`;
+}
+function showMemoryChooser(){setActive(2);var app=document.getElementById('app');app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">🧠 احفظها</h1><p class="lessons-subheading">اختر الفصل الذي تريد مراجعة معلوماته</p>${[1,2,3,4,5,6,7,8,9].map(function(ch){return `<div class="lesson-card" onclick="showChapterMemory(${ch})"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>الفصل ${ch}</h3><p>معلومات الحفظ الخاصة بالفصل ${ch} فقط.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 اختيار الفصل</button></div></div>`;}
 
-function formulaCardHTML(item){
-  return `<div class="formula-item"><div class="formula-label">${item[0]}</div><div class="formula-equation">${item[1]}</div><div class="formula-note">${item[2]}</div></div>`;
+var chapter8QuizQuestions = [
+ {q:"كم إلكترونًا في الغلاف الخارجي لعناصر الزمرة السادسة؟",options:["4","5","6","7"],answer:2,explain:"تمتلك عناصر الزمرة السادسة ستة إلكترونات في الغلاف الخارجي."},
+ {q:"في أي صورة يوجد الكبريت في مناجم المشراق؟",options:["حرًا","كأملاح فقط","كغاز فقط","كفلز متحد فقط"],answer:0,explain:"يوجد الكبريت حرًا في مناجم المشراق في الموصل."},
+ {q:"ما الطريقة الصناعية لاستخراج الكبريت الحر المذكورة في الفصل؟",options:["طريقة هول","طريقة فراش","طريقة هابر","طريقة أوستولد"],answer:1,explain:"يستخرج الكبريت الحر بطريقة فراش."},
+ {q:"ما إحدى خواص الكبريت الفيزيائية؟",options:["سائل عديم اللون","صلب أصفر","موصل جيد للكهرباء","يذوب في الماء بسهولة"],answer:1,explain:"الكبريت مادة صلبة صفراء في الظروف الاعتيادية."},
+ {q:"ما الغاز الناتج من احتراق الكبريت في الأوكسجين؟",options:["SO₂","SO₃","H₂S","H₂SO₄"],answer:0,explain:"S + O₂ → SO₂."},
+ {q:"كيف يحضر SO₂ مختبريًا؟",options:["Na₂SO₃ + H₂SO₄ المخفف","FeS + H₂SO₄","KNO₃ + H₂SO₄","S + H₂O"],answer:0,explain:"يحضّر من كبريتيت الصوديوم مع حامض الكبريتيك المخفف."},
+ {q:"كيف يكون SO₂ بالنسبة للهواء؟",options:["أخف من الهواء","أثقل من الهواء","يساوي الهواء","لا يختلف عنه"],answer:1,explain:"SO₂ أثقل من الهواء."},
+ {q:"ما لون راسب الكشف عن H₂S باستعمال CuSO₄؟",options:["أبيض","أزرق","أسود","أصفر"],answer:2,explain:"يتكون راسب أسود من CuS."},
+ {q:"ما العامل المساعد في مرحلة تحويل SO₂ إلى SO₃ في طريقة التماس؟",options:["CaO","V₂O₅","CuO","NaCl"],answer:1,explain:"تذكر الملزمة استخدام V₂O₅ عاملًا مساعدًا."},
+ {q:"ماذا يحدث عند إذابة حامض الكبريتيك في الماء؟",options:["يمتص الحرارة","تتولد حرارة عالية","لا يحدث شيء","يتجمد الماء مباشرة"],answer:1,explain:"تؤكد الملزمة ضرورة الحذر لأن إذابته في الماء تولد حرارة عالية."}
+];
+var chapter9QuizQuestions = [
+ {q:"كم إلكترونًا في الغلاف الخارجي لعناصر الزمرة السابعة؟",options:["5","6","7","8"],answer:2,explain:"تمتلك عناصر الزمرة السابعة سبعة إلكترونات في غلافها الخارجي."},
+ {q:"إلى ماذا تميل عناصر الزمرة السابعة؟",options:["فقد إلكترونين","اكتساب إلكترون واحد","فقد ثلاثة إلكترونات","لا تتفاعل"],answer:1,explain:"تميل إلى اكتساب إلكترون واحد لإشباع غلافها الخارجي."},
+ {q:"أي عناصر الزمرة السابعة يكون سائلًا في الظروف الاعتيادية؟",options:["الفلور","الكلور","البروم","اليود"],answer:2,explain:"البروم سائل في الظروف الاعتيادية."},
+ {q:"ما لون غاز الكلور؟",options:["أخضر مصفر","أزرق","أحمر","أسود"],answer:0,explain:"الكلور غاز أخضر مصفر."},
+ {q:"ما سبب عدم وجود الكلور حرًا في الطبيعة؟",options:["قلة فعاليته","فعاليته الكيميائية العالية","أنه صلب","أنه لا يتحد مع العناصر"],answer:1,explain:"بسبب فعاليته الكيميائية العالية واتحاده بسهولة مع العناصر الأخرى."},
+ {q:"كيف يحضر الكلور مختبريًا؟",options:["HCl + MnO₂","NaCl + H₂O فقط","Cl₂ + Na","H₂ + O₂"],answer:0,explain:"يحضر بأكسدة HCl المركز بوجود MnO₂."},
+ {q:"في التحضير الصناعي للكلور، يتحرر Cl₂ عند...",options:["الكاثود","الأنود","المحلول فقط","القطب السالب"],answer:1,explain:"يتحرر الكلور عند قطب الكرافيت الموجب، أي الأنود."},
+ {q:"لماذا يحتاج قصر الألوان بالكلور إلى الماء؟",options:["لزيادة الكثافة","لتوليد الأوكسجين الذري الفعال","لمنع التفاعل","لإذابة NaCl"],answer:1,explain:"يتفاعل الكلور مع الماء محررًا الأوكسجين الذري الذي يقوم بالقصر والتعقيم."},
+ {q:"ما المادة الفعالة في المسحوق القاصر؟",options:["NaCl","Ca(OCl)₂","HCl","AgCl"],answer:1,explain:"هايبوكلوريت الكالسيوم Ca(OCl)₂ هو المادة الفعالة."},
+ {q:"كيف يكشف عن غاز HCl؟",options:["بماء البروم فقط","بتكوين ضباب أبيض من NH₄Cl مع الأمونيا","بتكوين CuS","بتكوين AgCl فقط في الغاز"],answer:1,explain:"NH₃ + HCl → NH₄Cl وتظهر مادة ضبابية بيضاء."},
+ {q:"ما الراسب الناتج عند إضافة AgNO₃ إلى محلول كلوريد؟",options:["Ag₂O","AgCl","AgOH","Ag₂SO₄"],answer:1,explain:"يتكون راسب أبيض من AgCl."},
+ {q:"أي الكلوريدات لا يذوب في الماء وفق الملزمة؟",options:["NaCl","AgCl","KCl","NH₄Cl"],answer:1,explain:"جميع الكلوريدات قابلة للذوبان عدا كلوريد الفضة وكلوريد الزئبق، والرصاص يذوب حارًا لا باردًا."}
+];
+function getChapterQuizBank(ch){return ch===1?quizQuestions:(ch===2?chapter2QuizQuestions:(ch===3?chapter3QuizQuestions:(ch===4?chapter4QuizQuestions:(ch===5?chapter5QuizQuestions:(ch===6?chapter6QuizQuestions:(ch===7?chapter7QuizQuestions:(ch===8?chapter8QuizQuestions:chapter9QuizQuestions)))))));}
+var chapterQuizState={ch:1,index:0,score:0,questions:[],wrong:[]};
+function showChapterQuiz(ch){setActive(3);var bank=getChapterQuizBank(ch)||[];chapterQuizState={ch:ch,index:0,score:0,questions:shuffleArray(bank).slice(0,Math.min(10,bank.length)),wrong:[]};renderChapterQuiz();}
+function renderChapterQuiz(){var st=chapterQuizState, q=st.questions[st.index], app=document.getElementById('app'); if(!q){return finishChapterQuiz();} var progress=Math.round(st.index/st.questions.length*100); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapterMemory(${st.ch})">←</button><h2>❓ اختبرني — الفصل ${st.ch}</h2><span></span></div><div class="content-card"><div class="quiz-meta"><span class="small-muted">السؤال ${st.index+1} من ${st.questions.length}</span><span class="difficulty-badge">الفصل ${st.ch}</span></div><div class="progress-track"><div class="progress-bar" style="width:${progress}%;"></div></div><p style="font-size:21px;font-weight:700;margin-top:18px;">${q.q}</p><div style="display:flex;flex-direction:column;gap:12px;margin-top:20px;">${q.options.map(function(o,i){return `<button class="chapter-button" onclick="answerChapterQuiz(${i})">${String.fromCharCode(65+i)}. ${o}</button>`}).join('')}</div></div><div class="content-card"><p>النتيجة الحالية: <strong>${st.score}</strong></p><p>كل سؤال هنا من بنك الفصل ${st.ch} فقط.</p></div></div>`;}
+function answerChapterQuiz(i){var st=chapterQuizState,q=st.questions[st.index];if(!q)return;if(i===q.answer){st.score++;}else{st.wrong.push({q:q.q,correct:q.options[q.answer],explain:q.explain});}var app=document.getElementById('app');app.innerHTML=`<div class="page"><div class="content-card"><h2>${i===q.answer?'✅ إجابة صحيحة':'❌ إجابة غير صحيحة'}</h2><p><strong>الإجابة الصحيحة:</strong> ${q.options[q.answer]}</p><div class="answer-box">📚 ${q.explain||''}</div><button class="next-button" onclick="chapterQuizState.index++;renderChapterQuiz()">${st.index+1===st.questions.length?'🏁 عرض النتيجة':'السؤال التالي →'}</button></div></div>`;}
+function finishChapterQuiz(){var st=chapterQuizState,total=st.questions.length,pct=total?Math.round(st.score/total*100):0;localStorage.setItem('chapter'+st.ch+'LastScore',String(pct)); if((+localStorage.getItem('chapter'+st.ch+'BestScore')||0)<pct)localStorage.setItem('chapter'+st.ch+'BestScore',String(pct)); localStorage.setItem('chapter'+st.ch+'Wrong',JSON.stringify(st.wrong)); var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${st.ch===1?'1Lessons':st.ch}()">←</button><h2>🏁 نتيجة الفصل ${st.ch}</h2><span></span></div><div class="content-card"><h3>درجتك: ${st.score} / ${total}</h3><div class="score-big">${pct}%</div><p>تم حفظ آخر نتيجة وأفضل نتيجة لهذا الفصل.</p><p>عدد الأخطاء المحفوظة للمراجعة: <strong>${st.wrong.length}</strong></p><button class="next-button" onclick="showChapterWrong(${st.ch})">🔄 مراجعة أخطائي</button><button class="chapter-button" onclick="showChapterQuiz(${st.ch})">❓ إعادة الاختبار</button></div></div>`;}
+function showChapterWrong(ch){setActive(1);var data=[];try{data=JSON.parse(localStorage.getItem('chapter'+ch+'Wrong')||'[]')}catch(e){data=[]}var app=document.getElementById('app');app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${ch===1?'1Lessons':ch}()">←</button><h2>🔄 مراجعة أخطائي — الفصل ${ch}</h2><span></span></div>${data.length?data.map(function(it,i){return `<div class="content-card"><h3>${i+1}. ${it.q}</h3><p><strong>الإجابة الصحيحة:</strong> ${it.correct}</p><div class="answer-box">📚 ${it.explain||''}</div></div>`}).join(''):`<div class="content-card"><h3>🎉 ممتاز</h3><p>لا توجد أخطاء محفوظة لهذا الفصل حتى الآن.</p></div>`}<div class="lesson-navigation"><button class="next-button" onclick="showChapterQuiz(${ch})">❓ اختبرني مرة أخرى</button><button class="chapter-button" onclick="showChapter${ch===1?'1Lessons':ch}()">📖 العودة إلى الفصل</button></div></div>`;}
+function showQuizChooser(){setActive(3);var app=document.getElementById('app');app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">❓ اختبرني</h1><p class="lessons-subheading">اختر الفصل الذي تريد الاختبار فيه</p>${[1,2,3,4,5,6,7,8,9].map(function(ch){return `<div class="lesson-card" onclick="showChapterQuiz(${ch})"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبار الفصل ${ch}</h3><p>أسئلة الفصل ${ch} فقط.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}</div>`;}
+
+function showMemory() {
+    showMemoryChooser(); return;
+
+    setActive(2);
+
+    var app =
+        document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <button
+                    class="back-button"
+                    onclick="showHome()">
+
+                    ←
+
+                </button>
+
+                <h2>
+                    🧠 احفظها
+                </h2>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+
+                <div class="content-card">
+
+                    <h3>
+                        أهم نقاط الفصل الأول
+                    </h3>
+
+                    <div class="memory-box">
+
+                        <strong>
+                            1️⃣ الذرة
+                        </strong>
+
+                        الذرة هي الوحدة الأساسية لبناء المواد.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            2️⃣ دالتون
+                        </strong>
+
+                        تصور الذرة كرة صلبة دقيقة غير قابلة للانقسام.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            3️⃣ ثومسون
+                        </strong>
+
+                        تصور الذرة كرة موجبة تتوزع فيها الإلكترونات
+                        سالبة الشحنة.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            4️⃣ رذرفورد
+                        </strong>
+
+                        وضع النواة في مركز الذرة واعتبر معظم
+                        حجم الذرة فراغاً.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            5️⃣ بور
+                        </strong>
+
+                        اقترح مستويات طاقة محددة للإلكترونات.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            6️⃣ النظرية الحديثة
+                        </strong>
+
+                        تصف احتمال وجود الإلكترون في أوربيتال
+                        أو سحابة إلكترونية.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            7️⃣ أوفباو
+                        </strong>
+
+                        تمتلئ مستويات الطاقة الثانوية من الأقل
+                        طاقة إلى الأعلى.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            8️⃣ هوند
+                        </strong>
+
+                        تشغل الأوربيتالات فرادى أولاً ثم يحدث الازدواج.
+
+                    </div>
+
+
+                    <div class="memory-box">
+
+                        <strong>
+                            9️⃣ لويس
+                        </strong>
+
+                        نقاط لويس تمثل إلكترونات التكافؤ.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
 }
-function showChapterFormulas(ch){
-  setActive(1); setCurrentGrade("third");
-  var app=document.getElementById('app');
-  var d=CHAPTER_FORMULAS[ch];
-  if(!d){ app.innerHTML=`<div class="page"><div class="content-card"><div class="formula-empty">لا توجد بيانات لهذا الفصل.</div></div></div>`; return; }
-  app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${ch===1?'1Lessons':ch}()">←</button><h2>🧪 القوانين والمعادلات — الفصل ${ch}</h2><span></span></div><div class="formula-section-card"><span class="formula-badge">📘 ${d.title}</span><div class="formula-section-title">🧮 القوانين والمعادلات الكيميائية</div><div class="formula-grid">${d.items.map(formulaCardHTML).join('')}</div><div class="formula-note" style="margin-top:16px">المحتوى مرتب حسب الفصل ومبني على مادة ملزمة «فخامة الكيمياء» المعتمدة للثالث متوسط.</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="${ch===1?'showChapter1Lessons()':'showChapter'+ch+'()'}">📖 العودة إلى دروس الفصل</button></div></div>`;
+
+
+/* =========================================================
+   الاختبار
+   ========================================================= */
+
+
+
+function showSixthScientific(){
+    setCurrentGrade("sixth");
+    setActive(1);
+    var app=document.getElementById("app");
+    app.innerHTML=`
+      <div class="grade-dashboard sixth-dashboard">
+        <div class="page-header dashboard-header">
+          <button class="back-button" onclick="showHome()">←</button>
+          <div class="dashboard-title-wrap"><span class="dashboard-kicker">المسار الدراسي</span><h2>🎓 الكيمياء — الصف السادس علمي</h2></div>
+          <span></span>
+        </div>
+        <div class="grade-switch">
+          <button onclick="showThirdMiddleHome()">📘 الثالث متوسط</button>
+          <button class="active" onclick="showSixthScientific()">🎓 السادس علمي</button>
+        </div>
+        <section class="dashboard-hero sixth-hero">
+          <div><span class="dashboard-badge">منهج السادس العلمي</span><h1>مرحباً بك في مسارك العلمي 👋</h1><p>مسار مستقل للسادس العلمي. ستضاف فيه المادة والفصول والأسئلة الخاصة بهذا الصف فقط.</p></div>
+          <div class="dashboard-hero-icon">🧪</div>
+        </section>
+        <div class="dashboard-grid">
+          <button class="dashboard-card featured" onclick="showSixthLessonsHub()"><span class="dashboard-card-icon">📚</span><span><b>دروسي</b><small>فصول ودروس السادس العلمي</small></span><i>←</i></button>
+          <button class="dashboard-card" onclick="showSixthMinistry()"><span class="dashboard-card-icon">🎯</span><span><b>أفكار وزارية</b><small>أفكار السادس العلمي فقط</small></span><i>←</i></button>
+          <button class="dashboard-card" onclick="showSixthQuestions()"><span class="dashboard-card-icon">📝</span><span><b>أسئلة الفصول وحلولها</b><small>أسئلة السادس العلمي وحلولها</small></span><i>←</i></button>
+          <button class="dashboard-card" onclick="showQuizChooser()"><span class="dashboard-card-icon">❓</span><span><b>اختبرني</b><small>اختبارات مستقلة للسادس العلمي</small></span><i>←</i></button>
+          <button class="dashboard-card" onclick="showMemoryChooser()"><span class="dashboard-card-icon">🧠</span><span><b>احفظها</b><small>مراجعة وحفظ محتوى السادس</small></span><i>←</i></button>
+        </div>
+        <div class="dashboard-note sixth-note">🔒 هذا المسار مستقل عن الثالث متوسط بالكامل. لن تُعرض فيه أي مادة من منهج الثالث متوسط.</div>
+      </div>`;
 }
+
+function showSixthScientific(){
+    setCurrentGrade("sixth"); setActive(1);
+    var app=document.getElementById("app");
+    app.innerHTML=`
+      <div class="grade-dashboard sixth-dashboard">
+        <div class="page-header dashboard-header">
+          <button class="back-button" onclick="showHome()">←</button>
+          <div class="dashboard-title-wrap"><span class="dashboard-kicker">المسار الدراسي</span><h2>🎓 الكيمياء — الصف السادس العلمي</h2></div><span></span>
+        </div>
+        <div class="grade-switch"><button onclick="showThirdMiddleHome()">📘 الثالث متوسط</button><button class="active" onclick="showSixthScientific()">🎓 السادس العلمي</button></div>
+        <section class="dashboard-hero sixth-hero"><div><span class="dashboard-badge">المنهج الرسمي 2025</span><h1>مرحباً بك في مسارك العلمي 👋</h1><p>المحتوى مبني أولاً على كتاب الكيمياء الرسمي للصف السادس العلمي، وتدعمه الملزمتان المرفوعتان للمراجعة والتبسيط.</p></div><div class="dashboard-hero-icon">🧪</div></section>
+        <div class="dashboard-grid">
+          <button class="dashboard-card featured" onclick="showSixthLessonsHub()"><span class="dashboard-card-icon">📚</span><span><b>دروسي</b><small>ثمانية فصول: من الثرموداينمك إلى الكيمياء الحياتية</small></span><i>←</i></button>
+          <button class="dashboard-card" onclick="showSixthMinistry()"><span class="dashboard-card-icon">🎯</span><span><b>أفكار وزارية</b><small>مراجعة مركزة من موضوعات المنهج</small></span><i>←</i></button>
+          <button class="dashboard-card" onclick="showSixthQuestions()"><span class="dashboard-card-icon">📝</span><span><b>أسئلة الفصول وحلولها</b><small>تدريب مرتب حسب الفصول</small></span><i>←</i></button>
+          <button class="dashboard-card" onclick="showQuizChooser()"><span class="dashboard-card-icon">❓</span><span><b>اختبرني</b><small>اختبار حسب الصف والفصل</small></span><i>←</i></button>
+          <button class="dashboard-card" onclick="showMemoryChooser()"><span class="dashboard-card-icon">🧠</span><span><b>احفظها</b><small>بطاقات مراجعة للسادس العلمي</small></span><i>←</i></button>
+        </div>
+        <div class="dashboard-note sixth-note">📚 المصدر الأساسي: كتاب الكيمياء للسادس العلمي، الطبعة الحادية عشرة 2025. وتستخدم الملزمتان المرفوعتان للتبسيط والتركيز والمراجعة.</div>
+      </div>`;
+}
+function showSixthLessonsHub(){
+    setCurrentGrade("sixth"); setActive(1); var app=document.getElementById('app');
+    var icons=['🔥','⚖️','🧪','⚡','🔷','🔬','🧬','🥑'];
+    var cards=SIXTH_SOURCES.map(function(d,i){return `<div class="chapter-select-card sixth-chapter-card" onclick="showSixthChapter(${i+1})"><div class="chapter-select-icon">${icons[i]}</div><div class="chapter-select-info"><h3>الفصل ${i+1}: ${d.title}</h3><p>${d.desc}</p></div><div class="chapter-select-arrow">←</div></div>`}).join('');
+    app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthScientific()">←</button><h2>📚 دروسي — السادس العلمي</h2><span></span></div><div class="lessons-page"><h1 class="lessons-heading">فصول المنهج</h1><p class="lessons-subheading">ثمانية فصول مستقلة، وكل فصل مرتبط بمادته وقوانينه فقط.</p><div class="chapter-select-grid">${cards}</div></div></div>`;
+}
+function sixthComing(title){ showSixthLessonsHub(); }
+function showSixthMinistry(){ setCurrentGrade('sixth'); setActive(1); var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthScientific()">←</button><h2>🎯 أفكار مركزة — السادس العلمي</h2><span></span></div><div class="content-card"><h3>مراجعة حسب الفصل</h3><p class="lessons-subheading">اختر الفصل للحصول على نقاط المراجعة المركزة المرتبطة بموضوعاته.</p>${SIXTH_SOURCES.map(function(d,i){return `<div class="lesson-card" onclick="showSixthChapterIdeas(${i+1})"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>الفصل ${i+1}: ${d.title}</h3><p>نقاط مراجعة مركزة من موضوعات الفصل.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}</div></div>`; }
+function showSixthQuestions(){ setCurrentGrade('sixth'); setActive(1); var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthScientific()">←</button><h2>📝 أسئلة الفصول — السادس العلمي</h2><span></span></div><div class="content-card"><h3>اختر الفصل</h3>${SIXTH_SOURCES.map(function(d,i){return `<div class="lesson-card" onclick="showSixthChapterQuestions(${i+1})"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل ${i+1}: ${d.title}</h3><p>تدريب من أسئلة الفصل ومراجعاته.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}</div></div>`; }
+function showSixthQuiz(){ showQuizChooser(); }
+function showSixthMemory(){ showMemoryChooser(); }
 function showSixthChapter(ch){
   setCurrentGrade("sixth"); setActive(1); var d=SIXTH_SOURCES[ch-1]; var app=document.getElementById('app');
   if(!d){showSixthLessonsHub();return;}
   var lessons=d.lessons.map(function(t,i){return `<div class="lesson-card" onclick="showSixthLesson(${ch},${i})"><div class="lesson-card-icon">📖</div><div class="lesson-card-info"><h3>${ch}-${i+1} ${t}</h3><p>${d.desc}</p></div><div class="lesson-arrow">←</div></div>`}).join('');
-  app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthLessonsHub()">←</button><h2>🎓 الفصل ${ch}: ${d.title}</h2><span></span></div><div class="lessons-page"><div class="sixth-note content-card">${d.desc}</div><h1 class="lessons-heading">📚 دروس الفصل</h1>${lessons}<div class="chapter-section-divider"><span>مراجعة الفصل</span></div><div class="lesson-card" onclick="showSixthChapterFormulas(${ch})"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>${d.formulas.length} من القوانين والعلاقات والمعادلات المرتبطة بهذا الفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterIdeas(${ch})"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار مركزة</h3><p>أهم المحاور والنقاط التي يجب التركيز عليها في الفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterQuestions(${ch})"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة مراجعة</h3><p>أسئلة تدريبية مرتبطة بمادة الفصل وقوانينه ومعادلاته.</p></div><div class="lesson-arrow">←</div></div></div></div>`;
+  app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthLessonsHub()">←</button><h2>🎓 الفصل ${ch}: ${d.title}</h2><span></span></div><div class="lessons-page"><div class="sixth-note content-card">${d.desc}</div><h1 class="lessons-heading">📚 دروس الفصل</h1>${lessons}<div class="chapter-section-divider"><span>مراجعة الفصل</span></div><div class="lesson-card" onclick="showSixthChapterFormulas(${ch})"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>${d.formulas.length} من القوانين والعلاقات والمعادلات المرتبطة بهذا الفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterIdeas(${ch})"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار مركزة</h3><p>أهم المحاور والنقاط التي يجب التركيز عليها في الفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterQuestions(${ch})"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>حل أسئلة الفصل</h3><p>السؤال والجواب الخاص بالفصل، معتمد على الملزمة الأولى.</p></div><div class="lesson-arrow">←</div></div></div></div>`;
 }
 function showSixthLesson(ch,idx){
   setCurrentGrade('sixth'); var d=SIXTH_SOURCES[ch-1], title=d.lessons[idx]; markChapterLesson('sixth',ch,idx+1,d.lessons.length); var next=idx<d.lessons.length-1?`<button class="next-button" onclick="showSixthLesson(${ch},${idx+1})">الدرس التالي →</button>`:''; var prev=idx>0?`<button class="previous-button" onclick="showSixthLesson(${ch},${idx-1})">← الدرس السابق</button>`:''; var app=document.getElementById('app'); var related=d.formulas.filter(function(x){return x[0].length<70}).slice(Math.max(0,idx-2),Math.min(d.formulas.length,idx+3)); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${ch})">←</button><h2>📖 ${ch}-${idx+1} ${title}</h2><span></span></div><div class="content-card"><div class="formula-badge">🎓 السادس العلمي</div><h3>${title}</h3><p class="lesson-text">هذا الشرح منظم اعتمادًا على موضوعات الكتاب الرسمي للفصل، مع ترتيب مبسط للمراجعة مستند إلى الملزمتين المعتمدتين.</p><div class="memory-box">📌 محور الدرس: ${title}</div>${related.map(function(x){return `<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`}).join('')}<div class="source-note">المصدر الأساسي: كتاب الكيمياء للسادس العلمي، الطبعة الحادية عشرة 2025. للاستيعاب والمراجعة تمت الاستفادة من الملزمتين المرفوعتين.</div></div><div class="lesson-navigation">${prev}${next}<button class="chapter-button" onclick="showSixthChapter(${ch})">📖 العودة إلى دروس الفصل</button></div></div>`;
 }
+
+
+function showSixthChapterIdeas(ch){
+  var d=SIXTH_SOURCES[ch-1]; setCurrentGrade('sixth'); var app=document.getElementById('app');
+  if(ch===1){
+    var ideas=[
+      ['الطاقة والتحولات','الثرموداينمك يدرس الطاقة وتحولاتها، لكنه لا يحدد سرعة التفاعل.'],
+      ['النظام والمحيط','المفتوح يتبادل المادة والطاقة، المغلق الطاقة فقط، والمعزول لا يتبادل أيًا منهما.'],
+      ['الحرارة ودرجة الحرارة','الحرارة انتقال للطاقة، أما درجة الحرارة فهي مقياس مرتبط بالحالة الحرارية.'],
+      ['السعة والحرارة النوعية','C تعتمد على كمية المادة، أما c فتعبر عن غرام واحد من المادة.'],
+      ['إشارة ΔH','سالبة = باعث للحرارة، موجبة = ماص للحرارة.'],
+      ['دوال الحالة','ΔH وΔS وΔG تعتمد على الحالة الابتدائية والنهائية فقط.'],
+      ['قانون هس','يمكن جمع وطرح وقلب المعادلات للوصول إلى المعادلة المطلوبة، مع إجراء العملية نفسها على ΔH.'],
+      ['العملية التلقائية','التلقائية لا تعني السرعة، ولا يمكن الحكم عليها من ΔH وحدها.'],
+      ['الانتروبي','ترتيب الحالات عمومًا: الغاز > السائل > الصلب في قيمة الانتروبي.'],
+      ['معادلة غبس','ΔG = ΔH − TΔS؛ سالبة تلقائي، موجبة غير تلقائي، صفر اتزان.'],
+      ['وحدات الحساب','في معادلة غبس يجب جعل ΔH وΔS في وحدات متوافقة، وT بالكلفن.']
+    ];
+    app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${ch})">←</button><h2>🎯 أفكار مركزة — الفصل الأول</h2><span></span></div><div class="content-card"><h3>الثرموداينمك</h3><p class="lessons-subheading">أهم الأفكار التي يحتاج الطالب إلى تثبيتها قبل حل مسائل الفصل.</p>${ideas.map(function(it,i){return `<div class="memory-box"><strong>${i+1}. ${it[0]}</strong><br>${it[1]}</div>`}).join('')}<div class="source-note">مرتبة اعتمادًا على موضوعات الفصل في الكتاب الرسمي، مع الاستفادة من الملزمة للتلخيص والتركيز.</div></div></div>`;
+  } else {
+    var bullets=d.lessons.slice(0,Math.min(6,d.lessons.length));
+    app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthMinistry()">←</button><h2>🎯 مراجعة الفصل ${ch}</h2><span></span></div><div class="content-card"><h3>الفصل ${ch}: ${d.title}</h3><div class="ministry-ideas-intro">أهم المحاور التي ينبغي التركيز عليها في الفصل.</div>${bullets.map(function(x,i){return `<div class="memory-box">${i+1}️⃣ ${x}</div>`}).join('')}<div class="source-note">المحتوى مبني على الكتاب الرسمي، مع الاستفادة من الملزمتين في ترتيب المراجعة.</div></div></div>`;
+  }
+}
+
+function showSixthChapterQuestions(ch){
+  var d=SIXTH_SOURCES[ch-1]; setCurrentGrade('sixth'); var app=document.getElementById('app');
+  if(ch===1){
+    var qs=[
+      ['علل: هل يهتم علم الثرموداينمك بعامل الزمن الذي يستغرقه حدوث التفاعلات؟','لا يهتم علم الثرموداينمك بعامل الزمن الذي يستغرقه حدوث التفاعلات؛ فهو يتنبأ فقط بما إذا كان التفاعل أو التغير قابلًا للحدوث أو غير قابل للحدوث، أما سرعة حدوث التفاعل فهي من اهتمام علم الحركيات.'],
+      ['ما الفرق بين السعة الحرارية والحرارة النوعية؟ وما وحدات هاتين الكميتين؟','السعة الحرارية C هي كمية الحرارة اللازمة لرفع درجة حرارة كتلة معينة من المادة درجة سيليزية واحدة، أما الحرارة النوعية c فهي كمية الحرارة اللازمة لرفع درجة حرارة غرام واحد من المادة درجة سيليزية واحدة.'],
+      ['ما الفرق بين دالة الحالة ودالة المسار؟ أعطِ أمثلة.','دالة الحالة تعتمد على الحالة الابتدائية والنهائية للنظام بغض النظر عن المسار، ومن أمثلتها الإنثالبي والانتروبي وطاقة غبس الحرة. أما دالة المسار فتعتمد على المسار أو الخطوات، ومن أمثلتها الحرارة والشغل.'],
+      ['علل: الحرارة والشغل لا يعتبران دوال حالة.','لأن قيمتهما تتغير بتغير ظروف التجربة، إذ يعتمدان على المسار أو الخطوات التي يتم من خلالها التغير، ولا يعتمدان على الحالة الابتدائية والنهائية فقط.'],
+      ['بين الخواص الشاملة والخواص المركزة مع إعطاء أمثلة.','الخواص الشاملة تعتمد على كمية المادة الموجودة في النظام، مثل الكتلة والحجم والسعة الحرارية والإنثالبي والانتروبي والطاقة الحرة. والخواص المركزة لا تعتمد على كمية المادة، مثل الضغط ودرجة الحرارة والكثافة والحرارة النوعية.'],
+      ['صف المسعر الحراري الذي تتم بواسطته قياس الحرارة الممتصة أو المنبعثة عند ثبوت الضغط.','يتكون من وعاء للتفاعل مغمور في كمية معلومة من الماء داخل وعاء معزول جيدًا. وبما أن الحرارة المتحررة من التفاعل ترفع درجة حرارة الماء والمسعر، يمكن قياس كمية الحرارة من الزيادة في درجة الحرارة عند معرفة السعة الحرارية للمسعر ومحتوياته.'],
+      ['علل: لماذا من الضروري بيان الحالة الفيزيائية عند كتابة التفاعلات الحرارية؟','لأن كمية الحرارة الممتصة أو المتحررة تتغير بتغير الحالة الفيزيائية لمواد التفاعل.'],
+      ['علل: إن الإنثالبي دالة حالة وخاصية شاملة.','لأن الإنثالبي يعتمد على الحالة الابتدائية والنهائية للنظام، وهو خاصية شاملة لأن التغير في إنثالبي كمية من المادة يتناسب مع كمية المادة.'],
+      ['على ماذا يعتمد قانون هس؟','يعتمد قانون هس على حقيقة أن ΔH دالة حالة؛ لذلك يعتمد على الحالة الابتدائية والنهائية للنظام ولا يعتمد على المسارات التي يسلكها التفاعل للتحول من المتفاعلات إلى النواتج.'],
+      ['ما المقصود بالعملية التلقائية؟ أعطِ مثالين للعمليات التلقائية وغير التلقائية.','العملية التلقائية هي عملية فيزيائية أو كيميائية يمكن أن تحدث من تلقاء نفسها عند ظروف معينة دون تأثير عامل خارجي. من أمثلتها سقوط الماء من أعلى الشلال وذوبان قطعة السكر في القهوة. ومن غير التلقائية تسلق قمة جبل إيفرست وفصل الهيليوم والنيون من مزيج الغازات.'],
+      ['هل كل تفاعل تلقائي باعث للحرارة؟ وضح.','لا. لا يمكن تعميم ذلك؛ فبعض التغيرات الفيزيائية والكيميائية تكون ماصة للحرارة وتحدث تلقائيًا، مثل انصهار الجليد عند درجة حرارة الغرفة وتبخر الماء وذوبان كلوريد الأمونيوم في الماء.'],
+      ['عرّف الانتروبي وما وحدته حسب النظام الدولي للوحدات.','الانتروبي دالة حالة ترمودايناميكية تعتبر مقياسًا لدرجة لا انتظام النظام الثرمودايناميكي، ويرمز لها بالرمز S، ووحدتها المولية في الحسابات J/(K·mol).'],
+      ['علل: يزداد الانتروبي عند انصهار مادة صلبة أيونية مثل كلوريد الصوديوم.','لأن الجسيمات في الحالة الصلبة تكون أكثر انتظامًا ومقيدة في مواقعها، وعند الانصهار تزداد حركتها وتنتقل خارج الشبكة البلورية، فتزداد العشوائية والانتروبي.'],
+      ['كيف تتغير انتروبي النظام في الحالات الآتية: تكثف بخار الماء، تكون بلورات السكر، تسخين غاز، انجماد كحول، تحول البروم السائل إلى بخار، تسامي اليود الصلب؟','التكثف وتكون البلورات والانجماد تؤدي إلى نقصان الانتروبي. أما التسخين وتحول البروم السائل إلى بخار والتسامي فتؤدي إلى زيادة الانتروبي.'],
+      ['ما علاقة طاقة غبس الحرة بتلقائية التفاعل؟','ΔG = ΔH − TΔS. إذا كانت ΔG سالبة يكون التفاعل أو التغير الفيزيائي تلقائيًا، وإذا كانت موجبة يكون غير تلقائي، وإذا كانت تساوي صفرًا يكون النظام في حالة اتزان.'],
+      ['عرّف طاقة غبس الحرة للتكوين القياسية، وما وحدتها؟','هي مقدار التغير في الطاقة الحرة عند تكوين مول واحد من مركب من عناصره الأساسية بأثبت صورها عند الظروف القياسية، ووحدتها kJ/mol.'],
+      ['ما وحدات الإنثالبي والانتروبي وطاقة غبس الحرة؟','الإنثالبي وطاقة غبس الحرة: kJ/mol، والانتروبي: J/(K·mol)، وفق الوحدات المستخدمة في الحسابات الحرارية.'],
+      ['ما تأثير إشارات ΔH وΔS في تلقائية التفاعل وفق علاقة غبس؟','إذا كانت ΔH سالبة وΔS موجبة تكون ΔG سالبة عند جميع درجات الحرارة. وإذا كانت ΔH موجبة وΔS سالبة تكون ΔG موجبة عند جميع درجات الحرارة. أما عندما تكون الإشارتان متشابهتين فتكون لدرجة الحرارة أهمية في تحديد إشارة ΔG.']
+    ];
+    app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${ch})">←</button><h2>📝 حل أسئلة الفصل — الفصل الأول</h2><span></span></div><div class="content-card"><div class="formula-badge">🎓 الثرموداينمك</div><h3>حل أسئلة الفصل الأول</h3><p class="lessons-subheading">أسئلة وأجوبة مختارة من الملزمة الأولى «حسين الهاشمي» في موضوعات الفصل الأول، مع الحفاظ على مضمونها وترتيبها الدراسي.</p>${qs.map(function(q,i){return `<div class="exercise-box"><p><strong>${i+1}. ${q[0]}</strong></p><div class="answer-box">✅ الجواب: ${q[1]}</div></div>`}).join('')}<div class="source-note"></div></div></div>`;
+  } else {
+    var q=d.formulas.slice(0,Math.min(5,d.formulas.length));
+    app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${ch})">←</button><h2>📝 حل أسئلة الفصل — الفصل ${ch}</h2><span></span></div><div class="content-card"><h3>أسئلة مراجعة</h3>${q.map(function(it,i){return `<div class="exercise-box"><p><strong>${i+1}. ما العلاقة أو المعادلة المرتبطة بـ «${it[0]}»؟</strong></p><div class="answer-box">✅ ${it[1]}</div><div class="memory-box">💡 ${it[2]}</div></div>`}).join('')}</div></div>`;
+  }
+}
+
 function showSixthChapterFormulas(ch){
   setCurrentGrade('sixth'); var d=SIXTH_SOURCES[ch-1]; var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${ch})">←</button><h2>🧮 القوانين والمعادلات — الفصل ${ch}</h2><span></span></div><div class="formula-section-card"><span class="formula-badge">🎓 ${d.title}</span><div class="formula-section-title">🧮 القوانين والمعادلات الكيميائية</div><p class="lessons-subheading">مجموعة القوانين والمعادلات المرتبطة بموضوعات هذا الفصل، منظمة للدراسة والمراجعة.</p><div class="formula-grid">${d.formulas.map(formulaCardHTML).join('')}</div><div class="source-note">المصدر الأساسي: كتاب الكيمياء للسادس العلمي (الطبعة الحادية عشرة 2025)، مع الاستفادة من ملزمتي حسين الهاشمي وهاشم الغرباوي في التلخيص والترتيب.</div></div></div>`;
 }

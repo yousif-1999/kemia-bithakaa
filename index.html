@@ -1717,6 +1717,10 @@ li {
 .example-box{margin-top:14px;padding:14px 16px;border-radius:16px;background:#fff8e8;border:1px solid #f1d49a;color:#6a4c12;line-height:1.9}.lesson-section-title{font-weight:900;color:#173e72;margin:18px 0 10px;font-size:17px}
 .formula-empty{padding:20px;border:1px dashed #c9d6e8;background:#f8fbff;border-radius:16px;color:#617086;line-height:1.8;text-align:center}
 .formula-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:999px;background:#edf4ff;color:#204d88;font-size:12px;font-weight:900;margin-bottom:12px}
+
+.sixth-reaction-panel{margin:22px 0;padding:18px;border:1px solid #dbe7f5;border-radius:22px;background:linear-gradient(180deg,#fbfdff,#f5f9ff);box-shadow:0 10px 30px rgba(31,68,115,.06)}
+.sixth-reaction-head{display:flex;align-items:center;gap:12px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid #e6edf6}.sixth-reaction-head>span{font-size:30px}.sixth-reaction-head strong{display:block;font-size:19px;color:#123d76}.sixth-reaction-head small{display:block;color:#71829a;margin-top:4px;line-height:1.7}.sixth-reaction-list{display:grid;gap:12px}.sixth-reaction-item{padding:14px 16px;border-radius:16px;background:#fff;border:1px solid #e5edf7}.sixth-reaction-label{font-weight:800;color:#214f87;margin-bottom:7px}.sixth-reaction-equation{font-family:"Times New Roman",serif;font-size:20px;line-height:1.8;color:#0f2748;direction:ltr;text-align:center;overflow-wrap:anywhere}.sixth-reaction-note{font-size:13px;color:#71829a;line-height:1.8;margin-top:5px;text-align:center}
+
 </style>
 
 
@@ -6091,6 +6095,264 @@ function sixthChapter1ToolsHTML(){
     <button class="dashboard-card" onclick="showSixthChapter1Questions()"><span class="dashboard-card-icon">📚</span><span><b>أسئلة الفصل وحلولها</b><small>أسئلة تدريبية وحلول مباشرة</small></span><i>←</i></button>
   </div>`;
 }
+
+
+/* ===== معادلات التحضير والكشف والتفاعلات — السادس العلمي ===== */
+var SIXTH_REACTION_MAP = {
+  1: {
+    '1-5 المعادلات الكيميائية الحرارية والمسعر': [
+      ['احتراق الهيدروجين','H₂(g) + ½O₂(g) → H₂O(l)   ΔH = −286 kJ/mol','معادلة احتراق هيدروجين الواردة في الكتاب.'],
+      ['احتراق الميثان','CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(l)   ΔH = −890 kJ/mol','تفاعل باعث للحرارة.'],
+      ['التكاثف','H₂O(g) → H₂O(l)   ΔH = −44 kJ/mol','التفاعل العكسي للتبخر.']
+    ],
+    '1-6 أنواع الإنثالبي وقانون هيس': [
+      ['تكوين البنزين','6C(graphite) + 3H₂(g) → C₆H₆(l)   ΔH°f = +49 kJ/mol','تكوين مول واحد من المركب من عناصره في حالاتها القياسية.'],
+      ['تكوين بروميد الهيدروجين','H₂(g) + Br₂(l) → 2HBr(g)   ΔH°r = −72 kJ','مثال كتابي على المعادلة الحرارية.']
+    ],
+    '1-7 التغيرات الفيزيائية والإنثالبيات المرتبطة بها': [
+      ['التبخر','H₂O(l) → H₂O(g)   ΔH°vap = +44 kJ/mol','تغير ماص للحرارة.'],
+      ['التكثيف','H₂O(g) → H₂O(l)   ΔH°cond = −44 kJ/mol','التكثيف عكس التبخر.'],
+      ['انصهار الجليد','H₂O(s) → H₂O(l)   ΔH = +6 kJ/mol','الانصهار ماص للحرارة.']
+    ]
+  },
+  2: {
+    '2-1 التفاعلات غير الانعكاسية والانعكاسية': [
+      ['تعادل حمض-قاعدة','H₂SO₄(aq) + 2NaOH(aq) → Na₂SO₄(aq) + 2H₂O(l)','مثال على تفاعل غير انعكاسي.'],
+      ['حمض الكربونيك/الكربونات','Na₂CO₃(s) + 2HCl(aq) → 2NaCl(aq) + H₂O(l) + CO₂(g)↑','تصاعد غاز ثاني أكسيد الكربون.']
+    ],
+    '2-2 التفاعلات الانعكاسية وحالة الاتزان': [
+      ['تكوين الأمونيا','N₂(g) + 3H₂(g) ⇌ 2NH₃(g)','تفاعل انعكاسي يصل إلى الاتزان الكيميائي.']
+    ],
+    '2-3 التفاعلات الانعكاسية المتجانسة وغير المتجانسة': [
+      ['الاسترة','HCOOH(l) + CH₃OH(l) ⇌ HCOOCH₃(l) + H₂O(l)','تفاعل انعكاسي متجانس.'],
+      ['تفكك رباعي أوكسيد ثنائي النتروجين','N₂O₄(g) ⇌ 2NO₂(g)','تفاعل غازي انعكاسي.'],
+      ['تكوين كبريتيد الخارصين','Zn(s) + S(s) ⇌ ZnS(s)','تفاعل انعكاسي غير متجانس.'],
+      ['تغير حالة الماء','H₂O(l) ⇌ H₂O(g)','تغير فيزيائي انعكاسي.'],
+      ['تحلل بيكربونات الصوديوم','2NaHCO₃(s) ⇌ Na₂CO₃(s) + H₂O(g) + CO₂(g)','مثال على تفاعل غير متجانس.'],
+      ['أكسدة الزئبق','2Hg(l) + O₂(g) ⇌ 2HgO(s)','مثال كتابي إضافي.']
+    ],
+    '2-4 حالة الاتزان وقانون فعل الكتلة': [
+      ['تفاعل الهيدروجين واليود','H₂(g) + I₂(g) ⇌ 2HI(g)','العلاقة التي يطبق عليها قانون فعل الكتلة.'],
+      ['تكوين الأمونيا','N₂(g) + 3H₂(g) ⇌ 2NH₃(g)','Rf = kf[N₂][H₂]³ و Rb = kb[NH₃]².']
+    ],
+    '2-5 ثابت الاتزان K وKc وKp': [
+      ['تفاعل قياسي لحساب Kc','aA + bB ⇌ gG + hH','Kc = [G]ᵍ[H]ʰ / ([A]ᵃ[B]ᵇ).']
+    ],
+    '2-8 أهمية ثابت الاتزان وعلاقته بطريقة كتابة المعادلة': [
+      ['تفاعل تكوين الأمونيا','N₂(g) + 3H₂(g) ⇌ 2NH₃(g)','عكس المعادلة يقلب قيمة K، وضرب المعاملات يرفع K للأس نفسه.']
+    ],
+    '2-11 قاعدة لو شاتليه': [
+      ['تفكك N₂O₄','N₂O₄(g) ⇌ 2NO₂(g)','زيادة الضغط تدفع الاتزان نحو الجانب الأقل في عدد مولات الغاز.'],
+      ['تكوين SO₃','2SO₂(g) + O₂(g) ⇌ 2SO₃(g) + heat','رفع الحرارة في التفاعل الباعث يدفع الاتزان نحو المتفاعلات.'],
+      ['تفكك PCl₅','PCl₅(g) ⇌ PCl₃(g) + Cl₂(g)','تغير الضغط/الحجم يغير موضع الاتزان وفق عدد مولات الغاز.']
+    ],
+    '2-12 العوامل المؤثرة على قيمة ثابت الاتزان': [
+      ['تفكك كربونات الكالسيوم','CaCO₃(s) ⇌ CaO(s) + CO₂(g)','مثال تفاعل ماص للحرارة يوضح أثر درجة الحرارة.'],
+      ['تكوين SO₃','2CO(g) + O₂(g) ⇌ 2CO₂(g) + heat','مثال على تفاعل باعث للحرارة.'],
+      ['تكوين الأمونيا','N₂(g) + 3H₂(g) ⇌ 2NH₃(g) + 92 kJ','خفض الحرارة يزيد نواتج التفاعل الباعث.']
+    ]
+  },
+  3: {
+    '3-1 مقدمة والمواد الإلكتروليتية وغير الإلكتروليتية': [
+      ['تأين حمض قوي','HCl(aq) → H⁺(aq) + Cl⁻(aq)','إلكتروليت قوي يتأين في الماء.'],
+      ['تفكك هيدروكسيد الصوديوم','NaOH(aq) → Na⁺(aq) + OH⁻(aq)','إلكتروليت قوي.']
+    ],
+    '3-2 تفكك الإلكتروليتات القوية والضعيفة': [
+      ['حمض الأسيتيك الضعيف','CH₃COOH(aq) ⇌ H⁺(aq) + CH₃COO⁻(aq)','تأين جزئي لإلكتروليت ضعيف.'],
+      ['الأمونيا في الماء','NH₃(aq) + H₂O(l) ⇌ NH₄⁺(aq) + OH⁻(aq)','قاعدة ضعيفة تتفاعل انعكاسيًا مع الماء.']
+    ],
+    '3-3 الحوامض والقواعد الضعيفة وثوابت التفكك': [
+      ['تأين الحمض الضعيف','HA + H₂O ⇌ H₃O⁺ + A⁻','Ka = [H₃O⁺][A⁻]/[HA].'],
+      ['تأين القاعدة الضعيفة','B + H₂O ⇌ BH⁺ + OH⁻','Kb = [BH⁺][OH⁻]/[B].']
+    ],
+    '3-4 التأين الذاتي للماء وKw': [
+      ['التأين الذاتي للماء','H₂O(l) ⇌ H⁺(aq) + OH⁻(aq)','Kw = [H⁺][OH⁻].']
+    ],
+    '3-6 التمذوب والتحلل المائي للأملاح': [
+      ['تحلل أيون الأمونيوم','NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺','تحلل مائي يعطي وسطًا حامضيًا.'],
+      ['تحلل أيون الأسيتات','CH₃COO⁻ + H₂O ⇌ CH₃COOH + OH⁻','تحلل مائي يعطي وسطًا قاعديًا.']
+    ],
+    '3-7 الأيون المشترك والمحاليل المنظمة (البفر)': [
+      ['البفر الحامضي','CH₃COOH ⇌ H⁺ + CH₃COO⁻','وجود CH₃COOH/CH₃COO⁻ يكوّن محلولًا منظمًا.'],
+      ['إضافة حمض قوي إلى البفر','CH₃COO⁻ + H⁺ → CH₃COOH','يستهلك +H المضاف ويحافظ على pH ضمن تغير صغير.'],
+      ['إضافة قاعدة قوية إلى البفر','CH₃COOH + OH⁻ → CH₃COO⁻ + H₂O','يستهلك OH⁻ المضاف.']
+    ],
+    '3-8 الذوبانية وثابت حاصل الذوبان Ksp': [
+      ['ملح شحيح الذوبان 1:1','AB(s) ⇌ A⁺(aq) + B⁻(aq)','Ksp = [A⁺][B⁻] = s².'],
+      ['فلوريد الكالسيوم','CaF₂(s) ⇌ Ca²⁺(aq) + 2F⁻(aq)','Ksp = [Ca²⁺][F⁻]² = 4s³.'],
+      ['ترسيب كلوريد الفضة','Ag⁺(aq) + Cl⁻(aq) → AgCl(s)↓','يحدث الترسيب عندما Qsp > Ksp.']
+    ],
+    '3-9 العوامل المؤثرة في الذوبانية': [
+      ['أثر الأيون المشترك','AgCl(s) ⇌ Ag⁺ + Cl⁻','إضافة Cl⁻ تقلل ذوبانية AgCl وفق مبدأ الاتزان.']
+    ]
+  },
+  4: {
+    '4-2 تفاعلات التأكسد والاختزال': [
+      ['أكسدة الخارصين','Zn → Zn²⁺ + 2e⁻','فقد الإلكترونات = تأكسد.'],
+      ['اختزال أيون النحاس','Cu²⁺ + 2e⁻ → Cu','اكتساب الإلكترونات = اختزال.'],
+      ['التفاعل الكلي','Zn + Cu²⁺ → Zn²⁺ + Cu','تفاعل أكسدة واختزال متكامل.']
+    ],
+    '4-3 العوامل المؤكسدة والمختزلة': [
+      ['نصف تفاعل مؤكسد/مختزل','Ox + ne⁻ ⇌ Red','العامل المؤكسد يكتسب الإلكترونات والعامل المختزل يفقدها.']
+    ],
+    '4-4 الخلايا الكهروكيميائية': [
+      ['نصف تفاعل الأنود','Zn(s) → Zn²⁺(aq) + 2e⁻','في الخلية الكلفانية يحدث التأكسد عند الأنود.'],
+      ['نصف تفاعل الكاثود','Cu²⁺(aq) + 2e⁻ → Cu(s)','في الخلية الكلفانية يحدث الاختزال عند الكاثود.'],
+      ['التفاعل الكلي لخلية دانيال','Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)','النموذج الأساسي للخلية الكلفانية.']
+    ],
+    '4-5 الخلية الكلفانية وخلية دانيال والجسر الملحي': [
+      ['خلية دانيال — الأنود','Zn → Zn²⁺ + 2e⁻','الخارصين قطب التأكسد.'],
+      ['خلية دانيال — الكاثود','Cu²⁺ + 2e⁻ → Cu','النحاس قطب الاختزال.'],
+      ['المعادلة العامة','Zn + Cu²⁺ → Zn²⁺ + Cu','تنتقل الإلكترونات عبر الدائرة الخارجية.']
+    ],
+    '4-6 جهد الخلية وجهود الأقطاب القياسية': [
+      ['حساب جهد الخلية','E°cell = E°cathode − E°anode','باستخدام جهود الاختزال القياسية.'],
+      ['قطب الهيدروجين القياسي','2H⁺ + 2e⁻ ⇌ H₂','E°SHE = 0.00 V.']
+    ],
+    '4-7 العلاقة بين E°cell وΔG° وK ومعادلة نرنست': [
+      ['نرنست','Ecell = E°cell − (RT/nF) ln Q','لغير الظروف القياسية.'],
+      ['الطاقة الحرة','ΔG° = −nFE°cell','للتفاعل الكهروكيميائي القياسي.'],
+      ['العلاقة مع ثابت الاتزان','E°cell = (RT/nF) ln K','عند الاتزان.']
+    ],
+    '4-8 الخلايا الإلكتروليتية والتحليل الكهربائي': [
+      ['التحليل الكهربائي للمصهورات — الكاثود','Na⁺ + e⁻ → Na','اختزال عند الكاثود.'],
+      ['التحليل الكهربائي للمصهورات — الأنود','2Cl⁻ → Cl₂ + 2e⁻','تأكسد عند الأنود.'],
+      ['المعادلة الكلية لمصهور NaCl','2NaCl(l) → 2Na(l) + Cl₂(g)','عملية إلكتروليتية.']
+    ],
+    '4-9 قوانين فاراداي': [
+      ['الشحنة الكهربائية','Q = I × t','الشحنة تساوي التيار × الزمن.'],
+      ['مولات الإلكترونات','n(e⁻) = Q/F','F ثابت فاراداي.'],
+      ['كتلة المادة المترسبة','m = (It/F) × (M/z)','الصيغة الجامعة لقانون فاراداي.']
+    ],
+    '4-10 البطاريات وخلايا الوقود': [
+      ['خلية الوقود الهيدروجينية — تفاعل كلي','2H₂ + O₂ → 2H₂O','تفاعل أكسدة واختزال يولد طاقة كهربائية.']
+    ]
+  },
+  5: {
+    '2-5 الملح المزدوج والمركب التناسقي': [
+      ['تفكك ملح مور','(NH₄)₂Fe(SO₄)₂ → 2NH₄⁺ + Fe²⁺ + 2SO₄²⁻','يعطي الأيونات المكونة كافة عند إذابته في الماء.'],
+      ['تكوّن معقد رباعي أمين النحاس','Cu²⁺ + 4NH₃ ⇌ [Cu(NH₃)₄]²⁺','تكوين أيون معقد؛ Cu²⁺ يبقى ضمن المجال التناسقي.'],
+      ['تفكك المركب التناسقي','[Cu(NH₃)₄]SO₄ → [Cu(NH₃)₄]²⁺ + SO₄²⁻','لا يعطي Cu²⁺ حرًا في المحلول بالطريقة نفسها التي يعطي بها الملح المزدوج.']
+    ],
+    '3-5 تطور الكيمياء التناسقية ونظرية فرنر': [
+      ['كشف الكلوريد خارج المجال التناسقي','[Co(NH₃)₅Cl]Cl₂ + 2AgNO₃ → 2AgCl↓ + [Co(NH₃)₅Cl](NO₃)₂','يترسب الكلوريد الموجود في المجال الخارجي فقط.'],
+      ['معقد آخر حسب فرنر','[Co(NH₃)₄Cl₂]Cl → [Co(NH₃)₄Cl₂]⁺ + Cl⁻','أيون الكلوريد الخارجي فقط قابل للترسيب بـ AgNO₃.']
+    ],
+    '4-5 أنواع الليكندات والمصطلحات الأساسية': [
+      ['تكوين رابطة تناسقية مع الأمونيا','Cu²⁺ + 4NH₃ → [Cu(NH₃)₄]²⁺','الـNH₃ ليكند واهب لزوج إلكتروني.'],
+      ['تكوين معقد الفضة مع الأمونيا','Ag⁺ + 2NH₃ ⇌ [Ag(NH₃)₂]⁺','مثال على قاعدة لويس وفلز حامض لويس.']
+    ]
+  },
+  6: {
+    '2-6 التحليل الوصفي (النوعي) ومجاميع الأيونات الموجبة': [
+      ['المجموعة الأولى — الترسيب بحمض HCl','Ag⁺ + Cl⁻ → AgCl↓','جزء من فصل المجموعة الأولى.'],
+      ['كلوريد الرصاص','Pb²⁺ + 2Cl⁻ → PbCl₂↓','راسب أبيض يذوب في الماء المغلي وفق الكتاب.'],
+      ['كلوريد الزئبق(I)','Hg₂²⁺ + 2Cl⁻ → Hg₂Cl₂↓','راسب كلوريد الزئبق(I).'],
+      ['المجموعة الثانية — الكبريتيد','Cu²⁺ + H₂S → CuS↓ + 2H⁺','مثال على ترسيب أيون من المجموعة الثانية.'],
+      ['المجموعة الثالثة A — الهيدروكسيدات','Fe³⁺ + 3OH⁻ → Fe(OH)₃↓','من رواسب المجموعة IIIA.'],
+      ['المجموعة الرابعة — الكربونات','Ba²⁺ + CO₃²⁻ → BaCO₃↓','مثال على فصل المجموعة الرابعة.']
+    ],
+    '3-6 تجربة فصل وكشف أيونات المجموعة الأولى': [
+      ['كشف الرصاص','PbCl₂ + K₂CrO₄ → PbCrO₄↓ + 2KCl','راسب أصفر من كرومات الرصاص.'],
+      ['إذابة AgCl بالأمونيا','AgCl + 2NH₃ ⇌ [Ag(NH₃)₂]Cl','تكوين كلوريد الفضة الأمونياكي الذائب.'],
+      ['إعادة ترسيب AgCl بحمض النتريك','[Ag(NH₃)₂]Cl + 2HNO₃ → AgCl↓ + 2NH₄NO₃','راسب أبيض يؤكد وجود الفضة.'],
+      ['كشف Ag⁺ بيوديد البوتاسيوم','[Ag(NH₃)₂]Cl + KI → AgI↓ + KCl + 2NH₃','راسب أصفر من AgI.'],
+      ['كشف Hg₂²⁺ بالأمونيا','Hg₂Cl₂ + 2NH₃ → Hg + Hg(NH₂)Cl↓ + NH₄Cl','تكوّن راسب أسود/أبيض مميز.'],
+      ['اختزال كلوريد الزئبق(II) بقصدير(II)','HgCl₂ + SnCl₂ → Hg₂Cl₂↓ + SnCl₄','راسب أبيض.'],
+      ['اختزال إضافي للزئبق','Hg₂Cl₂ + SnCl₂ → 2Hg↓ + SnCl₄','يتحول الناتج إلى زئبق فلزي أسود/رمادي.']
+    ],
+    '5-6 التحليل الوزني وطرائق التطاير': [
+      ['ماء التبلور في كلوريد الباريوم','BaCl₂·2H₂O(s) —Δ→ BaCl₂(s) + 2H₂O(g)','أساس طريقة التطاير غير المباشرة.'],
+      ['تعيين CO₂ وزنيًا','CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂↑','يمتص CO₂ ثم تقاس كتلته.']
+    ],
+    '6-6 طريقة الترسيب في التحليل الوزني': [
+      ['ترسيب كبريتات الباريوم','Ba²⁺ + SO₄²⁻ → BaSO₄↓','صيغة الترسيب والصيغة الوزنية في المثال.'],
+      ['ترسيب أكسالات الكالسيوم','Ca²⁺ + C₂O₄²⁻ → CaC₂O₄↓','يُفصل ويجفف ثم يوزن.'],
+      ['تحويل صيغة الراسب بالحرق','CaC₂O₄ → CaCO₃ → CaO + CO₂','تتابع التحولات الحرارية الواردة في أمثلة الفصل.']
+    ],
+    '7-6 التركيب الكمي للراسب والمعامل الوزني': [
+      ['العلاقة بين المكون والصيغة الوزنية','m(المكون) = Gf × m(الصيغة الوزنية)','يستخدم بعد حساب المعامل الوزني.']
+    ],
+    '8-6 التحليل الحجمي والتسحيح': [
+      ['تعادل حمض-قاعدة','H⁺ + OH⁻ → H₂O','التفاعل الأساس في تسحيح التعادل.'],
+      ['ترسيب في التسحيح','Ag⁺ + Cl⁻ → AgCl↓','نوع من تفاعلات التسحيح بالترسيب.'],
+      ['تكوين معقد في التسحيح','Ag⁺ + 2CN⁻ → [Ag(CN)₂]⁻','تفاعل تكوين معقد ذائب.']
+    ],
+    '10-6 نتائج التحليل الحجمي وحسابات التسحيح': [
+      ['تسحيح هيدروكسيد الباريوم بحمض HCl','Ba(OH)₂ + 2HCl → BaCl₂ + 2H₂O','وعند التكافؤ: N₁V₁ = N₂V₂.'],
+      ['تسحيح حمض الأوكساليك بـNaOH','H₂C₂O₄ + 2NaOH → Na₂C₂O₄ + 2H₂O','مول واحد من الحمض يكافئ مولين من NaOH.'],
+      ['برمنكنات البوتاسيوم مع الحديد(II) في الوسط الحامضي','MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O','تفاعل تسحيح أكسدة واختزال مستخدم في مسائل الفصل.']
+    ]
+  },
+  7: {
+    '2-7 هاليدات الألكيل': [
+      ['تحضير هاليد ألكيل من ألكين','CH₂=CH₂ + HBr → CH₃CH₂Br','إضافة هاليد الهيدروجين إلى الألكين.'],
+      ['إضافة HBr إلى البروبين','CH₃CH=CH₂ + HBr → CH₃CHBrCH₃','إضافة وفق قاعدة ماركوفنيكوف.'],
+      ['إحلال KOH المائي','R–X + KOH(aq) → R–OH + KX','تحضير الكحولات من هاليدات الألكيل.'],
+      ['نزع HX بـKOH الكحولي','R–CH₂–CHX–R′ + KOH(alc) —Δ→ alkene + KX + H₂O','طريقة تحضير الألكينات.'],
+      ['تحضير كاشف كرينيار','R–X + Mg —dry ether→ RMgX','يجب أن يكون الإيثر جافًا.']
+    ],
+    '3-7 الكحولات': [
+      ['تفاعل الكحول مع الصوديوم','2ROH + 2Na → 2RONa + H₂↑','تكوين ألكوكسيد مع تحرر غاز الهيدروجين.'],
+      ['تحضير هاليد ألكيل من كحول','ROH + HCl → RX + H₂O','في مثال الكتاب لتكوين كلورو ألكان.'],
+      ['أكسدة الكحول الأولي','RCH₂OH + [O] → RCHO + H₂O','ينتج ألديهايدًا عند السيطرة على الأكسدة.'],
+      ['الأكسدة التامة للكحول الأولي','RCH₂OH + 2[O] → RCOOH + H₂O','يصل إلى الحامض الكاربوكسيلي.'],
+      ['أكسدة الكحول الثانوي','R₂CHOH + [O] → R₂CO + H₂O','ينتج كيتونًا.'],
+      ['الكحول الثالثي','R₃COH + [O] → NR','لا يحدث تفاعل أكسدة في الظروف المذكورة.'],
+      ['نزع الماء من الإيثانول','CH₃CH₂OH —H₂SO₄ مركز، 170°C→ CH₂=CH₂ + H₂O','تحضير الإيثيلين.'],
+      ['اختبار لوكاس','ROH + HCl —ZnCl₂→ RX + H₂O','الثالثي يعطي عكورة مباشرة، والثانوي بعد دقائق، والأولي لا يتفاعل في درجة الغرفة وفق الكتاب.']
+    ],
+    '4-7 الإيثرات': [
+      ['تكوين ألكوكسيد الصوديوم','2ROH + 2Na → 2RONa + H₂↑','الخطوة الأولى بطريقة ويليامسون.'],
+      ['طريقة ويليامسون','RONa + R′X → R–O–R′ + NaX','تحضير الإيثر باستخدام هاليد ألكيل أولي.'],
+      ['التحلل المائي الحمضي للإيثر','R–O–R′ + H₂O —H₂SO₄، Δ→ ROH + R′OH','التفاعل المذكور للتمييز بين الإيثرات والألكانات.'],
+      ['تفاعل الإيثر مع PCl₅','R–O–R′ + PCl₅ → RCl + R′Cl + POCl₃','تحويل الإيثر إلى هاليدات ألكيل.']
+    ],
+    '5-7 الألديهايدات والكيتونات': [
+      ['تحضير ألديهايد من كحول أولي','RCH₂OH + [O] → RCHO + H₂O','يجب السيطرة على الأكسدة لمنع الاستمرار إلى الحامض.'],
+      ['تحضير كيتون من كحول ثانوي','R₂CHOH + [O] → R₂CO + H₂O','مثال: 2-بروبانول → بروبانون.'],
+      ['اختزال الألديهايد/الكيتون بالهيدروجين','RCHO + H₂ —Ni/Pt→ RCH₂OH','الألديهايد يعطي كحولًا أوليًا.'],
+      ['اختزال الكيتون','R₂CO + H₂ —Ni/Pt→ R₂CHOH','الكيتون يعطي كحولًا ثانويًا.'],
+      ['اختزال كلمنسون','RCHO/R₂CO —Zn(Hg)/HCl→ alkane','تحويل مجموعة الكاربونيل إلى مجموعة ميثيلين/هيدروكربون مناسب.'],
+      ['اختبار الهيدرازين','R₂CO + NH₂NH₂ → R₂C=NNH₂ + H₂O','تكوين الهيدرازون للكشف عن مجموعة الكاربونيل.'],
+      ['اختبار تولن','RCHO + 2[Ag(NH₃)₂]⁺ + 3OH⁻ → RCOO⁻ + 2Ag↓ + 4NH₃ + 2H₂O','تكوين المرآة الفضية؛ الكيتون لا يعطي التفاعل في الظروف الاعتيادية.'],
+      ['اختبار فهلنك','RCHO + 2Cu²⁺ + 5OH⁻ → RCOO⁻ + Cu₂O↓ + 3H₂O','راسب أحمر من Cu₂O يدل على الألديهايد.']
+    ],
+    '6-7 الحوامض الكاربوكسيلية': [
+      ['حامض مع قاعدة قوية','RCOOH + NaOH → RCOONa + H₂O','تفاعل تعادل.'],
+      ['الكشف بالبيكربونات','RCOOH + NaHCO₃ → RCOONa + CO₂↑ + H₂O','انطلاق CO₂ دليل على مجموعة الكاربوكسيل.'],
+      ['الاسترة','RCOOH + R′OH ⇌ RCOOR′ + H₂O','بوجود H₂SO₄ أو HCl عامل مساعد.'],
+      ['اختزال الحامض الكاربوكسيلي','RCOOH —LiAlH₄→ RCH₂OH','إعطاء كحول أولي.'],
+      ['تحضير الحامض بكاشف كرينيار — 1','R–X + Mg —dry ether→ RMgX','تكوين كاشف كرينيار.'],
+      ['تحضير الحامض بكاشف كرينيار — 2','RMgX + CO₂ → RCOOMgX','تكوين المركب الوسطي.'],
+      ['تحضير الحامض بكاشف كرينيار — 3','RCOOMgX + H₃O⁺ → RCOOH','التحلل المائي الحامضي.']
+    ],
+    '7-7 الإسترات': [
+      ['تحضير الإستر من حامض وكحول','RCOOH + R′OH ⇌ RCOOR′ + H₂O','استرة انعكاسية.'],
+      ['تحضير الإستر من كلوريد الحامض','RCOCl + R′OH → RCOOR′ + HCl','بوجود البيريدين لإزالة HCl.'],
+      ['التحلل المائي الحمضي','RCOOR′ + H₂O ⇌ RCOOH + R′OH','عكس تفاعل الاسترة.'],
+      ['الصوبنة','RCOOR′ + NaOH → RCOONa + R′OH','تحلل مائي قاعدي.']
+    ],
+    '8-7 الأمينات': [
+      ['تحضير أمين من هاليد ألكيل','R–X + NH₃ → R–NH₂ + HX','قد يتكون مزيج من أمينات أولية وثانوية وثالثية.'],
+      ['تحضير الأمين من الكحول','ROH + NH₃ —Al₂O₃، 400°C→ RNH₂ + H₂O','تستخدم زيادة كبيرة من NH₃ للحصول على الأمين الأولي كناتج رئيسي.'],
+      ['تكوين ملح الأمين','RNH₂ + HCl → RNH₃⁺Cl⁻','الأمينات قواعد بسبب الزوج الإلكتروني الحر.'],
+      ['تحرير الأمين من ملحه','RNH₃⁺Cl⁻ + NaOH → RNH₂ + NaCl + H₂O','استعمال قاعدة قوية.'],
+      ['تكوين الأميد','RNH₂ + R′COCl → R′CONHR + HCl','تفاعل الأمينات مع كلوريدات الحامض.']
+    ]
+  }
+};
+
+function getSixthLessonReactions(ch,i){
+  var lessons=window['SIXTH_CH'+ch+'_LESSONS'];
+  if(!lessons || !lessons[i]) return '';
+  var title=lessons[i].title;
+  var items=(SIXTH_REACTION_MAP[ch]||{})[title];
+  if(!items || !items.length) return '';
+  return '<div class="sixth-reaction-panel"><div class="sixth-reaction-head"><span>⚗️</span><div><strong>المعادلات الكيميائية المرتبطة بهذا الدرس</strong><small>مستخرجة من أمثلة وتحضيرات وكشوف وتفاعلات الكتاب الرسمي</small></div></div><div class="sixth-reaction-list">'+items.map(function(x){return '<div class="sixth-reaction-item"><div class="sixth-reaction-label">'+x[0]+'</div><div class="sixth-reaction-equation">'+x[1]+'</div><div class="sixth-reaction-note">'+x[2]+'</div></div>';}).join('')+'</div></div>';
+}
+
+
 function showSixthScientific(){
   setCurrentGrade('sixth'); setActive(1);
   var app=document.getElementById('app');
@@ -6115,7 +6377,7 @@ function showSixthChapter1Lesson(i){
   var l=SIXTH_CH1_LESSONS[i]; if(!l) return;
   var prev=i>0?`showSixthChapter1Lesson(${i-1})`:'showSixthChapter1';
   var next=i<SIXTH_CH1_LESSONS.length-1?`showSixthChapter1Lesson(${i+1})`:'showSixthChapter1';
-  document.getElementById('app').innerHTML=sixthCh1Shell(l.title,'showSixthChapter1')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH1_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;
+  document.getElementById('app').innerHTML=sixthCh1Shell(l.title,'showSixthChapter1')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}${getSixthLessonReactions(1,i)}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH1_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;
 }
 function showSixthChapter1Formulas(){
  setActive(1); document.getElementById('app').innerHTML=sixthCh1Shell('🧮 القوانين والمعادلات الكيميائية — الفصل الأول','showSixthChapter1')+`<div class="formula-section-card"><div class="formula-badge">الفصل الأول — الثرموداينمك</div><p style="color:#617086;line-height:1.9">القوانين والعلاقات التالية مجمعة من موضوعات الفصل الأول في الكتاب الرسمي، ومهيأة للمراجعة السريعة.</p><div class="formula-grid">${SIXTH_CH1_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter1()">📖 العودة إلى الفصل الأول</button></div></div>`;
@@ -6357,7 +6619,7 @@ function showSixthChapter2Lesson(i){
   var l=SIXTH_CH2_LESSONS[i]; if(!l)return;
   var prev=i>0?`showSixthChapter2Lesson(${i-1})`:'showSixthChapter2';
   var next=i<SIXTH_CH2_LESSONS.length-1?`showSixthChapter2Lesson(${i+1})`:'showSixthChapter2';
-  document.getElementById('app').innerHTML=sixthCh2Shell(l.title,'showSixthChapter2')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH2_LESSONS.length-1?'العودة إلى الفصل ←':'الدرس التالي →'}</button></div></div></div>`;
+  document.getElementById('app').innerHTML=sixthCh2Shell(l.title,'showSixthChapter2')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}${getSixthLessonReactions(2,i)}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH2_LESSONS.length-1?'العودة إلى الفصل ←':'الدرس التالي →'}</button></div></div></div>`;
 }
 function showSixthChapter2Formulas(){
   setActive(1);document.getElementById('app').innerHTML=sixthCh2Shell('🧮 القوانين والمعادلات الكيميائية — الفصل الثاني','showSixthChapter2')+`<div class="formula-section-card"><div class="formula-badge">الفصل الثاني — الاتزان الكيميائي</div><p style="color:#617086;line-height:1.9">تم استخراج هذه القوانين والعلاقات من موضوعات الفصل الثاني في كتاب الكيمياء الرسمي، وتشمل العلاقات المستخدمة في الأمثلة والتمارين وأسئلة الفصل.</p><div class="formula-grid">${SIXTH_CH2_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter2()">📖 العودة إلى الفصل الثاني</button></div></div>`;
@@ -6548,7 +6810,7 @@ function showSixthChapter3Lesson(i){
  var l=SIXTH_CH3_LESSONS[i]; if(!l)return;
  var prev=i>0?`showSixthChapter3Lesson(${i-1})`:'showSixthChapter3';
  var next=i<SIXTH_CH3_LESSONS.length-1?`showSixthChapter3Lesson(${i+1})`:'showSixthChapter3';
- document.getElementById('app').innerHTML=sixthCh3Shell(l.title,'showSixthChapter3')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH3_LESSONS.length-1?'العودة إلى الفصل ←':'الدرس التالي →'}</button></div></div></div>`;
+ document.getElementById('app').innerHTML=sixthCh3Shell(l.title,'showSixthChapter3')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}${getSixthLessonReactions(3,i)}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH3_LESSONS.length-1?'العودة إلى الفصل ←':'الدرس التالي →'}</button></div></div></div>`;
 }
 function showSixthChapter3Formulas(){
  setActive(1); document.getElementById('app').innerHTML=sixthCh3Shell('🧮 القوانين والمعادلات الكيميائية — الفصل الثالث','showSixthChapter3')+`<div class="formula-section-card"><div class="formula-badge">الفصل الثالث — الاتزان الأيوني</div><p style="color:#617086;line-height:1.9">تم جمع القوانين والعلاقات الواردة في موضوعات الفصل الثالث من كتاب الكيمياء الرسمي فقط.</p><div class="formula-grid">${SIXTH_CH3_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter3()">📖 العودة إلى الفصل الثالث</button></div></div>`;
@@ -6760,7 +7022,7 @@ function sixthChapter4ToolsHTML(){return `<div class="chapter-tools-title"><span
 <button class="dashboard-card" onclick="showSixthChapter4Questions()"><span class="dashboard-card-icon">📚</span><span><b>أسئلة الفصل وحلولها</b><small>أسئلة الكتاب مع خطوات الحل</small></span><i>←</i></button>
 </div>`;}
 function showSixthChapter4(){setCurrentGrade('sixth');setActive(1);var app=document.getElementById('app');app.innerHTML=sixthCh4Shell('📚 دروسي — الفصل الرابع: تفاعلات التأكسد والاختزال والكيمياء الكهربائية','showSixthScientific')+`<div class="chapter2-banner"><strong>📌 الفصل الرابع: تفاعلات التأكسد والاختزال والكيمياء الكهربائية</strong><br>محتوى الفصل الرسمي مرتب بحسب تسلسل الكتاب: أعداد التأكسد، الأكسدة والاختزال، الخلايا الكهروكيميائية، جهود الأقطاب، نرنست، التحليل الكهربائي، فاراداي والبطاريات.</div><div class="lessons-page">${SIXTH_CH4_LESSONS.map((l,i)=>`<div class="lesson-card" onclick="showSixthChapter4Lesson(${i})"><div class="lesson-card-icon">${l.icon}</div><div class="lesson-card-info"><h3>${l.title}</h3><p>شرح منظم مستخلص من الكتاب الرسمي مع المعادلات والعلاقات المهمة.</p></div><div class="lesson-arrow">←</div></div>`).join('')}${sixthChapter4ToolsHTML()}</div></div>`;}
-function showSixthChapter4Lesson(i){var l=SIXTH_CH4_LESSONS[i];if(!l)return;var prev=i>0?`showSixthChapter4Lesson(${i-1})`:'showSixthChapter4';var next=i<SIXTH_CH4_LESSONS.length-1?`showSixthChapter4Lesson(${i+1})`:'showSixthChapter4';document.getElementById('app').innerHTML=sixthCh4Shell(l.title,'showSixthChapter4')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH4_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;}
+function showSixthChapter4Lesson(i){var l=SIXTH_CH4_LESSONS[i];if(!l)return;var prev=i>0?`showSixthChapter4Lesson(${i-1})`:'showSixthChapter4';var next=i<SIXTH_CH4_LESSONS.length-1?`showSixthChapter4Lesson(${i+1})`:'showSixthChapter4';document.getElementById('app').innerHTML=sixthCh4Shell(l.title,'showSixthChapter4')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}${getSixthLessonReactions(4,i)}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH4_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;}
 function showSixthChapter4Formulas(){setActive(1);document.getElementById('app').innerHTML=sixthCh4Shell('🧮 القوانين والمعادلات الكيميائية — الفصل الرابع','showSixthChapter4')+`<div class="formula-section-card"><div class="formula-badge">الفصل الرابع — الكتاب الرسمي</div><p style="color:#617086;line-height:1.9">قوانين وعلاقات الفصل الرابع مستخلصة من كتاب الكيمياء الرسمي للسادس العلمي فقط.</p><div class="formula-grid">${SIXTH_CH4_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter4()">📖 العودة إلى الفصل الرابع</button></div></div>`;}
 function showSixthChapter4Memory(){setActive(1);document.getElementById('app').innerHTML=sixthCh4Shell('🧠 احفظها — الفصل الرابع','showSixthChapter4')+`<div class="lesson-content">${SIXTH_CH4_MEMORY.map((x,i)=>`<div class="memory-box"><strong>${i+1}️⃣</strong>${x}</div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter4()">📖 العودة إلى الفصل الرابع</button></div></div></div>`;}
 function showSixthChapter4Ideas(){setActive(1);document.getElementById('app').innerHTML=sixthCh4Shell('🎯 أفكار مهمة — الفصل الرابع','showSixthChapter4')+`<div class="ministry-ideas-intro"><strong>نقاط التركيز من الكتاب الرسمي</strong><br>أفكار مستخلصة من شرح الفصل وأمثلته وتمارينه وأسئلته.</div>${SIXTH_CH4_IDEAS.map((x,i)=>`<div class="ministry-idea-card"><h3>${i+1}- ${x[0]}</h3><button class="ministry-toggle" onclick="toggleSixthCh4Idea(${i})">👁️ إظهار الإجابة</button><div id="sixth-ch4-idea-${i}" class="ministry-idea-answer"><strong>✅ الإجابة:</strong><br>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter4()">📖 العودة إلى الفصل الرابع</button></div></div>`;}
@@ -6911,7 +7173,7 @@ function sixthChapter5ToolsHTML(){return `<div class="chapter-tools-title"><span
  <button class="dashboard-card" onclick="showSixthChapter5Ideas()"><span class="dashboard-card-icon">🎯</span><span><b>أفكار مهمة</b><small>نقاط التركيز من الكتاب</small></span><i>←</i></button>
  <button class="dashboard-card" onclick="showSixthChapter5Questions()"><span class="dashboard-card-icon">📚</span><span><b>أسئلة الفصل وحلولها</b><small>أسئلة الفصل الرسمي مع إجابات</small></span><i>←</i></button></div>`;}
 function showSixthChapter5(){setCurrentGrade('sixth');setActive(1);document.getElementById('app').innerHTML=sixthCh5Shell('📚 دروسي — الفصل الخامس: الكيمياء التناسقية','showSixthScientific')+`<div class="chapter2-banner"><strong>📌 الفصل الخامس: الكيمياء التناسقية</strong><br>المحتوى مرتب حسب تسلسل الكتاب الرسمي: المقدمة، الملح المزدوج والمركب التناسقي، تطور الكيمياء التناسقية، الليكندات، EAN، التسمية، نظرية VBT، والأعداد التناسقية والأشكال الهندسية.</div><div class="lessons-page">${SIXTH_CH5_LESSONS.map((l,i)=>`<div class="lesson-card" onclick="showSixthChapter5Lesson(${i})"><div class="lesson-card-icon">${l.icon}</div><div class="lesson-card-info"><h3>${l.title}</h3><p>شرح منظم مستخرج من الكتاب الرسمي للفصل الخامس.</p></div><div class="lesson-arrow">←</div></div>`).join('')}${sixthChapter5ToolsHTML()}</div></div>`;}
-function showSixthChapter5Lesson(i){var l=SIXTH_CH5_LESSONS[i];if(!l)return;var prev=i>0?`showSixthChapter5Lesson(${i-1})`:'showSixthChapter5';var next=i<SIXTH_CH5_LESSONS.length-1?`showSixthChapter5Lesson(${i+1})`:'showSixthChapter5';document.getElementById('app').innerHTML=sixthCh5Shell(l.title,'showSixthChapter5')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH5_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;}
+function showSixthChapter5Lesson(i){var l=SIXTH_CH5_LESSONS[i];if(!l)return;var prev=i>0?`showSixthChapter5Lesson(${i-1})`:'showSixthChapter5';var next=i<SIXTH_CH5_LESSONS.length-1?`showSixthChapter5Lesson(${i+1})`:'showSixthChapter5';document.getElementById('app').innerHTML=sixthCh5Shell(l.title,'showSixthChapter5')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}${getSixthLessonReactions(5,i)}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH5_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;}
 function showSixthChapter5Formulas(){setActive(1);document.getElementById('app').innerHTML=sixthCh5Shell('🧮 القوانين والمعادلات الكيميائية — الفصل الخامس','showSixthChapter5')+`<div class="formula-section-card"><div class="formula-badge">الفصل الخامس — الكيمياء التناسقية</div><p style="color:#617086;line-height:1.9">القوانين والعلاقات التالية مستخرجة من موضوعات الفصل الخامس في الكتاب الرسمي.</p><div class="formula-grid">${SIXTH_CH5_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter5()">📖 العودة إلى الفصل الخامس</button></div></div>`;}
 function showSixthChapter5Memory(){setActive(1);document.getElementById('app').innerHTML=sixthCh5Shell('🧠 احفظها — الفصل الخامس','showSixthChapter5')+`<div class="lesson-content">${SIXTH_CH5_MEMORY.map((x,i)=>`<div class="memory-box"><strong>${i+1}️⃣</strong>${x}</div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter5()">📖 العودة إلى الفصل الخامس</button></div></div></div>`;}
 function showSixthChapter5Ideas(){setActive(1);document.getElementById('app').innerHTML=sixthCh5Shell('🎯 أفكار مهمة — الفصل الخامس','showSixthChapter5')+`<div class="ministry-ideas-intro"><strong>نقاط التركيز من الكتاب الرسمي</strong><br>أفكار مستخلصة من شرح الفصل وأمثلته وتمارينه.</div>${SIXTH_CH5_IDEAS.map((x,i)=>`<div class="ministry-idea-card"><h3>${i+1}- ${x[0]}</h3><button class="ministry-toggle" onclick="toggleSixthCh5Idea(${i})">👁️ إظهار الإجابة</button><div id="sixth-ch5-idea-${i}" class="ministry-idea-answer"><strong>✅ الإجابة:</strong><br>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter5()">📖 العودة إلى الفصل الخامس</button></div></div>`;}
@@ -7114,7 +7376,7 @@ function sixthChapter6ToolsHTML(){return `<div class="chapter-tools-title"><span
  <button class="dashboard-card" onclick="showSixthChapter6Questions()"><span class="dashboard-card-icon">📚</span><span><b>أسئلة الفصل وحلولها</b><small>أسئلة الفصل الرسمي وإجاباتها</small></span><i>←</i></button>
  </div>`;}
 function showSixthChapter6(){setCurrentGrade('sixth');setActive(1);document.getElementById('app').innerHTML=sixthCh6Shell('📚 دروسي — الفصل السادس: طرائق التحليل الكيميائي','showSixthScientific')+`<div class="chapter2-banner"><strong>📌 الفصل السادس: طرائق التحليل الكيميائي</strong><br>الفصل الرسمي الذي يتناول التحليل النوعي والكمي، فصل الأيونات الموجبة، التحليل الوزني، التطاير والترسيب، المعامل الوزني، التحليل الحجمي، التركيزات، الكتل المكافئة والتسحيح.</div><div class="lessons-page">${SIXTH_CH6_LESSONS.map((l,i)=>`<div class="lesson-card" onclick="showSixthChapter6Lesson(${i})"><div class="lesson-card-icon">${l.icon}</div><div class="lesson-card-info"><h3>${l.title}</h3><p>شرح منظم مستخرج من كتاب الكيمياء الرسمي للسادس العلمي.</p></div><div class="lesson-arrow">←</div></div>`).join('')}${sixthChapter6ToolsHTML()}</div></div>`;}
-function showSixthChapter6Lesson(i){var l=SIXTH_CH6_LESSONS[i];if(!l)return;var prev=i>0?`showSixthChapter6Lesson(${i-1})`:'showSixthChapter6';var next=i<SIXTH_CH6_LESSONS.length-1?`showSixthChapter6Lesson(${i+1})`:'showSixthChapter6';document.getElementById('app').innerHTML=sixthCh6Shell(l.title,'showSixthChapter6')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH6_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;}
+function showSixthChapter6Lesson(i){var l=SIXTH_CH6_LESSONS[i];if(!l)return;var prev=i>0?`showSixthChapter6Lesson(${i-1})`:'showSixthChapter6';var next=i<SIXTH_CH6_LESSONS.length-1?`showSixthChapter6Lesson(${i+1})`:'showSixthChapter6';document.getElementById('app').innerHTML=sixthCh6Shell(l.title,'showSixthChapter6')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}${getSixthLessonReactions(6,i)}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH6_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;}
 function showSixthChapter6Formulas(){setActive(1);document.getElementById('app').innerHTML=sixthCh6Shell('🧮 القوانين والمعادلات الكيميائية — الفصل السادس','showSixthChapter6')+`<div class="formula-section-card"><div class="formula-badge">الفصل السادس — طرائق التحليل الكيميائي</div><p style="color:#617086;line-height:1.9">القوانين والعلاقات التالية مستخرجة من أمثلة وتمارين وحسابات الفصل السادس في الكتاب الرسمي.</p><div class="formula-grid">${SIXTH_CH6_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter6()">📖 العودة إلى الفصل السادس</button></div></div>`;}
 function showSixthChapter6Memory(){setActive(1);document.getElementById('app').innerHTML=sixthCh6Shell('🧠 احفظها — الفصل السادس','showSixthChapter6')+`<div class="lesson-content">${SIXTH_CH6_MEMORY.map((x,i)=>`<div class="memory-box"><strong>${i+1}️⃣</strong>${x}</div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter6()">📖 العودة إلى الفصل السادس</button></div></div></div>`;}
 function showSixthChapter6Ideas(){setActive(1);document.getElementById('app').innerHTML=sixthCh6Shell('🎯 أفكار مهمة — الفصل السادس','showSixthChapter6')+`<div class="ministry-ideas-intro"><strong>نقاط التركيز من الكتاب الرسمي</strong><br>أفكار مستخلصة من شرح الفصل وأمثلته وتمارينه وأسئلته.</div>${SIXTH_CH6_IDEAS.map((x,i)=>`<div class="ministry-idea-card"><h3>${i+1}- ${x[0]}</h3><button class="ministry-toggle" onclick="toggleSixthCh6Idea(${i})">👁️ إظهار الإجابة</button><div id="sixth-ch6-idea-${i}" class="ministry-idea-answer"><strong>✅ الإجابة:</strong><br>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter6()">📖 العودة إلى الفصل السادس</button></div></div>`;}
@@ -7314,7 +7576,7 @@ function sixthChapter7ToolsHTML(){return `<div class="chapter-tools-title"><span
 <button class="dashboard-card" onclick="showSixthChapter7Questions()"><span class="dashboard-card-icon">📚</span><span><b>أسئلة الفصل وحلولها</b><small>أسئلة الفصل السابع مع الحلول</small></span><i>←</i></button>
 </div>`;}
 function showSixthChapter7(){setCurrentGrade('sixth');setActive(1);document.getElementById('app').innerHTML=sixthCh7Shell('📚 دروسي — الفصل السابع: الكيمياء العضوية للهيدروكاربونات المعوضة','showSixthScientific')+`<div class="chapter2-banner"><strong>📌 الفصل السابع: الكيمياء العضوية للهيدروكاربونات المعوضة</strong><br>الفصل الرسمي الذي يتناول هاليدات الألكيل والكحولات والإيثرات والألديهايدات والكيتونات والحوامض الكاربوكسيلية والإسترات والأمينات.</div><div class="lessons-page">${SIXTH_CH7_LESSONS.map((l,i)=>`<div class="lesson-card" onclick="showSixthChapter7Lesson(${i})"><div class="lesson-card-icon">${l.icon}</div><div class="lesson-card-info"><h3>${l.title}</h3><p>شرح منظم مستخرج من كتاب الكيمياء الرسمي للسادس العلمي.</p></div><div class="lesson-arrow">←</div></div>`).join('')}${sixthChapter7ToolsHTML()}</div></div>`;}
-function showSixthChapter7Lesson(i){var l=SIXTH_CH7_LESSONS[i];if(!l)return;var prev=i>0?`showSixthChapter7Lesson(${i-1})`:'showSixthChapter7';var next=i<SIXTH_CH7_LESSONS.length-1?`showSixthChapter7Lesson(${i+1})`:'showSixthChapter7';document.getElementById('app').innerHTML=sixthCh7Shell(l.title,'showSixthChapter7')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH7_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;}
+function showSixthChapter7Lesson(i){var l=SIXTH_CH7_LESSONS[i];if(!l)return;var prev=i>0?`showSixthChapter7Lesson(${i-1})`:'showSixthChapter7';var next=i<SIXTH_CH7_LESSONS.length-1?`showSixthChapter7Lesson(${i+1})`:'showSixthChapter7';document.getElementById('app').innerHTML=sixthCh7Shell(l.title,'showSixthChapter7')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}${getSixthLessonReactions(7,i)}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH7_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;}
 function showSixthChapter7Formulas(){setActive(1);document.getElementById('app').innerHTML=sixthCh7Shell('🧮 القوانين والمعادلات الكيميائية — الفصل السابع','showSixthChapter7')+`<div class="formula-section-card"><div class="formula-badge">الفصل السابع — الكيمياء العضوية للهيدروكاربونات المعوضة</div><p style="color:#617086;line-height:1.9">تم جمع القوانين والمعادلات الوظيفية والتحويلات والتفاعلات الواردة في موضوعات الفصل السابع من الكتاب الرسمي فقط.</p><div class="formula-grid">${SIXTH_CH7_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter7()">📖 العودة إلى الفصل السابع</button></div></div>`;}
 function showSixthChapter7Memory(){setActive(1);document.getElementById('app').innerHTML=sixthCh7Shell('🧠 احفظها — الفصل السابع','showSixthChapter7')+`<div class="lesson-content">${SIXTH_CH7_MEMORY.map((x,i)=>`<div class="memory-box"><strong>${i+1}️⃣</strong>${x}</div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter7()">📖 العودة إلى الفصل السابع</button></div></div></div>`;}
 function toggleSixthCh7Idea(i){var e=document.getElementById('sixth-ch7-idea-'+i);if(e)e.classList.toggle('show');}

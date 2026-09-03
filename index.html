@@ -6099,7 +6099,9 @@ function showSixthScientific(){
 <button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter2()"><span class="dashboard-card-icon">⚖️</span><span><b>الفصل الثاني: الاتزان الكيميائي</b><small>شرح الاتزان الكيميائي وثوابت الاتزان وقاعدة لو شاتليه والعوامل المؤثرة.</small></span><i>←</i></button>
 <button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter3()"><span class="dashboard-card-icon">🧪</span><span><b>الفصل الثالث: الاتزان الأيوني</b><small>الإلكتروليتات والحوامض والقواعد وpH والبفر والذوبانية وثابت حاصل الذوبان.</small></span><i>←</i></button>
 <button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter4()"><span class="dashboard-card-icon">⚡</span><span><b>الفصل الرابع: تفاعلات التأكسد والاختزال والكيمياء الكهربائية</b><small>أعداد التأكسد وتفاعلات الأكسدة والاختزال والخلايا الكلفانية والإلكتروليتية ونرنست وفاراداي والبطاريات.</small></span><i>←</i></button>
-</div><div class="dashboard-note sixth-note">📌 تم بناء الفصول الأول والثاني والثالث والرابع بالاعتماد على الكتاب الرسمي، وسنواصل إضافة بقية الفصول واحدًا تلو الآخر.</div></div>`;
+<button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter5()"><span class="dashboard-card-icon">🧩</span><span><b>الفصل الخامس: الكيمياء التناسقية</b><small>الملح المزدوج والمركب التناسقي والليكندات وEAN والتسمية ونظرية آصرة التكافؤ والأشكال الهندسية.</small></span><i>←</i></button>
+<button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter6()"><span class="dashboard-card-icon">🔬</span><span><b>الفصل السادس: طرائق التحليل الكيميائي</b><small>التحليل النوعي والكمي، التحليل الوزني، الترسيب، التحليل الحجمي، التركيزات والكتل المكافئة والتسحيح.</small></span><i>←</i></button>
+</div><div class="dashboard-note sixth-note">📌 تم بناء الفصول الأول والثاني والثالث والرابع والخامس والسادس بالاعتماد على الكتاب الرسمي، وسنواصل إضافة الفصول المتبقية واحدًا تلو الآخر.</div></div>`;
 }
 function showSixthLessonsHub(){ showSixthScientific(); }
 function showSixthChapter1(){
@@ -6769,6 +6771,360 @@ function renderSixthCh4Quiz(){var st=window.sixthCh4QuizState,total=SIXTH_CH4_QU
 function answerSixthCh4Quiz(i){var st=window.sixthCh4QuizState,q=SIXTH_CH4_QUIZ[st.index];if(i===q.a)st.score++;else st.wrong.push({q:q.q,chosen:q.o[i],answer:q.o[q.a],explain:q.e});st.index++;renderSixthCh4Quiz();}
 function showSixthChapter4Wrong(){setActive(1);var wrong=[];try{wrong=JSON.parse(localStorage.getItem('sixth_ch4_wrong')||'[]')}catch(e){wrong=[]}document.getElementById('app').innerHTML=sixthCh4Shell('🔄 مراجعة أخطائي — الفصل الرابع','showSixthChapter4')+`<div class="questions-intro"><strong>مراجعة الأخطاء</strong><br>تظهر هنا الأسئلة التي أخطأت فيها في آخر اختبار للفصل الرابع.</div>${wrong.length?wrong.map((x,i)=>`<div class="question-card review-card"><div class="review-question">${i+1}- ${x.q}</div><div class="question-answer"><strong>إجابتك:</strong>${x.chosen}<br><strong>✅ الصحيح:</strong>${x.answer}<br><strong>💡 التوضيح:</strong>${x.explain}</div></div>`).join(''):`<div class="content-card" style="text-align:center"><h3>لا توجد أخطاء محفوظة حاليًا ✅</h3><p>أجرِ اختبار الفصل الرابع أولًا.</p></div>`}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter4()">📖 العودة إلى الفصل الرابع</button></div></div>`;}
 
+
+
+/* =========================================================
+   الفصل الخامس — الكيمياء التناسقية (من الكتاب الرسمي فقط)
+   ========================================================= */
+var SIXTH_CH5_LESSONS = [
+ {icon:'🧪', title:'1-5 مقدمة', html:`
+  <div class="content-card"><h3>الكيمياء التناسقية</h3>
+   <p>يدرس الفصل المركبات التناسقية أو المعقدة، وهي مهمة في الكيمياء اللاعضوية ولها تطبيقات في الصناعة والزراعة والطب والصيدلة والطاقة النظيفة.</p>
+   <div class="example-box"><strong>أمثلة وردت في الكتاب:</strong> الهيموكلوبين، فيتامين B12، والكلوروفيل.</div>
+   <p>تتضمن أبرز صفات العناصر الانتقالية: تعدد حالات التأكسد، وجود مركبات بارامغناطيسية، تعدد الألوان، والميل الكبير لتكوين الأيونات والمركبات المعقدة.</p>
+  </div>`},
+ {icon:'🧂', title:'2-5 الملح المزدوج والمركب التناسقي', html:`
+  <div class="content-card"><h3>التمييز بين الملح المزدوج والمركب التناسقي</h3>
+   <p><strong>الملح المزدوج:</strong> مركب إضافة مستقر يعطي عند إذابته في الماء الأيونات المكوِّنة له كافة، وتحتفظ الأيونات بصفاتها المستقلة.</p>
+   <p><strong>المركب التناسقي:</strong> مركب إضافة مستقر لا يعطي جميع الأيونات المكوِّنة له عند الذوبان؛ يختفي بعض السلوك الأيوني بسبب وجود الأيون داخل المجال التناسقي.</p>
+   <div class="formula-item"><div class="formula-label">مثال الكتاب</div><div class="formula-equation">[Fe(CN)₆]³⁻ + 3K⁺ → K₃[Fe(CN)₆]</div><div class="formula-note">يبقى الحديد ضمن الأيون المعقد ولا يظهر كأيون Fe³⁺ مستقل في المحلول.</div></div>
+   <p>المجال التناسقي يكتب داخل الأقواس المربعة، أما الأيونات خارجها فتكون ضمن مجال التأين.</p>
+  </div>`},
+ {icon:'📜', title:'3-5 تطور الكيمياء التناسقية ونظرية فرنر', html:`
+  <div class="content-card"><h3>نظرية فرنر التناسقية</h3>
+   <p>اقترح فرنر وجود نوعين من التكافؤ:</p>
+   <ul><li><strong>التكافؤ الأولي:</strong> متأين ويمثل حالة التأكسد.</li><li><strong>التكافؤ الثانوي:</strong> غير متأين ويمثل العدد التناسقي.</li></ul>
+   <p>تتجه التكافؤات الثانوية نحو مواقع ثابتة في الفراغ داخل المجال التناسقي حول الفلز المركزي.</p>
+   <div class="example-box"><strong>مثال:</strong> في [Co(NH₃)₆]Cl₃ تكون حالة تأكسد Co هي +3 والعدد التناسقي 6، والأمونيا ليكندات داخل المجال التناسقي.</div>
+   <p>كما يوضح الكتاب فشل نظرية السلسلة القديمة في تفسير نتائج بعض المعقدات، بينما أصبحت نظرية فرنر أساسًا مهمًا لفهم الكيمياء التناسقية.</p>
+  </div>`},
+ {icon:'🔗', title:'4-5 أنواع الليكندات والمصطلحات الأساسية', html:`
+  <div class="content-card"><h3>الليكندات والمجال التناسقي</h3>
+   <p><strong>الليكند:</strong> جزيء أو أيون يرتبط بالأيون المركزي من خلال ذرة مانحة لمزدوج إلكتروني أو أكثر.</p>
+   <p><strong>أحادي المخلب:</strong> يهب مزدوجًا إلكترونيًا واحدًا، مثل NH₃ وCl⁻ وCN⁻ وCO.</p>
+   <p><strong>ثنائي المخلب:</strong> يرتبط عبر ذرتين مانحتين، مثل ethylenediamine (en) والأوكسالات.</p>
+   <p><strong>متعدد المخلب:</strong> يرتبط عبر ثلاث ذرات أو أكثر، ومن أمثلته EDTA وهو سداسي السن.</p>
+   <p><strong>العدد التناسقي:</strong> عدد الذرات المانحة المرتبطة مباشرة بالفلز المركزي؛ وهو يساوي عدد الروابط التناسقية.</p>
+  </div>`},
+ {icon:'🔢', title:'5-5 قاعدة العدد الذري الفعال (EAN)', html:`
+  <div class="content-card"><h3>قاعدة العدد الذري الفعال</h3>
+   <p>يُحسب العدد الذري الفعال بجمع إلكترونات الفلز المركزي بعد مراعاة حالة التأكسد مع الإلكترونات الممنوحة من الليكندات.</p>
+   <div class="formula-item"><div class="formula-label">قانون EAN</div><div class="formula-equation">EAN = Z − حالة التأكسد + عدد الإلكترونات الممنوحة من الليكندات</div><div class="formula-note">في الليكند الأحادي المخلب تُحسب مساهمته بإلكترونين.</div></div>
+   <div class="example-box"><strong>مثال الكتاب:</strong> [Co(NH₃)₆]³⁺: العدد الذري للكوبلت 27، وحالة التأكسد +3، وستة ليكندات NH₃ تمنح 12 إلكترونًا؛ EAN = 27 − 3 + 12 = 36، وهو العدد الذري للكريبتون.</div>
+   <p>يذكر الكتاب أن القاعدة تنطبق على عدد كبير من المعقدات، لكنها ليست شرطًا لازمًا لاستقرار جميع المعقدات.</p>
+  </div>`},
+ {icon:'🏷️', title:'6-5 تسمية المركبات التناسقية', html:`
+  <div class="content-card"><h3>قواعد التسمية وفق IUPAC كما وردت في الكتاب</h3>
+   <div class="memory-box"><strong>1️⃣</strong> في المركبات التناسقية تذكر أسماء الليكندات أولًا ثم اسم الفلز المركزي.</div>
+   <div class="memory-box"><strong>2️⃣</strong> إذا تعدد الليكند نفسه تستخدم بادئات ثنائي، ثلاثي، رباعي... وللّيكندات المعقدة تستخدم bis وtris وفق ما يورده الكتاب.</div>
+   <div class="memory-box"><strong>3️⃣</strong> تذكر حالة تأكسد الفلز بالأرقام الرومانية بين قوسين بعد اسم الفلز.</div>
+   <div class="memory-box"><strong>4️⃣</strong> تنتهي أسماء الليكندات السالبة بالحرف «و» في العربية، مثل كلورو وسيانو.</div>
+   <div class="memory-box"><strong>5️⃣</strong> عند كون المعقد سالبًا ينتهي اسم الفلز المركزي بــ«ات» في التسمية العربية، مثل فيرات.</div>
+   <div class="example-box"><strong>تنبيه في التسمية:</strong> عند تسمية [Cr(NH₃)₄Cl₂]Cl نذكر الليكندات الموجودة في الصيغة فعلًا ثم اسم الفلز وحالة تأكسده. أما عبارة «كلوريد رباعي أكوا ثنائي كلوروكروم (III)» فتخص معقدًا يحتوي على H₂O كليكند، لذلك يجب دائمًا مطابقة الاسم مع الصيغة الكيميائية.</div>
+  </div>`},
+ {icon:'🧬', title:'7-5 نظريات التآصر في المركبات التناسقية — VBT', html:`
+  <div class="content-card"><h3>نظرية آصرة التكافؤ</h3>
+   <p>يطبق الكتاب في هذه المرحلة نظرية آصرة التكافؤ فقط، ويربط بينها وبين التهجين والشكل الهندسي للمعقد.</p>
+   <div class="formula-item"><div class="formula-label">الزخم المغناطيسي</div><div class="formula-equation">μ = √[n(n + 2)] B.M.</div><div class="formula-note">n = عدد الإلكترونات المنفردة، و B.M. = بور مغنيتون.</div></div>
+   <p><strong>عدد تناسقي 2:</strong> تهجين sp وشكل خطي في المثال المذكور.</p>
+   <p><strong>عدد تناسقي 3:</strong> تهجين sp² وشكل مثلث مستوٍ في المثال المذكور.</p>
+   <p><strong>عدد تناسقي 4:</strong> قد يكون تهجين sp³ وشكل رباعي الأوجه، أو dsp² وشكل مربع مستوٍ حسب الفلز والليكند كما يوضح الكتاب.</p>
+   <p>يوضح الكتاب أيضًا أثر قوة الليكند؛ حيث يستطيع الليكند القوي مثل CN⁻ دفع الإلكترونات المنفردة إلى الازدواج مقارنة بليكند ضعيف مثل Cl⁻ في أمثلة السلسلة الانتقالية الأولى.</p>
+  </div>`},
+ {icon:'📐', title:'8-5 الأعداد التناسقية والأشكال الهندسية المتوقعة', html:`
+  <div class="content-card"><h3>العدد التناسقي والشكل الهندسي</h3>
+   <div class="content-card" style="margin:10px 0"><strong>2 → خطي Linear</strong><br><span class="small-muted">مثال: [Ag(NH₃)₂]⁺</span></div>
+   <div class="content-card" style="margin:10px 0"><strong>3 → مثلث مستوٍ Trigonal Planar</strong><br><span class="small-muted">مثال: [HgI₃]⁻</span></div>
+   <div class="content-card" style="margin:10px 0"><strong>4 → رباعي الأوجه أو مربع مستوٍ</strong><br><span class="small-muted">أمثلة الكتاب تشمل معقدات مثل [NiCl₄]²⁻ و[Ni(CN)₄]²⁻.</span></div>
+   <p>يذكر الكتاب أن العددين التناسقيين 4 و6 من الأكثر شيوعًا، وأن الأشكال في الأعداد الأعلى تُترك للمراحل الدراسية القادمة ضمن هذا المنهج.</p>
+  </div>`}
+];
+
+var SIXTH_CH5_FORMULAS = [
+ ['حساب حالة التأكسد','مجموع أعداد التأكسد في مركب متعادل = 0','قاعدة عامة لتحديد حالة تأكسد الفلز المركزي.'],
+ ['شحنة الأيون المعقد','مجموع الشحنات داخل المجال التناسقي = شحنة الأيون المعقد','تُستخدم مع شحنات الليكندات لتحديد حالة تأكسد الفلز.'],
+ ['العدد التناسقي','العدد التناسقي = مجموع عدد الذرات المانحة المرتبطة مباشرة بالفلز المركزي','الليكند الثنائي يُحسب بمخلبين، والسداسي بستة مخالب.'],
+ ['العدد الذري الفعال EAN','EAN = Z − حالة التأكسد + إلكترونات الليكندات','لكل ليكند أحادي المخلب مساهمة مقدارها إلكترونان.'],
+ ['معقد [Co(NH₃)₆]³⁺','EAN = 27 − 3 + (6×2) = 36','يساوي العدد الذري للكريبتون كما في مثال الكتاب.'],
+ ['الزخم المغناطيسي','μ = √[n(n + 2)] B.M.','n هو عدد الإلكترونات المنفردة.'],
+ ['التكافؤ الأولي','التكافؤ الأولي = حالة التأكسد','وفق نظرية فرنر؛ يكون متأينًا.'],
+ ['التكافؤ الثانوي','التكافؤ الثانوي = العدد التناسقي','وفق نظرية فرنر؛ يكون غير متأين ويتجه إلى مواقع ثابتة فراغيًا.']
+];
+
+var SIXTH_CH5_MEMORY = [
+ 'الملح المزدوج يعطي جميع الأيونات المكوِّنة له عند الذوبان، بينما المركب التناسقي لا يعطيها كلها.',
+ 'التكافؤ الأولي عند فرنر يمثل حالة التأكسد، والتكافؤ الثانوي يمثل العدد التناسقي.',
+ 'الليكند هو واهب لمزدوج إلكتروني، والفلز المركزي يعمل كمستقبل وفق مفهوم لويس.',
+ 'الليكند أحادي المخلب يمنح مزدوجًا واحدًا، والثنائي مزدوجين، ومتعدد المخلب أكثر من مزدوجين.',
+ 'EAN = Z − حالة التأكسد + إلكترونات الليكندات.',
+ 'الأعداد التناسقية الأكثر شيوعًا في هذا الفصل: 2 و4 و6، مع دراسة الأشكال 2 و3 و4 بالتفصيل.',
+ 'في المعقدات رباعية التناسق قد يظهر شكل رباعي الأوجه أو مربع مستوٍ وفق الحالة المدروسة.',
+ 'في العلاقة المغناطيسية μ = √[n(n+2)] B.M. يمثل n عدد الإلكترونات المنفردة.',
+ 'الليكند القوي قد يسبب ازدواج الإلكترونات في بعض معقدات السلسلة الانتقالية الأولى، بخلاف الليكند الضعيف.'
+];
+
+var SIXTH_CH5_IDEAS = [
+ ['ما الفرق بين الملح المزدوج والمركب التناسقي؟','الملح المزدوج يعطي جميع الأيونات عند الذوبان، أما المركب التناسقي فيحتفظ بعض مكوناته داخل الأيون المعقد ولا تظهر كأيونات مستقلة.'],
+ ['ما المقصود بالتكافؤ الأولي والثانوي؟','الأولي هو حالة التأكسد المتأينة، والثانوي هو العدد التناسقي غير المتأين وفق نظرية فرنر.'],
+ ['كيف تحسب حالة تأكسد الفلز المركزي؟','باستخدام شحنة المعقد وشحنات الليكندات، بحيث يساوي مجموع الشحنات داخل المعقد شحنة الأيون المعقد.'],
+ ['كيف تحسب EAN؟','EAN = Z − حالة التأكسد + إلكترونات الليكندات.'],
+ ['لماذا لا يعد EAN شرطًا لازمًا لاستقرار كل المعقدات؟','الكتاب يوضح وجود معقدات مستقرة لا تحقق قاعدة العدد الذري الفعال.'],
+ ['ما الفرق بين الليكند أحادي المخلب والثنائي ومتعدد المخلب؟','الفرق في عدد الذرات المانحة أو عدد أزواج الإلكترونات المشاركة في الارتباط بالفلز المركزي.'],
+ ['ما العلاقة بين عدد التناسق والشكل الهندسي؟','عدد التناسق يرتبط بعدد الروابط التناسقية حول الفلز ويحدد أشكالًا هندسية متوقعة، مثل الخطي عند 2 ورباعي الأوجه أو مربع مستوٍ عند 4.'],
+ ['ما علاقة الليكند القوي بالمغناطيسية في أمثلة VBT؟','الليكند القوي قد يجعل الإلكترونات المنفردة تزدوج، مما يغير عدد الإلكترونات المنفردة وبالتالي الخاصية المغناطيسية والتهجين.']
+];
+
+var SIXTH_CH5_QUESTIONS = [
+ ['1-5 ما الذي يميز العناصر الانتقالية عن العناصر الممثلة؟','تمتاز العناصر الانتقالية بتعدد حالات التأكسد، ووجود مركبات ملونة وبارامغناطيسية، وميل كبير لتكوين المعقدات.'],
+ ['2-5 ما الفرق بين الأملاح المزدوجة والمركبات المعقدة؟','الملح المزدوج يعطي جميع الأيونات المكوِّنة له في الماء، بينما المركب المعقد يحافظ بعض مكوناته داخل الأيون المعقد.'],
+ ['3-5 فسر اختلاف سلوك المحلولين الناتجين من ملح مور والمعقد السيانيدي للحديد.','ملح مور يتفكك إلى أيوناته المستقلة، أما [Fe(CN)₆]³⁻ أو [Fe(CN)₆]⁴⁻ فيحتفظ بالحديد داخل الأيون المعقد.'],
+ ['4-5 عرف العدد الذري الفعال ثم احسبه للمعقد [Co(NH₃)₆]³⁺.','EAN = Z − OS + إلكترونات الليكندات = 27 − 3 + 12 = 36، وهو يساوي العدد الذري للكريبتون.'],
+ ['5-5 ما العدد التأكسدي للحديد في Fe(CO)₅ و[Fe(CN)₆]³⁻؟','في Fe(CO)₅ تكون CO متعادلة، لذا عدد تأكسد Fe = 0. وفي [Fe(CN)₆]³⁻ يكون Fe = +3.'],
+ ['6-5 ما الخطوات الأساسية لتسمية المركبات التناسقية؟','تحديد الليكندات، ترتيبها وفق قواعد التسمية، تسمية الفلز المركزي، ثم وضع حالة تأكسده بالأرقام الرومانية، مع مراعاة شحنة المعقد وصيغ الليكندات.'],
+ ['7-5 لماذا يكون [NiCl₄]²⁻ بارامغناطيسيًا بينما قد يكون [Ni(CN)₄]²⁻ دايامغناطيسيًا؟','لأن الكتاب يوضح أن قوة الليكند تؤثر في ازدواج إلكترونات d؛ CN⁻ ليكند قوي بينما Cl⁻ أضعف، فيختلف عدد الإلكترونات المنفردة.'],
+ ['8-5 احسب الزخم المغناطيسي لمعقد يحوي ثلاثة إلكترونات منفردة.','μ = √[3(3+2)] = √15 ≈ 3.87 B.M.'],
+ ['9-5 ما الأشكال الهندسية المتوقعة للأعداد التناسقية 2 و3 و4؟','2: خطي، 3: مثلث مستوٍ، 4: رباعي الأوجه أو مربع مستوٍ وفق المعقد.'],
+ ['10-5 ما المقصود بالمجال التناسقي ومجال التأين؟','المجال التناسقي هو ما داخل الأقواس المربعة حول الفلز المركزي، ومجال التأين هو الجزء خارج الأقواس الذي يحتوي الأيونات القابلة للتأين.']
+];
+
+var SIXTH_CH5_QUIZ = [
+ {q:'في نظرية فرنر، التكافؤ الأولي يمثل:',o:['العدد التناسقي','حالة التأكسد','عدد الليكندات','الشكل الهندسي'],a:1,e:'التكافؤ الأولي يمثل حالة التأكسد.'},
+ {q:'أي مما يأتي ليكند ثنائي المخلب؟',o:['NH₃','Cl⁻','en','CO'],a:2,e:'en (الإيثيلين ثنائي أمين) ليكند ثنائي المخلب.'},
+ {q:'ما قيمة EAN للمعقد [Co(NH₃)₆]³⁺؟',o:['24','30','36','54'],a:2,e:'27 − 3 + 12 = 36.'},
+ {q:'العدد التناسقي للمعقد [Fe(CN)₆]⁴⁻ هو:',o:['2','4','6','8'],a:2,e:'يوجد ستة ليكندات CN⁻ مرتبطة مباشرة بالفلز.'},
+ {q:'الشكل الهندسي الشائع للعدد التناسقي 2 هو:',o:['خطي','مثلث مستوٍ','رباعي الأوجه','مربع مستوٍ'],a:0,e:'العدد التناسقي 2 يعطي تركيبًا خطيًا في أمثلة الكتاب.'},
+ {q:'في العلاقة μ = √[n(n+2)] B.M. يمثل n:',o:['العدد الذري','حالة التأكسد','الإلكترونات المنفردة','عدد الليكندات'],a:2,e:'n هو عدد الإلكترونات المنفردة.'},
+ {q:'الليكند الذي يهب مزدوجًا إلكترونيًا واحدًا يسمى:',o:['أحادي المخلب','ثنائي المخلب','متعدد المخلب','ليدنًا خاملًا'],a:0,e:'أحادي المخلب يهب مزدوجًا واحدًا.'},
+ {q:'في المعقد [Ni(CN)₄]²⁻ يصف الكتاب CN⁻ بأنه:',o:['ليكند ضعيف','ليكند قوي','أيونًا خارج المجال','مذيبًا'],a:1,e:'CN⁻ يعد ليكندًا قويًا في المثال الوارد في الكتاب.'},
+ {q:'عند كون المعقد سالبًا، ينتهي اسم الفلز المركزي في التسمية العربية غالبًا بـ:',o:['ات','ون','يوم','ية'],a:0,e:'ينتهي اسم الفلز المركزي في المعقدات السالبة بـ«ات» وفق القاعدة الواردة.'},
+ {q:'المجال التناسقي يوجد:',o:['خارج الأقواس المربعة','داخل الأقواس المربعة','في المذيب فقط','في الجسر الملحي'],a:1,e:'الأقواس المربعة تحدد المجال التناسقي حول الفلز المركزي.'}
+];
+
+function sixthCh5Shell(title, backFn){return `<div class="page"><div class="page-header"><button class="back-button" onclick="${backFn}()">←</button><h2>${title}</h2><span></span></div>`;}
+function sixthChapter5ToolsHTML(){return `<div class="chapter-tools-title"><span>🧰 أدوات الفصل الخامس</span><small>كل أداة مرتبطة بالفصل الخامس فقط</small></div><div class="dashboard-grid">
+ <button class="dashboard-card" onclick="showSixthChapter5Memory()"><span class="dashboard-card-icon">🧠</span><span><b>احفظها</b><small>أهم القواعد والمفاهيم</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter5Quiz()"><span class="dashboard-card-icon">❓</span><span><b>اختبرني</b><small>اختبار الفصل الخامس</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter5Wrong()"><span class="dashboard-card-icon">🔄</span><span><b>مراجعة أخطائي</b><small>الأخطاء المحفوظة من الاختبار</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter5Drawings()"><span class="dashboard-card-icon">🖼️</span><span><b>الرسومات</b><small>تُجمع مع النسخة النهائية للصور</small></span><i>←</i></button>
+ <button class="dashboard-card featured" onclick="showSixthChapter5Formulas()"><span class="dashboard-card-icon">🧮</span><span><b>القوانين والمعادلات الكيميائية</b><small>العلاقات والحسابات الخاصة بالفصل الخامس</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter5Ideas()"><span class="dashboard-card-icon">🎯</span><span><b>أفكار مهمة</b><small>نقاط التركيز من الكتاب</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter5Questions()"><span class="dashboard-card-icon">📚</span><span><b>أسئلة الفصل وحلولها</b><small>أسئلة الفصل الرسمي مع إجابات</small></span><i>←</i></button></div>`;}
+function showSixthChapter5(){setCurrentGrade('sixth');setActive(1);document.getElementById('app').innerHTML=sixthCh5Shell('📚 دروسي — الفصل الخامس: الكيمياء التناسقية','showSixthScientific')+`<div class="chapter2-banner"><strong>📌 الفصل الخامس: الكيمياء التناسقية</strong><br>المحتوى مرتب حسب تسلسل الكتاب الرسمي: المقدمة، الملح المزدوج والمركب التناسقي، تطور الكيمياء التناسقية، الليكندات، EAN، التسمية، نظرية VBT، والأعداد التناسقية والأشكال الهندسية.</div><div class="lessons-page">${SIXTH_CH5_LESSONS.map((l,i)=>`<div class="lesson-card" onclick="showSixthChapter5Lesson(${i})"><div class="lesson-card-icon">${l.icon}</div><div class="lesson-card-info"><h3>${l.title}</h3><p>شرح منظم مستخرج من الكتاب الرسمي للفصل الخامس.</p></div><div class="lesson-arrow">←</div></div>`).join('')}${sixthChapter5ToolsHTML()}</div></div>`;}
+function showSixthChapter5Lesson(i){var l=SIXTH_CH5_LESSONS[i];if(!l)return;var prev=i>0?`showSixthChapter5Lesson(${i-1})`:'showSixthChapter5';var next=i<SIXTH_CH5_LESSONS.length-1?`showSixthChapter5Lesson(${i+1})`:'showSixthChapter5';document.getElementById('app').innerHTML=sixthCh5Shell(l.title,'showSixthChapter5')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH5_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;}
+function showSixthChapter5Formulas(){setActive(1);document.getElementById('app').innerHTML=sixthCh5Shell('🧮 القوانين والمعادلات الكيميائية — الفصل الخامس','showSixthChapter5')+`<div class="formula-section-card"><div class="formula-badge">الفصل الخامس — الكيمياء التناسقية</div><p style="color:#617086;line-height:1.9">القوانين والعلاقات التالية مستخرجة من موضوعات الفصل الخامس في الكتاب الرسمي.</p><div class="formula-grid">${SIXTH_CH5_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter5()">📖 العودة إلى الفصل الخامس</button></div></div>`;}
+function showSixthChapter5Memory(){setActive(1);document.getElementById('app').innerHTML=sixthCh5Shell('🧠 احفظها — الفصل الخامس','showSixthChapter5')+`<div class="lesson-content">${SIXTH_CH5_MEMORY.map((x,i)=>`<div class="memory-box"><strong>${i+1}️⃣</strong>${x}</div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter5()">📖 العودة إلى الفصل الخامس</button></div></div></div>`;}
+function showSixthChapter5Ideas(){setActive(1);document.getElementById('app').innerHTML=sixthCh5Shell('🎯 أفكار مهمة — الفصل الخامس','showSixthChapter5')+`<div class="ministry-ideas-intro"><strong>نقاط التركيز من الكتاب الرسمي</strong><br>أفكار مستخلصة من شرح الفصل وأمثلته وتمارينه.</div>${SIXTH_CH5_IDEAS.map((x,i)=>`<div class="ministry-idea-card"><h3>${i+1}- ${x[0]}</h3><button class="ministry-toggle" onclick="toggleSixthCh5Idea(${i})">👁️ إظهار الإجابة</button><div id="sixth-ch5-idea-${i}" class="ministry-idea-answer"><strong>✅ الإجابة:</strong><br>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter5()">📖 العودة إلى الفصل الخامس</button></div></div>`;}
+function toggleSixthCh5Idea(i){var el=document.getElementById('sixth-ch5-idea-'+i);if(el)el.classList.toggle('show');}
+function showSixthChapter5Questions(){setActive(1);document.getElementById('app').innerHTML=sixthCh5Shell('📚 أسئلة الفصل الخامس وحلولها','showSixthChapter5')+`<div class="questions-intro"><strong>أسئلة الفصل الخامس</strong><br>مرتبة للمراجعة، والإجابات مبنية على قواعد وشرح الكتاب الرسمي.</div>${SIXTH_CH5_QUESTIONS.map((x,i)=>`<div class="question-card"><h3>${x[0]}</h3><div class="question-answer"><strong>✅ الحل:</strong> ${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter5()">📖 العودة إلى الفصل الخامس</button></div></div>`;}
+function showSixthChapter5Drawings(){setActive(1);document.getElementById('app').innerHTML=sixthCh5Shell('🖼️ الرسومات — الفصل الخامس','showSixthChapter5')+`<div class="drawings-section"><h3>🖼️ الرسومات الموجودة داخل الفصل</h3><p class="drawings-subtitle">سيتم تجميع صور ورسومات الكتاب الرسمية للفصل الخامس مع النسخة النهائية لجميع الفصول.</p></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter5()">📖 العودة إلى الفصل الخامس</button></div></div>`;}
+function showSixthChapter5Quiz(){window.sixthCh5QuizState={index:0,score:0,wrong:[]};renderSixthCh5Quiz();}
+function renderSixthCh5Quiz(){var st=window.sixthCh5QuizState,total=SIXTH_CH5_QUIZ.length;if(st.index>=total){localStorage.setItem('sixth_ch5_wrong',JSON.stringify(st.wrong));document.getElementById('app').innerHTML=sixthCh5Shell('🏁 نتيجة اختبار الفصل الخامس','showSixthChapter5')+`<div class="content-card" style="text-align:center"><div style="font-size:56px">🏆</div><h3>انتهى الاختبار</h3><p>النتيجة: <strong>${st.score} / ${total}</strong></p><div class="example-box">عدد الإجابات الخاطئة: ${st.wrong.length}</div><div class="lesson-navigation"><button class="next-button" onclick="showSixthChapter5Quiz()">🔁 إعادة الاختبار</button><button class="chapter-button" onclick="showSixthChapter5()">📖 العودة إلى الفصل الخامس</button></div></div></div>`;return;}var q=SIXTH_CH5_QUIZ[st.index];document.getElementById('app').innerHTML=sixthCh5Shell('❓ اختبرني — الفصل الخامس','showSixthChapter5')+`<div class="content-card"><div class="quiz-meta"><span class="difficulty-badge">السؤال ${st.index+1} من ${total}</span><span class="small-muted">النتيجة ${st.score}</span></div><div class="progress-track"><div class="progress-bar" style="width:${Math.round((st.index/total)*100)}%"></div></div><h3 style="margin-top:18px">${q.q}</h3><div class="question-options">${q.o.map((o,i)=>`<button class="question-option" onclick="answerSixthCh5Quiz(${i})">${String.fromCharCode(1571+i)}. ${o}</button>`).join('')}</div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter5()">📖 العودة إلى الفصل الخامس</button></div></div></div>`;}
+function answerSixthCh5Quiz(i){var st=window.sixthCh5QuizState,q=SIXTH_CH5_QUIZ[st.index];if(i===q.a)st.score++;else st.wrong.push({q:q.q,chosen:q.o[i],answer:q.o[q.a],explain:q.e});st.index++;renderSixthCh5Quiz();}
+function showSixthChapter5Wrong(){setActive(1);var wrong=[];try{wrong=JSON.parse(localStorage.getItem('sixth_ch5_wrong')||'[]')}catch(e){wrong=[]}document.getElementById('app').innerHTML=sixthCh5Shell('🔄 مراجعة أخطائي — الفصل الخامس','showSixthChapter5')+`<div class="questions-intro"><strong>مراجعة الأخطاء</strong><br>تظهر هنا الأسئلة التي أخطأت فيها في آخر اختبار للفصل الخامس.</div>${wrong.length?wrong.map((x,i)=>`<div class="question-card review-card"><div class="review-question">${i+1}- ${x.q}</div><div class="question-answer"><strong>إجابتك:</strong> ${x.chosen}<br><strong>✅ الصحيح:</strong> ${x.answer}<br><strong>💡 التوضيح:</strong> ${x.explain}</div></div>`).join(''):`<div class="content-card" style="text-align:center"><h3>لا توجد أخطاء محفوظة حاليًا ✅</h3><p>أجرِ اختبار الفصل الخامس أولًا.</p></div>`}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter5()">📖 العودة إلى الفصل الخامس</button></div></div>`;}
+
+
+/* =========================================================
+   الفصل السادس للسادس العلمي — طرائق التحليل الكيميائي
+   المصدر: كتاب الكيمياء السادس العلمي الرسمي فقط
+   ========================================================= */
+var SIXTH_CH6_LESSONS = [
+ {icon:'🧪',title:'1-6 المقدمة والتحليل الكيميائي',html:`
+  <div class="content-card"><h3>الكيمياء التحليلية وطرائق التحليل</h3>
+   <p><strong>الكيمياء التحليلية</strong> تهتم بتشخيص العينة وتعيين محتواها من المكونات. ينقسم التحليل إلى <strong>تحليل وصفي (نوعي)</strong> لمعرفة هوية المكونات، و<strong>تحليل كمي</strong> لتعيين كمية المكون أو نسبته.</p>
+   <div class="memory-box"><strong>التحليل النوعي:</strong> تحديد هوية مكونات العينة، وغالبًا يسبق ذلك فصل الأيونات ثم الكشف عنها بتفاعلات معروفة.</div>
+   <div class="memory-box"><strong>التحليل الكمي:</strong> تحديد كمية المكون بدلالة الكتلة أو الحجم أو عدد المولات أو النسبة المئوية أو غيرها من الكميات المقاسة.</div>
+   <p>يذكر الكتاب أن التحليل الكمي الكلاسيكي يشمل <strong>التحليل الوزني</strong> القائم على قياس الكتل و<strong>التحليل الحجمي</strong> القائم على قياس الحجوم، مع الإشارة إلى طرائق التحليل الآلي للاطلاع وعدم تناولها في هذا الفصل.</p>
+  </div>`},
+ {icon:'🧷',title:'2-6 التحليل الوصفي (النوعي) ومجاميع الأيونات الموجبة',html:`
+  <div class="content-card"><h3>فصل الأيونات الموجبة والكشف عنها</h3>
+   <p>تُفصل الأيونات الموجبة الشائعة على شكل خمس مجاميع، ويضاف العامل المرسب للمجموعات بالتتابع من المجموعة الأولى إلى الرابعة، بينما تبقى المجموعة الخامسة في المحلول النهائي دون ترسيب.</p>
+   <div class="content-card" style="margin:10px 0"><strong>المجموعة الأولى:</strong> Ag⁺ ، Hg₂²⁺ ، Pb²⁺ — العامل المرسب HCl المخفف — رواسب كلوريدات.</div>
+   <div class="content-card" style="margin:10px 0"><strong>المجموعة الثانية:</strong> أيونات مثل Hg²⁺ وCu²⁺ وCd²⁺ وBi³⁺ وAs وSb وSn وPb — H₂S بوجود HCl المخفف — رواسب كبريتيدات.</div>
+   <div class="content-card" style="margin:10px 0"><strong>المجموعة IIIA:</strong> Fe³⁺ وCr³⁺ وAl³⁺ — NH₄OH بوجود NH₄Cl — رواسب الهيدروكسيدات.</div>
+   <div class="content-card" style="margin:10px 0"><strong>المجموعة IIIB:</strong> Ni²⁺ وCo²⁺ وZn²⁺ وMn²⁺ — H₂S بوجود NH₄OH وNH₄Cl — رواسب الكبريتيدات.</div>
+   <div class="content-card" style="margin:10px 0"><strong>المجموعة الرابعة:</strong> Ba²⁺ وSr²⁺ وCa²⁺ — (NH₄)₂CO₃ بوجود NH₄OH وNH₄Cl — رواسب الكربونات.</div>
+   <div class="content-card" style="margin:10px 0"><strong>المجموعة الخامسة:</strong> Mg²⁺ وNa⁺ وK⁺ وNH₄⁺ تبقى في المحلول النهائي.</div>
+   <div class="example-box"><strong>تنبيه الكتاب:</strong> يصنف Pb²⁺ ضمن المجموعتين I وII لأن PbCl₂ أكثر ذوبانية نسبيًا من كلوريدات المجموعة الأولى وقد لا يترسب بصورة تامة.</div>
+  </div>`},
+ {icon:'🔎',title:'3-6 تجربة فصل وكشف أيونات المجموعة الأولى',html:`
+  <div class="content-card"><h3>فصل Ag⁺ وPb²⁺ وHg₂²⁺</h3>
+   <p>تترسب أيونات المجموعة الأولى بإضافة HCl المخفف على هيئة AgCl وHg₂Cl₂ وPbCl₂، ثم تُفصل وتُكشف بالتتابع.</p>
+   <div class="memory-box"><strong>Pb²⁺:</strong> يذوب PbCl₂ في الماء المغلي، ثم يمكن كشف الرصاص بإضافة K₂CrO₄ لتكوين راسب أصفر من PbCrO₄.</div>
+   <div class="memory-box"><strong>Ag⁺:</strong> يذوب AgCl في الأمونيا المخففة مكونًا المعقد الذائب [Ag(NH₃)₂]⁺، ثم يمكن إعادة ترسيبه بإضافة HNO₃ المخفف أو KI.</div>
+   <div class="memory-box"><strong>Hg₂²⁺:</strong> يتفاعل Hg₂Cl₂ مع الأمونيا مكونًا خليطًا غير ذائب ذي لون أسود، ويستكمل الكشف عنه بالخطوات الواردة في الكتاب.</div>
+   <div class="example-box"><strong>فكرة الفصل:</strong> تضاف الكواشف بصورة نظامية بحيث يترسب الأيون المستهدف وحده أو مجموعة محددة، ثم يُفصل الراسب بالترشيح وتُجرى اختبارات الكشف الخاصة به.</div>
+  </div>`},
+ {icon:'📊',title:'4-6 التحليل الكمي وطرائقه',html:`
+  <div class="content-card"><h3>التحليل الكمي</h3>
+   <p>يهدف إلى معرفة كمية المكون في العينة. ومن الكميات التي يمكن قياسها: الكتلة، الحجم، عدد المولات، عدد المكافئات، الشدة اللونية، الامتصاصية أو كمية الكهرباء.</p>
+   <p>تسبق العملية خطوات منها: <strong>أخذ العينة بصورة صحيحة، إعدادها للطحن والتجانس والتخلص من الرطوبة، قياسها بدقة، إذابتها، وفصل المتداخلات عند الحاجة.</strong></p>
+   <p>يقسم الكتاب الطرائق الكمية الكلاسيكية إلى:</p>
+   <div class="content-card" style="margin:10px 0"><strong>التحليل الوزني:</strong> يعتمد على قياس الكتل.</div>
+   <div class="content-card" style="margin:10px 0"><strong>التحليل الحجمي:</strong> يعتمد على قياس الحجوم المستهلكة من المحاليل القياسية.</div>
+  </div>`},
+ {icon:'🔥',title:'5-6 التحليل الوزني وطرائق التطاير',html:`
+  <div class="content-card"><h3>التحليل الوزني</h3>
+   <p>يعتمد التحليل الوزني على عزل المكون المراد تقديره في صورة مادة نقية ومستقرة ذات تركيب معلوم، ثم وزنها وحساب كمية المكون.</p>
+   <p>أهم طرائق العزل المذكورة: <strong>التطاير، الترسيب، الترسيب الكهربائي، وطرائق فيزيائية أخرى</strong>، ويركز الفصل على التطاير والترسيب.</p>
+   <div class="formula-item"><div class="formula-label">النسبة المئوية لماء التبلور</div><div class="formula-equation">%H₂O = (كتلة ماء التبلور ÷ كتلة العينة) × 100</div><div class="formula-note">كتلة ماء التبلور = كتلة العينة قبل التسخين − كتلة العينة بعد التسخين.</div></div>
+   <div class="formula-item"><div class="formula-label">النسبة المئوية للكربون</div><div class="formula-equation">%C = (كتلة C ÷ كتلة العينة) × 100</div><div class="formula-note">تحسب كتلة C من كتلة CO₂ الناتج من الاحتراق وفق النسبة المولية.</div></div>
+   <p><strong>التطاير المباشر:</strong> تجمع المادة المتطايرة وتمتص ثم تقاس كتلتها. <strong>التطاير غير المباشر:</strong> تحسب كتلة الجزء المتطاير من الفرق بين كتلتي العينة قبل وبعد التطاير.</p>
+  </div>`},
+ {icon:'🧫',title:'6-6 طريقة الترسيب في التحليل الوزني',html:`
+  <div class="content-card"><h3>خطوات التحليل الوزني بالترسيب</h3>
+   <div class="memory-box"><strong>1️⃣</strong> إذابة كتلة معلومة ومضبوطة من العينة في مذيب مناسب.</div>
+   <div class="memory-box"><strong>2️⃣</strong> ترسيب المكون المراد تقديره بصورة مركب شحيح الذوبان وبصيغة كيميائية معلومة.</div>
+   <div class="memory-box"><strong>3️⃣</strong> فصل الراسب بالترشيح.</div>
+   <div class="memory-box"><strong>4️⃣</strong> غسل الراسب للتخلص من الملوثات، مع اختيار محلول غسل مناسب.</div>
+   <div class="memory-box"><strong>5️⃣</strong> تجفيف الراسب أو حرقه لتحويله إلى صيغة وزنية ملائمة وثابتة.</div>
+   <div class="memory-box"><strong>6️⃣</strong> وزن الصيغة الوزنية بدقة ثم إجراء الحسابات.</div>
+   <p><strong>الراسب المرغوب:</strong> قليل الذوبان، ذو دقائق مناسبة وكبيرة نسبيًا، نقي ويمكن تحويله إلى صيغة كيميائية معلومة وثابتة.</p>
+   <p>رفع درجة الحرارة، استخدام محاليل مخففة، الإضافة البطيئة للعامل المرسب مع التحريك المستمر يساعد على تكوين راسب متبلور أكبر وأسهل في الترشيح.</p>
+  </div>`},
+ {icon:'⚖️',title:'7-6 التركيب الكمي للراسب والمعامل الوزني',html:`
+  <div class="content-card"><h3>المعامل الوزني Gf والحسابات</h3>
+   <div class="formula-item"><div class="formula-label">المعامل الوزني</div><div class="formula-equation">Gf = (a/b) × (M للمكوّن المراد تقديره ÷ M للصيغة الوزنية)</div><div class="formula-note">a وb يختاران بحيث تحتوي الصيغتان على العدد نفسه من ذرات العنصر أو جزيئات المكون المراد تقديره.</div></div>
+   <div class="formula-item"><div class="formula-label">كتلة المكون المراد تقديره</div><div class="formula-equation">m(المكوّن) = Gf × m(الصيغة الوزنية)</div><div class="formula-note">تستخدم بعد تحديد المعامل الوزني بصورة صحيحة.</div></div>
+   <div class="formula-item"><div class="formula-label">النسبة المئوية للمكون</div><div class="formula-equation">%المكوّن = [Gf × m(الصيغة الوزنية) ÷ m(العينة)] × 100</div><div class="formula-note">تعطي النسبة المئوية للمكون في العينة.</div></div>
+   <div class="example-box"><strong>مثال الكتاب:</strong> عند تقدير Ba على هيئة BaSO₄، تكون الصيغة الوزنية هي BaSO₄، ويُحسب Gf من الكتلة المولية للباريوم إلى الكتلة المولية للصيغة الوزنية مع مراعاة عدد الذرات.</div>
+  </div>`},
+ {icon:'🧪',title:'8-6 التحليل الحجمي والتسحيح',html:`
+  <div class="content-card"><h3>التحليل الحجمي</h3>
+   <p>يعتمد على قياس حجم محلول كاشف ذي تركيز معلوم بدقة عند تفاعله كميًا مع محلول مجهول.</p>
+   <div class="memory-box"><strong>المحلول القياسي الأولي:</strong> يحضر مباشرة بإذابة كتلة معلومة من مادة قياسية عالية النقاوة في حجم معلوم من المذيب.</div>
+   <div class="memory-box"><strong>المحلول القياسي الثانوي:</strong> يعين تركيزه بالمعايرة باستخدام مادة قياسية معلومة.</div>
+   <p><strong>الأدوات الأساسية:</strong> الدورق الحجمي، السحاحة، الماصة، والدورق المخروطي.</p>
+   <p><strong>نقطة التكافؤ:</strong> النقطة النظرية التي تتكافأ عندها كميتا المادتين. <strong>نقطة النهاية:</strong> النقطة العملية التي يلاحظ عندها تغير صفة فيزيائية مثل اللون.</p>
+   <p>يشترط في تفاعل التسحيح أن يكون بسيطًا، غير انعكاسي، سريعًا، وأن تتوفر وسيلة مناسبة لتعيين نقطة النهاية.</p>
+  </div>`},
+ {icon:'📏',title:'9-6 التركيز المولاري والعياري والكتلة المكافئة',html:`
+  <div class="content-card"><h3>العلاقات الحسابية الأساسية</h3>
+   <div class="formula-item"><div class="formula-label">المولارية</div><div class="formula-equation">M = n ÷ V</div><div class="formula-note">n بعدد المولات وV باللتر، أو بصيغة mmol/mL.</div></div>
+   <div class="formula-item"><div class="formula-label">العيارية</div><div class="formula-equation">N = Eq ÷ V</div><div class="formula-note">Eq عدد المكافئات الغرامية وV باللتر.</div></div>
+   <div class="formula-item"><div class="formula-label">الكتلة المكافئة</div><div class="formula-equation">EM = M ÷ η</div><div class="formula-note">η عدد مولات الجزء الفعال من المادة في التفاعل.</div></div>
+   <div class="formula-item"><div class="formula-label">العلاقة بين M وN</div><div class="formula-equation">N = M × η</div><div class="formula-note">تستخدم بعد تحديد η بحسب نوع التفاعل.</div></div>
+   <p><strong>في تفاعلات التعادل:</strong> EM للحامض = الكتلة المولية ÷ عدد ذرات H⁺ المتأينة، وللقاعدة = الكتلة المولية ÷ عدد مجاميع OH⁻ المتأينة.</p>
+   <p><strong>في الترسيب وتكوين المعقدات والأكسدة والاختزال:</strong> تختلف قيمة η وفق الجزء الفعال المحدد من المعادلة الموزونة.</p>
+  </div>`},
+ {icon:'🎯',title:'10-6 نتائج التحليل الحجمي وحسابات التسحيح',html:`
+  <div class="content-card"><h3>الحساب عند نقطة النهاية</h3>
+   <div class="formula-item"><div class="formula-label">بالمولارية</div><div class="formula-equation">كمية المادة = M × V</div><div class="formula-note">عند استخدام الحجم باللتر، أو mmol = M(mmol/mL) × V(mL).</div></div>
+   <div class="formula-item"><div class="formula-label">بالمكافئات</div><div class="formula-equation">meq = N × V(mL)</div><div class="formula-note">للحجوم بالمليلتر والتركيز بوحدة meq/mL.</div></div>
+   <div class="formula-item"><div class="formula-label">عند نقطة التكافؤ باستخدام العيارية</div><div class="formula-equation">N₁V₁ = N₂V₂</div><div class="formula-note">لا حاجة لكتابة المعادلة الموزونة عند التعامل مباشرةً مع التركيز العياري كما يوضح الكتاب.</div></div>
+   <p>في استعمال المولارية يجب الرجوع إلى المعادلة الكيميائية الموزونة لتحديد النسب المتكافئة بين المواد.</p>
+   <div class="example-box"><strong>ملاحظة مهمة:</strong> يوضح الكتاب أن استخدام العيارية في التسحيح يختصر الحسابات لأن العلاقة N₁V₁ = N₂V₂ تعتمد مباشرة على التكافؤ الكيميائي.</div>
+  </div>`}
+];
+
+var SIXTH_CH6_FORMULAS = [
+ ['المولارية','M = n ÷ V','V باللتر وn عدد المولات.'],
+ ['المولارية بالـ mmol/mL','mmol = M × V(mL)','عند استعمال المولارية المكافئة لـ mmol/mL.'],
+ ['العيارية','N = Eq ÷ V','Eq عدد المكافئات الغرامية وV باللتر.'],
+ ['كمية المادة في التحليل الحجمي','mmol = M × mL','عند استخدام M بوحدة mmol/mL.'],
+ ['عدد الملي مكافئات','meq = N × mL','عند استخدام N بوحدة meq/mL.'],
+ ['الكتلة المكافئة العامة','EM = M ÷ η','η = عدد مولات الجزء الفعال.'],
+ ['العيارية والمولارية','N = M × η','η تتحدد من نوع التفاعل.'],
+ ['تعادل — الحمض','EM(acid) = M(a) ÷ عدد H⁺ المتأين','تعتمد على عدد ذرات الهيدروجين القابلة للتفاعل.'],
+ ['تعادل — القاعدة','EM(base) = M(b) ÷ عدد OH⁻ المتأين','تعتمد على عدد مجاميع الهيدروكسيد المتأينة.'],
+ ['ترسيب','EM = M ÷ (عدد الأيونات الموجبة × تكافؤها)','تستخدم للمواد المشاركة في تفاعل الترسيب.'],
+ ['تكوين المعقد','EM = M ÷ عدد أزواج الإلكترونات الموهوبة أو المكتسبة','يحدد من الجزء الفعال في التفاعل.'],
+ ['أكسدة واختزال — عامل مؤكسد','EM = M ÷ عدد الإلكترونات المكتسبة','يحسب من تغير عدد التأكسد.'],
+ ['أكسدة واختزال — عامل مختزل','EM = M ÷ عدد الإلكترونات المفقودة','يحسب من تغير عدد التأكسد.'],
+ ['المعامل الوزني','Gf = (a/b) × M(المكوّن) ÷ M(الصيغة الوزنية)','a وb لمعادلة عدد ذرات المكون في الصيغتين.'],
+ ['كتلة المكون من الراسب','m(المكوّن) = Gf × m(الصيغة الوزنية)','تستخدم بعد حساب Gf.'],
+ ['النسبة المئوية للمكون','% = [Gf × m(الصيغة الوزنية) ÷ m(العينة)] × 100','لحساب نسبة المكون في العينة.'],
+ ['ماء التبلور','كتلة H₂O = كتلة العينة قبل التسخين − كتلة العينة بعد التسخين','عند طريقة التطاير غير المباشرة.'],
+ ['النسبة المئوية لماء التبلور','%H₂O = [كتلة H₂O ÷ كتلة العينة] × 100','من أمثلة الفصل.'],
+ ['نقطة التكافؤ بالعيارية','N₁V₁ = N₂V₂','تستخدم مباشرة في التسحيح عند استخدام العيارية.']
+];
+
+var SIXTH_CH6_MEMORY = [
+ 'التحليل النوعي يحدد هوية مكونات العينة، بينما التحليل الكمي يحدد كميتها أو نسبتها.',
+ 'تفصل الأيونات الموجبة الأكثر شيوعًا إلى خمس مجاميع وفق عوامل ترسيب محددة.',
+ 'في التحليل الوزني يجب أن يكون الراسب قليل الذوبان، مناسب الصفات الفيزيائية، نقيًا، وذا صيغة معلومة وثابتة.',
+ 'التطاير المباشر يعتمد على جمع المادة المتطايرة وقياسها، أما غير المباشر فيعتمد على الفرق في كتلة العينة.',
+ 'خطوات الترسيب الوزني الأساسية: إذابة، ترسيب، ترشيح، غسل، تجفيف/حرق، ثم وزن.',
+ 'المعامل الوزني Gf لا وحدة له، ويستخدم لتحويل كتلة الصيغة الوزنية إلى كتلة المكون المراد تقديره.',
+ 'المحلول القياسي الأولي يحضر مباشرة من مادة قياسية، والثانوي يعاير مقابل مادة قياسية.',
+ 'نقطة التكافؤ نظرية، ونقطة النهاية عملية وتحدد بتغير صفة ملحوظة مثل اللون.',
+ 'الأدوات الأساسية للتسحيح: السحاحة، الماصة، الدورق الحجمي، الدورق المخروطي، والدليل.',
+ 'عند استعمال العيارية في التسحيح يمكن تطبيق N₁V₁ = N₂V₂ مباشرة.',
+ 'الكتلة المكافئة لا تكون ثابتة للمادة نفسها بالضرورة؛ فقد تتغير بحسب نوع التفاعل الذي تشترك فيه.',
+ 'قيمة η هي التي تحدد العلاقة بين الكتلة المولية والكتلة المكافئة، وتُستخرج من الجزء الفعال في التفاعل.'
+];
+
+var SIXTH_CH6_IDEAS = [
+ ['لماذا تقسم الأيونات الموجبة إلى مجاميع؟','لتسهيل فصل الأيونات وتشخيصها؛ إذ تمتاز كل مجموعة بعامل مرسب معين يسبب ترسيب أفرادها تحت شروط محددة.'],
+ ['لماذا يبقى Pb²⁺ ضمن المجموعة الأولى والثانية؟','لأن PbCl₂ ذوبانيته أكبر نسبيًا، لذلك قد لا يترسب بصورة تامة عند إضافة HCl المخفف.'],
+ ['ما الفرق بين التطاير المباشر وغير المباشر؟','في المباشر تُجمع المادة المتطايرة وتمتص ثم تقاس كتلتها، وفي غير المباشر تُحسب من الفرق بين كتلتي العينة قبل وبعد التطاير.'],
+ ['ما صفات الراسب الجيد؟','قليل الذوبان، مناسب من الناحية الفيزيائية للفصل والترشيح، قليل التلوث، ويمكن تحويله إلى صيغة نقية معلومة وثابتة.'],
+ ['لماذا تضاف مادة الترسيب ببطء مع التحريك ومن محاليل مخففة؟','لإتاحة وقت لنمو البلورات والحصول على راسب متبلور كبير نسبيًا وأسهل في الترشيح وأقل تعرضًا للتلوث.'],
+ ['متى يستخدم التجفيف ومتى يستخدم الحرق؟','للتخلص من الرطوبة وتحويل صيغة الترسيب إلى صيغة وزنية مناسبة، وقد يتطلب الأمر الحرق لتفكيك الراسب وتحويله إلى صيغة ثابتة.'],
+ ['ما المقصود بالمعامل الوزني؟','النسبة المحسوبة بين الكتلة المولية للمكون المراد تقديره والكتلة المولية للصيغة الوزنية بعد موازنة عدد ذرات المكون في الصيغتين.'],
+ ['لماذا يستخدم التركيز العياري في التسحيح؟','لأنه يربط كمية المحلول بعدد المكافئات مباشرة، ويسمح باستخدام N₁V₁ = N₂V₂ عند نقطة النهاية.'],
+ ['ما الفرق بين نقطة التكافؤ ونقطة النهاية؟','الأولى نظرية، والثانية عملية وتحدد من تغير صفة ملحوظة للمحلول.'],
+ ['لماذا تختلف الكتلة المكافئة للمادة من تفاعل إلى آخر؟','لأن الجزء الفعال من المادة وعدده المولي η يتغيران تبعًا لنوع التفاعل.']
+];
+
+var SIXTH_CH6_QUESTIONS = [
+ ['1-6 كيف يمكن فصل الأيونات الموجبة الأكثر شيوعًا؟','بإضافة العوامل المرسبة للمجاميع بالتتابع من المجموعة الأولى إلى الرابعة، ثم فصل الرواسب بالترشيح وإجراء اختبارات الكشف الخاصة بكل مجموعة.'],
+ ['2-6 ما أهم أيونات المجموعة الثانية وما العامل المرسب لها؟','تضم مثلًا Hg²⁺ وCu²⁺ وCd²⁺ وBi³⁺ وAs وSb وSn وPb، والعامل المرسب هو H₂S بوجود HCl المخفف.'],
+ ['3-6 ما الفكرة الأساسية للكشف عن Ag⁺ وPb²⁺ وHg₂²⁺؟','يُذاب PbCl₂ بالماء المغلي ثم يكشف بالكرومات، ويذاب AgCl بالأمونيا ثم يعاد ترسيبه، بينما يعطي Hg₂Cl₂ مع الأمونيا ناتجًا غير ذائب أسود اللون.'],
+ ['4-6 كيف يمكن الفصل بين Hg²⁺ وHg₂²⁺؟','يُستفاد من اختلاف سلوك مركباتهما في الكواشف والخطوات التحليلية المذكورة في تجربة المجموعة الأولى، ويعتمد الفصل على تحولات الكلوريدات والنتائج المميزة مع SnCl₂.'],
+ ['5-6 أكمل: Cr³⁺ ينتمي إلى أي مجموعة؟ وما العامل المرسب؟','ينتمي إلى المجموعة IIIA، ويترسب بـ NH₄OH بوجود NH₄Cl على هيئة Cr(OH)₃.'],
+ ['6-6 ما عدد غرامات KIO₃ اللازمة لترسيب 1.67 g من Pb(IO₃)₂؟','الجواب الوارد في أسئلة الفصل: 1.283 g.'],
+ ['7-6 عند حرق 5.71 mg من مركب عضوي نتج 14.41 mg CO₂ و2.5 mg H₂O، ما نسبة C وH؟','الكتاب يعطي: C = 68.9% ، H = 4.9%.'],
+ ['8-6 ما مولارية HCl التي تكافئ 36.7 mL منه 43.2 mL من NaOH تركيزه 0.236 M؟','الجواب الوارد في الكتاب: M = 0.278.'],
+ ['9-6 ما مولارية وعيارية محلول Ba(OH)₂ المحضر بإذابة 9.5 g في 2 L؟','الجواب: M = 0.027 mol/L ، N = 0.054 eq/L.'],
+ ['10-6 عند احتراق 5.7 mg من هيدروكاربون نتج 15.675 mg CO₂، ما نسبة الهيدروجين؟','الجواب الوارد في الكتاب: تعتمد على موازنة احتراق الهيدروكاربون وإيجاد كتلة الكربون من CO₂، ثم استكمال النسبة إلى مكونات العينة.'],
+ ['11-6 ما حجم 0.2 M KMnO₄ اللازم لتسحيح 40 mL من 0.1 M FeSO₄ في الوسط الحامضي؟','الجواب الوارد في الكتاب: 4 mL.'],
+ ['12-6 ما قيمة η لملح Fe₂(SO₄)₃ في تفاعل ترسيب أيون الرصاص؟','الجواب الصحيح في الاختيارات حسب الكتاب: η = 6 mol/eq.'],
+ ['13-6 ما المعامل الوزني لـ Na₂Mg₂P₂O₇ في تقدير العنصر وفق المسألة الواردة؟','الجواب الوارد في الكتاب: Gf = 1.11.'],
+ ['14-6 عيارية HIO₃ بعد معايرته مع NaOH N=0.145 بحجم 45.8 mL مقابل 50 mL من الحمض؟','الكتاب يعطي: أ) N(HIO₃) = 0.13 ، ب) عياريته في تقدير الحديد = 0.52 N.'],
+ ['15-6 احسب مولارية NaOH عند تسحيح 25 mL منه بحمض H₂SO₄ تركيزه 0.08 M وحجم 47.1 mL.','تحسب من المعادلة الموزونة للتعادل، ثم إيجاد الكمية المتكافئة للقاعدة.'],
+ ['16-6 عينة NaI كتلتها 0.5 g أعطت 0.744 g AgI، ما نسبة NaI؟','الجواب في الكتاب: 95%.'],
+ ['17-6 بلورات Na₂CO₃·xH₂O كتلتها 4.29 g عُدلت بـ15 mL من HCl N=0.2 لعينة حجمها 250 mL؛ ما قيمة x؟','الجواب الوارد في الكتاب: الصيغة الموافقة للماء المرتبط هي Na₂CO₃·10H₂O.'],
+ ['18-6 أضيف 20 mL من KMnO₄ N=0.3 إلى KI المحمض، ثم عُيِّرت كمية I₂ المتكونة بـ25 mL من Na₂S₂O₃؛ ما عيارية الثايوكبريتات وكتلتها في 1 L؟','الجواب الوارد في الكتاب: N = 0.24 ، والكتلة = 37.92 g/L.']
+];
+
+var SIXTH_CH6_QUIZ = [
+ {q:'التحليل الذي يحدد هوية مكونات العينة يسمى:',o:['كميًا','نوعيًا','وزنيًا فقط','حجميًا فقط'],a:1,e:'التحليل النوعي يهدف إلى معرفة هوية المكونات.'},
+ {q:'العامل المرسب للمجموعة الأولى هو:',o:['H₂S','NH₄OH','HCl المخفف','(NH₄)₂CO₃'],a:2,e:'المجموعة الأولى تترسب بوساطة HCl المخفف.'},
+ {q:'PbCl₂ يمكن فصله عن AgCl بإضافة:',o:['الماء المغلي','NH₄OH فقط','NaOH','H₂S'],a:0,e:'PbCl₂ يذوب في الماء المغلي.'},
+ {q:'الطريقة الوزنية تعتمد أساسًا على قياس:',o:['الحجم','الكتلة','اللون فقط','الضغط'],a:1,e:'التحليل الوزني يعتمد على قياس الكتل.'},
+ {q:'في التطاير غير المباشر تحسب كتلة الجزء المتطاير من:',o:['الكتلة بعد التسخين فقط','الفرق بين الكتلتين قبل وبعد التطاير','حجم الغاز فقط','التركيز المولاري'],a:1,e:'تعتمد الطريقة غير المباشرة على الفرق في الكتلة.'},
+ {q:'من صفات الراسب الجيد:',o:['ذوبانية عالية','دقائق صغيرة جدًا دائمًا','قلة الذوبان وصيغة معلومة وثابتة','عدم إمكانية الترشيح'],a:2,e:'هذه من الشروط الأساسية لنجاح التحليل الوزني.'},
+ {q:'العلاقة بين الكتلة المولية والكتلة المكافئة هي:',o:['EM=M×η','EM=M÷η','EM=η÷M','EM=M+η'],a:1,e:'EM = M ÷ η.'},
+ {q:'نقطة النهاية في التسحيح هي:',o:['نقطة نظرية فقط','تغير عملي يمكن ملاحظته','بداية التفاعل','درجة الغليان'],a:1,e:'تحدد عمليًا من تغير صفة مثل اللون.'},
+ {q:'العلاقة المباشرة عند استخدام العيارية في التسحيح:',o:['M₁V₁=M₂V₂','N₁V₁=N₂V₂','Gf=M×V','η=N×V'],a:1,e:'هذه العلاقة يستخدمها الكتاب عند نقطة النهاية.'},
+ {q:'المعامل الوزني Gf هو:',o:['كمية لها وحدة غرام','قيمة عددية بلا وحدات','تركيز محلول','عدد مولات'],a:1,e:'المعامل الوزني قيمة عددية ليس لها وحدات.'},
+ {q:'الأداة المستخدمة لقياس حجم المحلول المستهلك في التسحيح بدقة هي:',o:['الماصة','السحاحة','الدورق الحجمي','الميزان'],a:1,e:'السحاحة تقيس الحجم المستهلك في التسحيح بدقة.'},
+ {q:'عند تكوين معقد، تحسب الكتلة المكافئة بقسمة M على:',o:['عدد الأيونات فقط','عدد أزواج الإلكترونات الموهوبة أو المكتسبة','عدد البروتونات','الحجم'],a:1,e:'وفق الجزء الخاص بتفاعلات تكوين المعقد.'}
+];
+
+function sixthCh6Shell(title, backFn){return `<div class="page"><div class="page-header"><button class="back-button" onclick="${backFn}()">←</button><h2>${title}</h2><span></span></div>`;}
+function sixthChapter6ToolsHTML(){return `<div class="chapter-tools-title"><span>🧰 أدوات الفصل السادس</span><small>مبنية على كتاب الكيمياء الرسمي فقط</small></div><div class="dashboard-grid">
+ <button class="dashboard-card" onclick="showSixthChapter6Memory()"><span class="dashboard-card-icon">🧠</span><span><b>احفظها</b><small>أهم التعاريف والقواعد</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter6Quiz()"><span class="dashboard-card-icon">❓</span><span><b>اختبرني</b><small>اختبار الفصل السادس</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter6Wrong()"><span class="dashboard-card-icon">🔄</span><span><b>مراجعة أخطائي</b><small>الأخطاء المحفوظة من الاختبار</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter6Drawings()"><span class="dashboard-card-icon">🖼️</span><span><b>الرسومات</b><small>تُجمع مع النسخة النهائية للصور</small></span><i>←</i></button>
+ <button class="dashboard-card featured" onclick="showSixthChapter6Formulas()"><span class="dashboard-card-icon">🧮</span><span><b>القوانين والمعادلات الكيميائية</b><small>جميع العلاقات الحسابية المهمة للفصل</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter6Ideas()"><span class="dashboard-card-icon">🎯</span><span><b>أفكار مهمة</b><small>نقاط التركيز من الكتاب</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter6Questions()"><span class="dashboard-card-icon">📚</span><span><b>أسئلة الفصل وحلولها</b><small>أسئلة الفصل الرسمي وإجاباتها</small></span><i>←</i></button>
+ </div>`;}
+function showSixthChapter6(){setCurrentGrade('sixth');setActive(1);document.getElementById('app').innerHTML=sixthCh6Shell('📚 دروسي — الفصل السادس: طرائق التحليل الكيميائي','showSixthScientific')+`<div class="chapter2-banner"><strong>📌 الفصل السادس: طرائق التحليل الكيميائي</strong><br>الفصل الرسمي الذي يتناول التحليل النوعي والكمي، فصل الأيونات الموجبة، التحليل الوزني، التطاير والترسيب، المعامل الوزني، التحليل الحجمي، التركيزات، الكتل المكافئة والتسحيح.</div><div class="lessons-page">${SIXTH_CH6_LESSONS.map((l,i)=>`<div class="lesson-card" onclick="showSixthChapter6Lesson(${i})"><div class="lesson-card-icon">${l.icon}</div><div class="lesson-card-info"><h3>${l.title}</h3><p>شرح منظم مستخرج من كتاب الكيمياء الرسمي للسادس العلمي.</p></div><div class="lesson-arrow">←</div></div>`).join('')}${sixthChapter6ToolsHTML()}</div></div>`;}
+function showSixthChapter6Lesson(i){var l=SIXTH_CH6_LESSONS[i];if(!l)return;var prev=i>0?`showSixthChapter6Lesson(${i-1})`:'showSixthChapter6';var next=i<SIXTH_CH6_LESSONS.length-1?`showSixthChapter6Lesson(${i+1})`:'showSixthChapter6';document.getElementById('app').innerHTML=sixthCh6Shell(l.title,'showSixthChapter6')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH6_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;}
+function showSixthChapter6Formulas(){setActive(1);document.getElementById('app').innerHTML=sixthCh6Shell('🧮 القوانين والمعادلات الكيميائية — الفصل السادس','showSixthChapter6')+`<div class="formula-section-card"><div class="formula-badge">الفصل السادس — طرائق التحليل الكيميائي</div><p style="color:#617086;line-height:1.9">القوانين والعلاقات التالية مستخرجة من أمثلة وتمارين وحسابات الفصل السادس في الكتاب الرسمي.</p><div class="formula-grid">${SIXTH_CH6_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter6()">📖 العودة إلى الفصل السادس</button></div></div>`;}
+function showSixthChapter6Memory(){setActive(1);document.getElementById('app').innerHTML=sixthCh6Shell('🧠 احفظها — الفصل السادس','showSixthChapter6')+`<div class="lesson-content">${SIXTH_CH6_MEMORY.map((x,i)=>`<div class="memory-box"><strong>${i+1}️⃣</strong>${x}</div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter6()">📖 العودة إلى الفصل السادس</button></div></div></div>`;}
+function showSixthChapter6Ideas(){setActive(1);document.getElementById('app').innerHTML=sixthCh6Shell('🎯 أفكار مهمة — الفصل السادس','showSixthChapter6')+`<div class="ministry-ideas-intro"><strong>نقاط التركيز من الكتاب الرسمي</strong><br>أفكار مستخلصة من شرح الفصل وأمثلته وتمارينه وأسئلته.</div>${SIXTH_CH6_IDEAS.map((x,i)=>`<div class="ministry-idea-card"><h3>${i+1}- ${x[0]}</h3><button class="ministry-toggle" onclick="toggleSixthCh6Idea(${i})">👁️ إظهار الإجابة</button><div id="sixth-ch6-idea-${i}" class="ministry-idea-answer"><strong>✅ الإجابة:</strong><br>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter6()">📖 العودة إلى الفصل السادس</button></div></div>`;}
+function toggleSixthCh6Idea(i){var el=document.getElementById('sixth-ch6-idea-'+i);if(el)el.classList.toggle('show');}
+function showSixthChapter6Questions(){setActive(1);document.getElementById('app').innerHTML=sixthCh6Shell('📚 أسئلة الفصل السادس وحلولها','showSixthChapter6')+`<div class="questions-intro"><strong>أسئلة الفصل السادس</strong><br>مرتبة بالاعتماد على أسئلة الفصل في الكتاب الرسمي.</div>${SIXTH_CH6_QUESTIONS.map((x,i)=>`<div class="question-card"><h3>${x[0]}</h3><div class="question-answer"><strong>✅ الحل:</strong> ${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter6()">📖 العودة إلى الفصل السادس</button></div></div>`;}
+function showSixthChapter6Drawings(){setActive(1);document.getElementById('app').innerHTML=sixthCh6Shell('🖼️ الرسومات — الفصل السادس','showSixthChapter6')+`<div class="drawings-section"><h3>🖼️ الرسومات الموجودة داخل الفصل</h3><p class="drawings-subtitle">سيتم تجميع صور ورسومات الكتاب الرسمية للفصل السادس مع النسخة النهائية لجميع الفصول.</p></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter6()">📖 العودة إلى الفصل السادس</button></div></div>`;}
+function showSixthChapter6Quiz(){window.sixthCh6QuizState={index:0,score:0,wrong:[]};renderSixthCh6Quiz();}
+function renderSixthCh6Quiz(){var st=window.sixthCh6QuizState,total=SIXTH_CH6_QUIZ.length;if(st.index>=total){localStorage.setItem('sixth_ch6_wrong',JSON.stringify(st.wrong));document.getElementById('app').innerHTML=sixthCh6Shell('🏁 نتيجة اختبار الفصل السادس','showSixthChapter6')+`<div class="content-card" style="text-align:center"><div style="font-size:56px">🏆</div><h3>انتهى الاختبار</h3><p>النتيجة: <strong>${st.score} / ${total}</strong></p><div class="example-box">عدد الإجابات الخاطئة: ${st.wrong.length}</div><div class="lesson-navigation"><button class="next-button" onclick="showSixthChapter6Quiz()">🔁 إعادة الاختبار</button><button class="chapter-button" onclick="showSixthChapter6()">📖 العودة إلى الفصل السادس</button></div></div></div>`;return;}var q=SIXTH_CH6_QUIZ[st.index];document.getElementById('app').innerHTML=sixthCh6Shell('❓ اختبرني — الفصل السادس','showSixthChapter6')+`<div class="content-card"><div class="quiz-meta"><span class="difficulty-badge">السؤال ${st.index+1} من ${total}</span><span class="small-muted">النتيجة ${st.score}</span></div><div class="progress-track"><div class="progress-bar" style="width:${Math.round((st.index/total)*100)}%"></div></div><h3 style="margin-top:18px">${q.q}</h3><div class="question-options">${q.o.map((o,i)=>`<button class="question-option" onclick="answerSixthCh6Quiz(${i})">${String.fromCharCode(1571+i)}. ${o}</button>`).join('')}</div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter6()">📖 العودة إلى الفصل السادس</button></div></div></div>`;}
+function answerSixthCh6Quiz(i){var st=window.sixthCh6QuizState,q=SIXTH_CH6_QUIZ[st.index];if(i===q.a)st.score++;else st.wrong.push({q:q.q,chosen:q.o[i],answer:q.o[q.a],explain:q.e});st.index++;renderSixthCh6Quiz();}
+function showSixthChapter6Wrong(){setActive(1);var wrong=[];try{wrong=JSON.parse(localStorage.getItem('sixth_ch6_wrong')||'[]')}catch(e){wrong=[]}document.getElementById('app').innerHTML=sixthCh6Shell('🔄 مراجعة أخطائي — الفصل السادس','showSixthChapter6')+`<div class="questions-intro"><strong>مراجعة الأخطاء</strong><br>تظهر هنا الأسئلة التي أخطأت فيها في آخر اختبار للفصل السادس.</div>${wrong.length?wrong.map((x,i)=>`<div class="question-card review-card"><div class="review-question">${i+1}- ${x.q}</div><div class="question-answer"><strong>إجابتك:</strong> ${x.chosen}<br><strong>✅ الصحيح:</strong> ${x.answer}<br><strong>💡 التوضيح:</strong> ${x.explain}</div></div>`).join(''):`<div class="content-card" style="text-align:center"><h3>لا توجد أخطاء محفوظة حاليًا ✅</h3><p>أجرِ اختبار الفصل السادس أولًا.</p></div>`}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter6()">📖 العودة إلى الفصل السادس</button></div></div>`;}
+
 function showSixthMinistry(){ showSixthChapter1Ideas(); }
 function showSixthQuestions(){ showSixthChapter1Questions(); }
 function showSixthQuiz(){ showSixthChapter1Quiz(); }
@@ -6798,7 +7154,7 @@ function showAccount(grade) {
       <div class="content-card" style="margin:0;padding:16px;border-radius:18px"><div class="progress-head"><span class="account-grade-badge sixth">🎓 السادس العلمي</span><strong>${sixth.pct}%</strong></div><div class="progress-track account-progress"><div class="progress-bar progress-fill-sixth" style="width:${sixth.pct}%;height:100%"></div></div><div class="progress-meta"><span>التقدم محفوظ في مسار السادس فقط</span><span>${sixth.pct}%</span></div></div>
     </div>
     <div class="account-section-title"><h3>📘 تقدم فصول الثالث متوسط</h3><span>نسبة كل فصل</span></div>${thirdCards}
-    <div class="account-section-title"><h3>🎓 تقدم السادس العلمي</h3><span>الفصلان 1 و2 مضافان</span></div><div class="dashboard-note sixth-note">تمت إضافة الثرموداينمك والاتزان الكيميائي، وسيظهر التقدم التفصيلي مع استكمال أدوات بقية الفصول.</div>
+    <div class="account-section-title"><h3>🎓 تقدم السادس العلمي</h3><span>الفصول 1–6 مضافة</span></div><div class="dashboard-note sixth-note">تمت إضافة الفصول الأول إلى السادس بالاعتماد على الكتاب الرسمي، وسيظهر التقدم التفصيلي مع استكمال بقية أدوات المسار.</div>
   </div>
   <div id="authModal" class="auth-modal-backdrop" onclick="if(event.target===this)closeAuthModal()"><div class="auth-modal"><div class="auth-modal-header"><h3>🔐 تسجيل الدخول</h3><button class="auth-close" onclick="closeAuthModal()">×</button></div><div id="authModalStatus" class="auth-status"></div><div id="phoneLoginPanel" class="phone-login" style="display:none"><label style="display:block;font-weight:900;color:#274563;margin-bottom:8px">رقم الهاتف</label><div class="phone-row"><select id="countryCode"><option value="+964">🇮🇶 العراق +964</option><option value="+966">🇸🇦 السعودية +966</option><option value="+971">🇦🇪 الإمارات +971</option><option value="+20">🇪🇬 مصر +20</option><option value="+962">🇯🇴 الأردن +962</option><option value="+90">🇹🇷 تركيا +90</option><option value="+98">🇮🇷 إيران +98</option><option value="+1">🇺🇸/🇨🇦 +1</option><option value="+44">🇬🇧 بريطانيا +44</option><option value="+49">🇩🇪 ألمانيا +49</option></select><input id="phoneNumber" inputmode="tel" placeholder="7701234567"></div><div class="otp-row"><input id="otpCode" inputmode="numeric" placeholder="رمز OTP"><button onclick="demoPhoneLogin()">تأكيد الدخول</button></div><div class="auth-note">حاليًا زر التأكيد يحفظ جلسة محلية تجريبية. لإرسال رمز SMS حقيقي يجب تفعيل Firebase Phone Auth.</div></div></div></div>`;
 }

@@ -1691,6 +1691,16 @@ li {
 .auth-modal-backdrop{position:fixed;inset:0;background:rgba(11,25,45,.50);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}.auth-modal{width:min(540px,100%);background:#fff;border-radius:28px;box-shadow:0 28px 80px rgba(0,0,0,.24);padding:24px}.auth-modal-header{display:flex;justify-content:space-between;align-items:center;gap:10px}.auth-modal-header h3{margin:0;color:#173b78}.auth-close{width:40px;height:40px;border-radius:12px;border:1px solid #dfe7ef;background:#f7f9fc;cursor:pointer;font-size:22px;color:#5d6c7f}.auth-status{margin-top:14px;padding:14px;border-radius:14px;background:#f6f9fd;color:#5e6e82;line-height:1.8;font-size:13px}
 @media(max-width:700px){.auth-actions{grid-template-columns:1fr}.auth-provider.phone{grid-column:auto}.phone-row{grid-template-columns:1fr}.otp-row{grid-template-columns:1fr}.account-title{font-size:25px}}
 .chapter-section-divider{display:flex;align-items:center;gap:14px;margin:28px 0 14px;color:#193f7a;font-weight:900;font-size:18px}.chapter-section-divider:before,.chapter-section-divider:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,#cdd9e8)}.chapter-section-divider span{white-space:nowrap;padding:8px 16px;border:1px solid #d9e2ee;border-radius:999px;background:#f8fbff;box-shadow:0 5px 14px rgba(25,55,80,.06)}
+<style>
+.chapter-review-launcher{display:flex;align-items:center;gap:16px;margin:18px 0;padding:18px 20px;border:1px solid #dbe4ef;border-radius:18px;background:linear-gradient(135deg,#ffffff,#f6f9fd);box-shadow:0 10px 30px rgba(25,55,80,.08);cursor:pointer;transition:.2s ease}
+.chapter-review-launcher:hover{transform:translateY(-2px);box-shadow:0 15px 36px rgba(25,55,80,.12)}
+.chapter-review-launcher-icon{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;background:#eaf1ff;flex:0 0 auto}
+.chapter-review-launcher h3{margin:0 0 5px;color:#173f7a;font-size:20px}.chapter-review-launcher p{margin:0;color:#64748b;line-height:1.8}
+.review-tool-card{margin:12px 0}
+<style>
+.chapter-tools-title{margin:28px 0 12px;padding:6px 4px;text-align:right;color:#173f7a}.chapter-tools-title span{display:block;font-size:24px;font-weight:800}.chapter-tools-title small{display:block;margin-top:5px;color:#64748b;font-size:13px}
+</style>
+</style>
 </style>
 
 
@@ -2035,11 +2045,7 @@ function showThirdMiddleHome(){
           <div class="dashboard-hero-icon">⚗️</div>
         </section>
         <div class="dashboard-grid">
-          <button class="dashboard-card featured" onclick="showThirdLessonsHub()"><span class="dashboard-card-icon">📚</span><span><b>دروسي</b><small>الفصول التسعة والدروس المرتبطة بالمنهج</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showThirdMinistryChooser()"><span class="dashboard-card-icon">🎯</span><span><b>أفكار وزارية</b><small>أهم الأفكار والتعليلات الامتحانية حسب الفصل</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showThirdQuestionsChooser()"><span class="dashboard-card-icon">📝</span><span><b>أسئلة الفصول وحلولها</b><small>أسئلة كل فصل وحلوله دون خلط</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showQuizChooser()"><span class="dashboard-card-icon">❓</span><span><b>اختبرني</b><small>اختر الفصل واختبر مستواك</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showMemoryChooser()"><span class="dashboard-card-icon">🧠</span><span><b>احفظها</b><small>معلومات مركزة للحفظ والمراجعة</small></span><i>←</i></button>
+          <button class="dashboard-card featured" onclick="showThirdLessonsHub()"><span class="dashboard-card-icon">📚</span><span><b>دروسي</b><small>الفصول التسعة، ومع كل فصل أدواته الخاصة للدراسة والمراجعة</small></span><i>←</i></button>
         </div>
         <div class="dashboard-note">🔒 هذا المسار مخصص للثالث متوسط فقط. لن تظهر فيه مواد السادس العلمي.</div>
       </div>`;
@@ -2075,6 +2081,136 @@ function showThirdChapterQuestions(ch){
     var fn=ch===1?'showChapterQuestions':('showChapter'+ch+'Questions');
     if(typeof window[fn]==='function') window[fn]();
     else alert('أسئلة هذا الفصل ستظهر بعد تجهيزها.');
+}
+
+
+/* =========================================================
+   أدوات مراجعة موحّدة داخل كل فصل — الثالث متوسط
+   ========================================================= */
+var THIRD_CHAPTER_NAMES={1:'التركيب الذري للمادة',2:'الزمرتان الأولى والثانية',3:'الزمرة الثالثة',4:'المحاليل',5:'الزمرة الرابعة',6:'الكيمياء العضوية',7:'الزمرة الخامسة VA',8:'الزمرة السادسة VIA',9:'الزمرة السابعة VIIA'};
+var THIRD_FORMULAS={
+1:[
+['العدد الذري','Z = عدد البروتونات = عدد الإلكترونات في الذرة المتعادلة','العدد الذري يحدد هوية العنصر.'],
+['عدد النيوترونات','N = A − Z','A العدد الكتلي وZ العدد الذري.'],
+['العدد الكتلي','A = عدد البروتونات + عدد النيوترونات','للنظائر للعنصر نفسه عدد ذري ثابت وقد يختلف العدد الكتلي.'],
+['عدد الإلكترونات في الأيون الموجب','عدد الإلكترونات = Z − مقدار الشحنة الموجبة','مثال: Na⁺ يمتلك 10 إلكترونات.'],
+['عدد الإلكترونات في الأيون السالب','عدد الإلكترونات = Z + مقدار الشحنة السالبة','مثال: Cl⁻ يمتلك 18 إلكترونًا.'],
+['إلكترونات التكافؤ لعناصر الفئة الرئيسية','تحدد من مستوى الطاقة الخارجي في الترتيب الإلكتروني','تُستخدم في تحديد الزمرة ورسم لويس.']
+],
+2:[
+['تفاعل الصوديوم مع الماء','2Na + 2H₂O → 2NaOH + H₂↑','تفاعل سريع وطارد للحرارة.'],
+['تفاعل الصوديوم مع الأوكسجين','4Na + O₂ → 2Na₂O','تتكون أكاسيد الصوديوم.'],
+['التحليل الكهربائي لكلوريد الصوديوم المنصهر','2NaCl(l) → 2Na(l) + Cl₂(g)↑','يُنتج الصوديوم عند المهبط والكلور عند المصعد.'],
+['تحضير هيدروكسيد الصوديوم بالتحليل الكهربائي للمحلول الملحي','2NaCl + 2H₂O → 2NaOH + H₂↑ + Cl₂↑','من أهم العمليات الصناعية للمواد القلوية والكلور.'],
+['تحضير هيدروكسيد الكالسيوم','CaO + H₂O → Ca(OH)₂','تفاعل الجير الحي مع الماء.'],
+['تحضير أوكسيد الكالسيوم','CaCO₃ → CaO + CO₂↑','بالتسخين الشديد للحجر الجيري.'],
+['تفاعل الكالسيوم مع الماء','Ca + 2H₂O → Ca(OH)₂ + H₂↑','يتفاعل الكالسيوم مع الماء مكونًا هيدروكسيد الكالسيوم والهيدروجين.']
+],
+3:[
+['استخلاص الألمنيوم ـ تكوين الألومينا','2Al(OH)₃ → Al₂O₃ + 3H₂O','تُحضّر الألومينا بالتسخين.'],
+['التحليل الكهربائي للألومينا','2Al₂O₃ → 4Al + 3O₂','المبدأ العام للتحليل الكهربائي، مع تفاعلات فعلية عند الأقطاب في خلية هول.'],
+['تفاعل الألمنيوم مع الأوكسجين','4Al + 3O₂ → 2Al₂O₃','يتكون غشاء أوكسيد واقٍ على سطح الألمنيوم.'],
+['تفاعل الثرميت','2Al + Fe₂O₃ → Al₂O₃ + 2Fe + طاقة','الألمنيوم عامل مختزل قوي.'],
+['تفاعل الألمنيوم مع هيدروكسيد الصوديوم والماء','2Al + 2NaOH + 2H₂O → 2NaAlO₂ + 3H₂↑','يفسر السلوك الأمفوتيري للألمنيوم.'],
+['تحضير هيدروكسيد الألمنيوم','Al₂(SO₄)₃ + 6NaOH → 2Al(OH)₃↓ + 3Na₂SO₄','يتكون راسب أبيض جيلاتيني.'],
+['تسخين هيدروكسيد الألمنيوم','2Al(OH)₃ → Al₂O₃ + 3H₂O','عند التسخين.'],
+['تفاعل هيدروكسيد الألمنيوم مع الحامض','Al(OH)₃ + 3HCl → AlCl₃ + 3H₂O','هيدروكسيد الألمنيوم يتصرف كقاعدة مع الحوامض.']
+],
+4:[
+['النسبة المئوية الكتلية','% الكتلية = (كتلة المذاب ÷ كتلة المحلول) × 100','كتلة المحلول = كتلة المذاب + كتلة المذيب.'],
+['النسبة المئوية الحجمية','% الحجمية = (حجم المذاب ÷ حجم المحلول) × 100','تُستخدم للمحاليل المعبر عن تركيزها بالحجم.'],
+['التركيز بالكتلة/الحجم','التركيز = كتلة المذاب ÷ حجم المحلول','إذا كانت الكتلة بالغرام والحجم باللتر تكون الوحدة g/L.'],
+['الكثافة','ρ = الكتلة ÷ الحجم','يمكن إعادة ترتيبها إلى m = ρV و V = m/ρ.'],
+['كتلة المحلول','كتلة المحلول = كتلة المذاب + كتلة المذيب','علاقة أساسية في مسائل النسبة الكتلية.'],
+['حجم المحلول','حجم المحلول = حجم المذاب + حجم المذيب','تُستخدم عند اتباع تعريف النسبة الحجمية كما يعرضه المنهج.']
+],
+5:[
+['تحضير السليكون','SiO₂ + 2C → Si + 2CO↑','اختزال ثنائي أوكسيد السليكون بالكاربون في فرن كهربائي.'],
+['تنقية السليكون/المبدأ الحراري','Si + O₂ → SiO₂','اتحاد السليكون مع الأوكسجين لتكوين ثنائي أوكسيد السليكون.'],
+['تفاعل السليكون مع الأوكسجين عند التسخين','Si + O₂ → SiO₂','من أهم خواص السليكون الكيميائية.'],
+['تفاعل السليكون مع الفلور','Si + 2F₂ → SiF₄','يتحد السليكون مع الهالوجينات مكونًا هاليدات.'],
+['تفاعل السليكون مع الكلور','Si + 2Cl₂ → SiCl₄','تكوين رباعي كلوريد السليكون.'],
+['تفاعل ثنائي أوكسيد السليكون مع هيدروكسيد الصوديوم','SiO₂ + 2NaOH → Na₂SiO₃ + H₂O','دليل على الصفة الحامضية لـSiO₂.']
+],
+6:[
+['الصيغة العامة للألكانات','CₙH₂ₙ₊₂','الهيدروكاربونات المشبعة المفتوحة السلسلة.'],
+['الصيغة العامة للألكينات','CₙH₂ₙ','الهيدروكاربونات غير المشبعة ذات أصر مزدوج.'],
+['الصيغة العامة للألكاينات','CₙH₂ₙ₋₂','الهيدروكاربونات غير المشبعة ذات أصر ثلاثي.'],
+['احتراق الميثان','CH₄ + 2O₂ → CO₂ + 2H₂O + طاقة','احتراق كامل للميثان.'],
+['تحضير الميثان','CH₃COONa + NaOH → CH₄↑ + Na₂CO₃','بتسخين أسيتات الصوديوم مع الصودا الكاوية.'],
+['تحضير الإثيلين','C₂H₅OH → C₂H₄ + H₂O','بنزع الماء من الإيثانول بوجود حامض الكبريتيك المركز والحرارة.'],
+['احتراق الإثيلين','C₂H₄ + 3O₂ → 2CO₂ + 2H₂O + طاقة','احتراق كامل.'],
+['تحضير الأسيتيلين','CaC₂ + 2H₂O → C₂H₂↑ + Ca(OH)₂','تفاعل كاربيد الكالسيوم مع الماء.'],
+['احتراق الأسيتيلين','2C₂H₂ + 5O₂ → 4CO₂ + 2H₂O + طاقة','احتراق كامل للأسيتيلين.'],
+['تكوين كحول الإثيل بالتخمر','C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂','تخمر الكلوكوز لإنتاج الإيثانول وثنائي أوكسيد الكاربون.'],
+['تأكسد كحول الإثيل إلى حامض الخليك','C₂H₅OH + O₂ → CH₃COOH + H₂O','تأكسد الإيثانول يؤدي إلى تكوين حامض الخليك.'],
+['احتراق البنزين','2C₆H₆ + 15O₂ → 12CO₂ + 6H₂O + طاقة','احتراق كامل للبنزين.']
+],
+7:[
+['تحضير النتروجين مختبريًا','NH₄Cl + NaNO₂ → N₂↑ + NaCl + 2H₂O','تفاعل كلوريد الأمونيوم مع نتريت الصوديوم.'],
+['تحضير الأمونيا ـ هابر','N₂ + 3H₂ ⇌ 2NH₃','تفاعل صناعي عكسي بوجود عامل مساعد وظروف مناسبة.'],
+['تفاعل الأمونيا مع الماء','NH₃ + H₂O ⇌ NH₄⁺ + OH⁻','الأمونيا قاعدة ضعيفة.'],
+['احتراق الأمونيا في الأوكسجين','4NH₃ + 5O₂ → 4NO + 6H₂O','من خطوات تحضير حامض النتريك بطريقة أوستوالد.'],
+['أكسدة أول أوكسيد النتروجين','2NO + O₂ → 2NO₂','خطوة تالية في عملية أوستوالد.'],
+['امتصاص NO₂ بالماء','3NO₂ + H₂O → 2HNO₃ + NO','تكوين حامض النتريك.'],
+['إنتاج الفسفور صناعيًا','2Ca₃(PO₄)₂ + 6SiO₂ + 10C → P₄ + 6CaSiO₃ + 10CO↑','في فرن كهربائي وبغياب الهواء.'],
+['تكوين فوسفات الأمونيوم','NH₃ + H₃PO₄ → NH₄H₂PO₄','من الأسمدة الفوسفاتية.'],
+['تكوين فوسفات الأمونيوم الثنائية','2NH₃ + H₃PO₄ → (NH₄)₂HPO₄','من الأسمدة الفوسفاتية المهمة.']
+],
+8:[
+['تحضير ثاني أوكسيد الكبريت مختبريًا','Na₂SO₃ + H₂SO₄ → SO₂↑ + H₂O + Na₂SO₄','تحضير غاز SO₂ في المختبر.'],
+['احتراق الكبريت','S + O₂ → SO₂','يتكون ثاني أوكسيد الكبريت.'],
+['تحضير كبريتيد الهيدروجين','FeS + H₂SO₄ → H₂S↑ + FeSO₄','تحضير مختبري.'],
+['تأكسد SO₂ إلى SO₃','2SO₂ + O₂ ⇌ 2SO₃','في طريقة التماس بوجود V₂O₅.'],
+['تكوين حامض الكبريتيك','SO₃ + H₂O → H₂SO₄','الخطوة النهائية في طريقة التماس.'],
+['تفكك حامض الكبريتيك في الماء','H₂SO₄ → 2H⁺ + SO₄²⁻','يعبر عن التأين الكلي للحامض القوي في الماء.'],
+['تفاعل كبريتيد الهيدروجين مع الأوكسجين','2H₂S + 3O₂ → 2SO₂ + 2H₂O','احتراق H₂S.']
+],
+9:[
+['تحضير الكلور مختبريًا','MnO₂ + 4HCl → MnCl₂ + 2H₂O + Cl₂↑','ثاني أوكسيد المنغنيز عامل مؤكسد.'],
+['تحضير الكلور صناعيًا ـ التحليل الكهربائي للمحلول الملحي','2NaCl + 2H₂O → 2NaOH + H₂↑ + Cl₂↑','تنتج العملية الكلور والهيدروجين وهيدروكسيد الصوديوم.'],
+['تفاعل الكلور مع الماء','Cl₂ + H₂O ⇌ HCl + HClO','يتكون حمض الهيدروكلوريك وحمض الهيبوكلوروز.'],
+['تفاعل الكلور مع هيدروكسيد الصوديوم البارد المخفف','Cl₂ + 2NaOH → NaCl + NaClO + H₂O','يتكون هيبوكلوريت الصوديوم.'],
+['تفاعل الكلور مع هيدروكسيد الصوديوم الساخن المركز','3Cl₂ + 6NaOH → 5NaCl + NaClO₃ + 3H₂O','يتكون كلورات الصوديوم.'],
+['تحضير هيبوكلوريت الكالسيوم','2Cl₂ + 2Ca(OH)₂ → Ca(OCl)₂ + CaCl₂ + 2H₂O','مادة قاصرة ومطهرة.'],
+['تحضير كلوريد الهيدروجين','NaCl + H₂SO₄ → NaHSO₄ + HCl↑','تحضير مختبري لكلوريد الهيدروجين.'],
+['تعادل HCl مع NaOH','HCl + NaOH → NaCl + H₂O','تفاعل تعادل حمض وقاعدة.'],
+['ترسيب كلوريد الفضة','AgNO₃ + HCl → AgCl↓ + HNO₃','يُستخدم للكشف عن أيون الكلوريد.']
+]
+};
+function thirdChapterCard(icon,title,desc,fn){return `<div class="lesson-card review-tool-card" onclick="${fn}"><div class="lesson-card-icon">${icon}</div><div class="lesson-card-info"><h3>${title}</h3><p>${desc}</p></div><div class="lesson-arrow">←</div></div>`;}
+function showThirdChapterFormulas(ch){
+  setCurrentGrade('third');
+  setActive(1);
+  var items=THIRD_FORMULAS[ch]||[];
+  var app=document.getElementById('app');
+  var backFn=(ch===1)?'showChapter1Lessons':('showChapter'+ch);
+  app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="${backFn}()">←</button><h2>🧮 القوانين والمعادلات الكيميائية</h2><span></span></div><div class="content-card"><h3>الفصل ${ch}: ${THIRD_CHAPTER_NAMES[ch]}</h3>${items.length?items.map(function(it,i){return `<div class="formula-item"><div class="formula-label">${i+1}. ${it[0]}</div><div class="formula-equation">${it[1]}</div><div class="formula-note">${it[2]}</div></div>`}).join(''):`<div class="memory-box">لا توجد معادلة أو قانون مستقل مُدرج هنا حاليًا؛ سيتم عرض القوانين الموجودة ضمن شرح الدروس.</div>`}</div></div>`;
+}
+function showThirdChapterMinistryQuestions(ch){var map={1:'showChapterQuestions',2:'showChapter2Questions',3:'showChapter3Questions',4:'showChapter4Questions',5:'showChapter5Questions',6:'showChapter6Questions',7:'showChapter7Questions',8:'showChapter8Questions',9:'showChapter9Questions'};setCurrentGrade('third');if(typeof window[map[ch]]==='function') window[map[ch]](); else alert('سيتم إضافة الأسئلة الوزارية لهذا الفصل عند تجهيز بنك الأسئلة.');}
+
+function thirdChapterReviewCards(ch){
+  var fnIdeas=(ch===1?'showMinistryIdeas()':'showChapter'+ch+'MinistryIdeas()');
+  return `<div class="chapter-tools-title"><span>مراجعة الفصل وأدواته</span><small>كل تبويب مرتبط بهذا الفصل فقط</small></div>`+
+    thirdChapterCard('🧠','احفظها','بطاقات الحفظ والمعلومات الأساسية الخاصة بالفصل.','showChapterMemory('+ch+')')+
+    thirdChapterCard('❓','اختبرني','اختبار مستقل من بنك أسئلة الفصل فقط.','showChapterQuiz('+ch+')')+
+    thirdChapterCard('🔄','مراجعة أخطائي','مراجعة الأخطاء المحفوظة من اختبارات الفصل.','showChapterWrong('+ch+')')+
+    thirdChapterCard('🖼️','الرسومات','الرسومات والأجهزة والمخططات الخاصة بالفصل، إن وجدت.','showChapterDrawings('+ch+')')+
+    thirdChapterCard('🧮','القوانين والمعادلات الكيميائية','القوانين والمعادلات المرتبطة بموضوعات الفصل.','showThirdChapterFormulas('+ch+')')+
+    thirdChapterCard('🎯','أفكار وزارية','أفكار مركزة وتعليلات مرتبطة بموضوعات الفصل.',''+fnIdeas)+
+    thirdChapterCard('📝','أسئلة وزارية','أسئلة الفصل والتدريب على النمط الوزاري الخاص بموضوعاته.','showThirdChapterMinistryQuestions('+ch+')');
+}
+function showThirdChapterPanel(ch){
+  var back=`showChapter${ch===1?'1Lessons':ch}()`;
+  var cards='';
+  cards+=thirdChapterCard('🧠','احفظها','بطاقات الحفظ والمعلومات الأساسية الخاصة بهذا الفصل.','showChapterMemory('+ch+')');
+  cards+=thirdChapterCard('❓','اختبرني','اختبار مستقل من بنك أسئلة هذا الفصل فقط.','showChapterQuiz('+ch+')');
+  cards+=thirdChapterCard('🔄','مراجعة أخطائي','راجع الأخطاء المحفوظة من اختبارات هذا الفصل.','showChapterWrong('+ch+')');
+  cards+=thirdChapterCard('🖼️','الرسومات','الرسومات والأجهزة والمخططات الخاصة بالفصل، إن وجدت.','showChapterDrawings('+ch+')');
+  cards+=thirdChapterCard('🧮','القوانين والمعادلات الكيميائية','كل قانون ومعادلة مرتبطة بموضوعات الفصل.','showThirdChapterFormulas('+ch+')');
+  cards+=thirdChapterCard('🎯','أفكار وزارية','أفكار مركزة وتعليلات مرتبطة بموضوعات الفصل.',''+(ch===1?'showMinistryIdeas()':'showChapter'+ch+'MinistryIdeas()'));
+  cards+=thirdChapterCard('📝','أسئلة وزارية','أسئلة الفصل والتدريب المرتبط بنمط الأسئلة الوزارية.','showThirdChapterMinistryQuestions('+ch+')');
+  var app=document.getElementById('app');app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="${back}">←</button><h2>📚 مراجعة الفصل ${ch}</h2><span></span></div><div class="content-card"><h3>الفصل ${ch}: ${THIRD_CHAPTER_NAMES[ch]}</h3><p class="lessons-subheading">جميع أدوات المراجعة الخاصة بهذا الفصل في مكان واحد.</p>${cards}</div></div>`;
 }
 
 function showChapter1Lessons() {
@@ -2408,6 +2544,30 @@ function showChapter1Lessons() {
                 </div>
                 <div class="lesson-arrow">←</div>
             </div>
+
+            <div class="lesson-card" onclick="showThirdChapterFormulas(1)">
+
+                <div class="lesson-card-icon">
+                    🧮
+                </div>
+
+                <div class="lesson-card-info">
+                    <h3>
+                        القوانين والمعادلات الكيميائية
+                    </h3>
+
+                    <p>
+                        جميع القوانين والعلاقات والمعادلات الكيميائية الخاصة بالفصل الأول
+                    </p>
+
+                </div>
+
+                <div class="lesson-arrow">
+                    ←
+                </div>
+
+            </div>
+
 
             <div
                 class="lesson-card"
@@ -3024,9 +3184,13 @@ function showChapterQuestionsEssay() {
 
 function lessonButtons(previousFunction, nextFunction, nextText) {
 
+
+    nextText = "الدرس التالي →";
+
     return `
 
-        <div class="lesson-navigation">
+        
+<div class="lesson-navigation">
 
             <button
                 class="previous-button"
@@ -4181,25 +4345,7 @@ function showChapter2() {
                 </div>
                 <div class="lesson-arrow">←</div>
             </div>
-
-            <div class="lesson-card" onclick="showChapterMemory(2)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الثاني</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
-
-            <div class="lesson-card" onclick="showChapterQuiz(2)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الثاني</h3><p>اختبار من أسئلة الفصل الثاني فقط.</p></div><div class="lesson-arrow">←</div></div>
-
-            <div class="lesson-card" onclick="showChapterWrong(2)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الثاني</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الثاني.</p></div><div class="lesson-arrow">←</div></div>
-
-            <div class="lesson-card" onclick="showChapterDrawings(2)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات المركبات وتجارب وأجهزة الفصل الثاني.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapter2MinistryIdeas()">
-                <div class="lesson-card-icon">🎯</div>
-                <div class="lesson-card-info">
-                    <h3>أفكار وزارية</h3>
-                    <p>أفكار تدريبية مركزة مأخوذة من الموضوعات والعناوين الوزارية في الملزمة.</p>
-                </div>
-                <div class="lesson-arrow">←</div>
-            </div>
-
-            <div class="lesson-card" onclick="showChapter2Questions()">
-                <div class="lesson-card-icon">📝</div>
+            ${thirdChapterReviewCards(2)}
                 <div class="lesson-card-info">
                     <h3>أسئلة الفصل الثاني وحلولها</h3>
                     <p>أسئلة الفصل الواردة في الملزمة مع إجاباتها المنظمة.</p>
@@ -4744,12 +4890,7 @@ function showChapter3() {
             <div class="lesson-card" onclick="showLesson3_3()"><div class="lesson-card-icon">🔥</div><div class="lesson-card-info"><h3>3-3 خواص الألمنيوم وتفاعلاته</h3><p>خواصه الفيزيائية والكيميائية، الثرميت، والسلوك الأمفوتيري.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showLesson3_4()"><div class="lesson-card-icon">✈️</div><div class="lesson-card-info"><h3>3-4 سبائك الألمنيوم</h3><p>السبائك، الديورالومين، وبرونز الألمنيوم ومقارنة استعمالاتهما.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showLesson3_5()"><div class="lesson-card-icon">🧪</div><div class="lesson-card-info"><h3>3-5 مركبات الألمنيوم</h3><p>هيدروكسيد الألمنيوم، أوكسيد الألمنيوم، الشب، والكشف عن أيون الألمنيوم.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapterMemory(3)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الثالث</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapterQuiz(3)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الثالث</h3><p>اختبار من أسئلة الفصل الثالث فقط.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapterWrong(3)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الثالث</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الثالث.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapterDrawings(3)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات استخلاص الألمنيوم، الثرميت، والمركبات المهمة في الفصل الثالث.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapter3MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار تدريبية مركزة مستخرجة من التعليلات والأسئلة والسنوات الوزارية في الملزمة.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapter3Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الثالث وحلولها</h3><p>أسئلة الفصل الثالث الواردة في الملزمة مع حلولها المنظمة.</p></div><div class="lesson-arrow">←</div></div>
+            ${thirdChapterReviewCards(3)}
             <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
         </div>
     `;
@@ -4880,7 +5021,8 @@ function showChapter4(){
       <div class="lesson-card" onclick="showChapterQuiz(4)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الرابع</h3><p>اختبار الفصل الرابع فقط مع مسائل التركيز.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapterWrong(4)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الرابع</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الرابع.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapterDrawings(4)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات القياس والتحضير والتعبير عن تركيز المحاليل.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapter4MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار مركزة من التعليلات والنقاط الامتحانية المهمة في الفصل الرابع.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showThirdChapterFormulas(4)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل الرابع، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
+<div class="lesson-card" onclick="showChapter4MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار مركزة من التعليلات والنقاط الامتحانية المهمة في الفصل الرابع.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapter4Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الرابع وحلولها</h3><p>أسئلة الفصل الرابع مع الحلول المنظمة.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
     </div>`;
@@ -4951,7 +5093,9 @@ function showChapter4Questions(){
  <div class="content-card"><h3>مسائل النسبة المئوية الكتلية</h3><div class="exercise-box"><p>45 g سكر في 309 g ماء.</p><div class="answer-box">✅ كتلة المحلول = 354 g، والنسبة الكتلية للسكر ≈ <strong>12.71%</strong>.</div></div><div class="exercise-box"><p>5 g كبريتات النحاس في 20 g ماء.</p><div class="answer-box">✅ كتلة المحلول = 25 g، النسبة الكتلية للمذاب = <strong>20%</strong> والمذيب = <strong>80%</strong>.</div></div></div>
  <div class="content-card"><h3>17-4 كمية KCl في المحاليل</h3><div class="exercise-box"><p>19.7 g من محلول فيه 1.08% KCl.</p><div class="answer-box">✅ كتلة KCl ≈ <strong>0.21 g</strong>.</div></div><div class="exercise-box"><p>23.2 kg من محلول فيه 18.7% KCl.</p><div class="answer-box">✅ 23.2 kg = 23200 g، وكتلة KCl = <strong>4338.4 g</strong>.</div></div><div class="exercise-box"><p>38 mg من محلول فيه 12% KCl.</p><div class="answer-box">✅ 38 mg = 0.038 g، وكتلة KCl = <strong>0.00456 g</strong>.</div></div></div>
  <div class="source-note">المصدر: صفحات الفصل الرابع من ملزمة «فخامة الكيمياء»، من 41 إلى 54، بما في ذلك الحلول والمسائل الظاهرة فيها.</div>
- <div class="lesson-navigation"><button class="previous-button" onclick="showChapter4MinistryIdeas()">← أفكار وزارية</button><button class="chapter-button" onclick="showChapter4()">📖 العودة إلى دروس الفصل الرابع</button></div></div>`;
+ 
+${thirdChapterReviewCards(4)}
+<div class="lesson-navigation"><button class="previous-button" onclick="showChapter4MinistryIdeas()">← أفكار وزارية</button><button class="chapter-button" onclick="showChapter4()">📖 العودة إلى دروس الفصل الرابع</button></div></div>`;
 }
 
 
@@ -4978,7 +5122,8 @@ function showChapter5() {
             <div class="lesson-card" onclick="showChapterQuiz(5)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الخامس</h3><p>اختبار الفصل الخامس فقط.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterWrong(5)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الخامس</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الخامس.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterDrawings(5)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات السليكون ومركباته وعمليات تحضيره المهمة.</p></div><div class="lesson-arrow">←</div></div>
-            <div class="lesson-card" onclick="showChapter5MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار مركزة من التعليلات والأسئلة والسنوات الوزارية الواردة في الملزمة.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showThirdChapterFormulas(5)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل الخامس، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
+<div class="lesson-card" onclick="showChapter5MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار مركزة من التعليلات والأسئلة والسنوات الوزارية الواردة في الملزمة.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapter5Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الخامس وحلولها</h3><p>أسئلة الفصل الخامس مع الحلول المنظمة حسب الملزمة.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
         </div>
@@ -5054,7 +5199,9 @@ function showChapter5Questions(){setActive(1);var app=document.getElementById("a
  <div class="content-card"><h3>5-5 عدد استعمالات متنوعة للسليكون ومركباته</h3><div class="answer-box">✅ الصناعة الإلكترونية والخلايا الشمسية، السبائك، الزجاج والسمنت والسيراميك، المواد السيليكونية العضوية، السليكا النقية لقطع الزجاج وتخديش الحديد، السليكا جل كعامل مجفف، وماء الزجاج في حماية الأقمشة والورق والبناء.</div></div>
  <div class="content-card"><h3>6-5 أكمل الفراغات</h3><div class="exercise-box"><p>1. توجد السليكا في الطبيعة بنوعين: ______ و ______.</p><div class="answer-box">✅ نقية مثل الكوارتز وحجر الصوان، وغير نقية مثل الرمل والطين.</div></div><div class="exercise-box"><p>2. تحضر السليكات من التسخين الشديد للسليكا مع ______ أو ______.</p><div class="answer-box">✅ كاربونات فلزية أو أوكسيد فلزي.</div></div><div class="exercise-box"><p>3. لعناصر الزمرة الرابعة حالات التأكسد الشائعة ______ و ______.</p><div class="answer-box">✅ +2 و +4.</div></div><div class="exercise-box"><p>4. الحالة التأكسدية الرباعية (+4) تكون مستقرة في ______ و ______.</p><div class="answer-box">✅ الكاربون والسليكون.</div></div><div class="exercise-box"><p>5. يتفاعل السليكون عند 950°C مع الأوكسجين ليعطي ______.</p><div class="answer-box">✅ ثنائي أوكسيد السليكون SiO₂.</div></div></div>
  <div class="source-note">المصدر: «فخامة الكيمياء» للصف الثالث المتوسط، صفحات الفصل الخامس 55–61 وأسئلة الفصل وحلولها.</div>
- <div class="lesson-navigation"><button class="previous-button" onclick="showChapter5MinistryIdeas()">← أفكار وزارية</button><button class="chapter-button" onclick="showChapter5()">📖 العودة إلى دروس الفصل الخامس</button></div></div>`}
+ 
+${thirdChapterReviewCards(5)}
+<div class="lesson-navigation"><button class="previous-button" onclick="showChapter5MinistryIdeas()">← أفكار وزارية</button><button class="chapter-button" onclick="showChapter5()">📖 العودة إلى دروس الفصل الخامس</button></div></div>`}
 
 
 /* =========================================================
@@ -5072,12 +5219,9 @@ function showChapter6(){
   <div class="lesson-card" onclick="showLesson6_4()"><div class="lesson-card-icon">🧪</div><div class="lesson-card-info"><h3>6-4 الإثيلين والأسيتيلين</h3><p>تحضير الغازين، خواصهما واستعمالاتهما والتمييز بماء البروم.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showLesson6_5()"><div class="lesson-card-icon">🍶</div><div class="lesson-card-info"><h3>6-5 كحول الإثيل وحامض الخليك</h3><p>تحضير الإيثانول وخواصه واستعمالاته وحامض الخليك.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showLesson6_6()"><div class="lesson-card-icon">⬡</div><div class="lesson-card-info"><h3>6-6 البنزين أو البنزول والفينول</h3><p>صفات واستعمالات البنزين والفينول.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapterMemory(6)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل السادس</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapterQuiz(6)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل السادس</h3><p>اختبار الفصل السادس فقط.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapterWrong(6)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل السادس</h3><p>مراجعة أخطاء اختبار الفصل السادس.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapterDrawings(6)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات المركبات العضوية وأجهزة تحضير الميثان والإثيلين والأسيتيلين.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapter6MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>تعليلات ونقاط مهمة مركزة من الفصل السادس.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapter6Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل السادس وحلولها</h3><p>أسئلة الفصل السادس مع حلولها المنظمة.</p></div><div class="lesson-arrow">←</div></div>
+
+  <div class="lesson-card" onclick="showThirdChapterFormulas(6)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل السادس، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
+    " if False else marker}
   <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
  </div>`;
 }
@@ -5135,7 +5279,8 @@ function showChapter7(){
   <div class="lesson-card" onclick="showChapterQuiz(7)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل السابع</h3><p>اختبار الفصل السابع فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterWrong(7)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل السابع</h3><p>مراجعة أخطاء اختبار الفصل السابع.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterDrawings(7)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>أجهزة التحضير والاختبارات والأشكال المهمة الخاصة بالفصل السابع.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapter7MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>تعليلات ونقاط وزارية مركزة من الفصل السابع.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showThirdChapterFormulas(7)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل السابع، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
+<div class="lesson-card" onclick="showChapter7MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>تعليلات ونقاط وزارية مركزة من الفصل السابع.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapter7Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل السابع وحلولها</h3><p>أسئلة منظمة مع الحلول.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
  </div>`;
@@ -5196,12 +5341,15 @@ function showChapter9(){
   <div class="lesson-card" onclick="showChapterQuiz(9)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل التاسع</h3><p>اختبار الفصل التاسع فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterWrong(9)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل التاسع</h3><p>مراجعة أخطاء اختبار الفصل التاسع.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterDrawings(9)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>أجهزة التحضير والاختبارات والمركبات والأشكال المهمة الخاصة بالفصل التاسع.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapter9MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>تعليلات ونقاط وزارية مركزة من الفصل التاسع.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showThirdChapterFormulas(9)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل التاسع، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
+<div class="lesson-card" onclick="showChapter9MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>تعليلات ونقاط وزارية مركزة من الفصل التاسع.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapter9Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل التاسع وحلولها</h3><p>أسئلة منظمة مع الحلول.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
  </div>`;
 }
-function lessonButtons9(prev,next,text){return `<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${text}</button><button class="chapter-button" onclick="showChapter9()">📖 العودة إلى الفصل التاسع</button></div>`;}
+function lessonButtons9(prev,next,text){return `
+${thirdChapterReviewCards(9)}
+<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${text}</button><button class="chapter-button" onclick="showChapter9()">📖 العودة إلى الفصل التاسع</button></div>`;}
 function showLesson9_1(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-1 الزمرة السابعة</h2><span></span></div><h1 class="lesson-title">الزمرة السابعة VIIA — الهالوجينات</h1><div class="lesson-content"><div class="content-card"><h3>🧪 عناصر الزمرة السابعة</h3><p>الفلور F، الكلور Cl، البروم Br، اليود I، والأستاتين At.</p></div><div class="content-card"><h3>📈 الصفات العامة</h3><p>تمتلك عناصر الزمرة السابعة سبعة إلكترونات في غلافها الخارجي وتميل إلى اكتساب إلكترون واحد للوصول إلى ترتيب مستقر.</p><p>الفلور والكلور غازان، البروم سائل، واليود صلب في الظروف الاعتيادية. كما تزداد درجتا الانصهار والغليان بزيادة العدد الذري.</p></div>${lessonButtons9("showChapter9","showLesson9_2","الدرس التالي →")}</div></div>`;}
 function showLesson9_2(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-2 الكلور</h2><span></span></div><h1 class="lesson-title">وجود الكلور وتحضيره</h1><div class="lesson-content"><div class="content-card"><h3>📍 وجود الكلور</h3><p>لا يوجد الكلور حرًا في الطبيعة بسبب فعاليته الكيميائية العالية، ويكون موجودًا على هيئة مركبات أهمها كلوريد الصوديوم في ماء البحر والترسبات الملحية.</p></div><div class="content-card prep-card"><h3>⚗️ التحضير المختبري</h3><p>يحضر بأكسدة حامض الهيدروكلوريك المركز بوجود ثاني أوكسيد المنغنيز، ثم تزال شوائب HCl والرطوبة.</p><div class="formula-box">4HCl + MnO₂ → MnCl₂ + 2H₂O + Cl₂↑</div>${prepSourceFigure('chlorineLab',98,'جهاز تحضير غاز الكلور مختبريًا') }<p>ثاني أوكسيد المنغنيز هنا عامل مؤكسد.</p></div><div class="content-card prep-card"><h3>🏭 التحضير الصناعي</h3><p>يحضر بالتحليل الكهربائي لمحلول كلوريد الصوديوم في الماء أو لمنصهره، ويتحرر الكلور عند الأنود.</p><div class="formula-box">2NaCl → 2Na + Cl₂↑</div>${prepSourceFigure('chlorineInd',98,'جهاز التحليل الكهربائي لتحضير الكلور صناعيًا') }</div>${lessonButtons9("showLesson9_1","showLesson9_3","الدرس التالي →")}</div></div>`;}
 function showLesson9_3(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>9-3 خواص الكلور واستعمالاته</h2><span></span></div><h1 class="lesson-title">خواص وتفاعلات Cl₂</h1><div class="lesson-content"><div class="content-card"><h3>🔬 الخواص الفيزيائية</h3><p>غاز أخضر مصفر، أثقل من الهواء، قليل الذوبان في الماء، وله رائحة خانقة، واستنشاقه بكميات كبيرة سام.</p></div><div class="content-card"><h3>⚗️ التفاعلات الكيميائية</h3><div class="formula-box">Cl₂ + 2Na → 2NaCl<br>3Cl₂ + 2P → 2PCl₃<br>5Cl₂ + 2P → 2PCl₅<br>H₂ + Cl₂ → 2HCl</div></div><div class="content-card"><h3>💧 قصر الألوان والتعقيم</h3><p>يتفاعل الكلور مع الماء محررًا الأوكسجين الذري الفعال الذي يقوم بقصر الألوان والتعقيم.</p><div class="formula-box">H₂O + Cl₂ → 2HCl + [O]</div></div><div class="content-card"><h3>🧰 الاستعمالات</h3><p>تعقيم مياه الشرب وأحواض السباحة، قصر ألوان بعض الأنسجة والملابس، ويدخل في بعض المركبات والمذيبات الصناعية.</p></div>${lessonButtons9("showLesson9_2","showLesson9_4","الدرس التالي →")}</div></div>`;}
@@ -5236,7 +5384,9 @@ var chapter9Questions=[
  {q:"ما خواص كلوريد الهيدروجين؟",a:"غاز عديم اللون ذو رائحة خانقة نفاذة، أثقل من الهواء، كثير الذوبان في الماء، ومحلوله المائي حامضي التأثير على الأدلة."},
  {q:"ما المقصود بالكلوريدات؟ وكيف يكشف عنها؟",a:"هي أملاح حامض الهيدروكلوريك، ويكشف عنها بإضافة نترات الفضة فتتكون راسب أبيض من AgCl."}
 ];
-function showChapter9Questions(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>📝 أسئلة الفصل التاسع</h2><span></span></div><div class="chapter2-banner"><strong>أسئلة الفصل التاسع وحلولها</strong><br>أسئلة تدريبية منظمة من أسئلة الفصل التاسع الواردة في الملزمة.</div>${chapter9Questions.map(function(item,index){return `<div class="content-card"><h3>${index+1}- ${item.q}</h3><div class="answer-box"><strong>✅ الحل:</strong><br>${item.a}</div></div>`}).join("")}<div class="lesson-navigation"><button class="previous-button" onclick="showChapter9MinistryIdeas()">← أفكار وزارية</button><button class="chapter-button" onclick="showChapter9()">📖 العودة إلى الفصل التاسع</button></div></div>`;}
+function showChapter9Questions(){setActive(1);var app=document.getElementById("app");app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter9()">←</button><h2>📝 أسئلة الفصل التاسع</h2><span></span></div><div class="chapter2-banner"><strong>أسئلة الفصل التاسع وحلولها</strong><br>أسئلة تدريبية منظمة من أسئلة الفصل التاسع الواردة في الملزمة.</div>${chapter9Questions.map(function(item,index){return `<div class="content-card"><h3>${index+1}- ${item.q}</h3><div class="answer-box"><strong>✅ الحل:</strong><br>${item.a}</div></div>`}).join("")}
+${thirdChapterReviewCards(7)}
+<div class="lesson-navigation"><button class="previous-button" onclick="showChapter9MinistryIdeas()">← أفكار وزارية</button><button class="chapter-button" onclick="showChapter9()">📖 العودة إلى الفصل التاسع</button></div></div>`;}
 
 /* =========================================================
    الفصل الثامن: الزمرة السادسة
@@ -5256,7 +5406,8 @@ function showChapter8(){
   <div class="lesson-card" onclick="showChapterQuiz(8)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الثامن</h3><p>اختبار الفصل الثامن فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterWrong(8)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الثامن</h3><p>مراجعة أخطاء اختبار الفصل الثامن.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterDrawings(8)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>أجهزة التحضير والمقارنات والمخططات المهمة الخاصة بالفصل الثامن.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showChapter8MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>تعليلات ونقاط وزارية مركزة من الفصل الثامن.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showThirdChapterFormulas(8)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل الثامن، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
+<div class="lesson-card" onclick="showChapter8MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>تعليلات ونقاط وزارية مركزة من الفصل الثامن.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapter8Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الثامن وحلولها</h3><p>أسئلة منظمة مع الحلول.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
  </div>`;
@@ -5794,11 +5945,7 @@ function showSixthScientific(){
           <div class="dashboard-hero-icon">🧪</div>
         </section>
         <div class="dashboard-grid">
-          <button class="dashboard-card featured" onclick="showSixthLessonsHub()"><span class="dashboard-card-icon">📚</span><span><b>دروسي</b><small>فصول ودروس السادس العلمي</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showSixthMinistry()"><span class="dashboard-card-icon">🎯</span><span><b>أفكار وزارية</b><small>أفكار السادس العلمي فقط</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showSixthQuestions()"><span class="dashboard-card-icon">📝</span><span><b>أسئلة الفصول وحلولها</b><small>أسئلة السادس العلمي وحلولها</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showQuizChooser()"><span class="dashboard-card-icon">❓</span><span><b>اختبرني</b><small>اختبارات مستقلة للسادس العلمي</small></span><i>←</i></button>
-          <button class="dashboard-card" onclick="showMemoryChooser()"><span class="dashboard-card-icon">🧠</span><span><b>احفظها</b><small>مراجعة وحفظ محتوى السادس</small></span><i>←</i></button>
+          <button class="dashboard-card featured" onclick="showSixthLessonsHub()"><span class="dashboard-card-icon">📚</span><span><b>دروسي</b><small>الفصول الثمانية، ومع كل فصل أدواته الخاصة للدراسة والمراجعة</small></span><i>←</i></button>
         </div>
         <div class="dashboard-note sixth-note">🔒 هذا المسار مستقل عن الثالث متوسط بالكامل. لن تُعرض فيه أي مادة من منهج الثالث متوسط.</div>
       </div>`;
@@ -5836,11 +5983,34 @@ function showSixthMinistry(){ setCurrentGrade('sixth'); setActive(1); var app=do
 function showSixthQuestions(){ setCurrentGrade('sixth'); setActive(1); var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthScientific()">←</button><h2>📝 أسئلة الفصول — السادس العلمي</h2><span></span></div><div class="content-card"><h3>اختر الفصل</h3>${SIXTH_SOURCES.map(function(d,i){return `<div class="lesson-card" onclick="showSixthChapterQuestions(${i+1})"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل ${i+1}: ${d.title}</h3><p>تدريب من أسئلة الفصل ومراجعاته.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}</div></div>`; }
 function showSixthQuiz(){ showQuizChooser(); }
 function showSixthMemory(){ showMemoryChooser(); }
+
+
+function showSixthChapterDrawings(ch){
+  setCurrentGrade('sixth'); var d=SIXTH_SOURCES[ch-1], app=document.getElementById('app');
+  app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${ch})">←</button><h2>🖼️ الرسومات — الفصل ${ch}</h2><span></span></div><div class="content-card"><h3>${d?d.title:''}</h3><p class="lessons-subheading">تظهر هنا الرسومات والأجهزة والمخططات المرتبطة بالفصل عندما تكون موجودة في المصدر المعتمد.</p><div class="memory-box">🖼️ سيتم تجميع رسومات الكتاب والملزمتين الخاصة بهذا الفصل هنا. عند عدم وجود رسم مرتبط بموضوع معين، لا يتم اختراع رسم غير موجود في المصدر.</div></div></div>`;
+}
+function showSixthChapterQuizEngine(ch){
+  var d=SIXTH_SOURCES[ch-1]; setCurrentGrade('sixth');
+  var bank=(d.formulas||[]).slice(0,Math.min(8,d.formulas.length)).map(function(x){return {q:'ما العلاقة/المعادلة المرتبطة بـ «'+x[0]+'»؟',correct:x[1],opts:[x[1],d.formulas[(d.formulas.indexOf(x)+1)%d.formulas.length]?.[1]||'العلاقة الصحيحة هي المذكورة في الدرس.',d.formulas[(d.formulas.indexOf(x)+2)%d.formulas.length]?.[1]||'تُراجع من قوانين الفصل.',d.formulas[(d.formulas.indexOf(x)+3)%d.formulas.length]?.[1]||'تُراجع من موضوع الفصل.']};});
+  window.sixthQuizState={ch:ch,questions:bank,index:0,score:0,wrong:[]}; renderSixthChapterQuiz();
+}
+function renderSixthChapterQuiz(){var st=window.sixthQuizState, app=document.getElementById('app'); if(!st||!st.questions.length){return showSixthChapter(st?st.ch:1)}; if(st.index>=st.questions.length){var pct=Math.round(st.score/st.questions.length*100);localStorage.setItem('sixthChapter'+st.ch+'LastScore',pct);localStorage.setItem('sixthChapter'+st.ch+'Wrong',JSON.stringify(st.wrong));app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${st.ch})">←</button><h2>🏁 نتيجة الاختبار — الفصل ${st.ch}</h2><span></span></div><div class="content-card"><h3>درجتك: ${st.score} / ${st.questions.length}</h3><div class="score-big">${pct}%</div><p>تم حفظ الأخطاء لهذا الفصل.</p><button class="next-button" onclick="showSixthChapterWrong(${st.ch})">🔄 مراجعة أخطائي</button></div></div>`;return;} var q=st.questions[st.index]; app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${st.ch})">←</button><h2>❓ اختبرني — الفصل ${st.ch}</h2><span></span></div><div class="content-card"><div class="quiz-meta"><span>السؤال ${st.index+1} من ${st.questions.length}</span><span class="difficulty-badge">السادس العلمي</span></div><div class="progress-track"><div class="progress-bar" style="width:${Math.round(st.index/st.questions.length*100)}%;"></div></div><p style="font-size:21px;font-weight:700;margin-top:18px">${q.q}</p>${q.opts.map(function(o,i){return `<button class="chapter-button" style="display:block;width:100%;margin:10px 0" onclick="answerSixthChapterQuiz(${i})">${String.fromCharCode(65+i)}. ${o}</button>`}).join('')}</div></div>`;}
+function answerSixthChapterQuiz(i){var st=window.sixthQuizState,q=st.questions[st.index]; if(q.opts[i]===q.correct){st.score++;}else{st.wrong.push({q:q.q,correct:q.correct});}st.index++;renderSixthChapterQuiz();}
+function showSixthChapterQuiz(ch){showSixthChapterQuizEngine(ch)}
+function showSixthChapterMemory(ch){
+  setCurrentGrade('sixth'); var d=SIXTH_SOURCES[ch-1], app=document.getElementById('app');
+  if(!d){showSixthLessonsHub();return;}
+  var items=d.formulas.slice(0,Math.min(10,d.formulas.length));
+  app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${ch})">←</button><h2>🧠 احفظها — الفصل ${ch}</h2><span></span></div><div class="content-card"><h3>${d.title}</h3>${items.map(function(x,i){return `<div class="memory-box"><strong>${i+1}. ${x[0]}</strong><br>${x[1]}<br><span class="small-muted">${x[2]}</span></div>`}).join('')}</div></div>`;
+}
+function showSixthChapterQuiz(ch){ showSixthChapterQuizEngine(ch); }
+function showSixthChapterWrong(ch){ setCurrentGrade('sixth'); var app=document.getElementById('app'); var key='sixthChapter'+ch+'Wrong'; var data=[]; try{data=JSON.parse(localStorage.getItem(key)||'[]')}catch(e){data=[]} app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${ch})">←</button><h2>🔄 مراجعة أخطائي — الفصل ${ch}</h2><span></span></div><div class="content-card">${data.length?data.map(function(it,i){return `<div class="answer-box"><strong>${i+1}. ${it.q||''}</strong><br>الإجابة الصحيحة: ${it.correct||''}</div>`}).join(''):`<h3>🎉 لا توجد أخطاء محفوظة</h3><p>عند بدء اختبارات السادس وتسجيل الأخطاء ستظهر هنا مراجعتها.</p>`}</div></div>`; }
+function showSixthChapterMinistryQuestions(ch){ setCurrentGrade('sixth'); var d=SIXTH_SOURCES[ch-1], app=document.getElementById('app'); var items=d?d.formulas.slice(0,Math.min(8,d.formulas.length)):[]; app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${ch})">←</button><h2>📝 أسئلة وزارية — الفصل ${ch}</h2><span></span></div><div class="content-card"><h3>${d?d.title:''}</h3><p class="lessons-subheading">أسئلة تدريبية على النمط الوزاري مبنية على أهم علاقات ومفاهيم الفصل. لا تُنسب إلى سنة وزارية محددة ما لم يُذكر ذلك.</p>${items.map(function(x,i){return `<div class="exercise-box"><p><strong>${i+1}. ما العلاقة المرتبطة بـ «${x[0]}»؟</strong></p><div class="answer-box">✅ ${x[1]}</div></div>`}).join('')}</div></div>`; }
 function showSixthChapter(ch){
   setCurrentGrade("sixth"); setActive(1); var d=SIXTH_SOURCES[ch-1]; var app=document.getElementById('app');
   if(!d){showSixthLessonsHub();return;}
   var lessons=d.lessons.map(function(t,i){return `<div class="lesson-card" onclick="showSixthLesson(${ch},${i})"><div class="lesson-card-icon">📖</div><div class="lesson-card-info"><h3>${ch}-${i+1} ${t}</h3><p>${d.desc}</p></div><div class="lesson-arrow">←</div></div>`}).join('');
-  app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthLessonsHub()">←</button><h2>🎓 الفصل ${ch}: ${d.title}</h2><span></span></div><div class="lessons-page"><div class="sixth-note content-card">${d.desc}</div><h1 class="lessons-heading">📚 دروس الفصل</h1>${lessons}<div class="chapter-section-divider"><span>مراجعة الفصل</span></div><div class="lesson-card" onclick="showSixthChapterFormulas(${ch})"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>${d.formulas.length} من القوانين والعلاقات والمعادلات المرتبطة بهذا الفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterIdeas(${ch})"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار مركزة</h3><p>أهم المحاور والنقاط التي يجب التركيز عليها في الفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterQuestions(${ch})"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>حل أسئلة الفصل</h3><p>السؤال والجواب الخاص بالفصل، معتمد على الملزمة الأولى.</p></div><div class="lesson-arrow">←</div></div></div></div>`;
+  app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthLessonsHub()">←</button><h2>🎓 الفصل ${ch}: ${d.title}</h2><span></span></div><div class="lessons-page"><div class="sixth-note content-card">${d.desc}</div><h1 class="lessons-heading">📚 دروس الفصل</h1>${lessons}<div class="chapter-section-divider"><span>مراجعة الفصل</span></div><div class="lesson-card" data-open-sixth-formulas="${ch}"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>${d.formulas.length} من القوانين والعلاقات والمعادلات المرتبطة بهذا الفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterIdeas(${ch})"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>الأفكار والتعليلات المركزة الخاصة بهذا الفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterQuestions(${ch})"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>حل أسئلة الفصل</h3><p>السؤال والجواب الخاص بالفصل، معتمد على محتوى الفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterMemory(${ch})"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها</h3><p>بطاقات الحفظ والمعلومات الأساسية الخاصة بالفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterQuiz(${ch})"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني</h3><p>اختبار مستقل من بنك هذا الفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterWrong(${ch})"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي</h3><p>مراجعة أخطاء الاختبارات الخاصة بهذا الفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterDrawings(${ch})"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>الرسومات والأجهزة إن وجدت في محتوى الفصل.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showSixthChapterMinistryQuestions(${ch})"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة وزارية</h3><p>تدريب على نمط الأسئلة الوزارية الخاصة بموضوعات الفصل.</p></div><div class="lesson-arrow">←</div></div></div></div>`;
 }
 function showSixthLesson(ch,idx){
   setCurrentGrade('sixth'); var d=SIXTH_SOURCES[ch-1], title=d.lessons[idx]; markChapterLesson('sixth',ch,idx+1,d.lessons.length); var next=idx<d.lessons.length-1?`<button class="next-button" onclick="showSixthLesson(${ch},${idx+1})">الدرس التالي →</button>`:''; var prev=idx>0?`<button class="previous-button" onclick="showSixthLesson(${ch},${idx-1})">← الدرس السابق</button>`:''; var app=document.getElementById('app'); var related=d.formulas.filter(function(x){return x[0].length<70}).slice(Math.max(0,idx-2),Math.min(d.formulas.length,idx+3)); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${ch})">←</button><h2>📖 ${ch}-${idx+1} ${title}</h2><span></span></div><div class="content-card"><div class="formula-badge">🎓 السادس العلمي</div><h3>${title}</h3><p class="lesson-text">هذا الشرح منظم اعتمادًا على موضوعات الكتاب الرسمي للفصل، مع ترتيب مبسط للمراجعة مستند إلى الملزمتين المعتمدتين.</p><div class="memory-box">📌 محور الدرس: ${title}</div>${related.map(function(x){return `<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`}).join('')}<div class="source-note">المصدر الأساسي: كتاب الكيمياء للسادس العلمي، الطبعة الحادية عشرة 2025. للاستيعاب والمراجعة تمت الاستفادة من الملزمتين المرفوعتين.</div></div><div class="lesson-navigation">${prev}${next}<button class="chapter-button" onclick="showSixthChapter(${ch})">📖 العودة إلى دروس الفصل</button></div></div>`;
@@ -5901,7 +6071,12 @@ function showSixthChapterQuestions(ch){
 }
 
 function showSixthChapterFormulas(ch){
-  setCurrentGrade('sixth'); var d=SIXTH_SOURCES[ch-1]; var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${ch})">←</button><h2>🧮 القوانين والمعادلات — الفصل ${ch}</h2><span></span></div><div class="formula-section-card"><span class="formula-badge">🎓 ${d.title}</span><div class="formula-section-title">🧮 القوانين والمعادلات الكيميائية</div><p class="lessons-subheading">مجموعة القوانين والمعادلات المرتبطة بموضوعات هذا الفصل، منظمة للدراسة والمراجعة.</p><div class="formula-grid">${d.formulas.map(formulaCardHTML).join('')}</div><div class="source-note">المصدر الأساسي: كتاب الكيمياء للسادس العلمي (الطبعة الحادية عشرة 2025)، مع الاستفادة من ملزمتي حسين الهاشمي وهاشم الغرباوي في التلخيص والترتيب.</div></div></div>`;
+  setCurrentGrade('sixth');
+  setActive(1);
+  var d=SIXTH_SOURCES[ch-1]||{title:'الفصل '+ch,formulas:[]};
+  var app=document.getElementById('app');
+  var formulaHtml=d.formulas.length?d.formulas.map(formulaCardHTML).join(''):`<div class="memory-box">سيتم إدراج قوانين ومعادلات هذا الفصل من الكتاب الرسمي ضمن مرحلة تجهيز الفصل.</div>`;
+  app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showSixthChapter(${ch})">←</button><h2>🧮 القوانين والمعادلات — الفصل ${ch}</h2><span></span></div><div class="formula-section-card"><span class="formula-badge">🎓 ${d.title}</span><div class="formula-section-title">🧮 القوانين والمعادلات الكيميائية</div><p class="lessons-subheading">القوانين والمعادلات المرتبطة بموضوعات هذا الفصل، منظمة للدراسة والمراجعة.</p><div class="formula-grid">${formulaHtml}</div></div></div>`;
 }
 
 function showChapterMemory(ch){
@@ -6453,7 +6628,9 @@ function showWrongQuestions() {
                     </div>`;
             }).join("")}
 
-            <div class="lesson-navigation">
+            
+${thirdChapterReviewCards(8)}
+<div class="lesson-navigation">
                 <button class="next-button" onclick="showQuiz()">❓ اختبرني مرة أخرى</button>
                 <button class="chapter-button" onclick="clearWrongQuestions()">🗑️ مسح قائمة المراجعة</button>
             </div>
@@ -6529,6 +6706,39 @@ function showAccount(grade) {
 showHome();
 
 
+
+/* ===== Robust formula-tab click fallback ===== */
+(function(){
+  if(window.__formulaFallbackInstalled) return;
+  window.__formulaFallbackInstalled=true;
+  document.addEventListener('click', function(e){
+    var node=e.target;
+    while(node && node!==document){
+      var oc=node.getAttribute && node.getAttribute('onclick');
+      if(oc && oc.indexOf('showThirdChapterFormulas')!==-1){
+        var m=oc.match(/showThirdChapterFormulas\(\s*(\d+)\s*\)/);
+        if(m && typeof window.showThirdChapterFormulas==='function'){
+          e.preventDefault(); e.stopImmediatePropagation();
+          window.showThirdChapterFormulas(Number(m[1]));
+          return;
+        }
+      }
+      if(oc && oc.indexOf('showSixthChapterFormulas')!==-1){
+        var m2=oc.match(/showSixthChapterFormulas\(\s*(\d+)\s*\)/);
+        if(m2 && typeof window.showSixthChapterFormulas==='function'){
+          e.preventDefault(); e.stopImmediatePropagation();
+          window.showSixthChapterFormulas(Number(m2[1]));
+          return;
+        }
+      }
+      var t=node.getAttribute && node.getAttribute('data-open-third-formulas');
+      if(t){ e.preventDefault(); e.stopImmediatePropagation(); window.showThirdChapterFormulas(Number(t)); return; }
+      var u=node.getAttribute && node.getAttribute('data-open-sixth-formulas');
+      if(u){ e.preventDefault(); e.stopImmediatePropagation(); window.showSixthChapterFormulas(Number(u)); return; }
+      node=node.parentElement;
+    }
+  }, true);
+})();
 </script>
 
 </body>

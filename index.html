@@ -6094,10 +6094,11 @@ function sixthChapter1ToolsHTML(){
 function showSixthScientific(){
   setCurrentGrade('sixth'); setActive(1);
   var app=document.getElementById('app');
-  app.innerHTML=`<div class="grade-dashboard sixth-dashboard"><div class="page-header dashboard-header"><button class="back-button" onclick="showHome()">←</button><div class="dashboard-title-wrap"><span class="dashboard-kicker">المسار الدراسي</span><h2>🎓 الكيمياء — الصف السادس العلمي</h2></div><span></span></div><div class="grade-switch"><button onclick="showThirdMiddleHome()">📘 الثالث متوسط</button><button class="active" onclick="showSixthScientific()">🎓 السادس العلمي</button></div><section class="dashboard-hero sixth-hero"><div><span class="dashboard-badge">المنهج قيد البناء</span><h1>السادس العلمي</h1><p>نعيد بناء المنهج فصلًا تلو الآخر. تم تجهيز الفصل الأول والفصل الثاني من الكتاب الرسمي، وسنواصل البناء فصلًا تلو الآخر.</p></div><div class="dashboard-hero-icon">🧪</div></section><div class="dashboard-grid">
+  app.innerHTML=`<div class="grade-dashboard sixth-dashboard"><div class="page-header dashboard-header"><button class="back-button" onclick="showHome()">←</button><div class="dashboard-title-wrap"><span class="dashboard-kicker">المسار الدراسي</span><h2>🎓 الكيمياء — الصف السادس العلمي</h2></div><span></span></div><div class="grade-switch"><button onclick="showThirdMiddleHome()">📘 الثالث متوسط</button><button class="active" onclick="showSixthScientific()">🎓 السادس العلمي</button></div><section class="dashboard-hero sixth-hero"><div><span class="dashboard-badge">المنهج قيد البناء</span><h1>السادس العلمي</h1><p>نعيد بناء المنهج فصلًا تلو الآخر. تم تجهيز الفصول الأول والثاني والثالث من الكتاب الرسمي، وسنواصل البناء فصلًا تلو الآخر.</p></div><div class="dashboard-hero-icon">🧪</div></section><div class="dashboard-grid">
 <button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter1()"><span class="dashboard-card-icon">🔥</span><span><b>الفصل الأول: الثرموداينمك</b><small>شرح ودروس وقوانين ومسائل واختبارات وأفكار وأسئلة خاصة بالفصل الأول.</small></span><i>←</i></button>
 <button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter2()"><span class="dashboard-card-icon">⚖️</span><span><b>الفصل الثاني: الاتزان الكيميائي</b><small>شرح الاتزان الكيميائي وثوابت الاتزان وقاعدة لو شاتليه والعوامل المؤثرة.</small></span><i>←</i></button>
-</div><div class="dashboard-note sixth-note">📌 تم بناء الفصل الأول والفصل الثاني بالاعتماد على الكتاب الرسمي، وسنواصل إضافة بقية الفصول واحدًا تلو الآخر.</div></div>`;
+<button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter3()"><span class="dashboard-card-icon">🧪</span><span><b>الفصل الثالث: الاتزان الأيوني</b><small>الإلكتروليتات والحوامض والقواعد وpH والبفر والذوبانية وثابت حاصل الذوبان.</small></span><i>←</i></button>
+</div><div class="dashboard-note sixth-note">📌 تم بناء الفصول الأول والثاني والثالث بالاعتماد على الكتاب الرسمي، وسنواصل إضافة بقية الفصول واحدًا تلو الآخر.</div></div>`;
 }
 function showSixthLessonsHub(){ showSixthScientific(); }
 function showSixthChapter1(){
@@ -6385,6 +6386,198 @@ function answerSixthCh2Quiz(i){var s=window.sixthCh2QuizState,q=SIXTH_CH2_QUIZ[s
 function showSixthChapter2Wrong(){
   setActive(1);var wrong=[];try{wrong=JSON.parse(localStorage.getItem('sixth_ch2_wrong')||'[]')}catch(e){wrong=[]}
   document.getElementById('app').innerHTML=sixthCh2Shell('🔄 مراجعة أخطائي — الفصل الثاني','showSixthChapter2')+`<div class="questions-intro"><strong>مراجعة الأخطاء</strong><br>تظهر هنا الأسئلة التي أخطأت فيها في آخر اختبار للفصل الثاني.</div>${wrong.length?wrong.map((x,i)=>`<div class="question-card review-card"><div class="review-question">${i+1}- ${x.q}</div><div class="question-answer"><strong>إجابتك:</strong>${x.chosen}<br><strong>✅ الصحيح:</strong>${x.answer}<br><strong>💡 التوضيح:</strong>${x.explain}</div></div>`).join(''):`<div class="content-card" style="text-align:center"><h3>لا توجد أخطاء محفوظة حاليًا ✅</h3><p>أجرِ اختبار الفصل الثاني أولًا.</p></div>`}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter2()">📖 العودة إلى الفصل الثاني</button></div></div>`;
+}
+
+
+/* =========================================================
+   السادس العلمي — الفصل الثالث: الاتزان الأيوني
+   المصدر المعتمد: كتاب الكيمياء للصف السادس العلمي، الطبعة الحادية عشرة 2025 فقط.
+   نطاق الفصل الرسمي: الصفحات 87–130.
+   ========================================================= */
+
+var SIXTH_CH3_LESSONS = [
+  {
+    title:'3-1 مقدمة والمواد الإلكتروليتية وغير الإلكتروليتية', icon:'⚡',
+    html:`<div class="content-card"><h3>الأتزان الأيوني</h3><p>يركز هذا الفصل على خواص المواد في المحاليل المائية، ويفرق بين المواد التي تستطيع محاليلها توصيل التيار الكهربائي وتلك التي لا تستطيع.</p><div class="memory-box"><strong>المحلول المائي</strong>مزيج متجانس ناتج من ذوبان مادة مذابة في الماء المذيب.</div></div>
+    <div class="content-card"><h3>الإلكتروليتات</h3><p>مواد تعطي أيونات عند ذوبانها في الماء، ويمكن أن تكون حوامض أو قواعد أو أملاحًا. تكون المحاليل الإلكتروليتية متعادلة كهربائيًا ومحصلتها للشحنة تساوي صفرًا.</p><p><strong>الإلكتروليت القوي:</strong> يتفكك أو يتأين بدرجة تامة تقريبًا في المحاليل المائية المخففة.</p><p><strong>الإلكتروليت الضعيف:</strong> يتأين جزئيًا وتكون قابلية محاليله على التوصيل الكهربائي أقل.</p><p><strong>غير الإلكتروليت:</strong> محلوله المائي غير موصل للتيار، مثل السكروز.</p></div>
+    <div class="content-card"><h3>أمثلة من الكتاب</h3><div class="example-box">HCl(aq) → H⁺(aq) + Cl⁻(aq)</div><div class="example-box">NaCl(s) → Na⁺(aq) + Cl⁻(aq)</div><div class="example-box">Na₂SO₄(s) → 2Na⁺(aq) + SO₄²⁻(aq)</div><div class="example-box">KNO₃(s) → K⁺(aq) + NO₃⁻(aq)</div><div class="example-box">H₂SO₄(l) → 2H⁺(aq) + SO₄²⁻(aq)</div></div>`
+  },
+  {
+    title:'3-2 تفكك الإلكتروليتات القوية والضعيفة', icon:'🧪',
+    html:`<div class="content-card"><h3>الإلكتروليتات القوية</h3><p>تنتج محاليل عالية التوصيل الكهربائي بسبب التفكك أو التأين التام تقريبًا في المحاليل المخففة جدًا. من أمثلتها HCl وNaOH وKOH وبعض الأملاح الذائبة.</p><div class="example-box">Ba(OH)₂(aq) → Ba²⁺(aq) + 2OH⁻(aq)</div><p>مثال الكتاب: في محلول Ba(OH)₂ تركيزه 0.03 M يكون [Ba²⁺] = 0.03 M و[OH⁻] = 0.06 M.</p></div>
+    <div class="content-card"><h3>الإلكتروليتات الضعيفة</h3><p>تتأين جزئيًا وتصل إلى حالة اتزان أيوني ديناميكي، مثل حمض الخليك والأمونيا وحمض الكربونيك وAgCl.</p><div class="example-box">CH₃COOH(aq) ⇌ H⁺(aq) + CH₃COO⁻(aq)</div><div class="example-box">NH₃(g) + H₂O(l) ⇌ NH₄⁺(aq) + OH⁻(aq)</div><div class="example-box">AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq)</div></div>`
+  },
+  {
+    title:'3-3 الحوامض والقواعد الضعيفة وثوابت التفكك', icon:'🧬',
+    html:`<div class="content-card"><h3>مفهوم برونشتد–لوري</h3><p><strong>الحامض:</strong> مادة لها القابلية على فقدان بروتون لتكوين قاعدة قرينة.</p><p><strong>القاعدة:</strong> مادة لها القابلية على اكتساب البروتون لتكوين حامض قرين.</p><div class="example-box">HA(aq) ⇌ H⁺(aq) + A⁻(aq)</div></div>
+    <div class="content-card"><h3>ثابت تفكك الحامض الضعيف Ka</h3><div class="formula-equation">Ka = [H⁺][A⁻] / [HA]</div><p>تزداد قوة الحامض الضعيف بزيادة قيمة Ka.</p><div class="example-box">CH₃COOH(aq) ⇌ H⁺(aq) + CH₃COO⁻(aq)</div></div>
+    <div class="content-card"><h3>ثابت تفكك القاعدة الضعيفة Kb</h3><div class="formula-equation">B(aq) + H₂O(l) ⇌ BH⁺(aq) + OH⁻(aq)</div><div class="formula-equation">Kb = [BH⁺][OH⁻] / [B]</div><p>يتبع حل القواعد الضعيفة الأسلوب نفسه الذي يتبع في مسائل الحوامض الضعيفة: بناء تراكيز ابتدائية وتغير واتزان ثم التعويض.</p></div>`
+  },
+  {
+    title:'3-4 التأين الذاتي للماء وKw', icon:'💧',
+    html:`<div class="content-card"><h3>التأين الذاتي للماء</h3><div class="example-box">2H₂O(l) ⇌ H₃O⁺(aq) + OH⁻(aq)</div><p>وبصورة أبسط: H₂O(l) ⇌ H⁺(aq) + OH⁻(aq)</p><div class="formula-equation">Kw = [H⁺][OH⁻]</div><p>عند 25°C في الماء النقي:</p><div class="formula-equation">[H⁺] = [OH⁻] = 1.0 × 10⁻⁷ M</div><div class="formula-equation">Kw = 1.0 × 10⁻¹⁴</div></div>
+    <div class="content-card"><h3>طبيعة المحلول عند 25°C</h3><table class="simple-table"><tr><th>المحلول</th><th>المقارنة</th></tr><tr><td>حامضي</td><td>[H⁺] &gt; [OH⁻]</td></tr><tr><td>متعادل</td><td>[H⁺] = [OH⁻] = 10⁻⁷ M</td></tr><tr><td>قاعدي</td><td>[H⁺] &lt; [OH⁻]</td></tr></table></div>`
+  },
+  {
+    title:'3-5 الأس الهيدروجيني pH وpOH', icon:'📏',
+    html:`<div class="content-card"><h3>الدالة الحامضية pH</h3><div class="formula-equation">pH = −log[H⁺]</div><div class="formula-equation">[H⁺] = 10⁻pH</div><h3>الدالة القاعدية pOH</h3><div class="formula-equation">pOH = −log[OH⁻]</div><div class="formula-equation">[OH⁻] = 10⁻pOH</div></div>
+    <div class="content-card"><h3>العلاقة بين pH وpOH</h3><div class="formula-equation">pH + pOH = 14  &nbsp; (عند 25°C)</div><p>عند 25°C يكون المحلول حامضيًا عندما pH &lt; 7، ومتعادلًا عند pH = 7، وقاعديًا عندما pH &gt; 7.</p><div class="note-box"><strong>ملاحظة من الكتاب:</strong> الرمز p قبل أي كمية يعني سالب لوغاريتمها؛ لذلك pKa = −logKa وpKb = −logKb وpKw = −logKw.</div></div>`
+  },
+  {
+    title:'3-6 التمذوب والتحلل المائي للأملاح', icon:'🌊',
+    html:`<div class="content-card"><h3>التمذوب والتحلل المائي</h3><p>التمذوب هو تفاعل المادة مع المذيب، وعندما يكون الماء هو المذيب تسمى العملية التحلل المائي.</p><p>يصنف الكتاب الأملاح المائية إلى أربعة أنواع: أملاح قاعدة قوية وحامض قوي، قاعدة قوية وحامض ضعيف، قاعدة ضعيفة وحامض قوي، وقاعدة ضعيفة وحامض ضعيف.</p></div>
+    <div class="content-card"><h3>ملح قاعدة قوية وحامض قوي</h3><p>تكون محاليله المائية متعادلة لأن أيوناته لا تتفاعل بصورة ملحوظة مع الماء، مثل NaCl.</p></div>
+    <div class="content-card"><h3>ملح قاعدة قوية وحامض ضعيف</h3><div class="example-box">CH₃COO⁻(aq) + H₂O(l) ⇌ CH₃COOH(aq) + OH⁻(aq)</div><div class="formula-equation">Kh = Kw / Ka</div><p>يكون المحلول قاعديًا بسبب تكون OH⁻.</p></div>
+    <div class="content-card"><h3>ملح قاعدة ضعيفة وحامض قوي</h3><div class="example-box">NH₄⁺(aq) + H₂O(l) ⇌ NH₃(aq) + H⁺(aq)</div><div class="formula-equation">Kh = Kw / Kb</div><p>يكون المحلول حامضيًا بسبب تكون H⁺.</p></div>`
+  },
+  {
+    title:'3-7 الأيون المشترك والمحاليل المنظمة (البفر)', icon:'🛡️',
+    html:`<div class="content-card"><h3>تأثير الأيون المشترك</h3><p>عند إضافة إلكتروليت قوي يعطي أيونًا مشتركًا مع إلكتروليت ضعيف، يزداد تركيز الأيون المشترك وينزاح الاتزان، فيقل تأين الإلكتروليت الضعيف.</p><div class="example-box">CH₃COOH ⇌ H⁺ + CH₃COO⁻</div><p>إضافة CH₃COONa تزود المحلول بأيون CH₃COO⁻ فتقل درجة تأين حمض الخليك.</p></div>
+    <div class="content-card"><h3>المحلول المنظم Buffer</h3><p>هو محلول يقاوم التغير في تركيز H⁺ عند إضافة كمية قليلة من حامض قوي أو قاعدة قوية.</p><p>يحضر عادة من حامض ضعيف وملحه، أو قاعدة ضعيفة وأحد أملاحها.</p><div class="formula-equation">[H⁺] = Ka × [acid] / [salt]</div><div class="formula-equation">pH = pKa + log([salt]/[acid])</div><div class="formula-equation">[OH⁻] = Kb × [base] / [salt]</div><div class="formula-equation">pOH = pKb + log([salt]/[base])</div></div>`
+  },
+  {
+    title:'3-8 الذوبانية وثابت حاصل الذوبان Ksp', icon:'🧂',
+    html:`<div class="content-card"><h3>الذوبانية وثابت حاصل الذوبان</h3><p>تخضع الأملاح شحيحة الذوبان لاتزان بين الجزء الصلب والأيونات الناتجة في المحلول المشبع.</p><div class="example-box">AB(s) ⇌ A⁺(aq) + B⁻(aq)</div><div class="formula-equation">Ksp = [A⁺][B⁻]</div><p>ثابت حاصل الذوبان ثابت عند درجة حرارة ثابتة، وتتناسب ذوبانية المركب مع قيمة Ksp.</p></div>
+    <div class="content-card"><h3>الذوبانية المولارية s</h3><p>هي عدد مولات الملح التي تذوب في لتر واحد من المحلول المشبع.</p><div class="formula-grid"><div class="formula-item"><div class="formula-label">ملح أحادي–أحادي</div><div class="formula-equation">AB ⇌ A⁺ + B⁻<br>Ksp = s²</div></div><div class="formula-item"><div class="formula-label">مثال CaF₂</div><div class="formula-equation">CaF₂ ⇌ Ca²⁺ + 2F⁻<br>Ksp = s(2s)² = 4s³</div></div><div class="formula-item"><div class="formula-label">مثال Ba(IO₃)₂</div><div class="formula-equation">Ksp = s(2s)² = 4s³</div></div></div></div>
+    <div class="content-card"><h3>التنبؤ بالترسيب</h3><div class="formula-equation">Qsp &gt; Ksp ⟹ يبدأ الترسيب</div><div class="formula-equation">Qsp &lt; Ksp ⟹ تستمر عملية الذوبان</div><div class="formula-equation">Qsp = Ksp ⟹ محلول مشبع وحالة اتزان</div></div>`
+  },
+  {
+    title:'3-9 العوامل المؤثرة في الذوبانية', icon:'🌡️',
+    html:`<div class="content-card"><h3>درجة الحرارة</h3><p>تزداد ذوبانية معظم المواد الشحيحة الذوبان بزيادة درجة الحرارة، مع اختلاف مقدار الزيادة من مادة إلى أخرى.</p></div>
+    <div class="content-card"><h3>الأيون المشترك</h3><p>وجود أيونات مشتركة في المحلول يؤدي، وفق تأثير الأيون المشترك، إلى خفض ذوبانية الإلكتروليت الضعيف ومنها الأملاح الشحيحة الذوبان.</p></div>
+    <div class="content-card"><h3>الأس الهيدروجيني pH</h3><p>تعتمد ذوبانية كثير من المواد على تركيز H⁺، خصوصًا إذا كان H⁺ أو OH⁻ أحد مكونات المركب. إضافة الحامض تزيد ذوبانية بعض الهيدروكسيدات عبر استهلاك OH⁻، بينما تؤدي إضافة القاعدة إلى تقليلها بتأثير الأيون المشترك.</p><div class="example-box">Mg(OH)₂(s) ⇌ Mg²⁺(aq) + 2OH⁻(aq)</div></div>`
+  }
+];
+
+var SIXTH_CH3_FORMULAS = [
+ ['درجة المولارية','M = n/V','المولارية: عدد المولات على حجم المحلول باللتر.'],
+ ['ثابت تفكك الحامض الضعيف','Ka = [H⁺][A⁻] / [HA]','يستخدم للحوامض الضعيفة.'],
+ ['ثابت تفكك القاعدة الضعيفة','Kb = [BH⁺][OH⁻] / [B]','يستخدم للقواعد الضعيفة.'],
+ ['درجة التفكك','درجة التفكك = تركيز الجزء المتأين عند الاتزان / التركيز الابتدائي','كما يوردها الكتاب لحل مسائل الإلكتروليتات الضعيفة.'],
+ ['النسبة المئوية للتفكك','% التفكك = درجة التفكك × 100','إذا كانت النسبة أقل من 5% يمكن استعمال التقريب في المسائل المذكورة.'],
+ ['مؤشر التأين التقريبي','إذا كانت نسبة التأين < 5% يُهمل x بالنسبة للتركيز الابتدائي','عند تجاوز 5% يستخدم الدستور لحل المعادلة الجبرية من الدرجة الثانية.'],
+ ['معادلة الدرجة الثانية','x = (−b ± √(b² − 4ac)) / 2a','الدستور المستخدم عندما لا يصح التقريب.'],
+ ['الحاصل الأيوني للماء','Kw = [H⁺][OH⁻]','عند 25°C: Kw = 1.0×10⁻¹⁴.'],
+ ['الماء النقي عند 25°C','[H⁺] = [OH⁻] = 1.0×10⁻⁷ M','الماء النقي متعادل عند 25°C.'],
+ ['الأس الهيدروجيني','pH = −log[H⁺]','ومنه [H⁺] = 10⁻pH.'],
+ ['الأس القاعدي','pOH = −log[OH⁻]','ومنه [OH⁻] = 10⁻pOH.'],
+ ['العلاقة بين pH وpOH','pH + pOH = 14','عند 25°C.'],
+ ['الدوال اللوغارتمية للثوابت','pKa = −logKa ، pKb = −logKb ، pKw = −logKw','تعريف p للثوابت كما في الكتاب.'],
+ ['ثابت التحلل المائي لملح قاعدة قوية وحامض ضعيف','Kh = Kw / Ka','لأملاح القواعد القوية والأحماض الضعيفة.'],
+ ['ثابت التحلل المائي لملح قاعدة ضعيفة وحامض قوي','Kh = Kw / Kb','لأملاح القواعد الضعيفة والأحماض القوية.'],
+ ['pH لملح قاعدة قوية وحامض ضعيف','pH = ½(pKw + pKa + log c)','c تركيز الملح.'],
+ ['pH لملح قاعدة ضعيفة وحامض قوي','pH = ½(pKw − pKb − log c)','c تركيز الملح.'],
+ ['علاقة البفر الحامضي','[H⁺] = Ka × [acid]/[salt]','الحامض الضعيف مع ملحه.'],
+ ['هندرسون–هاسلبالخ للبفر الحامضي','pH = pKa + log([salt]/[acid])','للمحلول المنظم الحامضي كما في الكتاب.'],
+ ['علاقة البفر القاعدي','[OH⁻] = Kb × [base]/[salt]','القاعدة الضعيفة مع ملحها.'],
+ ['هندرسون–هاسلبالخ للبفر القاعدي','pOH = pKb + log([salt]/[base])','للمحلول المنظم القاعدي كما في الكتاب.'],
+ ['ثابت حاصل الذوبان العام','Ksp = حاصل ضرب تراكيز الأيونات عند الاتزان، كل منها مرفوع إلى أس معاملها','للمركبات الأيونية شحيحة الذوبان.'],
+ ['ملح 1:1 مثل AB','AB ⇌ A + B ، Ksp = s²','عندما تكون الذوبانية المولارية s.'],
+ ['ملح CaF₂','CaF₂ ⇌ Ca²⁺ + 2F⁻ ، Ksp = s(2s)² = 4s³','عند وجود الملح منفردًا في الماء المشبع.'],
+ ['حاصل الإذابة والترسيب','Qsp > Ksp: ترسيب ، Qsp < Ksp: ذوبان ، Qsp = Ksp: تشبع واتزان','مقارنة حاصل ضرب الأيونات مع Ksp.']
+];
+
+var SIXTH_CH3_MEMORY = [
+ 'الإلكتروليتات القوية تتفكك أو تتأين تقريبًا بشكل تام في المحاليل المائية المخففة، بينما الضعيفة تتأين جزئيًا.',
+ 'حالة الاتزان في الإلكتروليت الضعيف ديناميكية: يستمر التفاعل الأمامي والخلفي مع ثبات التراكيز عند ثبوت درجة الحرارة.',
+ 'كلما ازدادت قيمة Ka ازدادت قوة الحامض الضعيف.',
+ 'كلما كانت قيمة Ka أو Kb صغيرة جدًا أمكن استعمال التقريب عندما تتحقق شروطه، ويذكر الكتاب حد 5% كنسبة تأين تقريبية.',
+ 'عند 25°C: Kw = 1.0×10⁻¹⁴ وpH + pOH = 14.',
+ 'إضافة أيون مشترك إلى إلكتروليت ضعيف تقلل تأينه وتزيح الاتزان.',
+ 'ملح قاعدة قوية وحامض ضعيف يعطي محلولًا قاعديًا، وملح قاعدة ضعيفة وحامض قوي يعطي محلولًا حامضيًا، وملح قاعدة قوية وحامض قوي يعطي محلولًا متعادلًا.',
+ 'البفر يقاوم تغير pH عند إضافة كميات قليلة من حامض قوي أو قاعدة قوية.',
+ 'عند الترسيب: قارن Qsp مع Ksp؛ الأكبر من Ksp يعني بدء الترسيب، والأصغر يعني بقاء الميل إلى الذوبان.'
+];
+
+var SIXTH_CH3_IDEAS = [
+ ['كيف تميز بين الإلكتروليت القوي والضعيف؟','القوي يعطي عددًا كبيرًا من الأيونات في المحلول المائي بسبب التفكك أو التأين التام تقريبًا، والضعيف يعطي عددًا أقل بسبب التأين الجزئي.'],
+ ['لماذا لا يدخل الماء في بعض تعابير Kc أو ثابت التأين؟','لأن الماء مذيب وتركيزه يبقى ثابتًا تقريبًا في المحاليل المائية المخففة، فتدمج قيمته في الثابت.'],
+ ['كيف نعرف أن الحامض قوي وفق عرض الكتاب؟','يكون تأينه في الماء شبه تام، فلا يبقى اتزان ملحوظ بين جزيئات الحامض غير المتأين وأيوناته.'],
+ ['متى نستعمل التقريب في مسائل الحوامض والقواعد الضعيفة؟','عندما تكون نسبة التأين أقل من 5%؛ أما إذا زادت عن 5% فيستعمل الدستور للمعادلة من الدرجة الثانية بحسب الكتاب.'],
+ ['لماذا يؤدي الأيون المشترك إلى تقليل التأين؟','لأنه يزيد تركيز أحد أيونات الاتزان فينزاح الاتزان بما يقلل أثر المؤثر، فتقل كمية الإلكتروليت الضعيف المتأينة.'],
+ ['ما مكونات البفر؟','حامض ضعيف مع أحد أملاحه الذائبة، أو قاعدة ضعيفة مع أحد أملاحها الذائبة.'],
+ ['كيف نعرف بدء الترسيب؟','عندما يصبح حاصل ضرب تراكيز الأيونات Qsp أكبر من Ksp، وعند المساواة يكون المحلول مشبعًا وفي حالة اتزان.'],
+ ['ما أثر إضافة حامض إلى محلول مشبع لهيدروكسيد؟','تُستهلك أيونات OH⁻ بتكوين الماء، فيختل الاتزان ويزداد ذوبان بعض الهيدروكسيدات لتعويض النقص في OH⁻.']
+];
+
+var SIXTH_CH3_QUESTIONS = [
+ ['1-3 ما الذي يوضح الاتزان بين جزيئات الماء وأيوناته؟ وما قيمة Kw وتركيز H⁺ وOH⁻ في الماء النقي عند 25°C؟','2H₂O ⇌ H₃O⁺ + OH⁻، وعند 25°C: Kw = 1.0×10⁻¹⁴ و[H⁺]=[OH⁻]=1.0×10⁻⁷ M.'],
+ ['2-3 ما أثر إضافة 1 mL من حامض أو قاعدة قوية إلى لتر من الماء؟','يُحسب مقدار التغير في pH من التراكيز الناتجة بعد التفاعل والتخفيف ثم باستخدام pH = −log[H⁺] أو pOH = −log[OH⁻]، وفق معطيات المسألة.'],
+ ['3-3 صنّف المحاليل المائية للأملاح المعطاة إلى حامضية أو قاعدية أو متعادلة وعلل.','يعتمد التصنيف على أصل الملح: ملح حامض قوي وقاعدة قوية متعادل، أما الملح الناتج من حامض ضعيف أو قاعدة ضعيفة فيتحدد سلوكه بالتحلل المائي لأيوناته كما شرح الكتاب.'],
+ ['4-3 احسب كتلة حمض الخليك اللازمة لإضافتها إلى 250 mL من الماء المقطر للحصول على pH محدد.','تُستخدم علاقة البفر أو اتزان الحامض الضعيف وفق المعطيات المعطاة في السؤال، مع تحويل الحجم إلى لتر واستعمال التركيز المولاري.'],
+ ['5-3 ما عدد مليغرامات يودات الباريوم التي يمكن أن تذوب في 150 mL من الماء النقي عند معرفة Ksp والكتلة المولية؟','تكتب معادلة الذوبان وتحسب الذوبانية المولارية من Ksp، ثم تحوَّل المولات الذائبة في 0.150 L إلى كتلة وبعدين إلى mg.'],
+ ['تطبيق مباشر: في محلول 0.4 M من كبريتات الصوديوم، ما تراكيز Na⁺ وSO₄²⁻؟','Na₂SO₄ يتفكك كليًا إلى 2Na⁺ + SO₄²⁻؛ لذلك [Na⁺] = 0.8 M و[SO₄²⁻] = 0.4 M.']
+];
+
+var SIXTH_CH3_QUIZ = [
+ {q:'أي مما يأتي يمثل إلكتروليتًا ضعيفًا؟',o:['NaCl','HCl','CH₃COOH','KNO₃'],a:2,e:'حمض الخليك إلكتروليت ضعيف ويتأين جزئيًا.'},
+ {q:'عند 25°C قيمة Kw للماء هي:',o:['1.0×10⁻⁷','1.0×10⁻¹⁴','1.0×10⁻¹²','14'],a:1,e:'Kw = 1.0×10⁻¹⁴ عند 25°C.'},
+ {q:'إذا كان [H⁺] = 1.0×10⁻³ M فإن pH يساوي:',o:['3','11','7','−3'],a:0,e:'pH = −log(10⁻³) = 3.'},
+ {q:'إذا كان pH = 9 عند 25°C فإن pOH يساوي:',o:['9','5','14','7'],a:1,e:'pH + pOH = 14، إذن pOH = 5.'},
+ {q:'أي علاقة تمثل Ka للحامض الضعيف HA؟',o:['[HA]/([H⁺][A⁻])','[H⁺][A⁻]/[HA]','[HA][OH⁻]/[A⁻]','[A⁻]/[HA]'],a:1,e:'Ka = [H⁺][A⁻]/[HA].'},
+ {q:'إضافة أيون مشترك إلى إلكتروليت ضعيف تؤدي عادةً إلى:',o:['زيادة التأين','تقليل التأين','إلغاء الاتزان','لا تأثير إطلاقًا'],a:1,e:'الأيون المشترك يقلل تأين الإلكتروليت الضعيف.'},
+ {q:'البفر الحامضي يتكون عادة من:',o:['حامض قوي فقط','قاعدة قوية فقط','حامض ضعيف وملحه','ملح قوي فقط'],a:2,e:'هذا هو تركيب البفر الحامضي الوارد في الفصل.'},
+ {q:'أي علاقة صحيحة للبفر الحامضي؟',o:['pH=pKa+log([salt]/[acid])','pH=pKb+log([acid]/[salt])','pOH=pKa+log([salt]/[acid])','pH=14+pKa'],a:0,e:'العلاقة المباشرة في الكتاب: pH = pKa + log([salt]/[acid]).'},
+ {q:'إذا كان Qsp > Ksp فهذا يعني:',o:['لا ترسيب','يبدأ الترسيب','المحلول غير مشبع دائمًا','Ksp يساوي صفرًا'],a:1,e:'عندما يكون Qsp أكبر من Ksp يبدأ الترسيب.'},
+ {q:'لملح AB شحيح الذوبان وذوبانيته المولارية s يكون Ksp:',o:['s','2s','s²','4s³'],a:2,e:'AB يعطي A وB بتركيز s لكل منهما، لذلك Ksp=s².'},
+ {q:'لملح CaF₂ شحيح الذوبان وذوبانيته s يكون Ksp:',o:['s²','2s²','4s³','8s³'],a:2,e:'[Ca²⁺]=s و[F⁻]=2s، لذا Ksp=s(2s)²=4s³.'},
+ {q:'عند 25°C الماء النقي هو:',o:['حامضي','قاعدي','متعادل','مشبع'],a:2,e:'[H⁺]=[OH⁻]=10⁻⁷ M، لذا هو متعادل.'}
+];
+
+function sixthCh3Shell(title, backFn){ return `<div class="page"><div class="page-header"><button class="back-button" onclick="${backFn}()">←</button><h2>${title}</h2><span></span></div>`; }
+function sixthChapter3ToolsHTML(){
+ return `<div class="chapter-tools-title"><span>🧰 أدوات الفصل الثالث</span><small>كل أداة مرتبطة بالاتزان الأيوني فقط</small></div><div class="dashboard-grid">
+ <button class="dashboard-card" onclick="showSixthChapter3Memory()"><span class="dashboard-card-icon">🧠</span><span><b>احفظها</b><small>النقاط والقواعد الأساسية للفصل</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter3Quiz()"><span class="dashboard-card-icon">❓</span><span><b>اختبرني</b><small>اختبار الفصل الثالث</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter3Wrong()"><span class="dashboard-card-icon">🔄</span><span><b>مراجعة أخطائي</b><small>الأخطاء المحفوظة من الاختبار</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter3Drawings()"><span class="dashboard-card-icon">🖼️</span><span><b>الرسومات</b><small>رسومات وأشكال من الكتاب الرسمي</small></span><i>←</i></button>
+ <button class="dashboard-card featured" onclick="showSixthChapter3Formulas()"><span class="dashboard-card-icon">🧮</span><span><b>القوانين والمعادلات الكيميائية</b><small>القوانين والعلاقات الخاصة بالفصل الثالث</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter3Ideas()"><span class="dashboard-card-icon">🎯</span><span><b>أفكار مهمة</b><small>نقاط التركيز المستخرجة من الكتاب</small></span><i>←</i></button>
+ <button class="dashboard-card" onclick="showSixthChapter3Questions()"><span class="dashboard-card-icon">📚</span><span><b>أسئلة الفصل وحلولها</b><small>الأسئلة الرسمية للفصل</small></span><i>←</i></button>
+ </div>`;
+}
+function showSixthChapter3(){
+ setCurrentGrade('sixth'); setActive(1);
+ document.getElementById('app').innerHTML=sixthCh3Shell('📚 دروسي — الفصل الثالث: الاتزان الأيوني','showSixthScientific')+`<div class="chapter2-banner"><strong>📌 الفصل الثالث: الاتزان الأيوني</strong><br>الفصل الرسمي الذي يتناول الإلكتروليتات، الحوامض والقواعد الضعيفة، التأين الذاتي للماء، pH وpOH، التحلل المائي، الأيون المشترك، البفر، الذوبانية وثابت حاصل الذوبان.</div><div class="lessons-page">${SIXTH_CH3_LESSONS.map((l,i)=>`<div class="lesson-card" onclick="showSixthChapter3Lesson(${i})"><div class="lesson-card-icon">${l.icon}</div><div class="lesson-card-info"><h3>${l.title}</h3><p>شرح منظم مستخرج من موضوع الفصل في الكتاب الرسمي.</p></div><div class="lesson-arrow">←</div></div>`).join('')}${sixthChapter3ToolsHTML()}</div></div>`;
+}
+function showSixthChapter3Lesson(i){
+ var l=SIXTH_CH3_LESSONS[i]; if(!l)return;
+ var prev=i>0?`showSixthChapter3Lesson(${i-1})`:'showSixthChapter3';
+ var next=i<SIXTH_CH3_LESSONS.length-1?`showSixthChapter3Lesson(${i+1})`:'showSixthChapter3';
+ document.getElementById('app').innerHTML=sixthCh3Shell(l.title,'showSixthChapter3')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH3_LESSONS.length-1?'العودة إلى الفصل ←':'الدرس التالي →'}</button></div></div></div>`;
+}
+function showSixthChapter3Formulas(){
+ setActive(1); document.getElementById('app').innerHTML=sixthCh3Shell('🧮 القوانين والمعادلات الكيميائية — الفصل الثالث','showSixthChapter3')+`<div class="formula-section-card"><div class="formula-badge">الفصل الثالث — الاتزان الأيوني</div><p style="color:#617086;line-height:1.9">تم جمع القوانين والعلاقات الواردة في موضوعات الفصل الثالث من كتاب الكيمياء الرسمي فقط.</p><div class="formula-grid">${SIXTH_CH3_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter3()">📖 العودة إلى الفصل الثالث</button></div></div>`;
+}
+function showSixthChapter3Memory(){
+ setActive(1); document.getElementById('app').innerHTML=sixthCh3Shell('🧠 احفظها — الفصل الثالث','showSixthChapter3')+`<div class="lesson-content">${SIXTH_CH3_MEMORY.map((x,i)=>`<div class="memory-box"><strong>${i+1}️⃣</strong>${x}</div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter3()">📖 العودة إلى الفصل الثالث</button></div></div></div>`;
+}
+function showSixthChapter3Ideas(){
+ setActive(1); document.getElementById('app').innerHTML=sixthCh3Shell('🎯 أفكار مهمة — الفصل الثالث','showSixthChapter3')+`<div class="ministry-ideas-intro"><strong>نقاط التركيز من الكتاب الرسمي</strong><br>هذه الأفكار مستخلصة من شرح الفصل وأمثلته وتمارينه وأسئلته.</div>${SIXTH_CH3_IDEAS.map((x,i)=>`<div class="ministry-idea-card"><h3>${i+1}- ${x[0]}</h3><button class="ministry-toggle" onclick="toggleSixthCh3Idea(${i})">👁️ إظهار الإجابة</button><div id="sixth-ch3-idea-${i}" class="ministry-idea-answer"><strong>✅ الإجابة:</strong><br>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter3()">📖 العودة إلى الفصل الثالث</button></div></div>`;
+}
+function toggleSixthCh3Idea(i){var e=document.getElementById('sixth-ch3-idea-'+i);if(e)e.classList.toggle('show');}
+function showSixthChapter3Questions(){
+ setActive(1); document.getElementById('app').innerHTML=sixthCh3Shell('📚 أسئلة الفصل الثالث وحلولها','showSixthChapter3')+`<div class="questions-intro"><strong>أسئلة الفصل الثالث من الكتاب الرسمي</strong><br>أضيفت الإجابات والتوجيهات بالاستناد إلى المفاهيم والقوانين الواردة في الفصل نفسه.</div>${SIXTH_CH3_QUESTIONS.map((x,i)=>`<div class="question-card"><h3>${x[0]}</h3><div class="question-answer"><strong>✅ الحل/التوجيه:</strong>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter3()">📖 العودة إلى الفصل الثالث</button></div></div>`;
+}
+function showSixthChapter3Drawings(){
+ setActive(1); document.getElementById('app').innerHTML=sixthCh3Shell('🖼️ الرسومات — الفصل الثالث','showSixthChapter3')+`<div class="drawings-section"><h3>🖼️ الرسومات الموجودة داخل الفصل</h3><p class="drawings-subtitle">رسومات وأشكال مأخوذة من صفحات الفصل الثالث في كتاب الكيمياء الرسمي فقط.</p><div class="drawings-grid">
+ <div class="drawing-card"><h4>تجربة إظهار تأثير وجود الأيونات في المحلول</h4><div class="drawing-box"><img src="images/sixth_book_ch3_electrolytes.png" alt="تجربة إظهار تأثير وجود الأيونات في المحلول من الكتاب الرسمي" style="width:100%;height:auto;border-radius:12px;display:block"></div></div>
+ <div class="drawing-card"><h4>تأثير CO₂ والبفر على قيمة pH</h4><div class="drawing-box"><img src="images/sixth_book_ch3_buffer_breathing.png" alt="تأثير ثاني أوكسيد الكربون والبفر على pH من الكتاب الرسمي" style="width:100%;height:auto;border-radius:12px;display:block"></div></div>
+ <div class="drawing-card"><h4>الترسيب وحاصل الذوبان</h4><div class="drawing-box"><img src="images/sixth_book_ch3_precipitation.png" alt="الترسيب من الكتاب الرسمي" style="width:100%;height:auto;border-radius:12px;display:block"></div></div>
+ <div class="drawing-card"><h4>علاقات البفر</h4><div class="drawing-box"><img src="images/sixth_book_ch3_p118.png" alt="علاقات المحاليل المنظمة من الكتاب الرسمي" style="width:100%;height:auto;border-radius:12px;display:block"></div></div>
+ <div class="drawing-card"><h4>أسئلة الفصل الثالث الرسمية</h4><div class="drawing-box"><img src="images/sixth_book_ch3_p130.png" alt="أسئلة الفصل الثالث في الكتاب الرسمي" style="width:100%;height:auto;border-radius:12px;display:block"></div></div>
+ </div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter3()">📖 العودة إلى الفصل الثالث</button></div></div>`;
+}
+function showSixthChapter3Quiz(){window.sixthCh3QuizState={index:0,score:0,wrong:[]};renderSixthCh3Quiz();}
+function renderSixthCh3Quiz(){
+ var s=window.sixthCh3QuizState,total=SIXTH_CH3_QUIZ.length;
+ if(s.index>=total){localStorage.setItem('sixth_ch3_wrong',JSON.stringify(s.wrong));document.getElementById('app').innerHTML=sixthCh3Shell('🏁 نتيجة اختبار الفصل الثالث','showSixthChapter3')+`<div class="content-card" style="text-align:center"><div style="font-size:56px">🏆</div><h3>انتهى الاختبار</h3><p>النتيجة: <strong>${s.score} / ${total}</strong></p><div class="example-box">عدد الإجابات الخاطئة: ${s.wrong.length}</div><div class="lesson-navigation"><button class="next-button" onclick="showSixthChapter3Quiz()">🔁 إعادة الاختبار</button><button class="chapter-button" onclick="showSixthChapter3()">📖 العودة إلى الفصل الثالث</button></div></div></div>`;return;}
+ var q=SIXTH_CH3_QUIZ[s.index];document.getElementById('app').innerHTML=sixthCh3Shell('❓ اختبرني — الفصل الثالث','showSixthChapter3')+`<div class="content-card"><div class="quiz-meta"><span class="difficulty-badge">السؤال ${s.index+1} من ${total}</span><span class="small-muted">النتيجة ${s.score}</span></div><div class="progress-track"><div class="progress-bar" style="width:${Math.round((s.index/total)*100)}%"></div></div><h3 style="margin-top:18px">${q.q}</h3><div class="question-options">${q.o.map((o,i)=>`<button class="question-option" onclick="answerSixthCh3Quiz(${i})">${String.fromCharCode(1571+i)}. ${o}</button>`).join('')}</div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter3()">📖 العودة إلى الفصل الثالث</button></div></div></div>`;
+}
+function answerSixthCh3Quiz(i){var s=window.sixthCh3QuizState,q=SIXTH_CH3_QUIZ[s.index];if(i===q.a)s.score++;else s.wrong.push({q:q.q,chosen:q.o[i],answer:q.o[q.a],explain:q.e});s.index++;renderSixthCh3Quiz();}
+function showSixthChapter3Wrong(){
+ setActive(1);var wrong=[];try{wrong=JSON.parse(localStorage.getItem('sixth_ch3_wrong')||'[]')}catch(e){wrong=[]}
+ document.getElementById('app').innerHTML=sixthCh3Shell('🔄 مراجعة أخطائي — الفصل الثالث','showSixthChapter3')+`<div class="questions-intro"><strong>مراجعة الأخطاء</strong><br>تظهر هنا الأسئلة التي أخطأت فيها في آخر اختبار للفصل الثالث.</div>${wrong.length?wrong.map((x,i)=>`<div class="question-card review-card"><div class="review-question">${i+1}- ${x.q}</div><div class="question-answer"><strong>إجابتك:</strong>${x.chosen}<br><strong>✅ الصحيح:</strong>${x.answer}<br><strong>💡 التوضيح:</strong>${x.explain}</div></div>`).join(''):`<div class="content-card" style="text-align:center"><h3>لا توجد أخطاء محفوظة حاليًا ✅</h3><p>أجرِ اختبار الفصل الثالث أولًا.</p></div>`}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter3()">📖 العودة إلى الفصل الثالث</button></div></div>`;
 }
 
 function showSixthMinistry(){ showSixthChapter1Ideas(); }

@@ -6094,11 +6094,12 @@ function sixthChapter1ToolsHTML(){
 function showSixthScientific(){
   setCurrentGrade('sixth'); setActive(1);
   var app=document.getElementById('app');
-  app.innerHTML=`<div class="grade-dashboard sixth-dashboard"><div class="page-header dashboard-header"><button class="back-button" onclick="showHome()">←</button><div class="dashboard-title-wrap"><span class="dashboard-kicker">المسار الدراسي</span><h2>🎓 الكيمياء — الصف السادس العلمي</h2></div><span></span></div><div class="grade-switch"><button onclick="showThirdMiddleHome()">📘 الثالث متوسط</button><button class="active" onclick="showSixthScientific()">🎓 السادس العلمي</button></div><section class="dashboard-hero sixth-hero"><div><span class="dashboard-badge">المنهج قيد البناء</span><h1>السادس العلمي</h1><p>نعيد بناء المنهج فصلًا تلو الآخر. تم تجهيز الفصول الأول والثاني والثالث من الكتاب الرسمي، وسنواصل البناء فصلًا تلو الآخر.</p></div><div class="dashboard-hero-icon">🧪</div></section><div class="dashboard-grid">
+  app.innerHTML=`<div class="grade-dashboard sixth-dashboard"><div class="page-header dashboard-header"><button class="back-button" onclick="showHome()">←</button><div class="dashboard-title-wrap"><span class="dashboard-kicker">المسار الدراسي</span><h2>🎓 الكيمياء — الصف السادس العلمي</h2></div><span></span></div><div class="grade-switch"><button onclick="showThirdMiddleHome()">📘 الثالث متوسط</button><button class="active" onclick="showSixthScientific()">🎓 السادس العلمي</button></div><section class="dashboard-hero sixth-hero"><div><span class="dashboard-badge">المنهج قيد البناء</span><h1>السادس العلمي</h1><p>نعيد بناء المنهج فصلًا تلو الآخر. تم تجهيز الفصول الأول والثاني والثالث والرابع من الكتاب الرسمي، وسنواصل البناء فصلًا تلو الآخر.</p></div><div class="dashboard-hero-icon">🧪</div></section><div class="dashboard-grid">
 <button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter1()"><span class="dashboard-card-icon">🔥</span><span><b>الفصل الأول: الثرموداينمك</b><small>شرح ودروس وقوانين ومسائل واختبارات وأفكار وأسئلة خاصة بالفصل الأول.</small></span><i>←</i></button>
 <button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter2()"><span class="dashboard-card-icon">⚖️</span><span><b>الفصل الثاني: الاتزان الكيميائي</b><small>شرح الاتزان الكيميائي وثوابت الاتزان وقاعدة لو شاتليه والعوامل المؤثرة.</small></span><i>←</i></button>
 <button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter3()"><span class="dashboard-card-icon">🧪</span><span><b>الفصل الثالث: الاتزان الأيوني</b><small>الإلكتروليتات والحوامض والقواعد وpH والبفر والذوبانية وثابت حاصل الذوبان.</small></span><i>←</i></button>
-</div><div class="dashboard-note sixth-note">📌 تم بناء الفصول الأول والثاني والثالث بالاعتماد على الكتاب الرسمي، وسنواصل إضافة بقية الفصول واحدًا تلو الآخر.</div></div>`;
+<button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter4()"><span class="dashboard-card-icon">⚡</span><span><b>الفصل الرابع: تفاعلات التأكسد والاختزال والكيمياء الكهربائية</b><small>أعداد التأكسد وتفاعلات الأكسدة والاختزال والخلايا الكلفانية والإلكتروليتية ونرنست وفاراداي والبطاريات.</small></span><i>←</i></button>
+</div><div class="dashboard-note sixth-note">📌 تم بناء الفصول الأول والثاني والثالث والرابع بالاعتماد على الكتاب الرسمي، وسنواصل إضافة بقية الفصول واحدًا تلو الآخر.</div></div>`;
 }
 function showSixthLessonsHub(){ showSixthScientific(); }
 function showSixthChapter1(){
@@ -6114,20 +6115,20 @@ function showSixthChapter1Lesson(i){
   document.getElementById('app').innerHTML=sixthCh1Shell(l.title,'showSixthChapter1')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH1_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;
 }
 function showSixthChapter1Formulas(){
- setActive(1); document.getElementById('app').innerHTML=sixthCh1Shell('🧮 القوانين والمعادلات الكيميائية — الفصل الأول','showSixthChapter1')+`<div class="formula-section-card"><div class="formula-badge">الفصل الأول — الثرموداينمك</div><p style="color:#617086;line-height:1.9">القوانين والعلاقات التالية مجمعة من موضوعات الفصل الأول في الملزمة، ومهيأة للمراجعة السريعة.</p><div class="formula-grid">${SIXTH_CH1_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter1()">📖 العودة إلى الفصل الأول</button></div></div>`;
+ setActive(1); document.getElementById('app').innerHTML=sixthCh1Shell('🧮 القوانين والمعادلات الكيميائية — الفصل الأول','showSixthChapter1')+`<div class="formula-section-card"><div class="formula-badge">الفصل الأول — الثرموداينمك</div><p style="color:#617086;line-height:1.9">القوانين والعلاقات التالية مجمعة من موضوعات الفصل الأول في الكتاب الرسمي، ومهيأة للمراجعة السريعة.</p><div class="formula-grid">${SIXTH_CH1_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter1()">📖 العودة إلى الفصل الأول</button></div></div>`;
 }
 function showSixthChapter1Memory(){
  setActive(1); document.getElementById('app').innerHTML=sixthCh1Shell('🧠 احفظها — الفصل الأول','showSixthChapter1')+`<div class="lesson-content">${SIXTH_CH1_MEMORY.map((x,i)=>`<div class="memory-box"><strong>${i+1}️⃣</strong>${x}</div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter1()">📖 العودة إلى الفصل الأول</button></div></div></div>`;
 }
 function showSixthChapter1Ideas(){
- setActive(1); document.getElementById('app').innerHTML=sixthCh1Shell('🎯 أفكار وزارية — الفصل الأول','showSixthChapter1')+`<div class="ministry-ideas-intro"><strong>نقاط تركيز مهمة</strong><br>تعتمد على التعليلات والأفكار الواردة ضمن الفصل الأول في الملزمة.</div>${SIXTH_CH1_IDEAS.map((x,i)=>`<div class="ministry-idea-card"><h3>${i+1}- ${x[0]}</h3><button class="ministry-toggle" onclick="toggleSixthCh1Idea(${i})">👁️ إظهار الحل</button><div id="sixth-ch1-idea-${i}" class="ministry-idea-answer"><strong>✅ الحل:</strong><br>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter1()">📖 العودة إلى الفصل الأول</button></div></div>`;
+ setActive(1); document.getElementById('app').innerHTML=sixthCh1Shell('🎯 أفكار وزارية — الفصل الأول','showSixthChapter1')+`<div class="ministry-ideas-intro"><strong>نقاط تركيز مهمة</strong><br>تعتمد على التعليلات والأفكار الواردة ضمن الفصل الأول في الكتاب الرسمي.</div>${SIXTH_CH1_IDEAS.map((x,i)=>`<div class="ministry-idea-card"><h3>${i+1}- ${x[0]}</h3><button class="ministry-toggle" onclick="toggleSixthCh1Idea(${i})">👁️ إظهار الحل</button><div id="sixth-ch1-idea-${i}" class="ministry-idea-answer"><strong>✅ الحل:</strong><br>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter1()">📖 العودة إلى الفصل الأول</button></div></div>`;
 }
 function toggleSixthCh1Idea(i){ var e=document.getElementById('sixth-ch1-idea-'+i); if(e)e.classList.toggle('show'); }
 function showSixthChapter1Questions(){
  setActive(1); document.getElementById('app').innerHTML=sixthCh1Shell('📚 أسئلة الفصل الأول وحلولها','showSixthChapter1')+`<div class="questions-intro"><strong>أسئلة تدريبية من موضوعات الفصل الأول</strong><br>تم تنظيمها للمراجعة مع إجابة مباشرة لكل سؤال.</div>${SIXTH_CH1_QUESTIONS.map((x,i)=>`<div class="question-card"><h3>${i+1}- ${x[0]}</h3><div class="question-answer"><strong>✅ الحل:</strong>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter1()">📖 العودة إلى الفصل الأول</button></div></div>`;
 }
 function showSixthChapter1MinistryQuestions(){
- setActive(1); document.getElementById('app').innerHTML=sixthCh1Shell('📝 أسئلة وزارية — الفصل الأول','showSixthChapter1')+`<div class="questions-intro"><strong>نماذج مركزة</strong><br>الملزمة تتضمن صفحات مخصصة لنصيب الفصل من الامتحانات الوزارية وأسئلة السنوات السابقة، ثم مجموعة من الأسئلة التدريبية.</div>${SIXTH_CH1_QUESTIONS.slice(0,10).map((x,i)=>`<div class="question-card"><h3>${i+1}- ${x[0]}</h3><div class="question-answer"><strong>✅ الإجابة:</strong>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter1()">📖 العودة إلى الفصل الأول</button></div></div>`;
+ setActive(1); document.getElementById('app').innerHTML=sixthCh1Shell('📝 أسئلة وزارية — الفصل الأول','showSixthChapter1')+`<div class="questions-intro"><strong>نماذج مركزة</strong><br>تم تنظيم هذه النماذج بالاعتماد على محتوى الكتاب الرسمي للفصل الأول.</div>${SIXTH_CH1_QUESTIONS.slice(0,10).map((x,i)=>`<div class="question-card"><h3>${i+1}- ${x[0]}</h3><div class="question-answer"><strong>✅ الإجابة:</strong>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter1()">📖 العودة إلى الفصل الأول</button></div></div>`;
 }
 function showSixthChapter1Drawings(){
  setActive(1); document.getElementById('app').innerHTML=sixthCh1Shell('🖼️ الرسومات — الفصل الأول','showSixthChapter1')+`<div class="drawings-section"><h3>🖼️ الرسومات الموجودة داخل الفصل</h3><p class="drawings-subtitle">رسومات وصور مأخوذة من صفحات الفصل الأول في كتاب الكيمياء الرسمي للسادس العلمي فقط.</p><div class="drawings-grid">
@@ -6579,6 +6580,194 @@ function showSixthChapter3Wrong(){
  setActive(1);var wrong=[];try{wrong=JSON.parse(localStorage.getItem('sixth_ch3_wrong')||'[]')}catch(e){wrong=[]}
  document.getElementById('app').innerHTML=sixthCh3Shell('🔄 مراجعة أخطائي — الفصل الثالث','showSixthChapter3')+`<div class="questions-intro"><strong>مراجعة الأخطاء</strong><br>تظهر هنا الأسئلة التي أخطأت فيها في آخر اختبار للفصل الثالث.</div>${wrong.length?wrong.map((x,i)=>`<div class="question-card review-card"><div class="review-question">${i+1}- ${x.q}</div><div class="question-answer"><strong>إجابتك:</strong>${x.chosen}<br><strong>✅ الصحيح:</strong>${x.answer}<br><strong>💡 التوضيح:</strong>${x.explain}</div></div>`).join(''):`<div class="content-card" style="text-align:center"><h3>لا توجد أخطاء محفوظة حاليًا ✅</h3><p>أجرِ اختبار الفصل الثالث أولًا.</p></div>`}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter3()">📖 العودة إلى الفصل الثالث</button></div></div>`;
 }
+
+
+/* =========================================================
+   السادس العلمي — الفصل الرابع: تفاعلات التأكسد والاختزال والكيمياء الكهربائية
+   المصدر المعتمد: كتاب الكيمياء للصف السادس العلمي، الطبعة الحادية عشرة 2025 فقط.
+   نطاق الفصل الرسمي: الصفحات 133–168.
+   ========================================================= */
+var SIXTH_CH4_LESSONS = [
+  {title:'4-1 مقدمة وأعداد التأكسد',icon:'🔢',html:`
+    <div class="content-card"><h3>الكيمياء الكهربائية</h3><p>يهتم هذا الفرع من الكيمياء بالتحولات بين الطاقة الكيميائية والطاقة الكهربائية. العمليات الكهروكيميائية هي تفاعلات تأكسد واختزال؛ فقد تنتج بعض التفاعلات تيارًا كهربائيًا تلقائيًا، بينما تحتاج تفاعلات أخرى إلى طاقة كهربائية خارجية.</p></div>
+    <div class="content-card"><h3>أعداد التأكسد — القواعد الأساسية</h3><ul class="source-list">
+      <li>العنصر الحر: عدد تأكسده <strong>0</strong>.</li>
+      <li>الأيون أحادي الذرة: عدد التأكسد يساوي شحنته.</li>
+      <li>الهيدروجين: <strong>+1</strong> ما عدا الهيدريدات <strong>−1</strong>.</li>
+      <li>الأوكسجين: <strong>−2</strong> ما عدا البيروكسيدات <strong>−1</strong>.</li>
+      <li>عناصر الزمرة IA: <strong>+1</strong>، والزمرة IIA: <strong>+2</strong>، والزمرة IIIA: <strong>+3</strong>.</li>
+      <li>الهالوجينات غالبًا <strong>−1</strong> وقد تأخذ قيمًا موجبة في بعض المركبات.</li>
+      <li>مجموع أعداد التأكسد في المركب المتعادل = <strong>0</strong>.</li>
+      <li>مجموع أعداد التأكسد في الأيون متعدد الذرات = <strong>شحنة الأيون</strong>.</li>
+    </ul></div>`},
+  {title:'4-2 تفاعلات التأكسد والاختزال',icon:'🔄',html:`
+    <div class="content-card"><h3>التأكسد والاختزال</h3><p><strong>التأكسد:</strong> فقدان إلكترونات مع زيادة عدد التأكسد.</p><p><strong>الاختزال:</strong> اكتساب إلكترونات مع نقصان عدد التأكسد.</p><div class="example-box">Na → Na⁺ + e⁻ &nbsp; (تأكسد)</div><div class="example-box">Cl₂ + 2e⁻ → 2Cl⁻ &nbsp; (اختزال)</div><p>لا يحدث التأكسد منفردًا عن الاختزال؛ فعدد الإلكترونات المفقودة يساوي عدد الإلكترونات المكتسبة.</p></div>
+    <div class="content-card"><h3>أنصاف التفاعل</h3><p>يقسم تفاعل الأكسدة والاختزال إلى نصف تفاعل للتأكسد ونصف تفاعل للاختزال، ثم تساوى الإلكترونات وتجمع المعادلتان.</p><div class="example-box">Zn → Zn²⁺ + 2e⁻</div><div class="example-box">Cu²⁺ + 2e⁻ → Cu</div><div class="example-box">Zn + Cu²⁺ → Zn²⁺ + Cu</div></div>`},
+  {title:'4-3 العوامل المؤكسدة والمختزلة',icon:'🧪',html:`
+    <div class="content-card"><h3>العامل المختزل</h3><p>المادة التي تختزل مادة أخرى، وهي المادة التي <strong>تتأكسد</strong> وتفقد الإلكترونات ويزداد عدد تأكسدها.</p></div>
+    <div class="content-card"><h3>العامل المؤكسد</h3><p>المادة التي تؤكسد مادة أخرى، وهي المادة التي <strong>تُختزل</strong> وتكتسب الإلكترونات وينقص عدد تأكسدها.</p><div class="example-box">في تفاعل النحاس مع HNO₃ المركز: Cu عامل مختزل، وHNO₃/نوع النتروجين المؤكسد عامل مؤكسد وفق تغير أعداد التأكسد الوارد في الكتاب.</div></div>`},
+  {title:'4-4 الخلايا الكهروكيميائية',icon:'⚙️',html:`
+    <div class="content-card"><h3>مبدأ الخلية الكهروكيميائية</h3><p>تتكون الخلية عادة من قطبين. عند <strong>الأنود</strong> يحدث التأكسد ويكون مصدرًا للإلكترونات، وعند <strong>الكاثود</strong> يحدث الاختزال وتصل إليه الإلكترونات عبر الدائرة الخارجية.</p><p>يقسم الكتاب الخلايا إلى: <strong>خلايا كلفانية/فولتائية</strong> وخلايا <strong>إلكتروليتية</strong>.</p></div>
+    <div class="content-card"><h3>الخلية الكلفانية</h3><p>تحول الطاقة الكيميائية إلى طاقة كهربائية من خلال تفاعل تلقائي. ومن أمثلتها خلية دانيال.</p><div class="example-box">Zn(s) → Zn²⁺(aq) + 2e⁻</div><div class="example-box">Cu²⁺(aq) + 2e⁻ → Cu(s)</div><div class="example-box">Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)</div></div>`},
+  {title:'4-5 الخلية الكلفانية وخلية دانيال والجسر الملحي',icon:'🔋',html:`
+    <div class="content-card"><h3>خلية دانيال</h3><p>تتكون من قطب خارصين مغمور في محلول أيوناته وقطب نحاس مغمور في محلول أيوناته، ويربط المحلولين جسر ملحي. الإلكترونات تسري في السلك الخارجي من الأنود إلى الكاثود، بينما تتحرك الأيونات داخل الجسر الملحي لإكمال الدائرة.</p><div class="formula-equation">Zn|Zn²⁺ || Cu²⁺|Cu</div><p>في اصطلاح الكتاب يكتب تفاعل التأكسد عند الأنود يسارًا وتفاعل الاختزال عند الكاثود يمينًا، ويفصل بينهما خطان يمثلان الجسر الملحي.</p></div>
+    <div class="content-card"><h3>دور الجسر الملحي</h3><p>يسمح بحركة الأيونات ويحافظ على التعادل الكهربائي للمحلولين ويكمل الدائرة الداخلية، مع استعمال إلكتروليت خامل مثل KCl أو KNO₃ في الأمثلة الواردة بالكتاب.</p></div>`},
+  {title:'4-6 جهد الخلية وجهود الأقطاب القياسية',icon:'📐',html:`
+    <div class="content-card"><h3>جهد الخلية</h3><p>جهد الخلية هو الفرق في الجهد الكهربائي بين القطبين، ويرمز له Ecell. ويستخدم الفولت V وحدة للجهد.</p><div class="formula-equation">Ecell = Eox(anode) + Ered(cathode)</div><div class="formula-equation">E°cell = E°ox(anode) + E°red(cathode)</div><div class="formula-equation">E°cell = E°cathode − E°anode</div><p>العلاقة الأخيرة تستخدم عند أخذ قيم <strong>جهود الاختزال القياسية</strong> من الجدول مباشرة.</p></div>
+    <div class="content-card"><h3>القطب الهيدروجيني القياسي SHE</h3><p>اختير قطب الهيدروجين القياسي مرجعًا لقياس جهود الأقطاب، واتفق على أن جهده القياسي يساوي:</p><div class="formula-equation">E°SHE = 0.00 V</div><p>عند 25°C، وضغط H₂ مقداره 1 atm وتركيز H⁺ يساوي 1 M.</p></div>
+    <div class="content-card"><h3>ملاحظات اختيار الأنود والكاثود</h3><p>يُختار الأنود للعنصر ذي جهد الاختزال القياسي الأقل، والكاثود للعنصر ذي جهد الاختزال القياسي الأعلى. إذا كان E°cell موجبًا يكون التفاعل تلقائيًا في الظروف القياسية.</p></div>`},
+  {title:'4-7 العلاقة بين E°cell وΔG° وK ومعادلة نرنست',icon:'📈',html:`
+    <div class="content-card"><h3>العلاقة مع الطاقة الحرة وثابت الاتزان</h3><div class="formula-equation">ΔG° = −nFE°cell</div><div class="formula-equation">ΔG° = −RT ln Keq</div><div class="formula-equation">E°cell = (RT / nF) ln Keq</div><p>عند 25°C يمكن استخدام:</p><div class="formula-equation">E°cell = (0.026 / n) ln Keq</div><p>كلما كان E°cell موجبًا كانت ΔG° سالبة وكان التفاعل أكثر قابلية للتلقائية في الظروف القياسية.</p></div>
+    <div class="content-card"><h3>معادلة نرنست</h3><div class="formula-equation">Ecell = E°cell − (RT / nF) ln Q</div><div class="formula-equation">Ecell = E°cell − (0.026 / n) ln Q &nbsp; (عند 25°C)</div><p>حيث Q حاصل قسمة تراكيز أو ضغوط الأنواع الداخلة في التفاعل بحسب التعبير المناسب، مع عدم إدخال المواد الصلبة والسوائل النقية في Q.</p></div>`},
+  {title:'4-8 الخلايا الإلكتروليتية والتحليل الكهربائي',icon:'⚡',html:`
+    <div class="content-card"><h3>الخلايا الإلكتروليتية</h3><p>تستهلك الخلية الإلكتروليتية تيارًا كهربائيًا، وتحول الطاقة الكهربائية إلى طاقة كيميائية، وتحدث فيها تفاعلات غير تلقائية.</p></div>
+    <div class="content-card"><h3>التحليل الكهربائي لمنصهر NaCl</h3><div class="example-box">2Na⁺ + 2e⁻ → 2Na &nbsp; (الكاثود)</div><div class="example-box">2Cl⁻ → Cl₂ + 2e⁻ &nbsp; (الأنود)</div><div class="example-box">2Na⁺ + 2Cl⁻ → 2Na + Cl₂</div><p>يجب إبقاء الصوديوم مفصولًا عن غاز الكلور حتى لا يتفاعلا تلقائيًا لتكوين NaCl مرة أخرى.</p></div>
+    <div class="content-card"><h3>الطلاء الكهربائي</h3><p>يستخدم التحليل الكهربائي لطلي فلز بطبقة رقيقة من فلز آخر. يكون الفلز النقي المطلوب الطلاء به أنودًا، والسطح المراد طلاؤه كاثودًا، ويحتوي المحلول على ملح الفلز.</p></div>`},
+  {title:'4-9 قوانين فاراداي',icon:'⚖️',html:`
+    <div class="content-card"><h3>القانون الأول لفاراداي</h3><p>تتناسب كتلة المادة المترسبة عند الكاثود أو الذائبة من الأنود أو المتحررة كغاز طرديًا مع كمية الكهرباء التي تمر خلال الخلية.</p><div class="formula-equation">Q = I × t</div><div class="formula-equation">n(e⁻) = Q / F</div><div class="formula-equation">F ≈ 96500 C·mol⁻¹ e⁻</div></div>
+    <div class="content-card"><h3>القانون الثاني لفاراداي</h3><p>عند مرور الكمية نفسها من الكهرباء خلال خلايا مختلفة، تتناسب كتل المواد المتحررة أو المترسبة مع مكافئاتها الغرامية.</p><div class="formula-equation">m = n × M</div><div class="formula-equation">n(المادة) = n(e⁻) / عدد الإلكترونات اللازمة لكل مول من المادة</div></div>
+    <div class="content-card"><h3>علاقات مهمة في المسائل</h3><div class="formula-equation">Q = I t</div><div class="formula-equation">n(e⁻) = It / F</div><div class="formula-equation">m = [It/F] × [M/z]</div><div class="formula-equation">PV = nRT</div><p>يمكن استعمال قانون الغاز المثالي عند حساب حجم الغاز المتحرر في ظروف غير قياسية، أما عند STP فيستعمل الحجم المولي 22.4 L·mol⁻¹ كما في أسئلة الكتاب.</p></div>`},
+  {title:'4-10 البطاريات وخلايا الوقود',icon:'🔋',html:`
+    <div class="content-card"><h3>البطاريات</h3><p>يصنف الكتاب البطاريات إلى أولية غير قابلة لإعادة الشحن، وثانوية قابلة لإعادة الشحن. البطارية مجموعة من خلايا كلفانية قد تربط على التوالي، فيكون جهدها مجموع جهود الخلايا.</p></div>
+    <div class="content-card"><h3>بطارية الخزن الرصاصية</h3><p>تستخدم في تشغيل السيارة، وتتكون الخلية من قطب رصاص يمثل الأنود وقطب من PbO₂ يمثل الكاثود، مع حمض الكبريتيك كإلكتروليت. عند التفريغ يتكون PbSO₄ على القطبين ويستهلك H₂SO₄، وعند الشحن تنعكس تفاعلات الخلية بوساطة مصدر كهربائي خارجي.</p></div>
+    <div class="content-card"><h3>الخلية الجافة (خارصين–كاربون)</h3><p>وعاء الخارصين يعمل أنودًا، ويستخدم الكاربون/الكرافيت ككاثود، مع عجينة رطبة تحتوي NH₄Cl وZnCl₂ وMnO₂ وفق وصف الكتاب.</p></div>`}
+];
+
+var SIXTH_CH4_FORMULAS = [
+ ['عدد التأكسد للعنصر الحر','عدد التأكسد = 0','للعنصر غير المتحد.'],
+ ['الأيون أحادي الذرة','عدد التأكسد = شحنة الأيون','قاعدة مباشرة في الكتاب.'],
+ ['مجموع أعداد التأكسد في مركب متعادل','Σ أعداد التأكسد = 0','للمركبات المتعادلة كهربائيًا.'],
+ ['مجموع أعداد التأكسد في أيون متعدد الذرات','Σ أعداد التأكسد = شحنة الأيون','تستخدم لاستخراج عدد تأكسد عنصر مجهول.'],
+ ['نصف تفاعل التأكسد','المادة → الأيون + e⁻','الأكسدة فقد إلكترونات وزيادة عدد التأكسد.'],
+ ['نصف تفاعل الاختزال','الأيون + e⁻ → المادة','الاختزال اكتساب إلكترونات ونقصان عدد التأكسد.'],
+ ['جهد الخلية','Ecell = Eox + Ered','المجموع الجبري لجهدي التأكسد والاختزال.'],
+ ['جهد الخلية عند استخدام جهود الاختزال','E°cell = E°cathode − E°anode','تستخدم قيم الجدول كما هي دون عكسها.'],
+ ['جهد التأكسد والاختزال لنصف الخلية','E°ox = −E°red','عكس نصف التفاعل يعكس إشارة الجهد.'],
+ ['قطب الهيدروجين القياسي','E°SHE = 0.00 V','مرجع قياس جهود الأقطاب عند 25°C، 1 atm، 1 M.'],
+ ['الشحنة الكهربائية','Q = I × t','I بالأمبير والزمن بالثواني.'],
+ ['ثابت فاراداي','F ≈ 96500 C·mol⁻¹ e⁻','شحنة مول واحد من الإلكترونات.'],
+ ['عدد مولات الإلكترونات','n(e⁻) = Q/F = It/F','تحويل الشحنة إلى مولات إلكترونات.'],
+ ['كتلة المادة المترسبة','m = nM','n بالمول وM الكتلة المولية.'],
+ ['الصيغة الجامعة لقانون فاراداي','m = (It/F) × (M/z)','z عدد الإلكترونات اللازمة لترسيب مول واحد من المادة.'],
+ ['الطاقة الكهربائية','W = E × Q','الوحدة J.'],
+ ['الطاقة الكهربائية في الخلية القياسية','W = nFE°cell','عند مرور n مول من الإلكترونات.'],
+ ['طاقة كبس الحرة القياسية','ΔG° = −nFE°cell','للتفاعل الكهروكيميائي القياسي.'],
+ ['العلاقة بين ΔG° وK','ΔG° = −RT ln Keq','العلاقة المشتقة من الثرموداينمك.'],
+ ['العلاقة بين E°cell وK','E°cell = (RT/nF) ln Keq','عند 25°C: E°cell = (0.026/n) ln Keq.'],
+ ['معادلة نرنست','Ecell = E°cell − (RT/nF) ln Q','لربط جهد الخلية بالتركيزات غير القياسية.'],
+ ['نرنست عند 25°C','Ecell = E°cell − (0.026/n) ln Q','تستخدم عند 298 K.'],
+ ['قانون الغاز المثالي','PV = nRT','يستخدم للغازات عند تحويل المولات إلى حجم أو ضغط.'],
+ ['حجم الغاز عند STP','V = n × 22.4 L','وفق القيمة المستعملة في أسئلة الكتاب.'],
+ ['جهد البطارية المتصلة على التوالي','Eالبطارية = ΣEالخلايا','عند تجميع خلايا كلفانية على التوالي.']
+];
+
+var SIXTH_CH4_MEMORY = [
+ 'التأكسد = فقد إلكترونات وزيادة عدد التأكسد، والاختزال = اكتساب إلكترونات ونقصان عدد التأكسد.',
+ 'الأنود هو قطب التأكسد، والكاثود هو قطب الاختزال في الخلايا الكهروكيميائية.',
+ 'في الخلية الكلفانية يكون التفاعل تلقائيًا ويولد تيارًا كهربائيًا، وفي الخلية الإلكتروليتية يكون التفاعل غير تلقائي ويستهلك تيارًا.',
+ 'العنصر الحر عدد تأكسده صفر، والهيدروجين +1 ما عدا الهيدريدات، والأوكسجين −2 ما عدا البيروكسيدات.',
+ 'مجموع أعداد التأكسد في المركب المتعادل يساوي صفرًا، وفي الأيون متعدد الذرات يساوي شحنة الأيون.',
+ 'E°cell الموجب يدل على تلقائية التفاعل في الظروف القياسية، وΔG° السالب يدل على التلقائية.',
+ 'عند استعمال جدول جهود الاختزال: E°cell = E°cathode − E°anode.',
+ 'جهد قطب الهيدروجين القياسي يساوي 0.00 V وهو المرجع القياسي لجهود الأقطاب.',
+ 'Q = It، وF ≈ 96500 C·mol⁻¹ من الإلكترونات، وn(e⁻)=Q/F.',
+ 'في مسائل فاراداي: استخرج الإلكترونات أولًا، ثم مولات المادة، ثم الكتلة أو حجم الغاز عند الحاجة.',
+ 'معادلة نرنست تستخدم عند اختلاف التراكيز أو الضغوط عن الظروف القياسية.',
+ 'عند 25°C: Ecell = E°cell − (0.026/n)lnQ، وE°cell = (0.026/n)lnK.'
+];
+
+var SIXTH_CH4_IDEAS = [
+ ['كيف تميز التأكسد من الاختزال؟','راقب عدد التأكسد أو انتقال الإلكترونات: زيادة عدد التأكسد وفقد الإلكترونات = تأكسد، ونقصانه واكتساب الإلكترونات = اختزال.'],
+ ['كيف تحدد العامل المختزل؟','هو المادة التي تتأكسد، أي تفقد الإلكترونات ويزداد عدد تأكسدها.'],
+ ['كيف تحدد العامل المؤكسد؟','هو المادة التي تختزل، أي تكتسب الإلكترونات وينقص عدد تأكسدها.'],
+ ['متى يكون التفاعل الكهروكيميائي تلقائيًا في الظروف القياسية؟','عندما تكون قيمة E°cell موجبة، ويكون عندها ΔG° سالبة.'],
+ ['كيف تختار الأنود والكاثود من جدول جهود الاختزال؟','صاحب جهد الاختزال القياسي الأقل يكون الأنود، وصاحب الجهد الأعلى يكون الكاثود.'],
+ ['ما أهمية قطب الهيدروجين القياسي؟','هو قطب مرجعي اتفق على أن جهده القياسي يساوي صفر فولت، وتقاس بالنسبة إليه جهود الأقطاب الأخرى.'],
+ ['لماذا لا تتغير قيمة جهد القطب عند ضرب معادلة نصف الخلية؟','لأن الجهد خاصية مركزة لا تعتمد على كمية المادة، وفق شرح الكتاب.'],
+ ['ماذا يحدث عند عكس نصف التفاعل؟','ينعكس اتجاه التفاعل وينعكس معه إشارة جهد القطب.'],
+ ['ما وظيفة الجسر الملحي؟','إكمال الدائرة الداخلية والسماح بحركة الأيونات والمحافظة على التعادل الكهربائي للمحلولين.'],
+ ['ما الفرق الأساسي بين الخلية الكلفانية والإلكتروليتية؟','الكلفانية تولد الكهرباء من تفاعل تلقائي، والإلكتروليتية تستخدم الكهرباء لإحداث تفاعل غير تلقائي.'],
+ ['ما معنى E°cell الموجب والسالب؟','الموجب يدل على تفاعل تلقائي في الظروف القياسية، والسالب يدل على أن التفاعل كما كتب غير تلقائي في تلك الظروف.'],
+ ['متى نستخدم معادلة نرنست؟','عندما لا تكون تراكيز أو ضغوط الأنواع في الخلية عند حالتها القياسية.'],
+ ['ماذا يحدث عند التحليل الكهربائي لمنصهر NaCl؟','يترسب الصوديوم عند الكاثود ويتحرر الكلور عند الأنود.'],
+ ['كيف تربط كمية الكهرباء بكتلة المادة؟','Q=It ثم n(e⁻)=Q/F ثم تحسب مولات المادة بحسب عدد الإلكترونات وأخيرًا m=nM.'],
+ ['ما علاقة ΔG° وE°cell؟','ΔG° = −nFE°cell؛ لذلك إشارة E°cell الموجبة تقابل ΔG° سالبة.']
+];
+
+var SIXTH_CH4_QUESTIONS = [
+ ['1-4 عرّف الأنود والقوة الدافعة الكهربائية وجهد الاختزال القياسي والجسر الملحي.','الأنود قطب التأكسد، والقوة الدافعة الكهربائية مقياس جهد الخلية، وجهد الاختزال القياسي جهد نصف الخلية في الظروف القياسية، والجسر الملحي وسط أيوني يكمل الدائرة ويحافظ على التعادل الكهربائي.'],
+ ['2-4 احسب ثابت فاراداي وبين وحداته.','F ≈ 9.65×10⁴ C لكل مول من الإلكترونات، أي نحو 96500 C·mol⁻¹ e⁻.'],
+ ['3-4 أي المواد أفضل كعامل مؤكسد وفق جهود الاختزال المعطاة في الكتاب؟','الأكبر في جهد الاختزال القياسي يكون أقوى كعامل مؤكسد، ولذلك من الخيارات الواردة يكون الذهب Au³⁺/Au هو الأعلى.'],
+ ['4-4 اكتب العلاقة التي تربط E°cell وΔG° وKeq.','ΔG° = −nFE°cell، وΔG° = −RT lnKeq، ومن ثم E°cell = (RT/nF)lnKeq.'],
+ ['5-4 عند الظروف القياسية، كيف تحدد التفاعل الذي يجري تلقائيًا؟','احسب E°cell من جهود الاختزال؛ إذا كانت E°cell موجبة يكون التفاعل تلقائيًا.'],
+ ['6-4 اكتب معادلة نرنست وعرّف رموزها.','Ecell = E°cell − (RT/nF)lnQ؛ حيث R ثابت الغازات، T بالكلفن، n عدد مولات الإلكترونات، F ثابت فاراداي، وQ حاصل التفاعل.'],
+ ['7-4 احسب E°cell وEcell وΔG لتفاعلات الخلايا المعطاة.','تتبع خطوات الكتاب: اكتب نصفي التفاعل، حدد الأنود والكاثود، احسب E°cell، ثم استخدم نرنست لـEcell، وبعدها ΔG = −nFE.'],
+ ['8-4 احسب جهد الخلية المكونة من نصف خلية Zn/Zn²⁺ وقطب SHE.','عند استخدام SHE كمرجع يكون جهد الخلية القياسي مساويًا لجهد اختزال قطب الزنك مع الإشارة المناسبة حسب اتجاه الخلية. في المثال ذي E°Zn²⁺/Zn = −0.76 V تكون القيمة المطلوبة للخلية مع SHE = +0.76 V عند كون الزنك أنودًا.'],
+ ['9-4 ما الفرق بين الخلية الكلفانية وخلايا التحليل الكهربائي؟','الكلفانية تحول الطاقة الكيميائية إلى كهربائية بتفاعل تلقائي، والإلكتروليتية تستهلك الكهرباء لإحداث تفاعل غير تلقائي.'],
+ ['10-4 استخدم قانون فاراداي لحساب كمية الإلكترونات اللازمة لتحرير حجم من الغاز.','حوّل الحجم إلى مولات باستعمال الحجم المولي أو قانون الغاز، ثم اربط مولات الغاز بعدد الإلكترونات في نصف التفاعل، ثم Q=n(e⁻)F.'],
+ ['11-4 أيهما يحرر الهيدروجين مع الحوامض المخففة: الألمنيوم أم الذهب؟ ولماذا؟','الألمنيوم؛ لأنه أسهل تأكسدًا وله جهد اختزال قياسي أكثر سلبية من الذهب، لذلك يمكنه اختزال H⁺ وتحرير H₂.'],
+ ['12-4 هل الخلية المعبر عنها في السؤال تجري تلقائيًا؟','تحدد من إشارة E°cell الناتجة من جهود نصفي الخلية؛ الموجب يعني تلقائية كما يوضح الكتاب.'],
+ ['13-4 احسب جهد قطب غاز الهيدروجين عند الظروف القياسية المعطاة.','يُستخدم SHE والظروف القياسية ومعادلة نرنست عند الحاجة، ويكون E°SHE=0.00 V.'],
+ ['14-4 حدد العامل المؤكسد والعامل المختزل في التفاعل المعطى.','العامل المؤكسد هو النوع الذي يُختزل وينخفض عدد تأكسده، والعامل المختزل هو النوع الذي يتأكسد ويرتفع عدد تأكسده.'],
+ ['15-4 هل يمكن حفظ محلول ملح الطعام في إناء من النحاس؟','نعم وفق مقارنة جهود الاختزال القياسية للزوجين الواردين في السؤال، لأن التفاعل الذي يؤدي إلى تآكل النحاس ليس تلقائيًا في الظروف القياسية.'],
+ ['16-4 هل يمكن حفظ محلول كبريتات النحاس في إناء من النيكل؟','نعم، وفق قيم جهود الاختزال القياسية الواردة في السؤال يكون التفاعل المسبب لإذابة النيكل غير تلقائي في الظروف القياسية.'],
+ ['17-4 احسب تركيز أيونات الخارصين من جهد اختزاله غير القياسي.','استخدم معادلة نرنست المناسبة لنصف خلية Zn²⁺/Zn ثم حلها لإيجاد تركيز Zn²⁺.'],
+ ['18-4 احسب جهد خلية دانيال عند تركيزات غير قياسية.','احسب E°cell أولًا ثم طبق معادلة نرنست على Q=[Zn²⁺]/[Cu²⁺] لأن المواد الصلبة لا تدخل في Q.'],
+ ['19-4 أي التفاعلات هو تفاعل أكسدة–اختزال؟','التفاعل الذي يحدث فيه تغير في أعداد تأكسد العناصر هو تفاعل أكسدة–اختزال.'],
+ ['20-4 احسب ΔG° لخلية كلفانية ذات E°cell معطى.','استخدم العلاقة ΔG° = −nFE°cell، مع n عدد الإلكترونات في التفاعل العام.'],
+ ['21-4 احسب ΔG° لتفاعل الخلية مع جهود الأقطاب المعطاة.','حدد الأنود والكاثود، احسب E°cell ثم طبق ΔG° = −nFE°cell.'],
+ ['22-4 احسب ΔG° لخلية تتضمن قطب الهيدروجين القياسي.','احسب جهد الخلية من جهد القطب الآخر وE°SHE=0.00 V، ثم استخدم ΔG° = −nFE°cell.'],
+ ['23-4 احسب تركيز أيون النيكل من جهد خلية غير قياسي.','استخدم معادلة نرنست، مع بناء Q بحسب التفاعل العام وإهمال المواد الصلبة.'],
+ ['24-4 احسب جهد الاختزال القياسي للألمنيوم في خلية مع الكادميوم.','استخدم E°cell = E°cathode − E°anode، ثم أعد ترتيب العلاقة لإيجاد E° المطلوب.'],
+ ['25-4 احسب pH لمحلول قطب هيدروجيني مرتبط بخلية كلفانية.','استخدم ΔG° = −nFE° ثم علاقة نرنست للقطب الهيدروجيني للوصول إلى تركيز H⁺ ومنه pH.'],
+ ['26-4 جد تركيز أيونات القصدير من Ecell معطى.','طبّق معادلة نرنست على الخلية العامة واحسب Q ثم تركيز Sn²⁺.'],
+ ['27-4 احسب وزن النحاس وعدد ذراته من تيار وزمن معلومين.','Q=It، ثم n(e⁻)=Q/F، ثم تحسب مولات Cu حسب تفاعل Cu²⁺+2e⁻→Cu، وأخيرًا m=nM وعدد الذرات=nNA.'],
+ ['28-4 احسب الكتلة الذرية لفلز أحادي التكافؤ من تيار وكتلة مترسبة.','استخدم قانون فاراداي m=(It/F)(M/z)، ومع z=1 أعد ترتيب العلاقة لإيجاد M.'],
+ ['29-4 احسب عدد الإلكترونات اللازمة لتحرير ضعف الحجم المولي للأوكسجين عند STP.','حوّل الحجم إلى مولات باستخدام 22.4 L·mol⁻¹ ثم استخدم نصف تفاعل الأوكسجين وعدد الإلكترونات لكل مول.'],
+ ['30-4 احسب شدة التيار اللازمة لتحرير عدد محدد من جزيئات الهيدروجين والأوكسجين.','حوّل عدد الجسيمات إلى مولات، اربطها بالإلكترونات ثم Q=n(e⁻)F، وأخيرًا I=Q/t.'],
+ ['31-4 احسب كتلة الذهب المترسبة مع كفاءة كهربائية 75%.','احسب الشحنة النظرية Q=It ثم خذ 75% منها كالشحنة الفعالة للترسيب، وبعدها استخدم m=(Q/F)(M/z).'],
+ ['32-4 احسب ثابت الاتزان من جهود الاختزال القياسية.','احسب E°cell ثم استخدم E°cell=(RT/nF)lnK عند 25°C أو الصورة المكافئة لحل K.'],
+ ['33-4 حل مسألة التحليل الكهربائي للماء واحسب حجمي H₂ وO₂ وشدة التيار.','اكتب نصفي التفاعل، استخرج نسب الحجوم من المعادلة الموزونة، ثم استخدم 22.4 L·mol⁻¹ وQ=It وn(e⁻)=Q/F.'],
+ ['34-4 إذا انخفض جهد قطب الكاثود عن القياسي بمقدار معين، احسب تركيز أيوناته.','طبّق معادلة نرنست لنصف الخلية عند 25°C، ثم حل المعادلة لإيجاد التركيز.']
+];
+
+var SIXTH_CH4_QUIZ = [
+ {q:'عند الأنود يحدث:',o:['اختزال','تأكسد','تعادل','ترسيب دائمًا'],a:1,e:'الأنود هو قطب التأكسد.'},
+ {q:'عند الكاثود يحدث:',o:['تأكسد','اختزال','تبخر','تسام'],a:1,e:'الكاثود هو قطب الاختزال.'},
+ {q:'عدد تأكسد العنصر الحر يساوي:',o:['+1','−1','0','+2'],a:2,e:'قاعدة الكتاب: العنصر الحر عدد تأكسده صفر.'},
+ {q:'في المركب المتعادل مجموع أعداد التأكسد يساوي:',o:['1','−1','0','شحنة الأيون'],a:2,e:'مجموع أعداد التأكسد = صفر.'},
+ {q:'العامل المختزل هو المادة التي:',o:['تُختزل','تتأكسد','لا تتغير','تكتسب بروتونًا فقط'],a:1,e:'العامل المختزل يتأكسد ويفقد الإلكترونات.'},
+ {q:'إذا كانت E°cell موجبة فإن التفاعل في الظروف القياسية يكون:',o:['تلقائيًا','غير تلقائي','متوقفًا','مستحيلًا'],a:0,e:'E°cell الموجبة تقابل ΔG° سالبة.'},
+ {q:'جهد SHE القياسي يساوي:',o:['1.00 V','0.00 V','−1.00 V','0.26 V'],a:1,e:'E°SHE=0.00 V.'},
+ {q:'العلاقة الصحيحة لجهد الخلية بجهود الاختزال هي:',o:['E°cell=E°anode+E°cathode','E°cell=E°cathode−E°anode','E°cell=E°anode−E°cathode','E°cell=0 دائمًا'],a:1,e:'تستخدم قيم جهود الاختزال مباشرة: الكاثود ناقص الأنود.'},
+ {q:'ثابت فاراداي يساوي تقريبًا:',o:['8.314','0.082','96500 C·mol⁻¹ e⁻','22.4'],a:2,e:'F≈96500 C لكل مول إلكترونات.'},
+ {q:'الشحنة الكهربائية تحسب من:',o:['Q=I/t','Q=It','Q=I+ t','Q=t/I'],a:1,e:'Q=I×t.'},
+ {q:'معادلة نرنست عند 25°C هي:',o:['E=E°+(0.026/n)lnQ','E=E°−(0.026/n)lnQ','E=0.026nlnQ','E=E°−nQ'],a:1,e:'هذه صيغة نرنست الواردة في الكتاب عند 25°C.'},
+ {q:'أي الخلايا تحول الطاقة الكيميائية إلى كهربائية؟',o:['الإلكتروليتية','الكلفانية','المسعر','الحرارية'],a:1,e:'الخلية الكلفانية تعتمد على تفاعل تلقائي مولد للكهرباء.'}
+];
+
+function sixthCh4Shell(title,backFn){return `<div class="page"><div class="page-header"><button class="back-button" onclick="${backFn}()">←</button><h2>${title}</h2><span></span></div>`;}
+function sixthChapter4ToolsHTML(){return `<div class="chapter-tools-title"><span>🧰 أدوات الفصل الرابع</span><small>كل أداة مرتبطة بالفصل الرابع فقط</small></div><div class="dashboard-grid">
+<button class="dashboard-card" onclick="showSixthChapter4Memory()"><span class="dashboard-card-icon">🧠</span><span><b>احفظها</b><small>أهم القواعد والعلاقات</small></span><i>←</i></button>
+<button class="dashboard-card" onclick="showSixthChapter4Quiz()"><span class="dashboard-card-icon">❓</span><span><b>اختبرني</b><small>اختبار الفصل الرابع</small></span><i>←</i></button>
+<button class="dashboard-card" onclick="showSixthChapter4Wrong()"><span class="dashboard-card-icon">🔄</span><span><b>مراجعة أخطائي</b><small>الأسئلة التي أخطأت فيها</small></span><i>←</i></button>
+<button class="dashboard-card" onclick="showSixthChapter4Drawings()"><span class="dashboard-card-icon">🖼️</span><span><b>الرسومات</b><small>تؤجل للنسخة النهائية للصور</small></span><i>←</i></button>
+<button class="dashboard-card featured" onclick="showSixthChapter4Formulas()"><span class="dashboard-card-icon">🧮</span><span><b>القوانين والمعادلات الكيميائية</b><small>جميع القوانين والعلاقات الخاصة بالفصل الرابع</small></span><i>←</i></button>
+<button class="dashboard-card" onclick="showSixthChapter4Ideas()"><span class="dashboard-card-icon">🎯</span><span><b>أفكار مهمة</b><small>نقاط التركيز من الكتاب</small></span><i>←</i></button>
+<button class="dashboard-card" onclick="showSixthChapter4Questions()"><span class="dashboard-card-icon">📚</span><span><b>أسئلة الفصل وحلولها</b><small>أسئلة الكتاب مع خطوات الحل</small></span><i>←</i></button>
+</div>`;}
+function showSixthChapter4(){setCurrentGrade('sixth');setActive(1);var app=document.getElementById('app');app.innerHTML=sixthCh4Shell('📚 دروسي — الفصل الرابع: تفاعلات التأكسد والاختزال والكيمياء الكهربائية','showSixthScientific')+`<div class="chapter2-banner"><strong>📌 الفصل الرابع: تفاعلات التأكسد والاختزال والكيمياء الكهربائية</strong><br>محتوى الفصل الرسمي مرتب بحسب تسلسل الكتاب: أعداد التأكسد، الأكسدة والاختزال، الخلايا الكهروكيميائية، جهود الأقطاب، نرنست، التحليل الكهربائي، فاراداي والبطاريات.</div><div class="lessons-page">${SIXTH_CH4_LESSONS.map((l,i)=>`<div class="lesson-card" onclick="showSixthChapter4Lesson(${i})"><div class="lesson-card-icon">${l.icon}</div><div class="lesson-card-info"><h3>${l.title}</h3><p>شرح منظم مستخلص من الكتاب الرسمي مع المعادلات والعلاقات المهمة.</p></div><div class="lesson-arrow">←</div></div>`).join('')}${sixthChapter4ToolsHTML()}</div></div>`;}
+function showSixthChapter4Lesson(i){var l=SIXTH_CH4_LESSONS[i];if(!l)return;var prev=i>0?`showSixthChapter4Lesson(${i-1})`:'showSixthChapter4';var next=i<SIXTH_CH4_LESSONS.length-1?`showSixthChapter4Lesson(${i+1})`:'showSixthChapter4';document.getElementById('app').innerHTML=sixthCh4Shell(l.title,'showSixthChapter4')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH4_LESSONS.length-1?'العودة إلى الفصل →':'الدرس التالي →'}</button></div></div></div>`;}
+function showSixthChapter4Formulas(){setActive(1);document.getElementById('app').innerHTML=sixthCh4Shell('🧮 القوانين والمعادلات الكيميائية — الفصل الرابع','showSixthChapter4')+`<div class="formula-section-card"><div class="formula-badge">الفصل الرابع — الكتاب الرسمي</div><p style="color:#617086;line-height:1.9">قوانين وعلاقات الفصل الرابع مستخلصة من كتاب الكيمياء الرسمي للسادس العلمي فقط.</p><div class="formula-grid">${SIXTH_CH4_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter4()">📖 العودة إلى الفصل الرابع</button></div></div>`;}
+function showSixthChapter4Memory(){setActive(1);document.getElementById('app').innerHTML=sixthCh4Shell('🧠 احفظها — الفصل الرابع','showSixthChapter4')+`<div class="lesson-content">${SIXTH_CH4_MEMORY.map((x,i)=>`<div class="memory-box"><strong>${i+1}️⃣</strong>${x}</div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter4()">📖 العودة إلى الفصل الرابع</button></div></div></div>`;}
+function showSixthChapter4Ideas(){setActive(1);document.getElementById('app').innerHTML=sixthCh4Shell('🎯 أفكار مهمة — الفصل الرابع','showSixthChapter4')+`<div class="ministry-ideas-intro"><strong>نقاط التركيز من الكتاب الرسمي</strong><br>أفكار مستخلصة من شرح الفصل وأمثلته وتمارينه وأسئلته.</div>${SIXTH_CH4_IDEAS.map((x,i)=>`<div class="ministry-idea-card"><h3>${i+1}- ${x[0]}</h3><button class="ministry-toggle" onclick="toggleSixthCh4Idea(${i})">👁️ إظهار الإجابة</button><div id="sixth-ch4-idea-${i}" class="ministry-idea-answer"><strong>✅ الإجابة:</strong><br>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter4()">📖 العودة إلى الفصل الرابع</button></div></div>`;}
+function toggleSixthCh4Idea(i){var e=document.getElementById('sixth-ch4-idea-'+i);if(e)e.classList.toggle('show');}
+function showSixthChapter4Questions(){setActive(1);document.getElementById('app').innerHTML=sixthCh4Shell('📚 أسئلة الفصل الرابع وحلولها','showSixthChapter4')+`<div class="questions-intro"><strong>أسئلة الفصل الرابع من الكتاب الرسمي</strong><br>تم تنظيم أسئلة نهاية الفصل مع إجاباتها أو خطوات الحل بالاعتماد على مفاهيم وقوانين الفصل.</div>${SIXTH_CH4_QUESTIONS.map((x,i)=>`<div class="question-card"><h3>${x[0]}</h3><div class="question-answer"><strong>✅ الحل:</strong>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter4()">📖 العودة إلى الفصل الرابع</button></div></div>`;}
+function showSixthChapter4Drawings(){setActive(1);document.getElementById('app').innerHTML=sixthCh4Shell('🖼️ الرسومات — الفصل الرابع','showSixthChapter4')+`<div class="drawings-section"><h3>🖼️ الرسومات الموجودة داخل الفصل</h3><p class="drawings-subtitle">سيتم تجميع صور ورسومات الكتاب الرسمية للفصل الرابع مع النسخة النهائية لجميع الفصول.</p></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter4()">📖 العودة إلى الفصل الرابع</button></div></div>`;}
+function showSixthChapter4Quiz(){window.sixthCh4QuizState={index:0,score:0,wrong:[]};renderSixthCh4Quiz();}
+function renderSixthCh4Quiz(){var st=window.sixthCh4QuizState,total=SIXTH_CH4_QUIZ.length;if(st.index>=total){localStorage.setItem('sixth_ch4_wrong',JSON.stringify(st.wrong));document.getElementById('app').innerHTML=sixthCh4Shell('🏁 نتيجة اختبار الفصل الرابع','showSixthChapter4')+`<div class="content-card" style="text-align:center"><div style="font-size:56px">🏆</div><h3>انتهى الاختبار</h3><p>النتيجة: <strong>${st.score} / ${total}</strong></p><div class="example-box">عدد الإجابات الخاطئة: ${st.wrong.length}</div><div class="lesson-navigation"><button class="next-button" onclick="showSixthChapter4Quiz()">🔁 إعادة الاختبار</button><button class="chapter-button" onclick="showSixthChapter4()">📖 العودة إلى الفصل الرابع</button></div></div></div>`;return;}var q=SIXTH_CH4_QUIZ[st.index];document.getElementById('app').innerHTML=sixthCh4Shell('❓ اختبرني — الفصل الرابع','showSixthChapter4')+`<div class="content-card"><div class="quiz-meta"><span class="difficulty-badge">السؤال ${st.index+1} من ${total}</span><span class="small-muted">النتيجة ${st.score}</span></div><div class="progress-track"><div class="progress-bar" style="width:${Math.round((st.index/total)*100)}%"></div></div><h3 style="margin-top:18px">${q.q}</h3><div class="question-options">${q.o.map((o,i)=>`<button class="question-option" onclick="answerSixthCh4Quiz(${i})">${String.fromCharCode(1571+i)}. ${o}</button>`).join('')}</div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter4()">📖 العودة إلى الفصل الرابع</button></div></div></div>`;}
+function answerSixthCh4Quiz(i){var st=window.sixthCh4QuizState,q=SIXTH_CH4_QUIZ[st.index];if(i===q.a)st.score++;else st.wrong.push({q:q.q,chosen:q.o[i],answer:q.o[q.a],explain:q.e});st.index++;renderSixthCh4Quiz();}
+function showSixthChapter4Wrong(){setActive(1);var wrong=[];try{wrong=JSON.parse(localStorage.getItem('sixth_ch4_wrong')||'[]')}catch(e){wrong=[]}document.getElementById('app').innerHTML=sixthCh4Shell('🔄 مراجعة أخطائي — الفصل الرابع','showSixthChapter4')+`<div class="questions-intro"><strong>مراجعة الأخطاء</strong><br>تظهر هنا الأسئلة التي أخطأت فيها في آخر اختبار للفصل الرابع.</div>${wrong.length?wrong.map((x,i)=>`<div class="question-card review-card"><div class="review-question">${i+1}- ${x.q}</div><div class="question-answer"><strong>إجابتك:</strong>${x.chosen}<br><strong>✅ الصحيح:</strong>${x.answer}<br><strong>💡 التوضيح:</strong>${x.explain}</div></div>`).join(''):`<div class="content-card" style="text-align:center"><h3>لا توجد أخطاء محفوظة حاليًا ✅</h3><p>أجرِ اختبار الفصل الرابع أولًا.</p></div>`}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter4()">📖 العودة إلى الفصل الرابع</button></div></div>`;}
 
 function showSixthMinistry(){ showSixthChapter1Ideas(); }
 function showSixthQuestions(){ showSixthChapter1Questions(); }

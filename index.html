@@ -2210,7 +2210,7 @@ function thirdChapterReviewCards(ch){
     thirdChapterCard('🔄','مراجعة أخطائي','مراجعة الأخطاء المحفوظة من اختبارات الفصل.','showChapterWrong('+ch+')')+
     thirdChapterCard('🧮','القوانين والمعادلات الكيميائية','القوانين والمعادلات المرتبطة بموضوعات الفصل.','showThirdChapterFormulas('+ch+')')+
     thirdChapterCard('🎯','أفكار وزارية','أفكار مركزة وتعليلات مرتبطة بموضوعات الفصل.',''+fnIdeas)+
-    thirdChapterCard('📝','أسئلة وزارية','أسئلة الفصل والتدريب على النمط الوزاري الخاص بموضوعاته.','showThirdChapterMinistryQuestions('+ch+')');
+    thirdChapterCard('📝','أسئلة الفصل وحلولها','أسئلة الفصل مع الحلول الخاصة بموضوعاته.','showThirdChapterQuestions('+ch+')');
 }
 function showThirdChapterPanel(ch){
   var back=`showChapter${ch===1?'1Lessons':ch}()`;
@@ -2220,7 +2220,7 @@ function showThirdChapterPanel(ch){
   cards+=thirdChapterCard('🔄','مراجعة أخطائي','راجع الأخطاء المحفوظة من اختبارات هذا الفصل.','showChapterWrong('+ch+')');
   cards+=thirdChapterCard('🧮','القوانين والمعادلات الكيميائية','كل قانون ومعادلة مرتبطة بموضوعات الفصل.','showThirdChapterFormulas('+ch+')');
   cards+=thirdChapterCard('🎯','أفكار وزارية','أفكار مركزة وتعليلات مرتبطة بموضوعات الفصل.',''+(ch===1?'showMinistryIdeas()':'showChapter'+ch+'MinistryIdeas()'));
-  cards+=thirdChapterCard('📝','أسئلة وزارية','أسئلة الفصل والتدريب المرتبط بنمط الأسئلة الوزارية.','showThirdChapterMinistryQuestions('+ch+')');
+  cards+=thirdChapterCard('📝','أسئلة الفصل وحلولها','أسئلة الفصل مع الحلول الخاصة بموضوعاته.','showThirdChapterQuestions('+ch+')');
   var app=document.getElementById('app');app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="${back}">←</button><h2>📚 مراجعة الفصل ${ch}</h2><span></span></div><div class="content-card"><h3>الفصل ${ch}: ${THIRD_CHAPTER_NAMES[ch]}</h3><p class="lessons-subheading">جميع أدوات المراجعة الخاصة بهذا الفصل في مكان واحد.</p>${cards}</div></div>`;
 }
 

@@ -6094,7 +6094,10 @@ function sixthChapter1ToolsHTML(){
 function showSixthScientific(){
   setCurrentGrade('sixth'); setActive(1);
   var app=document.getElementById('app');
-  app.innerHTML=`<div class="grade-dashboard sixth-dashboard"><div class="page-header dashboard-header"><button class="back-button" onclick="showHome()">←</button><div class="dashboard-title-wrap"><span class="dashboard-kicker">المسار الدراسي</span><h2>🎓 الكيمياء — الصف السادس العلمي</h2></div><span></span></div><div class="grade-switch"><button onclick="showThirdMiddleHome()">📘 الثالث متوسط</button><button class="active" onclick="showSixthScientific()">🎓 السادس العلمي</button></div><section class="dashboard-hero sixth-hero"><div><span class="dashboard-badge">المنهج قيد البناء</span><h1>السادس العلمي</h1><p>نعيد بناء المنهج فصلًا تلو الآخر. بدأنا الآن بالفصل الأول: الثرموداينمك.</p></div><div class="dashboard-hero-icon">🧪</div></section><div class="dashboard-grid"><button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter1()"><span class="dashboard-card-icon">🔥</span><span><b>الفصل الأول: الثرموداينمك</b><small>شرح ودروس وقوانين ومسائل واختبارات وأفكار وأسئلة خاصة بالفصل الأول.</small></span><i>←</i></button></div><div class="dashboard-note sixth-note">📌 المصدر الأساسي للفصل الأول: ملزمة حيدر يحيى علوان — الثرموداينمك، مع الحفاظ على ترتيب الموضوعات الأساسية الواردة فيها.</div></div>`;
+  app.innerHTML=`<div class="grade-dashboard sixth-dashboard"><div class="page-header dashboard-header"><button class="back-button" onclick="showHome()">←</button><div class="dashboard-title-wrap"><span class="dashboard-kicker">المسار الدراسي</span><h2>🎓 الكيمياء — الصف السادس العلمي</h2></div><span></span></div><div class="grade-switch"><button onclick="showThirdMiddleHome()">📘 الثالث متوسط</button><button class="active" onclick="showSixthScientific()">🎓 السادس العلمي</button></div><section class="dashboard-hero sixth-hero"><div><span class="dashboard-badge">المنهج قيد البناء</span><h1>السادس العلمي</h1><p>نعيد بناء المنهج فصلًا تلو الآخر. تم الآن تجهيز الفصلين الأول والثاني.</p></div><div class="dashboard-hero-icon">🧪</div></section><div class="dashboard-grid">
+<button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter1()"><span class="dashboard-card-icon">🔥</span><span><b>الفصل الأول: الثرموداينمك</b><small>شرح ودروس وقوانين ومسائل واختبارات وأفكار وأسئلة خاصة بالفصل الأول.</small></span><i>←</i></button>
+<button class="dashboard-card featured sixth-chapter-card" onclick="showSixthChapter2()"><span class="dashboard-card-icon">⚖️</span><span><b>الفصل الثاني: الاتزان الكيميائي</b><small>شرح التفاعلات الانعكاسية وثابت الاتزان وQ وقاعدة لو شاتليه.</small></span><i>←</i></button>
+</div><div class="dashboard-note sixth-note">📌 تم بناء الفصلين الأول والثاني، وسنواصل إضافة بقية الفصول واحدًا تلو الآخر.</div></div>`;
 }
 function showSixthLessonsHub(){ showSixthScientific(); }
 function showSixthChapter1(){
@@ -6154,6 +6157,240 @@ function showSixthChapter1Wrong(){
  document.getElementById('app').innerHTML=sixthCh1Shell('🔄 مراجعة أخطائي — الفصل الأول','showSixthChapter1')+`<div class="questions-intro"><strong>مراجعة الأخطاء</strong><br>تُحفظ هنا الأسئلة التي أخطأت فيها في آخر اختبار للفصل الأول على هذا الجهاز.</div>${wrong.length?wrong.map((x,i)=>`<div class="question-card review-card"><div class="review-question">${i+1}- ${x.q}</div><div class="question-answer"><strong>إجابتك:</strong>${x.chosen}<br><strong>✅ الصحيح:</strong>${x.answer}<br><strong>💡 التوضيح:</strong>${x.explain}</div></div>`).join(''):`<div class="content-card" style="text-align:center"><h3>لا توجد أخطاء محفوظة حاليًا ✅</h3><p>أجرِ الاختبار أولًا لتظهر هنا الأسئلة التي أخطأت فيها.</p></div>`}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter1()">📖 العودة إلى الفصل الأول</button></div></div>`;
 }
 
+
+/* =========================================================
+   السادس العلمي — الفصل الثاني: الاتزان الكيميائي
+   المصدر الأساسي: ملزمة حيدر يحيى علوان — الفصل الثاني
+   ========================================================= */
+
+var SIXTH_CH2_LESSONS = [
+  {
+    title:'2-1 الاتزان الكيميائي والتفاعلات الانعكاسية', icon:'⚖️',
+    html:`<div class="content-card"><h3>الاتزان الكيميائي</h3><p>هو توازن ديناميكي يحصل عندما تصبح سرعة التفاعل في الاتجاه الأمامي مساوية لسرعة التفاعل في الاتجاه الخلفي، فتثبت تراكيز المواد ما دامت الظروف ثابتة.</p><div class="formula-equation">R<sub>f</sub> = R<sub>b</sub></div></div>
+    <div class="content-card"><h3>التفاعلات غير الانعكاسية والانعكاسية</h3><p><strong>غير الانعكاسية:</strong> يستهلك فيها أحد المتفاعلات أو جميعها بصورة تامة ولا تعود النواتج لتكوين المتفاعلات تحت الظروف نفسها.</p><div class="example-box">H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O</div><p><strong>الانعكاسية:</strong> تسير في اتجاهين متعاكسين ويمكن للنواتج أن تعود لتكوين المتفاعلات.</p><div class="example-box">N₂(g) + 3H₂(g) ⇌ 2NH₃(g)</div></div>`
+  },
+  {
+    title:'2-2 سرعة التفاعل والوصول إلى حالة الاتزان', icon:'🔄',
+    html:`<div class="content-card"><h3>كيف يصل التفاعل إلى الاتزان؟</h3><p>تكون السرعة الأمامية كبيرة في بداية التفاعل ثم تقل مع استهلاك المتفاعلات، بينما تزداد السرعة الخلفية مع تكوّن النواتج، حتى تتساوى السرعتان.</p><div class="formula-equation">R<sub>f</sub> = k<sub>f</sub>[A]<sup>a</sup>[B]<sup>b</sup></div><div class="formula-equation">R<sub>b</sub> = k<sub>b</sub>[G]<sup>g</sup>[H]<sup>h</sup></div></div>
+    <div class="content-card"><h3>مثال الاتزان</h3><div class="example-box">N₂(g) + 3H₂(g) ⇌ 2NH₃(g)</div><p>عند الاتزان لا تتوقف التفاعلات، وإنما تستمر بالاتجاهين بسرعتين متساويتين.</p></div>`
+  },
+  {
+    title:'2-3 التفاعلات المتجانسة وغير المتجانسة', icon:'🧪',
+    html:`<div class="content-card"><h3>التفاعل الانعكاسي المتجانس</h3><p>تكون جميع المواد المتفاعلة والناتجة في طور واحد، مثل التفاعل الغازي:</p><div class="example-box">N₂O₄(g) ⇌ 2NO₂(g)</div><p>ومن أمثلة التفاعل المتجانس الصلب: Zn(s) + S(s) ⇌ ZnS(s).</p></div>
+    <div class="content-card"><h3>التفاعل الانعكاسي غير المتجانس</h3><p>توجد فيه المواد المتفاعلة والناتجة في أطوار مختلفة.</p><div class="example-box">CaCO₃(s) ⇌ CaO(s) + CO₂(g)</div><p>في تعبير ثابت الاتزان تؤخذ المواد الغازية والمائية، بينما لا تدخل المواد الصلبة والسوائل النقية.</p></div>`
+  },
+  {
+    title:'2-4 قانون فعل الكتلة', icon:'📐',
+    html:`<div class="content-card"><h3>للتفاعل العام</h3><div class="formula-equation">aA + bB ⇌ gG + hH</div><p>حسب الملزمة، عند ثبوت درجة الحرارة تتناسب سرعة كل اتجاه مع تراكيز مواده الداخلة في ذلك الاتجاه، وكل تركيز مرفوع إلى أس يساوي معامله في المعادلة الموزونة.</p><div class="formula-equation">R<sub>f</sub> = k<sub>f</sub>[A]<sup>a</sup>[B]<sup>b</sup></div><div class="formula-equation">R<sub>b</sub> = k<sub>b</sub>[G]<sup>g</sup>[H]<sup>h</sup></div></div>`
+  },
+  {
+    title:'2-5 ثابت الاتزان Kc وKeq', icon:'🔢',
+    html:`<div class="content-card"><h3>ثابت الاتزان</h3><p>هو حاصل ضرب تراكيز النواتج عند الاتزان مرفوعة إلى معاملات معادلتها، مقسومًا على حاصل ضرب تراكيز المتفاعلات بالطريقة نفسها.</p><div class="formula-equation">K<sub>c</sub> = [G]<sup>g</sup>[H]<sup>h</sup> / ([A]<sup>a</sup>[B]<sup>b</sup>)</div><p>عند الاتزان:</p><div class="formula-equation">K<sub>eq</sub> = k<sub>f</sub> / k<sub>b</sub></div></div>
+    <div class="content-card"><h3>ملاحظة على الأطوار</h3><p>المواد الصلبة والسوائل النقية لا تدخل في تعبير K<sub>c</sub> أو K<sub>p</sub> وفق صيغة الملزمة، بينما تدخل المواد الغازية والمذابة مائيًا عند استخدام K<sub>c</sub>.</p></div>`
+  },
+  {
+    title:'2-6 حسابات Kc وKp ومصفوفة الاتزان', icon:'🧮',
+    html:`<div class="content-card"><h3>مصفوفة الاتزان</h3><p>عند إعطاء تراكيز ابتدائية نرتب الحل إلى ثلاثة أسطر: التراكيز الابتدائية، التغير، ثم تراكيز الاتزان.</p><div class="example-box"><strong>للتفاعل:</strong><br>A + 2B ⇌ 3C<br><br>الابتدائي: y ، z ، 0<br>التغير: −X ، −2X ، +3X<br>الاتزان: (y−X) ، (z−2X) ، 3X</div></div>
+    <div class="content-card"><h3>مثال تطبيقي من الملزمة</h3><p>للتفاعل 2H₂ + I₂ ⇌ 2HI يمكن كتابة:</p><div class="formula-equation">K<sub>c</sub> = [HI]² / ([H₂]²[I₂])</div><p>وتستخدم قيم التركيز عند الاتزان فقط.</p></div>`
+  },
+  {
+    title:'2-7 ثابت الاتزان بدلالة الضغوط Kp', icon:'💨',
+    html:`<div class="content-card"><h3>ثابت الاتزان بالضغوط الجزئية</h3><p>للتفاعلات الغازية يمكن التعبير عن ثابت الاتزان باستعمال الضغوط الجزئية للغازات عند الاتزان.</p><div class="formula-equation">K<sub>p</sub> = (P<sub>G</sub><sup>g</sup>P<sub>H</sub><sup>h</sup>) / (P<sub>A</sub><sup>a</sup>P<sub>B</sub><sup>b</sup>)</div><div class="note-box">في K<sub>p</sub> يؤخذ الطور الغازي فقط.</div></div>`
+  },
+  {
+    title:'2-8 العلاقة بين Kc وKp وأهمية قيمة K', icon:'🔗',
+    html:`<div class="content-card"><h3>العلاقة بين Kc وKp</h3><div class="formula-equation">K<sub>p</sub> = K<sub>c</sub>(RT)<sup>Δn<sub>g</sub></sup></div><div class="formula-equation">Δn<sub>g</sub> = Σn<sub>g</sub>(النواتج) − Σn<sub>g</sub>(المتفاعلات)</div><p>تُحسب Δn<sub>g</sub> للمواد الغازية فقط.</p></div>
+    <div class="content-card"><h3>أهمية قيمة ثابت الاتزان</h3><p>تساعد قيمة K على معرفة ميل التفاعل عند الاتزان، وهل تكون كمية النواتج أكبر نسبيًا أو كمية المتفاعلات أكبر.</p><div class="memory-box"><strong>K كبيرة</strong>يميل الاتزان نحو تكوين النواتج.<br><strong>K صغيرة</strong>يميل الاتزان نحو بقاء المتفاعلات.</div></div>`
+  },
+  {
+    title:'2-9 تأثير طريقة كتابة المعادلة على ثابت الاتزان', icon:'📝',
+    html:`<div class="content-card"><h3>قواعد مهمة</h3><div class="formula-equation">عكس المعادلة: K<sub>new</sub> = 1 / K<sub>old</sub></div><div class="formula-equation">ضرب جميع المعاملات في n: K<sub>new</sub> = (K<sub>old</sub>)<sup>n</sup></div><div class="formula-equation">جمع عدة تفاعلات: K<sub>overall</sub> = K<sub>1</sub> × K<sub>2</sub> × …</div></div>
+    <div class="content-card"><h3>مثال من نمط الملزمة</h3><p>إذا عُرفت قيمة ثابت لتفاعل، يمكن الحصول على ثابت التفاعل المعكوس بأخذ مقلوب القيمة، وإذا ضُربت المعادلة في 2 فيُربّع ثابت الاتزان.</p></div>`
+  },
+  {
+    title:'2-10 حاصل التفاعل Q والطاقة الحرة G', icon:'📈',
+    html:`<div class="content-card"><h3>حاصل التفاعل Q</h3><p>هو قيمة تُحسب في لحظة معينة من التفاعل لاستنتاج اتجاهه نحو الاتزان.</p><div class="formula-equation">Q = [G]<sup>g</sup>[H]<sup>h</sup> / ([A]<sup>a</sup>[B]<sup>b</sup>)</div><table class="simple-table"><tr><th>المقارنة</th><th>الاتجاه</th></tr><tr><td>Q &lt; Kc</td><td>نحو النواتج</td></tr><tr><td>Q = Kc</td><td>اتزان</td></tr><tr><td>Q &gt; Kc</td><td>نحو المتفاعلات</td></tr></table></div>
+    <div class="content-card"><h3>العلاقة مع الطاقة الحرة</h3><div class="formula-equation">ΔG = ΔG° + RT ln Q</div><p>وعند الاتزان Q = K وΔG = 0، لذلك:</p><div class="formula-equation">ΔG° = −RT ln K</div></div>`
+  },
+  {
+    title:'2-11 قاعدة لو شاتليه', icon:'⚖️',
+    html:`<div class="content-card"><h3>قاعدة لو شاتليه</h3><p>إذا أثر مؤثر خارجي على نظام متزن، فإن النظام يتجه بالاتجاه الذي يقلل من تأثير هذا المؤثر ليصل إلى حالة اتزان جديدة.</p></div>
+    <div class="content-card"><h3>تغيير التركيز</h3><p>عند إضافة متفاعل يتجه الاتزان نحو النواتج، وعند سحب ناتج يتجه التفاعل نحو تكوين المزيد من هذا الناتج.</p><div class="example-box">N₂(g) + 3H₂(g) ⇌ 2NH₃(g)</div></div>
+    <div class="content-card"><h3>تغيير الضغط أو الحجم</h3><p>زيادة الضغط أو تقليل الحجم تدفع التفاعل نحو الجهة ذات المولات الغازية الأقل، والعكس عند تقليل الضغط أو زيادة الحجم.</p></div>`
+  },
+  {
+    title:'2-12 تأثير درجة الحرارة والعامل المساعد', icon:'🌡️',
+    html:`<div class="content-card"><h3>تأثير درجة الحرارة</h3><p>عند رفع درجة الحرارة يتجه الاتزان نحو الطرف الماص للحرارة، وعند خفضها يتجه نحو الطرف الباعث للحرارة.</p><div class="note-box">التفاعل الباعث: ΔH سالبة. التفاعل الماص: ΔH موجبة.</div></div>
+    <div class="content-card"><h3>تأثير العامل المساعد</h3><p>لا يغير موضع الاتزان ولا قيمة K، وإنما يخفض طاقة التنشيط ويزيد سرعة التفاعل الأمامي والخلفي بالدرجة نفسها للوصول إلى الاتزان بزمن أقل.</p></div>
+    <div class="content-card"><h3>ما الذي يغير قيمة ثابت الاتزان؟</h3><div class="memory-box"><strong>درجة الحرارة فقط</strong>تغير التركيز والضغط والحجم قد يغير موضع الاتزان، لكن قيمة K لا تتغير ما دامت درجة الحرارة ثابتة.</div></div>`
+  }
+];
+
+var SIXTH_CH2_FORMULAS = [
+ ['ثابت الاتزان العام من ثوابـت السرعة','K<sub>eq</sub> = k<sub>f</sub> / k<sub>b</sub>','كما في ملخص قوانين الفصل.'],
+ ['سرعة التفاعل الأمامي','R<sub>f</sub> = k<sub>f</sub>[A]<sup>a</sup>[B]<sup>b</sup>','للتفاعل aA+bB⇌gG+hH.'],
+ ['سرعة التفاعل الخلفي','R<sub>b</sub> = k<sub>b</sub>[G]<sup>g</sup>[H]<sup>h</sup>','للتفاعل الخلفي.'],
+ ['ثابت الاتزان بدلالة التراكيز','K<sub>c</sub> = [G]<sup>g</sup>[H]<sup>h</sup> / ([A]<sup>a</sup>[B]<sup>b</sup>)','التراكيز عند الاتزان.'],
+ ['ثابت الاتزان بدلالة الضغوط','K<sub>p</sub> = (P<sub>G</sub><sup>g</sup>P<sub>H</sub><sup>h</sup>) / (P<sub>A</sub><sup>a</sup>P<sub>B</sub><sup>b</sup>)','للطور الغازي فقط.'],
+ ['فرق مولات الغازات','Δn<sub>g</sub> = Σn<sub>g</sub>(النواتج) − Σn<sub>g</sub>(المتفاعلات)','تُحسب للغازات فقط.'],
+ ['العلاقة بين Kp وKc','K<sub>p</sub> = K<sub>c</sub>(RT)<sup>Δn<sub>g</sub></sup>','R=0.082 في العلاقة عند استخدام L·atm، وT بالكلفن.'],
+ ['إعادة ترتيب العلاقة','K<sub>c</sub> = K<sub>p</sub>(RT)<sup>−Δn<sub>g</sub></sup>','صيغة مكافئة للعلاقة السابقة.'],
+ ['عكس التفاعل','K<sub>new</sub> = 1/K<sub>old</sub>','عند قلب اتجاه المعادلة.'],
+ ['ضرب المعادلة في n','K<sub>new</sub> = (K<sub>old</sub>)<sup>n</sup>','عند ضرب جميع المعاملات في n.'],
+ ['جمع التفاعلات','K<sub>overall</sub> = K<sub>1</sub>×K<sub>2</sub>×…','عند جمع معادلات للوصول إلى التفاعل الكلي.'],
+ ['حاصل التفاعل','Q = [G]<sup>g</sup>[H]<sup>h</sup> / ([A]<sup>a</sup>[B]<sup>b</sup>)','يستخدم عند لحظة معينة من التفاعل.'],
+ ['طاقة غبس الحرة غير القياسية','ΔG = ΔG° + RT ln Q','العلاقة العامة.'],
+ ['عند الاتزان','ΔG° = −RT ln K','لأن Q=K وΔG=0.'],
+ ['حالة الاتزان','R<sub>f</sub> = R<sub>b</sub>','سرعة الاتجاهين متساوية.'],
+ ['قانون بويل المستخدم في أسئلة الضغط والحجم','P₁V₁ = P₂V₂','عند ثبوت درجة الحرارة.'],
+ ['تحويل درجة الحرارة','T(K) = t(°C) + 273','للاستخدام في علاقات Kp وG.'],
+ ['قانون الغاز المثالي','PV = nRT','يستخدم لتحويل المولات إلى ضغط في بعض مسائل الفصل.']
+];
+
+var SIXTH_CH2_MEMORY = [
+ 'الاتزان الكيميائي حالة ديناميكية، وليس توقفًا للتفاعل.',
+ 'عند الاتزان: Rf = Rb، وتبقى التراكيز ثابتة ما دامت الظروف ثابتة.',
+ 'Kc يعتمد على تراكيز الاتزان، وKp يعتمد على الضغوط الجزئية للغازات.',
+ 'المواد الصلبة والسوائل النقية لا تدخل في تعبير Kc وKp وفق صيغة الملزمة.',
+ 'عكس المعادلة يجعل ثابت الاتزان مقلوبه، وضرب المعاملات في n يجعل الثابت مرفوعًا للقوة n.',
+ 'عند جمع المعادلات يكون ثابت التفاعل الكلي حاصل ضرب الثوابت.',
+ 'Q<Kc: التفاعل يتجه نحو النواتج، Q=Kc: اتزان، Q>Kc: يتجه نحو المتفاعلات.',
+ 'قيمة ثابت الاتزان تتغير بتغير درجة الحرارة، ولا تتغير بتغيير التركيز أو الضغط وحدهما عند ثبوت الحرارة.',
+ 'زيادة الضغط تدفع التفاعل الغازي نحو الجهة ذات المولات الغازية الأقل.',
+ 'رفع درجة الحرارة يدفع الاتزان نحو الطرف الماص للحرارة، وخفضها نحو الطرف الباعث.',
+ 'العامل المساعد يسرع الوصول إلى الاتزان ولا يغير قيمة K أو موضع الاتزان.',
+ 'العلاقة ΔG° = −RT lnK تربط الطاقة الحرة القياسية بثابت الاتزان.'
+];
+
+var SIXTH_CH2_IDEAS = [
+ ['علل: الاتزان الكيميائي ديناميكي وليس ساكنًا.','لأن التفاعل الأمامي والخلفي يستمران في الحدوث، لكن سرعتهما تتساوى عند الاتزان.'],
+ ['لماذا لا تدخل المواد الصلبة والسوائل النقية في تعبير ثابت الاتزان؟','بحسب صيغة الملزمة يبقى تركيزها ثابتًا ولا تدخل في التعبير المستخدم للتراكيز والضغوط عند الاتزان.'],
+ ['ماذا يحدث عند عكس المعادلة الكيميائية؟','يتحول ثابت الاتزان إلى مقلوب قيمته القديمة.'],
+ ['ما أثر مضاعفة معاملات المعادلة؟','إذا ضُربت جميع المعاملات في n فإن K الجديد يساوي K القديم مرفوعًا للأس n.'],
+ ['متى يكون Kp مساويًا لـ Kc؟','عندما يكون Δn_g مساويًا للصفر.'],
+ ['ما الذي يدل عليه Q<Kc؟','التفاعل يتجه إلى اليمين، أي نحو تكوين المزيد من النواتج.'],
+ ['ما الذي يحدث لقيمة K عند تغيير الضغط فقط؟','لا تتغير قيمة K ما دامت درجة الحرارة ثابتة.'],
+ ['ما أثر رفع درجة الحرارة على التفاعل الباعث للحرارة؟','ينزاح الاتزان نحو المتفاعلات وتقل قيمة K.'],
+ ['ما أثر خفض درجة الحرارة على التفاعل الماص للحرارة؟','ينزاح الاتزان نحو المتفاعلات، لأن الاتجاه المعاكس هو الباعث للحرارة.'],
+ ['ما أثر العامل المساعد؟','يسرع الوصول إلى الاتزان ولا يغير موضع الاتزان ولا قيمة K.'],
+ ['كيف تؤثر زيادة الضغط في تفاعل غازي؟','يتجه الاتزان نحو الجهة ذات عدد المولات الغازية الأقل.'],
+ ['ما العلاقة بين ΔG° وK؟','ΔG° = −RT lnK.']
+];
+
+var SIXTH_CH2_QUESTIONS = [
+ ['عرّف الاتزان الكيميائي.','حالة ديناميكية تتساوى فيها سرعة التفاعل الأمامي مع سرعة التفاعل الخلفي وتبقى التراكيز ثابتة ما دامت الظروف ثابتة.'],
+ ['ما الفرق بين التفاعل الانعكاسي وغير الانعكاسي؟','الانعكاسي يسير بالاتجاهين ويمكن للنواتج أن تعود لمتفاعلات، أما غير الانعكاسي فيسير أساسًا باتجاه واحد مع استهلاك تام لبعض المتفاعلات تحت الظروف نفسها.'],
+ ['اكتب قانون فعل الكتلة للتفاعل aA+bB⇌gG+hH.','Rf = kf[A]^a[B]^b وRb = kb[G]^g[H]^h.'],
+ ['اكتب Kc للتفاعل العام.','Kc = [G]^g[H]^h / ([A]^a[B]^b).'],
+ ['اكتب Kp للتفاعل الغازي العام.','Kp = (P_G^g P_H^h) / (P_A^a P_B^b).'],
+ ['كيف تحسب Δn_g؟','من مجموع معاملات الغازات في النواتج ناقص مجموع معاملات الغازات في المتفاعلات.'],
+ ['اكتب العلاقة بين Kp وKc.','Kp = Kc(RT)^Δn_g.'],
+ ['ماذا يحدث لثابت الاتزان عند قلب المعادلة؟','يصبح مقلوب الثابت القديم.'],
+ ['ماذا يحدث لثابت الاتزان عند ضرب جميع المعاملات في 2؟','يصبح K^2.'],
+ ['ما حاصل التفاعل Q؟','قيمة تحسب في لحظة معينة من التفاعل لتحديد اتجاهه نحو الاتزان.'],
+ ['ماذا يعني Q=Kc؟','النظام في حالة اتزان.'],
+ ['ماذا يعني Q>Kc؟','الاتجاه نحو المتفاعلات.'],
+ ['ما نص قاعدة لو شاتليه؟','النظام المتزن يعاكس المؤثر الخارجي ليصل إلى حالة اتزان جديدة.'],
+ ['ما العامل الذي يغير قيمة ثابت الاتزان؟','درجة الحرارة.'],
+ ['ما أثر العامل المساعد؟','يسرع الوصول إلى الاتزان دون تغيير قيمة K أو موضع الاتزان.'],
+ ['اكتب علاقة الطاقة الحرة القياسية بثابت الاتزان.','ΔG° = −RT lnK.'],
+ ['اكتب قانون الغاز المثالي المستخدم في بعض مسائل الفصل.','PV=nRT.'],
+ ['كيف تحول درجة الحرارة المئوية إلى كلفن؟','T(K)=t(°C)+273.']
+];
+
+var SIXTH_CH2_MINISTRY = [
+ ['عند خفض درجة الحرارة لتفاعل باعث للحرارة، إلى أي اتجاه ينزاح الاتزان؟','نحو النواتج/الاتجاه الباعث للحرارة.'],
+ ['في تفاعل غازي تكون مولات المتفاعلات أقل من مولات النواتج، ماذا يحدث عند زيادة الضغط؟','ينزاح الاتزان نحو المتفاعلات لأنها الجهة ذات المولات الغازية الأقل.'],
+ ['لماذا لا يؤثر تغيير الضغط على Kc وKp؟','لأن قيمة ثابت الاتزان لا تتغير بتغير الضغط عند ثبوت درجة الحرارة، وإن كان موضع الاتزان قد يتغير.'],
+ ['ما أثر رفع درجة الحرارة على تفاعل ماص للحرارة؟','ينزاح نحو النواتج وتزداد قيمة K.'],
+ ['ما أثر خفض درجة الحرارة على تفاعل باعث للحرارة؟','ينزاح نحو النواتج وتزداد قيمة K.'],
+ ['ماذا يحدث عند سحب أحد النواتج من خليط متزن؟','ينزاح التفاعل نحو النواتج لتعويض النقص.'],
+ ['ماذا يحدث عند إضافة أحد المتفاعلات؟','ينزاح التفاعل نحو النواتج لاستهلاك الزيادة.'],
+ ['ماذا يحدث عند إضافة عامل مساعد إلى خليط متزن؟','يصل النظام إلى الاتزان بزمن أقل ولا تتغير قيمة K.'],
+ ['كيف تعرف اتجاه التفاعل عند وجود صعوبة في تحديده؟','تحسب Q وتقارنها مع Kc.'],
+ ['ما دلالة K الكبيرة؟','يميل الاتزان نحو تكوين النواتج.'],
+ ['ما دلالة K الصغيرة؟','يميل الاتزان نحو بقاء المتفاعلات.'],
+ ['اكتب التفاعل المعياري لتكوين الأمونيا المستخدم في أمثلة الفصل.','N₂(g)+3H₂(g)⇌2NH₃(g).']
+];
+
+var SIXTH_CH2_QUIZ = [
+ {q:'عند الاتزان الكيميائي فإن:',o:['سرعة الأمامي أكبر','سرعة الخلفي أكبر','السرعتان متساويتان','يتوقف التفاعل'],a:2,e:'الاتزان ديناميكي وتكون Rf=Rb.'},
+ {q:'أي تعبير يمثل Kc للتفاعل aA+bB⇌gG+hH؟',o:['[A]^a[B]^b/[G]^g[H]^h','[G]^g[H]^h/[A]^a[B]^b','[A+B]/[G+H]','لا شيء'],a:1,e:'النواتج في البسط والمتفاعلات في المقام.'},
+ {q:'في CaCO3(s)⇌CaO(s)+CO2(g)، ما الذي يدخل في Kc؟',o:['CaCO3 فقط','CaO فقط','CO2 فقط','جميعها'],a:2,e:'المواد الصلبة النقية لا تدخل، وتؤخذ CO2.'},
+ {q:'إذا كانت Δn_g=0 فإن:',o:['Kp>Kc','Kp<Kc','Kp=Kc','Kp=0'],a:2,e:'عندما Δn_g=0 يكون Kp=Kc.'},
+ {q:'عند عكس المعادلة فإن K الجديد:',o:['K²','2K','1/K','يبقى نفسه'],a:2,e:'الثابت يصبح مقلوب القيمة القديمة.'},
+ {q:'إذا كانت Q<Kc فإن الاتجاه يكون:',o:['نحو المتفاعلات','نحو النواتج','لا حركة','توقف'],a:1,e:'النظام يحتاج إلى تكوين نواتج أكثر للوصول إلى K.'},
+ {q:'ما العامل الذي يغير قيمة ثابت الاتزان؟',o:['الضغط','التركيز','العامل المساعد','درجة الحرارة'],a:3,e:'قيمة K تتغير بتغير درجة الحرارة.'},
+ {q:'العامل المساعد في النظام المتزن:',o:['يغير K','يغير موضع الاتزان','يسرع الوصول للاتزان فقط','يوقف التفاعل'],a:2,e:'يؤثر في سرعة الاتجاهين بالدرجة نفسها.'},
+ {q:'إذا كانت K>1 فإن ΔG° تكون:',o:['سالبة','موجبة','صفر','لا يمكن تحديدها'],a:0,e:'من ΔG°=−RTlnK.'},
+ {q:'للتفاعل الباعث للحرارة عند رفع درجة الحرارة:',o:['يزداد K','يقل K','لا يتغير K','تصبح صفرًا'],a:1,e:'ينزاح نحو المتفاعلات وتقل قيمة K.'}
+];
+
+function sixthCh2Shell(title, backFn){
+  return `<div class="page"><div class="page-header"><button class="back-button" onclick="${backFn}()">←</button><h2>${title}</h2><span></span></div>`;
+}
+function sixthChapter2ToolsHTML(){
+  return `<div class="chapter-tools-title"><span>🧰 أدوات الفصل الثاني</span><small>كل أداة مرتبطة بالاتزان الكيميائي فقط</small></div><div class="dashboard-grid">
+    <button class="dashboard-card" onclick="showSixthChapter2Memory()"><span class="dashboard-card-icon">🧠</span><span><b>احفظها</b><small>قواعد ونقاط الحفظ</small></span><i>←</i></button>
+    <button class="dashboard-card" onclick="showSixthChapter2Quiz()"><span class="dashboard-card-icon">❓</span><span><b>اختبرني</b><small>اختبار مستقل للفصل الثاني</small></span><i>←</i></button>
+    <button class="dashboard-card" onclick="showSixthChapter2Wrong()"><span class="dashboard-card-icon">🔄</span><span><b>مراجعة أخطائي</b><small>مراجعة الأخطاء المحفوظة</small></span><i>←</i></button>
+    <button class="dashboard-card" onclick="showSixthChapter2Drawings()"><span class="dashboard-card-icon">🖼️</span><span><b>الرسومات</b><small>أشكال مختارة من الملزمة</small></span><i>←</i></button>
+    <button class="dashboard-card featured" onclick="showSixthChapter2Formulas()"><span class="dashboard-card-icon">🧮</span><span><b>القوانين والمعادلات الكيميائية</b><small>جميع القوانين والعلاقات الأساسية للفصل</small></span><i>←</i></button>
+    <button class="dashboard-card" onclick="showSixthChapter2Ideas()"><span class="dashboard-card-icon">🎯</span><span><b>أفكار وزارية</b><small>تعليلات ونقاط تركيز</small></span><i>←</i></button>
+    <button class="dashboard-card" onclick="showSixthChapter2MinistryQuestions()"><span class="dashboard-card-icon">📝</span><span><b>أسئلة وزارية</b><small>أسئلة مركزة وحلولها</small></span><i>←</i></button>
+    <button class="dashboard-card" onclick="showSixthChapter2Questions()"><span class="dashboard-card-icon">📚</span><span><b>أسئلة الفصل وحلولها</b><small>أسئلة مراجعة وإجابات</small></span><i>←</i></button>
+  </div>`;
+}
+function showSixthChapter2(){
+  setActive(1); setCurrentGrade('sixth');
+  document.getElementById('app').innerHTML=sixthCh2Shell('📚 دروسي — الفصل الثاني: الاتزان الكيميائي','showSixthScientific')+
+    `<div class="chapter2-banner"><strong>📌 الفصل الثاني: الاتزان الكيميائي</strong><br>يتناول هذا الفصل الاتزان الكيميائي، التفاعلات الانعكاسية، قانون فعل الكتلة، Kc وKp، حاصل التفاعل Q، الطاقة الحرة، قاعدة لو شاتليه، والعوامل المؤثرة على حالة الاتزان.</div><div class="lessons-page">${SIXTH_CH2_LESSONS.map((l,i)=>`<div class="lesson-card" onclick="showSixthChapter2Lesson(${i})"><div class="lesson-card-icon">${l.icon}</div><div class="lesson-card-info"><h3>${l.title}</h3><p>شرح مرتب على تسلسل موضوعات ملزمة الفصل الثاني.</p></div><div class="lesson-arrow">←</div></div>`).join('')}${sixthChapter2ToolsHTML()}</div></div>`;
+}
+function showSixthChapter2Lesson(i){
+  var l=SIXTH_CH2_LESSONS[i]; if(!l) return;
+  var prev=i>0?`showSixthChapter2Lesson(${i-1})`:'showSixthChapter2';
+  var next=i<SIXTH_CH2_LESSONS.length-1?`showSixthChapter2Lesson(${i+1})`:'showSixthChapter2';
+  document.getElementById('app').innerHTML=sixthCh2Shell(l.title,'showSixthChapter2')+`<h1 class="lesson-title">${l.title}</h1><div class="lesson-content">${l.html}<div class="lesson-navigation"><button class="previous-button" onclick="${prev}()">← السابق</button><button class="next-button" onclick="${next}()">${i===SIXTH_CH2_LESSONS.length-1?'العودة إلى الفصل ←':'الدرس التالي →'}</button></div></div></div>`;
+}
+function showSixthChapter2Formulas(){
+ setActive(1); document.getElementById('app').innerHTML=sixthCh2Shell('🧮 القوانين والمعادلات الكيميائية — الفصل الثاني','showSixthChapter2')+`<div class="formula-section-card"><div class="formula-badge">الفصل الثاني — الاتزان الكيميائي</div><p style="color:#617086;line-height:1.9">تم تجميع القوانين والعلاقات والمعادلات الأساسية من صفحات الفصل، ومنها ملخص قوانين الفصل في الصفحة 41 من الملزمة.</p><div class="formula-grid">${SIXTH_CH2_FORMULAS.map(x=>`<div class="formula-item"><div class="formula-label">${x[0]}</div><div class="formula-equation">${x[1]}</div><div class="formula-note">${x[2]}</div></div>`).join('')}</div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter2()">📖 العودة إلى الفصل الثاني</button></div></div>`;
+}
+function showSixthChapter2Memory(){
+ setActive(1); document.getElementById('app').innerHTML=sixthCh2Shell('🧠 احفظها — الفصل الثاني','showSixthChapter2')+`<div class="lesson-content">${SIXTH_CH2_MEMORY.map((x,i)=>`<div class="memory-box"><strong>${i+1}️⃣</strong>${x}</div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter2()">📖 العودة إلى الفصل الثاني</button></div></div></div>`;
+}
+function showSixthChapter2Ideas(){
+ setActive(1); document.getElementById('app').innerHTML=sixthCh2Shell('🎯 أفكار وزارية — الفصل الثاني','showSixthChapter2')+`<div class="ministry-ideas-intro"><strong>تعليلات وأفكار مركزة</strong><br>مبنية على محاور الفصل الثاني كما وردت في الملزمة.</div>${SIXTH_CH2_IDEAS.map((x,i)=>`<div class="ministry-idea-card"><h3>${i+1}- ${x[0]}</h3><button class="ministry-toggle" onclick="toggleSixthCh2Idea(${i})">👁️ إظهار الحل</button><div id="sixth-ch2-idea-${i}" class="ministry-idea-answer"><strong>✅ الحل:</strong><br>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter2()">📖 العودة إلى الفصل الثاني</button></div></div>`;
+}
+function toggleSixthCh2Idea(i){var e=document.getElementById('sixth-ch2-idea-'+i);if(e)e.classList.toggle('show');}
+function showSixthChapter2Questions(){
+ setActive(1); document.getElementById('app').innerHTML=sixthCh2Shell('📚 أسئلة الفصل الثاني وحلولها','showSixthChapter2')+`<div class="questions-intro"><strong>أسئلة مراجعة الفصل الثاني</strong><br>تم ترتيبها على المحاور التي تتكرر في ملزمة الفصل، مع إجابات مختصرة للمراجعة.</div>${SIXTH_CH2_QUESTIONS.map((x,i)=>`<div class="question-card"><h3>${i+1}- ${x[0]}</h3><div class="question-answer"><strong>✅ الحل:</strong>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter2()">📖 العودة إلى الفصل الثاني</button></div></div>`;
+}
+function showSixthChapter2MinistryQuestions(){
+ setActive(1); document.getElementById('app').innerHTML=sixthCh2Shell('📝 أسئلة وزارية — الفصل الثاني','showSixthChapter2')+`<div class="questions-intro"><strong>نماذج وزارية مركزة</strong><br>اختيرت من أنماط التعريفات والتعليلات والمسائل والعوامل المؤثرة الواردة في الملزمة.</div>${SIXTH_CH2_MINISTRY.map((x,i)=>`<div class="question-card"><h3>${i+1}- ${x[0]}</h3><div class="question-answer"><strong>✅ الإجابة:</strong>${x[1]}</div></div>`).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter2()">📖 العودة إلى الفصل الثاني</button></div></div>`;
+}
+function showSixthChapter2Drawings(){
+ setActive(1); document.getElementById('app').innerHTML=sixthCh2Shell('🖼️ الرسومات — الفصل الثاني','showSixthChapter2')+`<div class="drawings-section"><h3>🖼️ الرسومات الموجودة داخل الفصل</h3><p class="drawings-subtitle">أشكال مختارة من صفحات الملزمة لتوضيح الاتزان والعوامل المؤثرة فيه.</p><div class="drawings-grid">
+ <div class="drawing-card"><h4>التفاعلات الانعكاسية وحالة الاتزان</h4><div class="drawing-box"><img src="images/sixth_ch2_eq_dynamic.png" alt="التفاعلات الانعكاسية وحالة الاتزان" style="width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:12px"></div></div>
+ <div class="drawing-card"><h4>قانون فعل الكتلة وثابت الاتزان</h4><div class="drawing-box"><img src="images/sixth_ch2_law_mass_action.png" alt="قانون فعل الكتلة" style="width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:12px"></div></div>
+ <div class="drawing-card"><h4>تأثير الضغط على الاتزان</h4><div class="drawing-box"><img src="images/sixth_ch2_lechatelier.png" alt="تأثير الضغط على الاتزان" style="width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:12px"></div></div>
+ <div class="drawing-card"><h4>تأثير درجة الحرارة</h4><div class="drawing-box"><img src="images/sixth_ch2_temp_effect.png" alt="تأثير درجة الحرارة" style="width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:12px"></div></div>
+ <div class="drawing-card"><h4>تأثير العامل المساعد والعوامل المؤثرة</h4><div class="drawing-box"><img src="images/sixth_ch2_catalyst_effect.png" alt="تأثير العامل المساعد" style="width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:12px"></div></div>
+ </div></div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter2()">📖 العودة إلى الفصل الثاني</button></div></div>`;
+}
+function showSixthChapter2Quiz(){
+ window.sixthCh2QuizState={index:0,score:0,wrong:[]}; renderSixthCh2Quiz();
+}
+function renderSixthCh2Quiz(){
+ var s=window.sixthCh2QuizState,total=SIXTH_CH2_QUIZ.length;
+ if(s.index>=total){localStorage.setItem('sixth_ch2_wrong',JSON.stringify(s.wrong));document.getElementById('app').innerHTML=sixthCh2Shell('🏁 نتيجة اختبار الفصل الثاني','showSixthChapter2')+`<div class="content-card" style="text-align:center"><div style="font-size:56px">🏆</div><h3>انتهى الاختبار</h3><p>النتيجة: <strong>${s.score} / ${total}</strong></p><div class="example-box">عدد الإجابات الخاطئة: ${s.wrong.length}</div><div class="lesson-navigation"><button class="next-button" onclick="showSixthChapter2Quiz()">🔁 إعادة الاختبار</button><button class="chapter-button" onclick="showSixthChapter2()">📖 العودة إلى الفصل الثاني</button></div></div></div>`;return;}
+ var q=SIXTH_CH2_QUIZ[s.index];document.getElementById('app').innerHTML=sixthCh2Shell('❓ اختبرني — الفصل الثاني','showSixthChapter2')+`<div class="content-card"><div class="quiz-meta"><span class="difficulty-badge">السؤال ${s.index+1} من ${total}</span><span class="small-muted">النتيجة ${s.score}</span></div><div class="progress-track"><div class="progress-bar" style="width:${Math.round((s.index/total)*100)}%"></div></div><h3 style="margin-top:18px">${q.q}</h3><div class="question-options">${q.o.map((o,i)=>`<button class="question-option" onclick="answerSixthCh2Quiz(${i})">${String.fromCharCode(1571+i)}. ${o}</button>`).join('')}</div><div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter2()">📖 العودة إلى الفصل الثاني</button></div></div></div>`;
+}
+function answerSixthCh2Quiz(i){var s=window.sixthCh2QuizState,q=SIXTH_CH2_QUIZ[s.index];if(i===q.a)s.score++;else s.wrong.push({q:q.q,chosen:q.o[i],answer:q.o[q.a],explain:q.e});s.index++;renderSixthCh2Quiz();}
+function showSixthChapter2Wrong(){
+ setActive(1);var wrong=[];try{wrong=JSON.parse(localStorage.getItem('sixth_ch2_wrong')||'[]')}catch(e){wrong=[]}
+ document.getElementById('app').innerHTML=sixthCh2Shell('🔄 مراجعة أخطائي — الفصل الثاني','showSixthChapter2')+`<div class="questions-intro"><strong>مراجعة الأخطاء</strong><br>تظهر هنا أسئلة الاختبار التي تمت الإجابة عنها بشكل خاطئ.</div>${wrong.length?wrong.map((x,i)=>`<div class="question-card review-card"><div class="review-question">${i+1}- ${x.q}</div><div class="question-answer"><strong>إجابتك:</strong>${x.chosen}<br><strong>✅ الصحيح:</strong>${x.answer}<br><strong>💡 التوضيح:</strong>${x.explain}</div></div>`).join(''):`<div class="content-card" style="text-align:center"><h3>لا توجد أخطاء محفوظة حاليًا ✅</h3><p>أجرِ اختبار الفصل الثاني أولًا.</p></div>`}<div class="lesson-navigation"><button class="chapter-button" onclick="showSixthChapter2()">📖 العودة إلى الفصل الثاني</button></div></div>`;
+}
+
 /* الروابط العامة الخاصة بمسار السادس */
 function showSixthMinistry(){ showSixthChapter1Ideas(); }
 function showSixthQuestions(){ showSixthChapter1Questions(); }
@@ -6184,7 +6421,7 @@ function showAccount(grade) {
       <div class="content-card" style="margin:0;padding:16px;border-radius:18px"><div class="progress-head"><span class="account-grade-badge sixth">🎓 السادس العلمي</span><strong>${sixth.pct}%</strong></div><div class="progress-track account-progress"><div class="progress-bar progress-fill-sixth" style="width:${sixth.pct}%;height:100%"></div></div><div class="progress-meta"><span>التقدم محفوظ في مسار السادس فقط</span><span>${sixth.pct}%</span></div></div>
     </div>
     <div class="account-section-title"><h3>📘 تقدم فصول الثالث متوسط</h3><span>نسبة كل فصل</span></div>${thirdCards}
-    <div class="account-section-title"><h3>🎓 تقدم السادس العلمي</h3><span>لم يبدأ البناء بعد</span></div><div class="dashboard-note sixth-note">سيظهر تقدم فصول السادس العلمي بعد البدء ببناء الفصل الأول.</div>
+    <div class="account-section-title"><h3>🎓 تقدم السادس العلمي</h3><span>الفصلان 1 و2 مضافان</span></div><div class="dashboard-note sixth-note">تمت إضافة الثرموداينمك والاتزان الكيميائي، وسيظهر التقدم التفصيلي مع استكمال أدوات بقية الفصول.</div>
   </div>
   <div id="authModal" class="auth-modal-backdrop" onclick="if(event.target===this)closeAuthModal()"><div class="auth-modal"><div class="auth-modal-header"><h3>🔐 تسجيل الدخول</h3><button class="auth-close" onclick="closeAuthModal()">×</button></div><div id="authModalStatus" class="auth-status"></div><div id="phoneLoginPanel" class="phone-login" style="display:none"><label style="display:block;font-weight:900;color:#274563;margin-bottom:8px">رقم الهاتف</label><div class="phone-row"><select id="countryCode"><option value="+964">🇮🇶 العراق +964</option><option value="+966">🇸🇦 السعودية +966</option><option value="+971">🇦🇪 الإمارات +971</option><option value="+20">🇪🇬 مصر +20</option><option value="+962">🇯🇴 الأردن +962</option><option value="+90">🇹🇷 تركيا +90</option><option value="+98">🇮🇷 إيران +98</option><option value="+1">🇺🇸/🇨🇦 +1</option><option value="+44">🇬🇧 بريطانيا +44</option><option value="+49">🇩🇪 ألمانيا +49</option></select><input id="phoneNumber" inputmode="tel" placeholder="7701234567"></div><div class="otp-row"><input id="otpCode" inputmode="numeric" placeholder="رمز OTP"><button onclick="demoPhoneLogin()">تأكيد الدخول</button></div><div class="auth-note">حاليًا زر التأكيد يحفظ جلسة محلية تجريبية. لإرسال رمز SMS حقيقي يجب تفعيل Firebase Phone Auth.</div></div></div></div>`;
 }

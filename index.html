@@ -5790,13 +5790,25 @@ function startThirdChapterQuiz(ch){
     var bank=getChapterQuizBank(ch);
     if(!bank.length){
         var app=document.getElementById('app');
-        if(app) app.innerHTML='<div class="page"><div class="content-card"><h2>⚠️ الاختبار غير متوفر</h2><p>لا توجد أسئلة اختبار محفوظة لهذا الفصل حاليًا.</p><button class="chapter-button" onclick="showQuizGradeChooser('third')">↩️ العودة لاختيار الفصل</button></div></div>';
+        if(app) app.innerHTML=`<div class="page"><div class="content-card"><h2>⚠️ الاختبار غير متوفر</h2><p>لا توجد أسئلة اختبار محفوظة لهذا الفصل حاليًا.</p><button class="chapter-button" onclick="showQuizGradeChooser('third')">↩️ العودة لاختيار الفصل</button></div></div>`;
         return;
     }
     showChapterQuiz(ch);
 }
 var chapterQuizState={ch:1,index:0,score:0,questions:[],wrong:[]};
-function showChapterQuiz(ch){setActive(3);var bank=getChapterQuizBank(ch)||[];chapterQuizState={ch:ch,index:0,score:0,questions:shuffleArray(bank).slice(0,Math.min(10,bank.length)),wrong:[]};renderChapterQuiz();}
+function showChapterQuiz(ch){
+    setActive(3);
+    ch=Number(ch);
+    var bank=getChapterQuizBank(ch)||[];
+    /* نسخ وترتيب بنك الأسئلة عشوائياً بدون الاعتماد على دالة خارجية */
+    var questions=bank.slice();
+    for(var i=questions.length-1;i>0;i--){
+        var j=Math.floor(Math.random()*(i+1));
+        var tmp=questions[i]; questions[i]=questions[j]; questions[j]=tmp;
+    }
+    chapterQuizState={ch:ch,index:0,score:0,questions:questions.slice(0,Math.min(10,questions.length)),wrong:[]};
+    renderChapterQuiz();
+}
 function renderChapterQuiz(){var st=chapterQuizState, q=st.questions[st.index], app=document.getElementById('app'); if(!q){return finishChapterQuiz();} var progress=Math.round(st.index/st.questions.length*100); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapterMemory(${st.ch})">←</button><h2>❓ اختبرني — الفصل ${st.ch}</h2><span></span></div><div class="content-card"><div class="quiz-meta"><span class="small-muted">السؤال ${st.index+1} من ${st.questions.length}</span><span class="difficulty-badge">الفصل ${st.ch}</span></div><div class="progress-track"><div class="progress-bar" style="width:${progress}%;"></div></div><p style="font-size:21px;font-weight:700;margin-top:18px;">${q.q}</p><div style="display:flex;flex-direction:column;gap:12px;margin-top:20px;">${q.options.map(function(o,i){return `<button class="chapter-button" onclick="answerChapterQuiz(${i})">${String.fromCharCode(65+i)}. ${o}</button>`}).join('')}</div></div><div class="content-card"><p>النتيجة الحالية: <strong>${st.score}</strong></p><p>كل سؤال هنا من بنك الفصل ${st.ch} فقط.</p></div></div>`;}
 function answerChapterQuiz(i){var st=chapterQuizState,q=st.questions[st.index];if(!q)return;if(i===q.answer){st.score++;}else{st.wrong.push({q:q.q,correct:q.options[q.answer],explain:q.explain});}var app=document.getElementById('app');app.innerHTML=`<div class="page"><div class="content-card"><h2>${i===q.answer?'✅ إجابة صحيحة':'❌ إجابة غير صحيحة'}</h2><p><strong>الإجابة الصحيحة:</strong> ${q.options[q.answer]}</p><div class="answer-box">📚 ${q.explain||''}</div><button class="next-button" onclick="chapterQuizState.index++;renderChapterQuiz()">${st.index+1===st.questions.length?'🏁 عرض النتيجة':'السؤال التالي →'}</button></div></div>`;}
 function finishChapterQuiz(){var st=chapterQuizState,total=st.questions.length,pct=total?Math.round(st.score/total*100):0;localStorage.setItem('chapter'+st.ch+'LastScore',String(pct)); if((+localStorage.getItem('chapter'+st.ch+'BestScore')||0)<pct)localStorage.setItem('chapter'+st.ch+'BestScore',String(pct)); localStorage.setItem('chapter'+st.ch+'Wrong',JSON.stringify(st.wrong)); var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${st.ch===1?'1Lessons':st.ch}()">←</button><h2>🏁 نتيجة الفصل ${st.ch}</h2><span></span></div><div class="content-card"><h3>درجتك: ${st.score} / ${total}</h3><div class="score-big">${pct}%</div><p>تم حفظ آخر نتيجة وأفضل نتيجة لهذا الفصل.</p><p>عدد الأخطاء المحفوظة للمراجعة: <strong>${st.wrong.length}</strong></p><button class="next-button" onclick="showChapterWrong(${st.ch})">🔄 مراجعة أخطائي</button><button class="chapter-button" onclick="showChapterQuiz(${st.ch})">❓ إعادة الاختبار</button></div></div>`;}

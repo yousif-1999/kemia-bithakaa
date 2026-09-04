@@ -5657,6 +5657,15 @@ var chapterMemoryData = {
     ]
 };
 
+var chapter1QuizQuestions = chapterMCQ.map(function(item){
+    return {
+        q: item.q,
+        options: item.options.map(function(option){ return option.replace(/^[أبجـد]\s*[.-]\s*/, ""); }),
+        answer: Math.max(0, item.options.findIndex(function(option){ return option === item.answer; })),
+        explain: item.explanation || "الإجابة الصحيحة موضحة في أسئلة الفصل."
+    };
+});
+
 var chapter2QuizQuestions = [
  {q:"أي زمرة تضم الفلزات القلوية؟",options:["IA","IIA","IIIA","IVA"],answer:0,explain:"الزمرة الأولى IA هي الفلزات القلوية."},
  {q:"كم إلكترون تكافؤ لعناصر الزمرة الثانية؟",options:["1","2","3","4"],answer:1,explain:"الغلاف الخارجي لعناصر IIA هو ns²."},
@@ -5732,7 +5741,9 @@ function showChapterMemory(ch){
  var items=chapterMemoryData[ch]||[];
  app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${ch===1?'1Lessons':ch}()">←</button><h2>🧠 احفظها</h2><span></span></div><div class="chapter2-banner"><strong>🧠 احفظها — الفصل ${ch}</strong><br>${names[ch]||''}<br>معلومات الحفظ المرتبطة بهذا الفصل فقط.</div>${items.map(function(it,i){return `<div class="content-card"><h3>${i+1}️⃣ ${it.t}</h3><div class="memory-box">${it.x}</div></div>`}).join('')}<div class="lesson-navigation"><button class="next-button" onclick="showChapterQuiz(${ch})">❓ اختبرني في هذا الفصل →</button><button class="chapter-button" onclick="showChapter${ch===1?'1Lessons':ch}()">📖 العودة إلى الفصل</button></div></div>`;
 }
-function showMemoryChooser(){setActive(2);var app=document.getElementById('app');app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">🧠 احفظها</h1><p class="lessons-subheading">اختر الفصل الذي تريد مراجعة معلوماته</p>${[1,2,3,4,5,6,7,8,9].map(function(ch){return `<div class="lesson-card" onclick="showChapterMemory(${ch})"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>الفصل ${ch}</h3><p>معلومات الحفظ الخاصة بالفصل ${ch} فقط.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 اختيار الفصل</button></div></div>`;}
+function showMemoryChooser(){setActive(2);var app=document.getElementById('app');app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">🧠 احفظها</h1><p class="lessons-subheading">اختر الصف أولاً ثم اختر الفصل</p><div class="lesson-card" onclick="showMemoryGradeChooser('third')"><div class="lesson-card-icon">📘</div><div class="lesson-card-info"><h3>الثالث المتوسط</h3><p>معلومات الحفظ الخاصة بفصول الثالث المتوسط</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showMemoryGradeChooser('sixth')"><div class="lesson-card-icon">🎓</div><div class="lesson-card-info"><h3>السادس العلمي</h3><p>معلومات الحفظ الخاصة بفصول السادس العلمي</p></div><div class="lesson-arrow">←</div></div></div>`;}
+function showMemoryGradeChooser(grade){setActive(2);var app=document.getElementById('app');var isSixth=grade==='sixth';var chapters=isSixth?8:9;var title=isSixth?'🎓 السادس العلمي':'📘 الثالث المتوسط';var fn=isSixth?'showSixthMemoryByChapter':'showChapterMemory';var items=isSixth?['الثرموداينمك','الاتزان الكيميائي','الاتزان الأيوني','تفاعلات التأكسد والاختزال والكيمياء الكهربائية','الكيمياء التناسقية','طرائق التحليل الكيميائي','الكيمياء العضوية للهيدروكاربونات المعوضة','الكيمياء الحياتية']:['التركيب الذري للمادة','الزمرتان الأولى والثانية','الزمرة الثالثة','المحاليل','الزمرة الرابعة','الكيمياء العضوية','الزمرة الخامسة VA','الزمرة السادسة','الزمرة السابعة VIIA'];app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">🧠 احفظها — ${title}</h1><p class="lessons-subheading">اختر الفصل لعرض معلومات الحفظ الخاصة به فقط</p>${Array.from({length:chapters},function(_,i){var ch=i+1;return `<div class="lesson-card" onclick="${fn}(${ch})"><div class="lesson-card-icon">📖</div><div class="lesson-card-info"><h3>الفصل ${ch}</h3><p>${items[i]}</p></div><div class="lesson-arrow">←</div></div>`}).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showMemoryChooser()">↩️ اختيار الصف</button></div></div>`;}
+function showSixthMemoryByChapter(ch){var map={1:'showSixthChapter1Memory',2:'showSixthChapter2Memory',3:'showSixthChapter3Memory',4:'showSixthChapter4Memory',5:'showSixthChapter5Memory',6:'showSixthChapter6Memory',7:'showSixthChapter7Memory',8:'showSixthChapter8Memory'};if(map[ch])window[map[ch]]();}
 
 var chapter8QuizQuestions = [
  {q:"كم إلكترونًا في الغلاف الخارجي لعناصر الزمرة السادسة؟",options:["4","5","6","7"],answer:2,explain:"تمتلك عناصر الزمرة السادسة ستة إلكترونات في الغلاف الخارجي."},
@@ -5760,14 +5771,39 @@ var chapter9QuizQuestions = [
  {q:"ما الراسب الناتج عند إضافة AgNO₃ إلى محلول كلوريد؟",options:["Ag₂O","AgCl","AgOH","Ag₂SO₄"],answer:1,explain:"يتكون راسب أبيض من AgCl."},
  {q:"أي الكلوريدات لا يذوب في الماء وفق الملزمة؟",options:["NaCl","AgCl","KCl","NH₄Cl"],answer:1,explain:"جميع الكلوريدات قابلة للذوبان عدا كلوريد الفضة وكلوريد الزئبق، والرصاص يذوب حارًا لا باردًا."}
 ];
-function getChapterQuizBank(ch){return ch===1?quizQuestions:(ch===2?chapter2QuizQuestions:(ch===3?chapter3QuizQuestions:(ch===4?chapter4QuizQuestions:(ch===5?chapter5QuizQuestions:(ch===6?chapter6QuizQuestions:(ch===7?chapter7QuizQuestions:(ch===8?chapter8QuizQuestions:chapter9QuizQuestions)))))));}
+function getChapterQuizBank(ch){
+    var banks={
+        1:chapter1QuizQuestions,
+        2:chapter2QuizQuestions,
+        3:chapter3QuizQuestions,
+        4:chapter4QuizQuestions,
+        5:chapter5QuizQuestions,
+        6:chapter6QuizQuestions,
+        7:chapter7QuizQuestions,
+        8:chapter8QuizQuestions,
+        9:chapter9QuizQuestions
+    };
+    return banks[ch] || [];
+}
+function startThirdChapterQuiz(ch){
+    ch=Number(ch);
+    var bank=getChapterQuizBank(ch);
+    if(!bank.length){
+        var app=document.getElementById('app');
+        if(app) app.innerHTML='<div class="page"><div class="content-card"><h2>⚠️ الاختبار غير متوفر</h2><p>لا توجد أسئلة اختبار محفوظة لهذا الفصل حاليًا.</p><button class="chapter-button" onclick="showQuizGradeChooser('third')">↩️ العودة لاختيار الفصل</button></div></div>';
+        return;
+    }
+    showChapterQuiz(ch);
+}
 var chapterQuizState={ch:1,index:0,score:0,questions:[],wrong:[]};
 function showChapterQuiz(ch){setActive(3);var bank=getChapterQuizBank(ch)||[];chapterQuizState={ch:ch,index:0,score:0,questions:shuffleArray(bank).slice(0,Math.min(10,bank.length)),wrong:[]};renderChapterQuiz();}
 function renderChapterQuiz(){var st=chapterQuizState, q=st.questions[st.index], app=document.getElementById('app'); if(!q){return finishChapterQuiz();} var progress=Math.round(st.index/st.questions.length*100); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapterMemory(${st.ch})">←</button><h2>❓ اختبرني — الفصل ${st.ch}</h2><span></span></div><div class="content-card"><div class="quiz-meta"><span class="small-muted">السؤال ${st.index+1} من ${st.questions.length}</span><span class="difficulty-badge">الفصل ${st.ch}</span></div><div class="progress-track"><div class="progress-bar" style="width:${progress}%;"></div></div><p style="font-size:21px;font-weight:700;margin-top:18px;">${q.q}</p><div style="display:flex;flex-direction:column;gap:12px;margin-top:20px;">${q.options.map(function(o,i){return `<button class="chapter-button" onclick="answerChapterQuiz(${i})">${String.fromCharCode(65+i)}. ${o}</button>`}).join('')}</div></div><div class="content-card"><p>النتيجة الحالية: <strong>${st.score}</strong></p><p>كل سؤال هنا من بنك الفصل ${st.ch} فقط.</p></div></div>`;}
 function answerChapterQuiz(i){var st=chapterQuizState,q=st.questions[st.index];if(!q)return;if(i===q.answer){st.score++;}else{st.wrong.push({q:q.q,correct:q.options[q.answer],explain:q.explain});}var app=document.getElementById('app');app.innerHTML=`<div class="page"><div class="content-card"><h2>${i===q.answer?'✅ إجابة صحيحة':'❌ إجابة غير صحيحة'}</h2><p><strong>الإجابة الصحيحة:</strong> ${q.options[q.answer]}</p><div class="answer-box">📚 ${q.explain||''}</div><button class="next-button" onclick="chapterQuizState.index++;renderChapterQuiz()">${st.index+1===st.questions.length?'🏁 عرض النتيجة':'السؤال التالي →'}</button></div></div>`;}
 function finishChapterQuiz(){var st=chapterQuizState,total=st.questions.length,pct=total?Math.round(st.score/total*100):0;localStorage.setItem('chapter'+st.ch+'LastScore',String(pct)); if((+localStorage.getItem('chapter'+st.ch+'BestScore')||0)<pct)localStorage.setItem('chapter'+st.ch+'BestScore',String(pct)); localStorage.setItem('chapter'+st.ch+'Wrong',JSON.stringify(st.wrong)); var app=document.getElementById('app'); app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${st.ch===1?'1Lessons':st.ch}()">←</button><h2>🏁 نتيجة الفصل ${st.ch}</h2><span></span></div><div class="content-card"><h3>درجتك: ${st.score} / ${total}</h3><div class="score-big">${pct}%</div><p>تم حفظ آخر نتيجة وأفضل نتيجة لهذا الفصل.</p><p>عدد الأخطاء المحفوظة للمراجعة: <strong>${st.wrong.length}</strong></p><button class="next-button" onclick="showChapterWrong(${st.ch})">🔄 مراجعة أخطائي</button><button class="chapter-button" onclick="showChapterQuiz(${st.ch})">❓ إعادة الاختبار</button></div></div>`;}
 function showChapterWrong(ch){setActive(1);var data=[];try{data=JSON.parse(localStorage.getItem('chapter'+ch+'Wrong')||'[]')}catch(e){data=[]}var app=document.getElementById('app');app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showChapter${ch===1?'1Lessons':ch}()">←</button><h2>🔄 مراجعة أخطائي — الفصل ${ch}</h2><span></span></div>${data.length?data.map(function(it,i){return `<div class="content-card"><h3>${i+1}. ${it.q}</h3><p><strong>الإجابة الصحيحة:</strong> ${it.correct}</p><div class="answer-box">📚 ${it.explain||''}</div></div>`}).join(''):`<div class="content-card"><h3>🎉 ممتاز</h3><p>لا توجد أخطاء محفوظة لهذا الفصل حتى الآن.</p></div>`}<div class="lesson-navigation"><button class="next-button" onclick="showChapterQuiz(${ch})">❓ اختبرني مرة أخرى</button><button class="chapter-button" onclick="showChapter${ch===1?'1Lessons':ch}()">📖 العودة إلى الفصل</button></div></div>`;}
-function showQuizChooser(){setActive(3);var app=document.getElementById('app');app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">❓ اختبرني</h1><p class="lessons-subheading">اختر الفصل الذي تريد الاختبار فيه</p>${[1,2,3,4,5,6,7,8,9].map(function(ch){return `<div class="lesson-card" onclick="showChapterQuiz(${ch})"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبار الفصل ${ch}</h3><p>أسئلة الفصل ${ch} فقط.</p></div><div class="lesson-arrow">←</div></div>`}).join('')}</div>`;}
+function showQuizChooser(){setActive(3);var app=document.getElementById('app');app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">❓ اختبرني</h1><p class="lessons-subheading">اختر الصف أولاً ثم اختر الفصل</p><div class="lesson-card" onclick="showQuizGradeChooser('third')"><div class="lesson-card-icon">📘</div><div class="lesson-card-info"><h3>الثالث المتوسط</h3><p>اختبارات فصول الثالث المتوسط</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showQuizGradeChooser('sixth')"><div class="lesson-card-icon">🎓</div><div class="lesson-card-info"><h3>السادس العلمي</h3><p>اختبارات فصول السادس العلمي</p></div><div class="lesson-arrow">←</div></div></div>`;}
+function showQuizGradeChooser(grade){setActive(3);var app=document.getElementById('app');var isSixth=grade==='sixth';var chapters=isSixth?8:9;var title=isSixth?'🎓 السادس العلمي':'📘 الثالث المتوسط';var fn=isSixth?'showSixthQuizByChapter':'startThirdChapterQuiz';var items=isSixth?['الثرموداينمك','الاتزان الكيميائي','الاتزان الأيوني','تفاعلات التأكسد والاختزال والكيمياء الكهربائية','الكيمياء التناسقية','طرائق التحليل الكيميائي','الكيمياء العضوية للهيدروكاربونات المعوضة','الكيمياء الحياتية']:['التركيب الذري للمادة','الزمرتان الأولى والثانية','الزمرة الثالثة','المحاليل','الزمرة الرابعة','الكيمياء العضوية','الزمرة الخامسة VA','الزمرة السادسة','الزمرة السابعة VIIA'];app.innerHTML=`<div class="lessons-page"><h1 class="lessons-heading">❓ اختبرني — ${title}</h1><p class="lessons-subheading">اختر الفصل لبدء اختبار خاص بهذا الفصل فقط</p>${Array.from({length:chapters},function(_,i){var ch=i+1;return `<div class="lesson-card" onclick="${fn}(${ch})"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>اختبار الفصل ${ch}</h3><p>${items[i]}</p></div><div class="lesson-arrow">←</div></div>`}).join('')}<div class="lesson-navigation"><button class="chapter-button" onclick="showQuizChooser()">↩️ اختيار الصف</button></div></div>`;}
+function showSixthQuizByChapter(ch){var map={1:'showSixthChapter1Quiz',2:'showSixthChapter2Quiz',3:'showSixthChapter3Quiz',4:'showSixthChapter4Quiz',5:'showSixthChapter5Quiz',6:'showSixthChapter6Quiz',7:'showSixthChapter7Quiz',8:'showSixthChapter8Quiz'};if(map[ch])window[map[ch]]();}
 
 function showMemory() {
     showMemoryChooser(); return;

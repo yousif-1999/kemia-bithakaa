@@ -1420,6 +1420,7 @@ li {
 .drawing-card p{margin:0 0 10px;color:#66788a;font-size:13px;line-height:1.7;}
 .drawing-box{display:flex;justify-content:center;align-items:center;min-height:170px;padding:8px;background:#fbfdff;border-radius:14px;overflow:hidden;}
 .drawing-box svg{width:100%;height:auto;max-height:240px;}
+.drawing-box img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:10px;}
 .source-drawing-img{display:block;width:100%;height:auto;max-height:520px;object-fit:contain;border-radius:10px;}
 
 @media(max-width:560px){.drawings-grid{grid-template-columns:1fr}.drawing-box{min-height:150px}}
@@ -5485,7 +5486,7 @@ function showChapterDrawings(ch){
       <div class="drawings-section">
         <h3>🖼️ رسومات الفصل ${ch}: ${chapterNames[ch]||''}</h3>
         <p class="drawings-subtitle">قسم خاص يجمع الرسومات والمخططات التعليمية المتعلقة بالمركبات والأجهزة والأشكال المهمة في هذا الفصل.</p>
-        <div class="drawings-grid">${prepSourceDrawingCards(ch)}${drawings.map(function(d){return `<div class="drawing-card"><h4>${d.title}</h4><p>${d.desc}</p><div class="drawing-box">${d.svg}</div></div>`}).join('')}</div>
+        <div class="drawings-grid">${prepSourceDrawingCards(ch)}${drawings.map(function(d){return `<div class="drawing-card"><h4>${d.title}</h4><p>${d.desc}</p><div class="drawing-box">${d.image?`<img src="${d.image}" alt="${d.title}" loading="lazy">`:d.svg}</div></div>`}).join('')}</div>
       </div>
       <div class="lesson-navigation"><button class="chapter-button" onclick="${ch===1?'showChapter1Lessons':'showChapter'+ch}()">📖 العودة إلى الفصل</button></div>
     </div>`;
@@ -5513,19 +5514,19 @@ function prepAppSvg(){return `<svg viewBox="0 0 320 190"><path d="M70 55 H140 V1
 
 var chapterDrawingData={
 1:[
- {title:'الشكل (1-1) — نموذج دالتون للذرة',desc:'نموذج دالتون للذرة كما ورد في المصدر.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30496.jpg" alt="الشكل (1-1) — نموذج دالتون للذرة" loading="lazy">`},
- {title:'الشكل (1-2) — نموذج ثومسون للذرة',desc:'نموذج ثومسون للذرة والإلكترونات سالبة الشحنة.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30497.jpg" alt="الشكل (1-2) — نموذج ثومسون للذرة" loading="lazy">`},
- {title:'الشكل (1-3) — نموذج رذرفورد للذرة',desc:'نموذج رذرفورد للذرة والنواة والإلكترونات.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30498.jpg" alt="الشكل (1-3) — نموذج رذرفورد للذرة" loading="lazy">`},
- {title:'الشكل (1-4) — نموذج بور للذرة',desc:'نموذج بور للذرة ومستويات الطاقة.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30499.jpg" alt="الشكل (1-4) — نموذج بور للذرة" loading="lazy">`},
- {title:'الشكل (1-5) — السحابة الإلكترونية',desc:'تمثيل السحابة الإلكترونية حول النواة.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30500.jpg" alt="الشكل (1-5) — السحابة الإلكترونية" loading="lazy">`},
- {title:'الشكل (1-7) — الشكل الكروي للأوربيتال (s)',desc:'الشكل الكروي للأوربيتال (s).',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30502.jpg" alt="الشكل (1-7) — الشكل الكروي للأوربيتال (s)" loading="lazy">`},
- {title:'الشكل (1-8) — أشكال الأوربيتالات (p)',desc:'أشكال الأوربيتالات (p).',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30505.jpg" alt="الشكل (1-8) — أشكال الأوربيتالات (p)" loading="lazy">`},
- {title:'الشكل (1-10) — دوران الإلكترونات',desc:'تمثيل دوران الإلكترونات حول النواة وحول محاورها.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30507.jpg" alt="الشكل (1-10) — دوران الإلكترونات" loading="lazy">`},
- {title:'الشكل (1-11) — تسلسل مستويات الطاقة الثانوية',desc:'تسلسل مستويات الطاقة الثانوية.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30508.jpg" alt="الشكل (1-11) — تسلسل مستويات الطاقة الثانوية" loading="lazy">`},
- {title:'الشكل (1-12) — طريقة كتابة الترتيب الإلكتروني',desc:'طريقة كتابة الترتيب الإلكتروني.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30509.jpg" alt="الشكل (1-12) — طريقة كتابة الترتيب الإلكتروني" loading="lazy">`},
- {title:'الشكل (1-14) — جزء من الجدول الدوري بدون عناصر',desc:'جزء من الجدول الدوري بدون عناصر.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30510.jpg" alt="الشكل (1-14) — جزء من الجدول الدوري بدون عناصر" loading="lazy">`},
- {title:'الشكل (1-15) — تقسيم الجدول الدوري حسب المستويات الثانوية',desc:'تقسيم الجدول الدوري حسب المستويات الثانوية.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30517.jpg" alt="الشكل (1-15) — تقسيم الجدول الدوري حسب المستويات الثانوية" loading="lazy">`},
- {title:'الشكل (1-17) — الجدول الدوري للعناصر',desc:'الجدول الدوري للعناصر وتقسيمه إلى كتل s وp وd وf.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30518.jpg" alt="الشكل (1-17) — الجدول الدوري للعناصر" loading="lazy">`}
+ {title:"الشكل (1-1) — نموذج دالتون للذرة",desc:"نموذج دالتون للذرة.",image:"images/third_chapter1_drawings/30496.jpg"},
+ {title:"الشكل (2-1) — نموذج طومسون للذرة",desc:"نموذج طومسون للذرة.",image:"images/third_chapter1_drawings/30497.jpg"},
+ {title:"الشكل (3-1) — نموذج رذرفورد للذرة",desc:"نموذج رذرفورد للذرة.",image:"images/third_chapter1_drawings/30498.jpg"},
+ {title:"الشكل (4-1) — نموذج بور للذرة",desc:"نموذج بور للذرة.",image:"images/third_chapter1_drawings/30499.jpg"},
+ {title:"الشكل (5-1) — أحد أشكال الأوربيتالات (السحابة الإلكترونية)",desc:"أحد أشكال الأوربيتالات (السحابة الإلكترونية).",image:"images/third_chapter1_drawings/30500.jpg"},
+ {title:"الشكل (7-1) — الشكل الكروي للأوربيتال (s)",desc:"الشكل الكروي للأوربيتال (s).",image:"images/third_chapter1_drawings/30502.jpg"},
+ {title:"الشكل (8-1) — أشكال الأوربيتالات (p)",desc:"أشكال الأوربيتالات (p).",image:"images/third_chapter1_drawings/30505.jpg"},
+ {title:"الشكل (10-1) — دوران الإلكترون حول النواة وحول محوره",desc:"دوران الإلكترون حول النواة ودوران الإلكترونين حول محوريهما في الأوربيتال الواحد.",image:"images/third_chapter1_drawings/30507.jpg"},
+ {title:"الشكل (11-1) — تسلسل مستويات الطاقة الثانوية",desc:"تسلسل مستويات الطاقة الثانوية.",image:"images/third_chapter1_drawings/30508.jpg"},
+ {title:"الشكل (12-1) — طريقة كتابة الترتيب الإلكتروني",desc:"طريقة كتابة الترتيب الإلكتروني.",image:"images/third_chapter1_drawings/30509.jpg"},
+ {title:"الشكل (14-1) — جزء من الجدول الدوري بدون عناصر",desc:"جزء من الجدول الدوري بدون عناصر.",image:"images/third_chapter1_drawings/30510.jpg"},
+ {title:"الشكل (15-1) — تقسيم الجدول الدوري حسب المستويات الثانوية",desc:"تقسيم الجدول الدوري حسب المستويات الثانوية التي بها الترتيب الإلكتروني للعناصر.",image:"images/third_chapter1_drawings/30517.jpg"},
+ {title:"الشكل (17-1) — الجدول الدوري للعناصر",desc:"الجدول الدوري للعناصر.",image:"images/third_chapter1_drawings/30518.jpg"}
 ],
 2:[
  {title:"اختبار اللهب",desc:"رسم تعليمي لفكرة الكشف عن بعض عناصر الزمرتين بطريقة اللهب.",svg:flameSvg()},

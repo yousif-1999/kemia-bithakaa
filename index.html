@@ -1420,6 +1420,8 @@ li {
 .drawing-card p{margin:0 0 10px;color:#66788a;font-size:13px;line-height:1.7;}
 .drawing-box{display:flex;justify-content:center;align-items:center;min-height:170px;padding:8px;background:#fbfdff;border-radius:14px;overflow:hidden;}
 .drawing-box svg{width:100%;height:auto;max-height:240px;}
+.source-drawing-img{display:block;width:100%;height:auto;max-height:520px;object-fit:contain;border-radius:10px;}
+
 @media(max-width:560px){.drawings-grid{grid-template-columns:1fr}.drawing-box{min-height:150px}}
 
 
@@ -2208,6 +2210,7 @@ function thirdChapterReviewCards(ch){
     thirdChapterCard('🧠','احفظها','بطاقات الحفظ والمعلومات الأساسية الخاصة بالفصل.','showChapterMemory('+ch+')')+
     thirdChapterCard('❓','اختبرني','اختبار مستقل من بنك أسئلة الفصل فقط.','showChapterQuiz('+ch+')')+
     thirdChapterCard('🔄','مراجعة أخطائي','مراجعة الأخطاء المحفوظة من اختبارات الفصل.','showChapterWrong('+ch+')')+
+    thirdChapterCard('🖼️','الرسومات','الرسومات والمخططات المرتبطة بموضوعات هذا الفصل.','showChapterDrawings('+ch+')')+
     thirdChapterCard('🧮','القوانين والمعادلات الكيميائية','القوانين والمعادلات المرتبطة بموضوعات الفصل.','showThirdChapterFormulas('+ch+')')+
     thirdChapterCard('🎯','أفكار وزارية','أفكار مركزة وتعليلات مرتبطة بموضوعات الفصل.',''+fnIdeas)+
     thirdChapterCard('📝','أسئلة الفصل وحلولها','أسئلة الفصل مع الحلول الخاصة بموضوعاته.','showThirdChapterQuestions('+ch+')');
@@ -2218,6 +2221,7 @@ function showThirdChapterPanel(ch){
   cards+=thirdChapterCard('🧠','احفظها','بطاقات الحفظ والمعلومات الأساسية الخاصة بهذا الفصل.','showChapterMemory('+ch+')');
   cards+=thirdChapterCard('❓','اختبرني','اختبار مستقل من بنك أسئلة هذا الفصل فقط.','showChapterQuiz('+ch+')');
   cards+=thirdChapterCard('🔄','مراجعة أخطائي','راجع الأخطاء المحفوظة من اختبارات هذا الفصل.','showChapterWrong('+ch+')');
+  cards+=thirdChapterCard('🖼️','الرسومات','الرسومات والمخططات المرتبطة بموضوعات هذا الفصل.','showChapterDrawings('+ch+')');
   cards+=thirdChapterCard('🧮','القوانين والمعادلات الكيميائية','كل قانون ومعادلة مرتبطة بموضوعات الفصل.','showThirdChapterFormulas('+ch+')');
   cards+=thirdChapterCard('🎯','أفكار وزارية','أفكار مركزة وتعليلات مرتبطة بموضوعات الفصل.',''+(ch===1?'showMinistryIdeas()':'showChapter'+ch+'MinistryIdeas()'));
   cards+=thirdChapterCard('📝','أسئلة الفصل وحلولها','أسئلة الفصل مع الحلول الخاصة بموضوعاته.','showThirdChapterQuestions('+ch+')');
@@ -2545,9 +2549,13 @@ function showChapter1Lessons() {
                 </div>
                 <div class="lesson-arrow">←</div>
 
-            </div><div class="lesson-card-info">
+            </div>
+
+            <div class="lesson-card" onclick="showChapterDrawings(1)">
+                <div class="lesson-card-icon">🖼️</div>
+                <div class="lesson-card-info">
                     <h3>الرسومات</h3>
-                    <p>رسومات ومخططات المركبات والأجهزة والأشكال المهمة الخاصة بالفصل الأول.</p>
+                    <p>الرسومات والمخططات المرتبطة بموضوعات الفصل الأول.</p>
                 </div>
                 <div class="lesson-arrow">←</div>
             </div>
@@ -5026,7 +5034,8 @@ function showChapter4(){
       <div class="lesson-card" onclick="showLesson4_5()"><div class="lesson-card-icon">📐</div><div class="lesson-card-info"><h3>4-5 التركيز بالكتلة/الحجم والكثافة</h3><p>التركيز غ/ل، الكثافة، وتحويل الوحدات وحل المسائل المركبة.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapterMemory(4)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الرابع</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapterQuiz(4)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الرابع</h3><p>اختبار الفصل الرابع فقط مع مسائل التركيز.</p></div><div class="lesson-arrow">←</div></div>
-      <div class="lesson-card" onclick="showChapterWrong(4)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الرابع</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الرابع.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات القياس والتحضير والتعبير عن تركيز المحاليل.</p></div><div class="lesson-arrow">←</div></div>
+      <div class="lesson-card" onclick="showChapterWrong(4)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الرابع</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الرابع.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card" onclick="showChapterDrawings(4)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card" onclick="showChapterDrawings(5)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card" onclick="showChapterDrawings(6)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card" onclick="showChapterDrawings(7)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card" onclick="showChapterDrawings(8)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card" onclick="showChapterDrawings(9)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>الرسومات والمخططات المرتبطة بموضوعات الفصل التاسع.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapterDrawings(4)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>الرسومات والمخططات المرتبطة بموضوعات الفصل 4.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showThirdChapterFormulas(4)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل الرابع، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
 <div class="lesson-card" onclick="showChapter4MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار مركزة من التعليلات والنقاط الامتحانية المهمة في الفصل الرابع.</p></div><div class="lesson-arrow">←</div></div>
       <div class="lesson-card" onclick="showChapter4Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الرابع وحلولها</h3><p>أسئلة الفصل الرابع مع الحلول المنظمة.</p></div><div class="lesson-arrow">←</div></div>
@@ -5127,6 +5136,7 @@ function showChapter5() {
             <div class="lesson-card" onclick="showChapterMemory(5)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الخامس</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterQuiz(5)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الخامس</h3><p>اختبار الفصل الخامس فقط.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapterWrong(5)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الخامس</h3><p>راجع الأسئلة التي أخطأت فيها في الفصل الخامس.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card-info"><h3>الرسومات</h3><p>رسومات السليكون ومركباته وعمليات تحضيره المهمة.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showChapterDrawings(5)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>الرسومات والمخططات المرتبطة بموضوعات الفصل 5.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showThirdChapterFormulas(5)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل الخامس، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
 <div class="lesson-card" onclick="showChapter5MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>أفكار مركزة من التعليلات والأسئلة والسنوات الوزارية الواردة في الملزمة.</p></div><div class="lesson-arrow">←</div></div>
             <div class="lesson-card" onclick="showChapter5Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الخامس وحلولها</h3><p>أسئلة الفصل الخامس مع الحلول المنظمة حسب الملزمة.</p></div><div class="lesson-arrow">←</div></div>
@@ -5225,7 +5235,8 @@ function showChapter6(){
   <div class="lesson-card" onclick="showLesson6_5()"><div class="lesson-card-icon">🍶</div><div class="lesson-card-info"><h3>6-5 كحول الإثيل وحامض الخليك</h3><p>تحضير الإيثانول وخواصه واستعمالاته وحامض الخليك.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showLesson6_6()"><div class="lesson-card-icon">⬡</div><div class="lesson-card-info"><h3>6-6 البنزين أو البنزول والفينول</h3><p>صفات واستعمالات البنزين والفينول.</p></div><div class="lesson-arrow">←</div></div>
 
-  <div class="lesson-card" onclick="showThirdChapterFormulas(6)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل السادس، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapterDrawings(6)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>الرسومات والمخططات المرتبطة بموضوعات الفصل 6.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showThirdChapterFormulas(6)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل السادس، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
     " if False else marker}
   <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
  </div>`;
@@ -5283,7 +5294,8 @@ function showChapter7(){
   <div class="lesson-card" onclick="showChapterMemory(7)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل السابع</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterQuiz(7)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل السابع</h3><p>اختبار الفصل السابع فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterWrong(7)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل السابع</h3><p>مراجعة أخطاء اختبار الفصل السابع.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card-info"><h3>الرسومات</h3><p>أجهزة التحضير والاختبارات والأشكال المهمة الخاصة بالفصل السابع.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showThirdChapterFormulas(7)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل السابع، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapterDrawings(7)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>الرسومات والمخططات المرتبطة بموضوعات الفصل 7.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showThirdChapterFormulas(7)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل السابع، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
 <div class="lesson-card" onclick="showChapter7MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>تعليلات ونقاط وزارية مركزة من الفصل السابع.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapter7Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل السابع وحلولها</h3><p>أسئلة منظمة مع الحلول.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
@@ -5344,7 +5356,8 @@ function showChapter9(){
   <div class="lesson-card" onclick="showChapterMemory(9)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل التاسع</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterQuiz(9)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل التاسع</h3><p>اختبار الفصل التاسع فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterWrong(9)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل التاسع</h3><p>مراجعة أخطاء اختبار الفصل التاسع.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card-info"><h3>الرسومات</h3><p>أجهزة التحضير والاختبارات والمركبات والأشكال المهمة الخاصة بالفصل التاسع.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showThirdChapterFormulas(9)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل التاسع، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapterDrawings(9)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>الرسومات والمخططات المرتبطة بموضوعات الفصل 9.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showThirdChapterFormulas(9)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل التاسع، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
 <div class="lesson-card" onclick="showChapter9MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>تعليلات ونقاط وزارية مركزة من الفصل التاسع.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapter9Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل التاسع وحلولها</h3><p>أسئلة منظمة مع الحلول.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
@@ -5408,7 +5421,8 @@ function showChapter8(){
   <div class="lesson-card" onclick="showChapterMemory(8)"><div class="lesson-card-icon">🧠</div><div class="lesson-card-info"><h3>احفظها — الفصل الثامن</h3><p>بطاقات ونقاط الحفظ الخاصة بهذا الفصل فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterQuiz(8)"><div class="lesson-card-icon">❓</div><div class="lesson-card-info"><h3>اختبرني — الفصل الثامن</h3><p>اختبار الفصل الثامن فقط.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapterWrong(8)"><div class="lesson-card-icon">🔄</div><div class="lesson-card-info"><h3>مراجعة أخطائي — الفصل الثامن</h3><p>مراجعة أخطاء اختبار الفصل الثامن.</p></div><div class="lesson-arrow">←</div></div><div class="lesson-card-info"><h3>الرسومات</h3><p>أجهزة التحضير والمقارنات والمخططات المهمة الخاصة بالفصل الثامن.</p></div><div class="lesson-arrow">←</div></div>
-  <div class="lesson-card" onclick="showThirdChapterFormulas(8)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل الثامن، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
+  <div class="lesson-card" onclick="showChapterDrawings(8)"><div class="lesson-card-icon">🖼️</div><div class="lesson-card-info"><h3>الرسومات</h3><p>الرسومات والمخططات المرتبطة بموضوعات الفصل 8.</p></div><div class="lesson-arrow">←</div></div>
+            <div class="lesson-card" onclick="showThirdChapterFormulas(8)"><div class="lesson-card-icon">🧮</div><div class="lesson-card-info"><h3>القوانين والمعادلات الكيميائية</h3><p>جميع القوانين والمعادلات الكيميائية الخاصة بالفصل الثامن، مرتبة للمراجعة.</p></div><div class="lesson-arrow">←</div></div>
 <div class="lesson-card" onclick="showChapter8MinistryIdeas()"><div class="lesson-card-icon">🎯</div><div class="lesson-card-info"><h3>أفكار وزارية</h3><p>تعليلات ونقاط وزارية مركزة من الفصل الثامن.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-card" onclick="showChapter8Questions()"><div class="lesson-card-icon">📝</div><div class="lesson-card-info"><h3>أسئلة الفصل الثامن وحلولها</h3><p>أسئلة منظمة مع الحلول.</p></div><div class="lesson-arrow">←</div></div>
   <div class="lesson-navigation"><button class="chapter-button" onclick="showChapters()">📚 العودة إلى الفصول</button></div>
@@ -5456,14 +5470,9 @@ function showChapter8Questions(){setActive(1);var app=document.getElementById("a
    الرسومات الخاصة بكل فصل
    ========================================================= */
 function prepSourceDrawingCards(ch){
-  const sets={
-    3:[['aluminumHall',34,'خلية هول لاستخلاص الألمنيوم']],
-    6:[['methane',66,'تحضير الميثان'],['ethylene',67,'تحضير الإثيلين'],['acetylene',68,'تحضير الأسيتيلين']],
-    7:[['nitrogen',77,'تحضير النتروجين'],['ammonia',79,'تحضير الأمونيا'],['nitric',80,'تحضير حامض النتريك']],
-    8:[['so2',90,'تحضير ثاني أوكسيد الكبريت'],['h2s',92,'تحضير كبريتيد الهيدروجين']],
-    9:[['chlorineLab',98,'تحضير الكلور مختبريًا'],['chlorineInd',98,'تحضير الكلور صناعيًا']]
-  };
-  return (sets[ch]||[]).map(function(d){return `<div class="drawing-card"><div class="drawing-visual"><img src="${PREP_SOURCE_IMAGES[d[0]]}" alt="${d[2]}"></div><div class="drawing-info"><h3>${d[2]}</h3><p>الرسم الأصلي المقتص من ملزمة «فخامة الكيمياء».</p></div></div>`}).join('');
+  // الرسومات المضمنة داخل التطبيق هي المصدر المعروض حاليًا.
+  // لا نستدعي ملفات صور خارجية حتى لا تظهر صور مكسورة في GitHub Pages.
+  return '';
 }
 
 function showChapterDrawings(ch){
@@ -5504,10 +5513,19 @@ function prepAppSvg(){return `<svg viewBox="0 0 320 190"><path d="M70 55 H140 V1
 
 var chapterDrawingData={
 1:[
- {title:"نموذج مبسط للذرة",desc:"النواة ومستويات/مدارات حولها لتمثيل البناء الذري.",svg:atomSvg()},
- {title:"مخطط الأوربيتالات",desc:"تمثيل مبسط لملء المستويات الثانوية بالإلكترونات.",svg:orbitalsSvg()},
- {title:"ترتيب لويس",desc:"تمثيل إلكترونات التكافؤ حول رمز العنصر.",svg:lewisSvg()},
- {title:"الجدول الدوري",desc:"مخطط مبسط يوضح ترتيب العناصر والتدرج الدوري.",svg:periodicSvg()}
+ {title:'الشكل (1-1) — نموذج دالتون للذرة',desc:'نموذج دالتون للذرة كما ورد في المصدر.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30496.jpg" alt="الشكل (1-1) — نموذج دالتون للذرة" loading="lazy">`},
+ {title:'الشكل (1-2) — نموذج ثومسون للذرة',desc:'نموذج ثومسون للذرة والإلكترونات سالبة الشحنة.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30497.jpg" alt="الشكل (1-2) — نموذج ثومسون للذرة" loading="lazy">`},
+ {title:'الشكل (1-3) — نموذج رذرفورد للذرة',desc:'نموذج رذرفورد للذرة والنواة والإلكترونات.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30498.jpg" alt="الشكل (1-3) — نموذج رذرفورد للذرة" loading="lazy">`},
+ {title:'الشكل (1-4) — نموذج بور للذرة',desc:'نموذج بور للذرة ومستويات الطاقة.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30499.jpg" alt="الشكل (1-4) — نموذج بور للذرة" loading="lazy">`},
+ {title:'الشكل (1-5) — السحابة الإلكترونية',desc:'تمثيل السحابة الإلكترونية حول النواة.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30500.jpg" alt="الشكل (1-5) — السحابة الإلكترونية" loading="lazy">`},
+ {title:'الشكل (1-7) — الشكل الكروي للأوربيتال (s)',desc:'الشكل الكروي للأوربيتال (s).',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30502.jpg" alt="الشكل (1-7) — الشكل الكروي للأوربيتال (s)" loading="lazy">`},
+ {title:'الشكل (1-8) — أشكال الأوربيتالات (p)',desc:'أشكال الأوربيتالات (p).',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30505.jpg" alt="الشكل (1-8) — أشكال الأوربيتالات (p)" loading="lazy">`},
+ {title:'الشكل (1-10) — دوران الإلكترونات',desc:'تمثيل دوران الإلكترونات حول النواة وحول محاورها.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30507.jpg" alt="الشكل (1-10) — دوران الإلكترونات" loading="lazy">`},
+ {title:'الشكل (1-11) — تسلسل مستويات الطاقة الثانوية',desc:'تسلسل مستويات الطاقة الثانوية.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30508.jpg" alt="الشكل (1-11) — تسلسل مستويات الطاقة الثانوية" loading="lazy">`},
+ {title:'الشكل (1-12) — طريقة كتابة الترتيب الإلكتروني',desc:'طريقة كتابة الترتيب الإلكتروني.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30509.jpg" alt="الشكل (1-12) — طريقة كتابة الترتيب الإلكتروني" loading="lazy">`},
+ {title:'الشكل (1-14) — جزء من الجدول الدوري بدون عناصر',desc:'جزء من الجدول الدوري بدون عناصر.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30510.jpg" alt="الشكل (1-14) — جزء من الجدول الدوري بدون عناصر" loading="lazy">`},
+ {title:'الشكل (1-15) — تقسيم الجدول الدوري حسب المستويات الثانوية',desc:'تقسيم الجدول الدوري حسب المستويات الثانوية.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30517.jpg" alt="الشكل (1-15) — تقسيم الجدول الدوري حسب المستويات الثانوية" loading="lazy">`},
+ {title:'الشكل (1-17) — الجدول الدوري للعناصر',desc:'الجدول الدوري للعناصر وتقسيمه إلى كتل s وp وd وf.',svg:`<img class="source-drawing-img" src="images/third_chapter1_drawings/30518.jpg" alt="الشكل (1-17) — الجدول الدوري للعناصر" loading="lazy">`}
 ],
 2:[
  {title:"اختبار اللهب",desc:"رسم تعليمي لفكرة الكشف عن بعض عناصر الزمرتين بطريقة اللهب.",svg:flameSvg()},

@@ -1680,6 +1680,16 @@ li {
 }
 
 
+/* ==================== حساب الطالب — التسجيل المحلي ==================== */
+.student-auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+.student-auth-card{background:#fff;border:1px solid #dfe7f0;border-radius:24px;padding:22px;box-shadow:0 12px 30px rgba(25,55,90,.07)}
+.student-auth-card h3{margin:0 0 7px;color:#173b78;font-size:21px}.student-auth-card p{margin:0 0 16px;color:#738298;line-height:1.8}
+.student-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.student-form-group{display:flex;flex-direction:column;gap:7px}.student-form-group.full{grid-column:1/-1}.student-form-group label{font-size:13px;font-weight:900;color:#3a526f}.student-form-group input,.student-form-group select{width:100%;padding:13px 14px;border:1px solid #d9e3ed;border-radius:14px;background:#fff;color:#253d5c;font:inherit;outline:none;box-sizing:border-box}.student-form-group input:focus,.student-form-group select:focus{border-color:#4b82bd;box-shadow:0 0 0 3px rgba(75,130,189,.10)}
+.student-primary-btn,.student-secondary-btn{border:0;border-radius:14px;padding:13px 16px;font:inherit;font-weight:950;cursor:pointer;transition:.2s}.student-primary-btn{background:#173f79;color:#fff}.student-primary-btn:hover{transform:translateY(-1px);box-shadow:0 9px 18px rgba(23,63,121,.18)}.student-secondary-btn{background:#edf4ff;color:#285a93}.student-danger-btn{border:1px solid #e1c8c8;background:#fff4f4;color:#a74646;border-radius:12px;padding:9px 13px;font-family:inherit;font-weight:900;cursor:pointer}
+.student-form-actions{grid-column:1/-1;display:flex;gap:10px;align-items:center;margin-top:4px}.student-auth-message{grid-column:1/-1;min-height:0;margin-top:2px;padding:10px 12px;border-radius:12px;background:#f6f9fd;color:#66768b;font-size:13px;line-height:1.8}.student-auth-message.ok{background:#edf8ef;color:#245f35;border-right:4px solid #4b8b5a}.student-auth-message.error{background:#fff4f4;color:#923b3b;border-right:4px solid #c95b5b}
+.student-profile-card{background:linear-gradient(145deg,#f7fbff,#fff);border:1px solid #dfe8f2;border-radius:24px;padding:20px;box-shadow:0 12px 30px rgba(25,55,90,.06);margin-bottom:18px}.student-profile-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.student-profile-main{display:flex;align-items:center;gap:14px}.student-profile-avatar{width:62px;height:62px;border-radius:19px;background:#edf4ff;display:grid;place-items:center;font-size:31px}.student-profile-name{font-size:21px;font-weight:950;color:#193c70}.student-profile-meta{color:#7c8ba1;font-size:13px;margin-top:4px}.student-profile-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.student-badge{padding:7px 10px;border-radius:999px;background:#edf4ff;color:#2b5f98;font-size:12px;font-weight:900}.student-account-note{margin-top:12px;color:#8090a6;font-size:12px;line-height:1.8}
+@media(max-width:760px){.student-auth-grid{grid-template-columns:1fr}.student-form-grid{grid-template-columns:1fr}.student-profile-head{align-items:flex-start;flex-direction:column}.student-form-actions{flex-direction:column;align-items:stretch}.student-form-actions button{width:100%}}
+
 /* ==================== حسابي / المصادقة / التقدم ==================== */
 .account-hero{position:relative;overflow:hidden;padding:30px 28px;border-radius:28px;background:linear-gradient(135deg,#0f2e63,#1e5b9e 55%,#2c8d99);color:#fff;box-shadow:0 18px 48px rgba(22,57,105,.19);margin-bottom:18px}
 .account-hero:before,.account-hero:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.08)}
@@ -1790,22 +1800,8 @@ li {
 
     <button
         class="nav-item"
-        id="nav-lessons"
-        onclick="currentGrade==='first_middle'?showFirstMiddleHome():(currentGrade==='sixth'?showSixthLessonsHub():showThirdLessonsHub())">
-
-        <div class="nav-icon">📖</div>
-
-        دروسي
-
-    </button>
-
-
-
-
-    <button
-        class="nav-item"
         id="nav-account"
-        onclick="showAccount(currentGrade)">
+        onclick="openStudentAccount()">
 
         <div class="nav-icon">👤</div>
 
@@ -1947,8 +1943,11 @@ function saveStudentName() {
     var input = document.getElementById("studentNameInput");
     if (!input) return;
     var name = input.value.trim();
-    localStorage.setItem("kemia_student_name", name || "طالب كيمياء بذكاء");
-    showAccount();
+    var safeName = name || "طالب كيمياء بذكاء";
+    localStorage.setItem("kemia_student_name", safeName);
+    var account=readStudentAccount();
+    if(account){account.name=safeName;saveStudentAccountData(account);}
+    showAccount(currentGrade);
 }
 
 
@@ -1963,11 +1962,10 @@ function setActive(index) {
         item.classList.remove("active");
     });
 
-    /* بعد حذف تبويبي احفظها واختبرني من الشريط السفلي:
-       0 = الرئيسية، 1 = دروسي، 2/3 = صفحات داخلية بلا تبويب سفلي، 4 = حسابي */
+    /* الشريط السفلي الآن يحتوي على: 0 = الرئيسية، 4 = حسابي.
+       بقية الصفحات الداخلية لا تحتاج إلى تبويب سفلي. */
     var targetId = ({
         0: "nav-home",
-        1: "nav-lessons",
         4: "nav-account"
     })[index];
 
@@ -7466,24 +7464,136 @@ function showSixthChapterQuiz(){ showSixthChapter1Quiz(); }
 function showSixthChapterWrong(){ showSixthChapter1Wrong(); }
 function showSixthChapterMinistryQuestions(){ showSixthChapter1MinistryQuestions(); }
 
+function readStudentAccount(){
+  try{return JSON.parse(localStorage.getItem('kemia_student_account')||'null');}catch(e){return null;}
+}
+function saveStudentAccountData(data){localStorage.setItem('kemia_student_account',JSON.stringify(data));}
+function getStudentSession(){return localStorage.getItem('kemia_student_session')==='1';}
+function setStudentSession(value){localStorage.setItem('kemia_student_session',value?'1':'0');}
+async function hashStudentPassword(password){
+  try{
+    if(window.crypto&&crypto.subtle){
+      var data=new TextEncoder().encode(password);
+      var buffer=await crypto.subtle.digest('SHA-256',data);
+      return Array.from(new Uint8Array(buffer)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+    }
+  }catch(e){}
+  return 'local-'+btoa(unescape(encodeURIComponent(password)));
+}
+function studentGradeLabel(grade){return ({first_middle:'الأول متوسط',third:'الثالث متوسط',sixth:'السادس العلمي'})[grade]||'لم يتم الاختيار';}
+function getFMCompletedLessons(){try{return JSON.parse(localStorage.getItem('kemia_first_middle_completed')||'[]');}catch(e){return [];}}
+function markFMLessonComplete(id){var a=getFMCompletedLessons();if(a.indexOf(id)===-1){a.push(id);localStorage.setItem('kemia_first_middle_completed',JSON.stringify(a));}}
+function getFMProgressSummary(){
+  var total=12,done=getFMCompletedLessons().length,pct=Math.round(done/total*100);
+  var byChapter={};
+  if(typeof FM_CHAPTERS!=='undefined'){Object.keys(FM_CHAPTERS).forEach(function(ch){var t=(FM_CHAPTERS[ch].lessons||[]).length;var d=getFMCompletedLessons().filter(function(x){return String(x).indexOf(ch+'-')===0;}).length;byChapter[ch]={done:d,total:t,pct:t?Math.round(d/t*100):0};});}
+  return {done:done,total:total,pct:pct,byChapter:byChapter};
+}
+function accountAuthBlock(){
+  var account=readStudentAccount();
+  if(account&&getStudentSession()){
+    return `<section class="student-profile-card">
+      <div class="student-profile-head">
+        <div class="student-profile-main"><div class="student-profile-avatar">👨‍🎓</div><div><div class="student-profile-name">${escapeHtml(account.name||'طالب الكيمياء')}</div><div class="student-profile-meta">حساب طالب مسجل في كيمياء بذكاء</div></div></div>
+        <button class="student-danger-btn" type="button" onclick="logoutStudentAccount()">تسجيل الخروج</button>
+      </div>
+      <div class="student-profile-badges"><span class="student-badge">📚 ${escapeHtml(studentGradeLabel(account.grade))}</span>${account.phone?`<span class="student-badge">📱 ${escapeHtml(account.phone)}</span>`:''}${account.email?`<span class="student-badge">✉️ ${escapeHtml(account.email)}</span>`:''}</div>
+      <div class="student-account-note">تم حفظ بيانات الحساب محليًا في هذا المتصفح. مزامنة الحساب بين الأجهزة أو تسجيل الدخول من جهاز آخر تحتاج إلى ربط المشروع بخادم وقاعدة بيانات.</div>
+    </section>`;
+  }
+  return `<div class="student-auth-grid">
+    <section class="student-auth-card"><h3>📝 إنشاء حساب طالب</h3><p>أنشئ حسابك داخل كيمياء بذكاء واحفظ الصف الذي تدرسه وبيانات ملفك.</p>
+      <div class="student-form-grid">
+        <div class="student-form-group full"><label>الاسم الكامل</label><input id="regStudentName" type="text" autocomplete="name" placeholder="اكتب اسمك الكامل"></div>
+        <div class="student-form-group"><label>رقم الهاتف</label><input id="regStudentPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0770xxxxxxx"></div>
+        <div class="student-form-group"><label>البريد الإلكتروني</label><input id="regStudentEmail" type="email" autocomplete="email" placeholder="اختياري"></div>
+        <div class="student-form-group full"><label>الصف الدراسي</label><select id="regStudentGrade"><option value="first_middle">الصف الأول متوسط</option><option value="third">الصف الثالث متوسط</option><option value="sixth">الصف السادس العلمي</option></select></div>
+        <div class="student-form-group"><label>كلمة المرور</label><input id="regStudentPassword" type="password" autocomplete="new-password" placeholder="6 أحرف أو أكثر"></div>
+        <div class="student-form-group"><label>تأكيد كلمة المرور</label><input id="regStudentPassword2" type="password" autocomplete="new-password" placeholder="أعد كتابة كلمة المرور"></div>
+        <div class="student-form-actions"><button class="student-primary-btn" type="button" onclick="registerStudentAccount()">إنشاء الحساب</button></div>
+        <div id="studentRegisterMessage" class="student-auth-message"></div>
+      </div></section>
+    <section class="student-auth-card"><h3>🔐 لدي حساب</h3><p>سجّل الدخول من هذا المتصفح للمتابعة إلى ملفك وتقدمك الدراسي.</p>
+      <div class="student-form-grid">
+        <div class="student-form-group full"><label>الهاتف أو البريد الإلكتروني</label><input id="loginStudentId" type="text" autocomplete="username" placeholder="رقم الهاتف أو البريد"></div>
+        <div class="student-form-group full"><label>كلمة المرور</label><input id="loginStudentPassword" type="password" autocomplete="current-password" placeholder="كلمة المرور"></div>
+        <div class="student-form-actions"><button class="student-secondary-btn" type="button" onclick="loginStudentAccount()">تسجيل الدخول</button></div>
+        <div id="studentLoginMessage" class="student-auth-message"></div>
+      </div></section>
+  </div>`;
+}
+async function registerStudentAccount(){
+  var name=(document.getElementById('regStudentName')||{}).value||'';
+  var phone=(document.getElementById('regStudentPhone')||{}).value||'';
+  var email=(document.getElementById('regStudentEmail')||{}).value||'';
+  var grade=(document.getElementById('regStudentGrade')||{}).value||'first_middle';
+  var pass=(document.getElementById('regStudentPassword')||{}).value||'';
+  var pass2=(document.getElementById('regStudentPassword2')||{}).value||'';
+  var msg=document.getElementById('studentRegisterMessage');
+  var fail=function(t){if(msg){msg.className='student-auth-message error';msg.textContent=t;} };
+  if(name.trim().length<3)return fail('اكتب الاسم الكامل بصورة صحيحة.');
+  if(phone.trim().length<7)return fail('أدخل رقم هاتف صحيح.');
+  if(pass.length<6)return fail('كلمة المرور يجب أن تكون 6 أحرف على الأقل.');
+  if(pass!==pass2)return fail('تأكيد كلمة المرور غير مطابق.');
+  var old=readStudentAccount();
+  if(old&&((phone.trim()&&old.phone===phone.trim())||(email.trim()&&old.email===email.trim())))return fail('يوجد حساب مسجل بهذه البيانات على هذا المتصفح. استخدم تسجيل الدخول.');
+  var data={name:name.trim(),phone:phone.trim(),email:email.trim(),grade:grade,passwordHash:await hashStudentPassword(pass),createdAt:new Date().toISOString(),role:'student'};
+  saveStudentAccountData(data);localStorage.setItem('kemia_student_name',data.name);setStudentSession(true);setCurrentGrade(grade);showAccount(grade);
+}
+async function loginStudentAccount(){
+  var id=((document.getElementById('loginStudentId')||{}).value||'').trim();
+  var pass=(document.getElementById('loginStudentPassword')||{}).value||'';
+  var msg=document.getElementById('studentLoginMessage');
+  var fail=function(t){if(msg){msg.className='student-auth-message error';msg.textContent=t;}};
+  var account=readStudentAccount();
+  if(!account)return fail('لا يوجد حساب محفوظ على هذا المتصفح. أنشئ حسابًا أولًا.');
+  var hash=await hashStudentPassword(pass);
+  if(id!==account.phone&&id.toLowerCase()!==String(account.email||'').toLowerCase())return fail('رقم الهاتف أو البريد الإلكتروني غير صحيح.');
+  if(hash!==account.passwordHash)return fail('كلمة المرور غير صحيحة.');
+  setStudentSession(true);localStorage.setItem('kemia_student_name',account.name||'طالب كيمياء بذكاء');setCurrentGrade(account.grade||'first_middle');showAccount(account.grade);
+}
+function logoutStudentAccount(){setStudentSession(false);showAccount(currentGrade);}
+
+function openStudentAccount(){
+  try{
+    var grade=(typeof currentGrade!=='undefined' && currentGrade) ? currentGrade : 'first_middle';
+    showAccount(grade);
+  }catch(err){
+    var app=document.getElementById('app');
+    if(app){
+      app.innerHTML='<div class="page"><div class="page-header"><button class="back-button" onclick="showHome()">←</button><h2>👤 حسابي</h2><span></span></div><div class="content-card"><h3>👤 حساب الطالب</h3><p>حدث خطأ أثناء فتح الحساب. أعد فتح الصفحة ثم حاول مرة أخرى.</p><div class="answer-box">'+(err&&err.message?String(err.message):'خطأ غير معروف')+'</div></div></div>';
+    }
+    console.error(err);
+  }
+}
+
 function showAccount(grade) {
   setActive(4);
   var app=document.getElementById('app');
-  var third=gradeSummary('third',CHAPTER_TOTALS_THIRD);
-  var sixth={pct:0,done:0,total:0};
-  var thirdCards=CHAPTER_NAMES_THIRD.map(function(name,i){var p=getChapterProgress('third',i+1,CHAPTER_TOTALS_THIRD[i]);return `<div class="progress-card"><div class="progress-head"><span class="progress-title">الفصل ${i+1}: ${name}</span><span class="progress-percent">${p.pct}%</span></div><div class="progress-track account-progress"><div class="progress-bar progress-fill-third" style="width:${p.pct}%;height:100%;"></div></div><div class="progress-meta"><span>${p.done} / ${CHAPTER_TOTALS_THIRD[i]} دروس مكتملة</span><span>${p.pct===100?'مكتمل ✅':p.pct?'قيد الدراسة':'لم يبدأ بعد'}</span></div></div>`}).join('');
-  var sixthCards='';
-  app.innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showHome()">←</button><h2>👤 حسابي</h2><span></span></div>
-    <section class="account-hero"><div class="account-hero-content"><div class="account-avatar">👤</div><div class="account-kicker">ملف الطالب</div><div class="account-title">مساحتك الدراسية</div><p class="account-subtitle">كل ما يخص حسابك وتقدمك موجود هنا فقط.</p></div></section>
+  if(!app)return;
+  var first={pct:0,done:0,total:0,byChapter:{}};
+  try{ first=getFMProgressSummary(); }catch(e){ console.warn('FM progress unavailable',e); }
+  var account=readStudentAccount();
+  var logged=!!(account&&getStudentSession());
+  app.innerHTML=`
+  <div class="page account-page">
+    <div class="page-header"><button class="back-button" type="button" onclick="showHome()">←</button><h2>👤 حسابي</h2><span></span></div>
+    <section class="account-hero"><div class="account-hero-content"><div class="account-avatar">👤</div><div class="account-kicker">ملف الطالب</div><div class="account-title">مساحتك الدراسية</div><p class="account-subtitle">إنشاء حساب، تسجيل الدخول، ومتابعة تقدمك في الصفوف الدراسية.</p></div></section>
     ${accountAuthBlock()}
-    <div class="content-card"><div class="account-section-title"><h3>📊 التقدم العام</h3><span>منفصل لكل مرحلة</span></div>
-      <div class="content-card" style="margin:0 0 12px;padding:16px;border-radius:18px"><div class="progress-head"><span class="account-grade-badge">📘 الثالث متوسط</span><strong>${third.pct}%</strong></div><div class="progress-track account-progress"><div class="progress-bar progress-fill-third" style="width:${third.pct}%;height:100%"></div></div><div class="progress-meta"><span>${third.done} من ${third.total} درسًا مكتملًا</span><span>${third.pct}%</span></div></div>
-      <div class="content-card" style="margin:0;padding:16px;border-radius:18px"><div class="progress-head"><span class="account-grade-badge sixth">🎓 السادس العلمي</span><strong>${sixth.pct}%</strong></div><div class="progress-track account-progress"><div class="progress-bar progress-fill-sixth" style="width:${sixth.pct}%;height:100%"></div></div><div class="progress-meta"><span>التقدم محفوظ في مسار السادس فقط</span><span>${sixth.pct}%</span></div></div>
+    <div class="content-card">
+      <div class="account-section-title"><h3>📊 التقدم الدراسي</h3><span>يُحدّث تلقائيًا</span></div>
+      <div class="progress-card">
+        <div class="progress-head"><span class="progress-title">🧪 الصف الأول متوسط</span><span class="progress-percent">${first.pct}%</span></div>
+        <div class="progress-track account-progress"><div class="progress-bar progress-fill-third" style="width:${first.pct}%;height:100%"></div></div>
+        <div class="progress-meta"><span>${first.done} من ${first.total} درسًا مكتملًا</span><span>${first.pct===100?'مكتمل ✅':first.pct?'قيد الدراسة':'لم يبدأ بعد'}</span></div>
+      </div>
+      <div class="dashboard-note">🔒 بيانات الحساب والتقدم في هذه النسخة محفوظة محليًا في هذا المتصفح.</div>
     </div>
-    <div class="account-section-title"><h3>📘 تقدم فصول الثالث متوسط</h3><span>نسبة كل فصل</span></div>${thirdCards}
-    <div class="account-section-title"><h3>🎓 تقدم السادس العلمي</h3><span>الفصول 1–6 مضافة</span></div><div class="dashboard-note sixth-note">تمت إضافة الفصول الأول إلى السادس بالاعتماد على الكتاب الرسمي، وسيظهر التقدم التفصيلي مع استكمال بقية أدوات المسار.</div>
-  </div>
-  <div id="authModal" class="auth-modal-backdrop" onclick="if(event.target===this)closeAuthModal()"><div class="auth-modal"><div class="auth-modal-header"><h3>🔐 تسجيل الدخول</h3><button class="auth-close" onclick="closeAuthModal()">×</button></div><div id="authModalStatus" class="auth-status"></div><div id="phoneLoginPanel" class="phone-login" style="display:none"><label style="display:block;font-weight:900;color:#274563;margin-bottom:8px">رقم الهاتف</label><div class="phone-row"><select id="countryCode"><option value="+964">🇮🇶 العراق +964</option><option value="+966">🇸🇦 السعودية +966</option><option value="+971">🇦🇪 الإمارات +971</option><option value="+20">🇪🇬 مصر +20</option><option value="+962">🇯🇴 الأردن +962</option><option value="+90">🇹🇷 تركيا +90</option><option value="+98">🇮🇷 إيران +98</option><option value="+1">🇺🇸/🇨🇦 +1</option><option value="+44">🇬🇧 بريطانيا +44</option><option value="+49">🇩🇪 ألمانيا +49</option></select><input id="phoneNumber" inputmode="tel" placeholder="7701234567"></div><div class="otp-row"><input id="otpCode" inputmode="numeric" placeholder="رمز OTP"><button onclick="demoPhoneLogin()">تأكيد الدخول</button></div><div class="auth-note">حاليًا زر التأكيد يحفظ جلسة محلية تجريبية. لإرسال رمز SMS حقيقي يجب تفعيل Firebase Phone Auth.</div></div></div></div>`;
+    <div class="content-card">
+      <div class="account-section-title"><h3>📚 حالة الحساب</h3><span>${logged?'مسجل الدخول':'غير مسجل'}</span></div>
+      ${logged?`<p>مرحبًا <strong>${escapeHtml(account.name||'طالب الكيمياء')}</strong>، يمكنك متابعة دراستك والعودة إلى الصف الذي اخترته.</p>`:`<p>أنشئ حسابًا من نموذج التسجيل أعلاه، ثم استخدم بياناتك نفسها لتسجيل الدخول لاحقًا من هذا المتصفح.</p>`}
+    </div>
+  </div>`;
 }
 
 /* =========================================================
@@ -7784,11 +7894,11 @@ const FM_CHAPTER_QUESTIONS={"1":[["ما الحالات الثلاث للمادة
 let FM_CURRENT_CH=1, FM_CURRENT_LESSON="1-1", FM_QUIZ_INDEX=0, FM_QUIZ_SCORE=0;
 
 
-function showFirstMiddleHome(){setCurrentGrade('first_middle');setActive(1);document.getElementById('app').innerHTML=`<div class="grade-dashboard first-middle-dashboard"><div class="page-header dashboard-header"><button class="back-button" onclick="showHome()">←</button><div class="dashboard-title-wrap"><span class="dashboard-kicker">المسار الدراسي</span><h2>🧪 الكيمياء — الصف الأول متوسط</h2></div><span></span></div><div class="grade-switch"><button class="active" onclick="showFirstMiddleHome()">🧪 الأول متوسط</button><button onclick="showThirdMiddle()">📘 الثالث متوسط</button><button onclick="showSixthScientific()">🎓 السادس علمي</button></div><section class="dashboard-hero"><div><span class="dashboard-badge">المصدر الرئيسي: ${FIRST_MIDDLE_SOURCE}</span><h1>منهج الأول متوسط بطريقة منظمة 👋</h1><p>اختر الفصل ثم الدرس ثم التبويب التعليمي الذي تحتاجه.</p></div><div class="dashboard-hero-icon">⚗️</div></section><div class="first-middle-chapters">${Object.keys(FM_CHAPTERS).map(function(ch){var c=FM_CHAPTERS[ch];return `<button class="first-middle-chapter" onclick="showFMChapter(${ch})"><div class="chapter-num">${ch}</div><div class="chapter-info"><h3>الفصل ${ch}: ${c.title}</h3><p>${c.desc}</p></div><div class="arrow">←</div></button>`}).join('')}</div><div class="fm-source">📌 <strong>المصدر الرئيسي:</strong> ${FIRST_MIDDLE_SOURCE}. تم تنظيم المادة التعليمية وإعادة عرضها تفاعليًا مع الحفاظ على ترتيب موضوعات الملزمة ومستوى الصف.</div></div>`;}
+function showFirstMiddleHome(){setCurrentGrade('first_middle');setActive(1);document.getElementById('app').innerHTML=`<div class="grade-dashboard first-middle-dashboard"><div class="page-header dashboard-header"><button class="back-button" onclick="showHome()">←</button><div class="dashboard-title-wrap"><span class="dashboard-kicker">المسار الدراسي</span><h2>🧪 الكيمياء — الصف الأول متوسط</h2></div><span></span></div><div class="dashboard-note" style="margin-bottom:18px">📌 أنت الآن داخل مسار <strong>الأول متوسط</strong>. للانتقال إلى صف آخر استخدم زر <strong>الرئيسية</strong> ثم اختر الصف المطلوب.</div><section class="dashboard-hero"><div><span class="dashboard-badge">المصدر الرئيسي: ${FIRST_MIDDLE_SOURCE}</span><h1>منهج الأول متوسط بطريقة منظمة 👋</h1><p>اختر الفصل ثم الدرس ثم التبويب التعليمي الذي تحتاجه.</p></div><div class="dashboard-hero-icon">⚗️</div></section><div class="first-middle-chapters">${Object.keys(FM_CHAPTERS).map(function(ch){var c=FM_CHAPTERS[ch];return `<button class="first-middle-chapter" onclick="showFMChapter(${ch})"><div class="chapter-num">${ch}</div><div class="chapter-info"><h3>الفصل ${ch}: ${c.title}</h3><p>${c.desc}</p></div><div class="arrow">←</div></button>`}).join('')}</div><div class="fm-source">📌 <strong>المصدر الرئيسي:</strong> ${FIRST_MIDDLE_SOURCE}. تم تنظيم المادة التعليمية وإعادة عرضها تفاعليًا مع الحفاظ على ترتيب موضوعات الملزمة ومستوى الصف.</div></div>`;}
 function showFMChapter(ch){FM_CURRENT_CH=Number(ch);setCurrentGrade('first_middle');setActive(1);var c=FM_CHAPTERS[ch];if(!c)return;FM_QUIZ_INDEX=0;FM_QUIZ_SCORE=0;document.getElementById('app').innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showFirstMiddleHome()">←</button><h2>${c.icon} الفصل ${ch}: ${c.title}</h2><span></span></div><div class="lessons-page"><h1 class="lessons-heading">دروس الفصل</h1><p class="lessons-subheading">اختر الدرس. داخل كل درس توجد التعاريف والأمثلة والأسئلة والمراجعة والاختبار.</p><div class="fm-lessons-grid">${c.lessons.map(function(n){var d=FM_LESSONS[ch+'-'+n];return `<button class="fm-lesson-card" onclick="showFMLesson(${ch},${n})"><div class="fm-lesson-icon">${d.icon}</div><div class="fm-lesson-info"><h3>الدرس ${n}: ${d.title}</h3><p>${d.source} — محتوى تعليمي، أمثلة، أسئلة، مراجعة واختبار.</p></div><div class="fm-lesson-arrow">←</div></button>`}).join('')}</div><div class="fm-source">📚 أسئلة الفصل ومراجعة الأخطاء متاحة داخل كل درس، ويمكن الرجوع للفصل من السهم أعلى الصفحة.</div></div></div>`;}
 function fmTabButton(id,label,active){return `<button class="fm-lesson-tab ${active?'active':''}" type="button" onclick="switchFMTab('${id}')">${label}</button>`;}
 function fmPanel(id,html,active){return `<section id="fm-tab-${id}" class="fm-tab-panel ${active?'active':''}">${html}</section>`;}
-function showFMLesson(ch,n){FM_CURRENT_CH=Number(ch);FM_CURRENT_LESSON=ch+'-'+n;FM_QUIZ_INDEX=0;FM_QUIZ_SCORE=0;setCurrentGrade('first_middle');setActive(1);var d=FM_LESSONS[FM_CURRENT_LESSON];if(!d)return;var tabs=[['defs','📖 التعاريف'],['examples','🧩 أمثلة'],['qa','📝 أسئلة وحلول'],['review','🔄 مراجعة'],['chapter','📚 أسئلة الفصل'],['quiz','❓ اختبرني'],['wrong','🔄 مراجعة أخطائي']];if(d.compare&&d.compare.length)tabs.splice(3,0,['compare','⚖️ مقارنة']);var tabBtns=tabs.map(function(t,i){return fmTabButton(t[0],t[1],i===0)}).join('');var panels={defs:`<div class="fm-panel-card"><h3>التعاريف والمفردات</h3>${d.defs.map(function(x){return `<div class="fm-definition"><strong>${x[0]}</strong><br>${x[1]}</div>`}).join('')}</div>`,examples:`<div class="fm-panel-card"><h3>أمثلة وتطبيقات</h3>${d.examples.map(function(x,i){return `<div class="fm-example"><strong>مثال ${i+1}</strong><br>${x}</div>`}).join('')}</div>`,qa:`<div class="fm-panel-card"><h3>أسئلة وحلولها</h3>${d.questions.map(function(x,i){return `<div class="fm-example"><strong>س${i+1}: ${x[0]}</strong><div class="fm-answer"><strong>الحل:</strong> ${x[1]}</div></div>`}).join('')}</div>`,review:`<div class="fm-panel-card"><h3>مراجعة الدرس</h3><ul class="fm-review-list">${d.review.map(function(x){return `<li>${x}</li>`}).join('')}</ul></div>`,chapter:`<div class="fm-panel-card"><h3>أسئلة الفصل ${ch} وحلولها</h3>${FM_CHAPTER_QUESTIONS[ch].map(function(x,i){return `<div class="fm-example"><strong>س${i+1}: ${x[0]}</strong><div class="fm-answer"><strong>الحل:</strong> ${x[1]}</div></div>`}).join('')}</div>`,quiz:`<div class="fm-panel-card"><h3>اختبرني — الدرس ${n}</h3><div id="fmQuizArea"></div></div>`,wrong:`<div class="fm-panel-card"><h3>مراجعة أخطائي</h3><div id="fmWrongArea"></div></div>`};if(d.compare&&d.compare.length){panels.compare=`<div class="fm-panel-card fm-compare"><h3>مقارنة</h3><table>${d.compare.map(function(row,i){return '<tr>'+row.map(function(cell){return (i===0?'<th>':'<td>')+cell+(i===0?'</th>':'</td>')}).join('')+'</tr>'}).join('')}</table></div>`;}document.getElementById('app').innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showFMChapter(${ch})">←</button><h2>📖 الدرس ${n} — ${d.title}</h2><span></span></div><div class="fm-source">${FIRST_MIDDLE_SOURCE} — ${d.source}</div><div class="fm-lesson-tabs">${tabBtns}</div>${tabs.map(function(t,i){return fmPanel(t[0],panels[t[0]],i===0)}).join('')}</div>`;}
+function showFMLesson(ch,n){FM_CURRENT_CH=Number(ch);FM_CURRENT_LESSON=ch+'-'+n;FM_QUIZ_INDEX=0;FM_QUIZ_SCORE=0;markFMLessonComplete(FM_CURRENT_LESSON);setCurrentGrade('first_middle');setActive(1);var d=FM_LESSONS[FM_CURRENT_LESSON];if(!d)return;var tabs=[['defs','📖 التعاريف'],['examples','🧩 أمثلة'],['qa','📝 أسئلة وحلول'],['review','🔄 مراجعة'],['chapter','📚 أسئلة الفصل'],['quiz','❓ اختبرني'],['wrong','🔄 مراجعة أخطائي']];if(d.compare&&d.compare.length)tabs.splice(3,0,['compare','⚖️ مقارنة']);var tabBtns=tabs.map(function(t,i){return fmTabButton(t[0],t[1],i===0)}).join('');var panels={defs:`<div class="fm-panel-card"><h3>التعاريف والمفردات</h3>${d.defs.map(function(x){return `<div class="fm-definition"><strong>${x[0]}</strong><br>${x[1]}</div>`}).join('')}</div>`,examples:`<div class="fm-panel-card"><h3>أمثلة وتطبيقات</h3>${d.examples.map(function(x,i){return `<div class="fm-example"><strong>مثال ${i+1}</strong><br>${x}</div>`}).join('')}</div>`,qa:`<div class="fm-panel-card"><h3>أسئلة وحلولها</h3>${d.questions.map(function(x,i){return `<div class="fm-example"><strong>س${i+1}: ${x[0]}</strong><div class="fm-answer"><strong>الحل:</strong> ${x[1]}</div></div>`}).join('')}</div>`,review:`<div class="fm-panel-card"><h3>مراجعة الدرس</h3><ul class="fm-review-list">${d.review.map(function(x){return `<li>${x}</li>`}).join('')}</ul></div>`,chapter:`<div class="fm-panel-card"><h3>أسئلة الفصل ${ch} وحلولها</h3>${FM_CHAPTER_QUESTIONS[ch].map(function(x,i){return `<div class="fm-example"><strong>س${i+1}: ${x[0]}</strong><div class="fm-answer"><strong>الحل:</strong> ${x[1]}</div></div>`}).join('')}</div>`,quiz:`<div class="fm-panel-card"><h3>اختبرني — الدرس ${n}</h3><div id="fmQuizArea"></div></div>`,wrong:`<div class="fm-panel-card"><h3>مراجعة أخطائي</h3><div id="fmWrongArea"></div></div>`};if(d.compare&&d.compare.length){panels.compare=`<div class="fm-panel-card fm-compare"><h3>مقارنة</h3><table>${d.compare.map(function(row,i){return '<tr>'+row.map(function(cell){return (i===0?'<th>':'<td>')+cell+(i===0?'</th>':'</td>')}).join('')+'</tr>'}).join('')}</table></div>`;}document.getElementById('app').innerHTML=`<div class="page"><div class="page-header"><button class="back-button" onclick="showFMChapter(${ch})">←</button><h2>📖 الدرس ${n} — ${d.title}</h2><span></span></div><div class="fm-source">${FIRST_MIDDLE_SOURCE} — ${d.source}</div><div class="fm-lesson-tabs">${tabBtns}</div>${tabs.map(function(t,i){return fmPanel(t[0],panels[t[0]],i===0)}).join('')}</div>`;}
 function switchFMTab(id){document.querySelectorAll('.fm-lesson-tab').forEach(function(b){b.classList.remove('active')});var btn=Array.from(document.querySelectorAll('.fm-lesson-tab')).find(function(b){return (b.getAttribute('onclick')||'').indexOf("'"+id+"'")>-1});if(btn)btn.classList.add('active');document.querySelectorAll('.fm-tab-panel').forEach(function(p){p.classList.remove('active')});var panel=document.getElementById('fm-tab-'+id);if(panel)panel.classList.add('active');if(id==='quiz')renderFMQuiz();if(id==='wrong')renderFMWrong();}
 function renderFMQuiz(){var d=FM_LESSONS[FM_CURRENT_LESSON],area=document.getElementById('fmQuizArea');if(!area)return;var qs=d.quiz||[];if(FM_QUIZ_INDEX>=qs.length){area.innerHTML=`<div class="fm-score">النتيجة: ${FM_QUIZ_SCORE} من ${qs.length}</div><button class="fm-next" type="button" onclick="FM_QUIZ_INDEX=0;FM_QUIZ_SCORE=0;renderFMQuiz()">إعادة الاختبار</button>`;return;}var q=qs[FM_QUIZ_INDEX];area.innerHTML=`<div class="progress-track"><div class="progress-bar" style="width:${((FM_QUIZ_INDEX)/Math.max(qs.length-1,1))*100}%"></div></div><p class="small-muted">السؤال ${FM_QUIZ_INDEX+1} من ${qs.length}</p><div class="fm-quiz-question">${q[0]}</div>${q[1].map(function(opt,i){return `<button class="fm-quiz-option" type="button" onclick="answerFMQuiz(${i},${q[2]})"><span class="letter">${String.fromCharCode(65+i)}</span><span>${opt}</span></button>`}).join('')}<div id="fmQuizResult" class="fm-quiz-result"></div>`;}
 function answerFMQuiz(chosen,correct){var result=document.getElementById('fmQuizResult');var q=FM_LESSONS[FM_CURRENT_LESSON].quiz[FM_QUIZ_INDEX];if(!result||!q)return;var ok=chosen===correct;if(ok)FM_QUIZ_SCORE++;else{var wrong=[];try{wrong=JSON.parse(localStorage.getItem('first_middle_wrong')||'[]')}catch(e){wrong=[]}var item={lesson:FM_CURRENT_LESSON,question:q[0],chosen:q[1][chosen],correct:q[1][correct]};if(!wrong.some(function(x){return x.lesson===item.lesson&&x.question===item.question&&x.chosen===item.chosen})){wrong.push(item);localStorage.setItem('first_middle_wrong',JSON.stringify(wrong));}}document.querySelectorAll('.fm-quiz-option').forEach(function(b){b.disabled=true;b.classList.add('answered')});result.innerHTML=ok?`<div class="fm-answer">✅ إجابة صحيحة</div>`:`<div class="fm-example">❌ إجابة غير صحيحة<br><strong>الإجابة الصحيحة:</strong> ${q[1][correct]}</div>`;result.innerHTML+=`<button class="fm-next" type="button" onclick="FM_QUIZ_INDEX++;renderFMQuiz()">${FM_QUIZ_INDEX===FM_LESSONS[FM_CURRENT_LESSON].quiz.length-1?'إنهاء الاختبار':'السؤال التالي'} ←</button>`;}

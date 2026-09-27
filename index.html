@@ -1800,28 +1800,6 @@ li {
     </button>
 
 
-    <button
-        class="nav-item"
-        id="nav-memory"
-        onclick="showMemoryChooser()">
-
-        <div class="nav-icon">🧠</div>
-
-        احفظها
-
-    </button>
-
-
-    <button
-        class="nav-item"
-        id="nav-quiz"
-        onclick="showQuizChooser()">
-
-        <div class="nav-icon">❓</div>
-
-        اختبرني
-
-    </button>
 
 
     <button
@@ -1980,19 +1958,22 @@ function saveStudentName() {
 
 function setActive(index) {
 
-    var items =
-        document.querySelectorAll(".nav-item");
-
+    var items = document.querySelectorAll(".nav-item");
     items.forEach(function(item) {
-
         item.classList.remove("active");
-
     });
 
-    if (items[index]) {
+    /* بعد حذف تبويبي احفظها واختبرني من الشريط السفلي:
+       0 = الرئيسية، 1 = دروسي، 2/3 = صفحات داخلية بلا تبويب سفلي، 4 = حسابي */
+    var targetId = ({
+        0: "nav-home",
+        1: "nav-lessons",
+        4: "nav-account"
+    })[index];
 
-        items[index].classList.add("active");
-
+    if (targetId) {
+        var target = document.getElementById(targetId);
+        if (target) target.classList.add("active");
     }
 }
 
